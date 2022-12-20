@@ -1,0 +1,76 @@
+@import "./assets/scss/mixins.scss";
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden !important;
+}
+
+@font-face {
+  font-family: "MyriadProRegular";
+  src: url("assets/fonts/MyriadProRegular.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "NexaBold";
+  src: url("assets/fonts/NexaBold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "MontserratItalic";
+  src: url("assets/fonts/Montserrat-Italic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "MontserratRegular";
+  src: url("assets/fonts/Montserrat-Regular.ttf") format("truetype");
+}
+
+.title-views-global {
+  width: 100%;
+  text-align: center;
+
+  &__web {
+    margin-top: 10px;
+    height: 70px;
+  }
+
+  &__mobile {
+    margin-top: 5px;
+    height: 40px;
+  }
+}
+
+.box-wrapper-views-global {
+  flex-direction: column;
+  flex: 1;
+  flex-basis: 70%;
+  border-radius: 26px;
+  box-shadow: 0px 3px 6px #00000029;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0px 60px;
+
+  @include mobile() {
+    padding: 0px 0px;
+  }
+}
+
+.back-content {
+  width: 100%;
+  display: flex;
+  padding: 0 40px;
+  margin-top: -10px;
+}
+.back {
+  background: radial-gradient(#253e87, #131f44);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  margin-bottom: 10px;
+  padding: 4px;
+}
+.back-text {
+  color: white;
+  font-size: 14px;
+}
