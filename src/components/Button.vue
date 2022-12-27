@@ -1,6 +1,6 @@
 <template>
   <div 
-    class="button"
+    :class="['button', color === '1' ? 'button-1' : 'button-2']"
     @click="click()"    
     >
     <span class="button__text" >{{text}}</span>
@@ -54,12 +54,26 @@ export default {
   border-radius: 25px;
   cursor: pointer;
   padding-top: 2px;
-  border: 2px white solid;
+  border: 3px white solid;
+  @include lg() {
+    width: 300px;
+    height: 60px;
+  }
+  @include xlg() {
+    width: 400px;
+    height: 88px;
+  }
   &__text {
     font-family: NexaBold;
     font-size: 16px;
     line-height: 14px;
     color: white;
+    @include lg(){
+      font-size: 25px;
+    }
+    @include xlg() {
+      font-size: 35px;
+    }
   }
 }
 .button:hover {

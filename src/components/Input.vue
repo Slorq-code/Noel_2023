@@ -179,7 +179,14 @@ export default {
     @include xs() {
       width: 100% !important;
     }
-
+    @include lg() {
+      width: 330px;
+      height: 56px;
+    }
+    @include mnHeight(1000px) {
+      width: 330px;
+      height: 56px;
+    }
     @include xs() {
       margin-bottom: 5px;
     }
@@ -192,15 +199,20 @@ export default {
       border-style: none;
       background-color: white;
       width: 100%;
-      height: 34px;
+      height: 48px;
       border-radius: 18px;
       font-size: 14px;
-      padding: 2px 10px;
+      padding: 2px 10px 2px 10px;
       text-align: center;
       font-family: MontserratItalic !important;
       @include mobile() {
         font-size: 14px;
         height: 38px;
+      }
+      @include lg() {
+        margin: 10px 0 0 0;
+        height: 50px;
+        border-radius: 32px;
       }
 
       @include xs() {

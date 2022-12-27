@@ -1,20 +1,21 @@
 <template>
   <div class="enterCode">
+    <div v-if="!mobile" class="enterCode__counter-content">
+          <img
+            class="enterCode__counter-img"
+            src="../assets/Assets_Web_New/Contador_premios.png"
+          />
+          <span class="enterCode__counter-text"
+            >3 0 0 1</span
+          >
+          <!-- {{ total | amount }}  dentro del span-->
+        </div>
     <div v-if="!mobile" class="enterCode-web">
       <div class="enterCode-web__section-1">
         <img
           class="enterCode-web__logo"
           src="../assets/Assets_Web_New/Titulo_Bienvenido.png"
         />
-        <div class="enterCode-web__counter-content">
-          <img
-            class="enterCode-web__counter"
-            src="../assets/Assets_Web_New/Contador_premios.png"
-          />
-          <span class="enterCode-web__counter-text"
-            >11{{ total | amount }}</span
-          >
-        </div>
       </div>
       <div class="enterCode-web__section-2">
         <img
@@ -25,7 +26,7 @@
           <span>
             Ingresa aquí los códigos que encontraste en los stickers dentro de los empaques de Saltín Noel y Ducales.
           </span>
-        </div>
+        </div>  
         <div class="enterCode-web__flex">
           <div class="enterCode-web__box">
             <div class="enterCode-web__box-item">
@@ -89,7 +90,7 @@
     <div v-if="mobile" class="enterCode-mobile">
       <img
         class="enterCode-mobile__title"
-        src="@/assets/web/Titulo_bienvenido.png"
+        src="../assets/Assets_Mobile_New/Titulo_bienvenido.png"
       />
       <span class="enterCode-web__mini-text">
         Ingresa aquí los códigos que encontraste en los stickers dentro de los
@@ -97,9 +98,13 @@
       </span>
       <img
         class="enterCode-mobile__mini"
-        src="@/assets/mobile/img_ejemplo_ingresar_cod_respons.png"
+        src="../assets/Assets_Mobile_New/stickers_ingreso_codi.png"
       />
-      <div style="width: 270px;margin-right: 20px;">
+      <div style="
+        margin-bottom: 4%; 
+        text-align: center; 
+        width: 270px;
+        margin-right:20px;">
         <Input
           :field="'code'"
           :model="code"
@@ -108,9 +113,14 @@
           @handle-input="setValue($event)"
           placeholder="Ingresar tu código aquí"
         />
+        <span class="enterCode-web__mini-text">
+          Recuerda guardar los stickers que registraste.
+        </span>
       </div>
+      <!-- 
       <div class="enterCode-web__rec">
-        <vue-recaptcha
+          EN ESTE ESPACIO VA EL RECAPTCHA
+          <vue-recaptcha
           sitekey=" 6Lfh6Y4aAAAAAI-8nSMl7mVqcaetUMQC9ZCDoqvK"
           :loadRecaptchaScript="true"
           @verify="verifyRecaptcha"
@@ -118,17 +128,11 @@
           class="mb-1"
           language="es"
           ref="recaptcha"
-        ></vue-recaptcha>
-      </div>
+          ></vue-recaptcha> 
+        </div>
+      -->
       <div class="enterCode-mobile__button-wrapper">
         <Button text="Registrar Código" type="primary" @handle-click="send()" />
-      </div>
-      <div class="enterCode-mobile__counter-content">
-        <img
-          class="enterCode-mobile__counter"
-          src="@/assets/mobile/Premios_disponibles_respons.png"
-        />
-        <span class="enterCode-mobile__counter-text">{{ total | amount }}</span>
       </div>
     </div>
     <modal
@@ -157,7 +161,7 @@
 <script>
 import Input from "../components/Input";
 import Button from "../components/Button";
-import VueRecaptcha from "vue-recaptcha";
+// import VueRecaptcha from "vue-recaptcha";
 import { SaveCodes, GetStatus } from "../api";
 import RegisterCodeConfirm from "../components/RegisterCodeConfirm";
 import Modal from "../components/Modal";
@@ -168,7 +172,7 @@ export default {
     return {
       loading: false,
       errors: {},
-      recaptchaCode: "",
+//      recaptchaCode: "",
       count: 0,
       ducales: "",
       saltin: "",
@@ -186,7 +190,7 @@ export default {
   components: {
     Input,
     Button,
-    VueRecaptcha,
+//  VueRecaptcha,
     RegisterCodeConfirm,
     Modal,
   },
@@ -309,17 +313,54 @@ export default {
 <style lang="scss">
 @import "@/assets/scss/mixins.scss";
 .enterCode {
+  position: relative;
   display: flex;
   justify-content: center;
-  @include lg() {
+  width: 100%;
+  &__counter-content {
+    position: absolute;
+    right: 10%;
+    top: 5%;
+    width: 180px;
+    @include xlg() {
+      width: 240px;
+    }
+  }
+  &__counter-img {
     width: 100%;
+  }
+  &__counter-text {
+    position: absolute;
+    color: white;
+    right: 38%;
+    top: 44%;
+    @include xlg() {
+      font-size: 22px;
+    }
   }
 }
 .enterCode-web {
   display: flex;
   flex-direction: column;
-  position: relative;
   width: 80%;
+  text-align: center;
+  &__mini-text {
+    width: 80%;
+    margin: 5% 0;
+    font-family: NexaBold;
+    color: white;
+    font-size: 20px;
+    line-height: 20px;
+    @include mobile() {
+      text-align: center;
+      font-size: 18px;
+    }
+    @include xs() {
+      font-size: 14px;
+      line-height: 12px;
+      margin: 10px 0px 15px 0px;
+    }
+  }
   &__flex {
     display: flex;
   }
@@ -334,43 +375,45 @@ export default {
       height: 60px;
     }
   }
-  &__counter-content {
-    position: absolute;
-    margin-top: -20px;
-    right: 0;
-    top: 10%;
-  }
-  &__counter-text {
-    position: absolute;
-    bottom: 69px;
-    right: 0;
-    left: 0;
-    color: white;
-  }
-  text-align: center;
-  &__counter {
-    height: 160px;
-  }
   &__section-2 {
     display: flex;
     flex-direction: column;
     align-items: center;
     &__middleTitle {
       color: white;
-      width: 50%;
+      width: 100%;
+      @include xlg() {
+        width: 60%;
+      }
+    }
+    &__middleTitle span{
+      font-size: 12px;
+      @include lg() {
+        font-size: 15px;
+      }
+      @include mnHeight(1000px) {
+        font-size: 18px;
+      }
     }
   }
   &__title {
-    height: 340px;
     margin-top: -40px;
-    @include mxHeight(600px) {
-      height: 165px;
-      margin-top: -20px;
+    @include mxHeight(550px) {
+      margin-top: -25px;
+    }
+    @include lg() {
+      width: 80vh;
+    }
+    @include xlg() {
+      width: 850px;
     }
   }
   &__box {
     display: flex;
     align-items: center;
+    @include xlg() {
+      margin-top: 60px;
+    }
   }
   &__mini {
     height: 54px;
@@ -385,12 +428,38 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
+    @include lg() {
+      @include mnHeight(1000px) {
+        margin: 0 30px;
+      }
+    }
+    @include xlg() {
+      margin: 0 80px;
+    }
   }
   &__saltin-image {
     width: 40%;
+    @include mnHeight(1000px) {
+      width: 60%;
+    }
+    @include lg() {
+      width: 45%;
+    }
+    @include xlg() {
+      width: 75%;
+    }
   }
   &__ducales-image {
-    height: 100px;
+    width: 40%;
+    @include mnHeight(1000px) {
+      width: 60%;
+    }
+    @include lg() {
+      width: 45%;
+    }
+    @include xlg() {
+      width: 75%;
+    }
   }
   &__box-text {
     margin-top: -24px;
@@ -404,35 +473,27 @@ export default {
     justify-content: center;
     flex-direction: column;
     align-items: center;
-  }
-  &__mini-text {
-    font-family: NexaBold;
-    color: #253e87;
-    font-size: 16px;
-    line-height: 20px;
-    @include mobile() {
-      text-align: center;
-      font-size: 14px;
-    }
-
-    @include xs() {
-      font-size: 12px;
-      line-height: 12px;
-      margin: 5px 0px;
+    @include xlg() {
+      margin: 3% 0 0 5%;
     }
   }
   &__more {
     height: 40px;
     margin: 10px;
+    @include lg() {
+      height: 55px;
+    }
+    @include xlg() {
+      height: 65px;
+    }
   }
 }
-
 .enterCode-mobile {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 10px 20px;
-
+  width: 100%;
   @include xs() {
     padding: 10px 0px;
   }
@@ -444,11 +505,11 @@ export default {
     }
   }
   &__mini {
-    height: 100px;
+    width: 90%;
     margin-bottom: 10px;
-
     @include xs() {
-      height: 50px;
+      height: 120px;
+      width: initial;
       margin-bottom: 10px;
     }
   }
@@ -481,5 +542,5 @@ export default {
       align-items: center;
     }
   }
-}
+} 
 </style>

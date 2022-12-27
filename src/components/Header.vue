@@ -16,7 +16,7 @@
       class="header__logo__second"
       @click="logoClick()"
       src="../assets/Assets_Web_New/Logo_header_Juntos_Premiarte_2022.png"
-      v-if="token"
+      v-if="token && !mobile"
     />
     <div class="header__web-routes" v-if="!this.mobile">
       <div v-for="(route, k) in webRoutes" :key="k">
@@ -46,17 +46,27 @@
       </div>
     </div>
     <img
-      class="header__logo"
+      class="header__logo__logoCurva"
       @click="logoClick()"
-      src="../assets/Assets_Web_New/logos_header.png"
+      src="../assets/Assets_Mobile_New/logos_header.png"
+      alt="logos"
       v-if="token"
     />
     <div v-if="dialog" class="modal-mobile-navigator">
       <div class="modal-mobile-navigator__content">
-        <div class="modal-mobile-navigator__modal-content">
+        <div 
+          :class="['modal-mobile-navigator__modal-content', active===true ? 'modal-mobile-navigator__modal-content modal-mobile-navigator__modal-content__active' : 'modal-mobile-navigator__modal-content']"
+        >
+          <div class="modal-mobile-navigator__centerBox">
+            <img
+              class="modal-mobile-navigator__imageHeader"
+              src="../assets/Assets_Web_New/logos_header.png"
+              alt="informacion"
+            />
+          </div>
           <img
             class="modal-mobile-navigator__image"
-            src="@/assets/web/Logo_promo_que_nos_une_modales.png"
+            src="../assets/Assets_Web_New/Logo_modales_Juntos_Premiarte_2022.png"
           />
           <div class="modal-mobile-navigator__close-container">
             <img
@@ -105,6 +115,7 @@ export default {
     routes: [],
     selectedRoute: "",
     dialog: false,
+    active: false,
   }),
   watch: {
     "$route.path": {
@@ -173,8 +184,9 @@ export default {
       {
         name: "Cerrar Sesión",
         clickAction: () => {
-          this.dialog = false
-          this.logout();
+          //this.dialog = false
+          // this.logout();
+          this.goTo("/registrarse")
         },
         isVisible: () => this.token,
       },
@@ -234,6 +246,7 @@ export default {
     onClickDrawer() {
       this.dialog = true;
       console.log("Click");
+      this.active = true;
     },
   },
 };
@@ -253,8 +266,9 @@ export default {
   );
   height: 70px;
   border-radius: 30px;
-  padding: 0 20px;
+  padding: 0 14% 0 20px;
   margin: 10px 10px 0 10px;
+  position: relative;
   @include mxHeight(600px) {
     height: 55px;
   }
@@ -267,13 +281,26 @@ export default {
   &__logo {
     height: 90%;
     cursor: pointer;
+    @include mobile() {
+      height: auto;
+      width: 70%;
+    }
+    &__logoCurva {
+      position: absolute;
+      right: -3.5px;
+      height: 100% !important;
+    }
     &__second {
       width: 20%;
       padding: 5% 0 0 0;
+      @include lg() {
+        width: 15%
+      }
     }
   }
   &__menu {
     height: 30px;
+    z-index: 99;
   }
   &__web-routes {
     flex: 1;
@@ -312,6 +339,9 @@ export default {
     font-family: NexaBold;
     font-size: 14px;
     text-align: center;
+    @include xlg() {
+      font-size: 22px;
+    }
   }
   &--web-route-text-selected {
     transform: scale(1.09);
@@ -330,53 +360,80 @@ export default {
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 10 !important;
+  z-index: 999 !important;
   background-color: rgba(0, 0, 0, 0.7);
   &__content {
     max-height: 70% !important;
     width: 600px;
-    background: transparent
-      radial-gradient(closest-side at 50% 50%, #253e87 0%, #131f44 100%) 0% 0%
-      no-repeat padding-box;
+    background: radial-gradient(
+    circle,
+    rgba(222, 62, 40, 1) 0%,
+    rgba(129, 36, 26, 1) 100%
+  );
+  position: relative;
     box-shadow: 0px 0px 15px #0000004d;
     border-radius: 15px;
     @include mobile() {
       width: 90% !important;
     }
-
     @include xs() {
       max-height: 100% !important;
     }
   }
 
   &__modal-content {
+    position: absolute;
+    top: -50vh !important;
+    left: -50vh;
+    height: 100vh;
+    width: 40vh;
     display: flex;
     text-align: center;
     flex-direction: column;
-    align-items: center;
-    position: relative;
+    align-items: flex-start;
+    background: radial-gradient(
+      circle,
+      rgba(222, 62, 40, 1) 0%,
+      rgba(129, 36, 26, 1) 100%
+    );
     min-height: 300px;
     padding: 10px 20px;
+    transition: transform 0.7s ease-out;
+    transform: translateX(46vh);
     @include mobile() {
-      padding: 10px;
+      padding: 0px 0px 10px 10px;
+    }
+    &__active {
+      //informacion
     }
   }
+
   &__image {
-    height: 220px;
+    width: 80%;
     margin-top: -100px;
     margin-bottom: 10px;
     @include mobile() {
-      height: 160px;
-      margin-top: -60px;
+      margin: 10px 0 0 11%;
     }
+
+  }
+  &__centerBox {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+  &__imageHeader{
+    height: 100%;
+    width: 95%;
+    margin: 0 0px 20px 0;
   }
   &__close-container {
+    position: absolute;
     display: flex;
     justify-content: flex-end;
     width: 100%;
     padding: 10px 0px;
-    margin-top: -120px;
-    margin-bottom: 20px;
+    left: 15%;
   }
   &__close-image {
     height: 30px;
@@ -387,16 +444,19 @@ export default {
   }
 
   &__col-juegos {
-    margin-top: 0px;
-    height: 40px;
+    margin-top: 20px;
+    height: 60px;
   }
 }
-
 .container-routes-mobile {
-  margin-top: 20px;
+  margin: 100px 0 0 0px;
   max-height: 70% !important;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  align-items: flex-start;
+  @include mobile() {
+    margin: 21px 0 5% 10%;
+  }
 }
 </style>

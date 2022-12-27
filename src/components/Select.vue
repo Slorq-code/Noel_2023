@@ -1,40 +1,45 @@
 <template>
   <div class="select">
     <div class="select__main-box">
-        <span class="select__label">
-          {{ label }}
-          <span v-if="required" class="select__required">*</span>
+      <span class="select__label">
+        {{ label }}
+        <span v-if="required" class="select__required">*</span>
+      </span>
+      <div
+        class="select__field"
+        @click="focus()"
+        :class="{
+          select__focus: open,
+        }"
+      >
+        <span v-if="componentModel" class="select__text">{{
+          componentModel
+        }}</span>
+        <span class="select__placeholder" v-else>{{ placeholder }}</span>
+        <span class="select__icon-content" @click="focus()">
+          <i class="fas fa-caret-down select__icon"></i>
         </span>
-        <div
-          class="select__field"
-          @click="focus()"
-          :class="{
-            select__focus: open
-          }"
-         >
-          <span v-if="componentModel" class="select__text">{{ componentModel }}</span>
-          <span class="select__placeholder" v-else>{{ placeholder }}</span>
-          <span class="select__icon-content" @click="focus()">
-            <i class="fas fa-caret-down select__icon"></i>
-          </span>
-          <div v-if="open" class="select__pre-box">
-            <div class="select__box" :class="{ 'select__scroll': items.length > 5 }">
-              <span
-                @click.stop="select(item)"
-                class="select__option"
-                v-for="(item, i) in items"
-                :key="i"
-              >
+        <div v-if="open" class="select__pre-box">
+          <div
+            class="select__box"
+            :class="{ select__scroll: items.length > 5 }"
+          >
+            <span
+              @click.stop="select(item)"
+              class="select__option"
+              v-for="(item, i) in items"
+              :key="i"
+            >
               {{ item.text }}
-              </span>
-            </div>
+            </span>
           </div>
         </div>
+      </div>
     </div>
     <div class="select__messages">
-       <div class="select__messages-box">
-          <span class="select__error">{{ error || "" }}</span>
-       </div>
+      <div class="select__messages-box">
+        <span class="select__error">{{ error || "" }}</span>
+      </div>
     </div>
   </div>
 </template>
@@ -45,7 +50,7 @@ export default {
   data() {
     return {
       componentModel: "",
-      open: false
+      open: false,
     };
   },
   mounted() {
@@ -54,32 +59,32 @@ export default {
   props: {
     field: {
       type: String,
-      required: true
+      required: true,
     },
     label: {
       type: String,
-      default: ""
+      default: "",
     },
     error: {
       type: String,
-      default: ""
+      default: "",
     },
     placeholder: {
       type: String,
-      default: ""
+      default: "",
     },
     required: {
       type: Boolean,
-      required: false
+      required: false,
     },
     items: {
       type: Array,
-      required: true
+      required: true,
     },
     model: {
       type: [String, Number],
-      default: ""
-    }
+      default: "",
+    },
   },
   methods: {
     focus() {
@@ -93,21 +98,21 @@ export default {
       this.componentModel = item.text;
       this.$emit("handle-input", {
         key: this.field,
-        value: item.value
+        value: item.value,
       });
       this.blur();
-    }
+    },
   },
   watch: {
     model: {
       handler(newVal) {
         this.componentModel = newVal;
-      }
+      },
     },
     open: {
-      handler() {}
-    }
-  }
+      handler() {},
+    },
+  },
 };
 </script>
 
@@ -123,6 +128,9 @@ export default {
   }
   @include xs() {
     width: 100% !important;
+  }
+  @include lg() {
+    width: 380px;
   }
   &__main-box {
     display: flex;
@@ -163,9 +171,12 @@ export default {
     @include mobile() {
       text-align: center;
     }
+    @include lg() {
+      font-size: 24px;
+    }
   }
-  &__placeholder{
-    color: #BCBCBC;
+  &__placeholder {
+    color: #bcbcbc;
     font-family: MontserratItalic;
     font-size: 12px;
   }
@@ -174,7 +185,7 @@ export default {
     right: 12px;
   }
   &__icon {
-    color: #D72626;
+    color: #d72626;
     font-size: 16px;
   }
   &__pre-box {
@@ -216,11 +227,14 @@ export default {
     }
   }
   &__error {
-    color: #253E87;
+    color: #e31552;
     font-family: NexaBold;
     font-size: 11px;
     @include mobile() {
       font-size: 12px;
+    }
+    @include lg() {
+      font-size: 18px;
     }
   }
   &__messages {
@@ -234,7 +248,7 @@ export default {
     width: 100%;
   }
   &__required {
-    color: #E31552;
+    color: #e31552;
   }
 }
 </style>

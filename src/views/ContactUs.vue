@@ -3,7 +3,7 @@
     <div class="title-views-global">
       <img
         v-if="!mobile"
-        class="title-views-global__web"
+        class="title-views-global__web contactUs__title"
         src="../assets/Assets_Web_New/Titulo_contactanos.png"
         alt="Titulo premios"
       />
@@ -18,35 +18,37 @@
       <span class="contactUs__text"
         >Para comunicarte con nosotros completa el siguiente formulario.</span
       >
-      <Select
-        field="topic"
-        ref="topic"
-        :model="message.topic"
-        label="Tema por el cuál nos contactas"
-        placeholder="Seleccionar un tema"
-        :items="formattedTopics"
-        @handle-input="setValue($event)"
-        :required="true"
-      />
-      <Textarea
-        field="message"
-        label="Mensaje"
-        @close-all="$refs.topic.open = false"
-        :model="message.message"
-        @handle-input="setValue($event)"
-        placeholder="Ingresar mensaje"
-        :required="true"
-        :error="error"
-        class="mt-0"
-      />
-      <div 
-        class="contactUs__content__container"
-      >
-        <Button 
-          text="Enviar" 
-          type="primary" 
-          @handle-click="send()" 
+      <div class="contactUs__content__options">
+        <Select
+          field="topic"
+          ref="topic"
+          :model="message.topic"
+          label="Tema por el cuál nos contactas"
+          placeholder="Seleccionar un tema"
+          :items="formattedTopics"
+          @handle-input="setValue($event)"
+          :required="true"
         />
+        <Textarea
+          field="message"
+          label="Mensaje"
+          @close-all="$refs.topic.open = false"
+          :model="message.message"
+          @handle-input="setValue($event)"
+          placeholder="Ingresar mensaje"
+          :required="true"
+          :error="error"
+          class="mt-0"
+        />
+        <div 
+          class="contactUs__content__container"
+        >
+          <Button 
+            text="Enviar" 
+            type="primary" 
+            @handle-click="send()" 
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -193,16 +195,38 @@ export default {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  &__title {
+    @include mnHeight(1000px) {
+      height: 8vh !important;
+      margin: 3vh 0 0 0 !important;
+    }
+  }
   &__content {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     padding: 10px 20px 10px 20px;
     @include mobile() {
       width: 92%;
     }
     @include xs() {
       padding: 5px 20px;
+    }
+    @include lg() {
+      width: 1100px;
+    }
+    &__options {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    width: 100%;
+    @include lg() {
+      height: calc(80vh - 300px);
+    }
+    @include mnHeight(1000px) {
+      height: calc(80vh - 300px);
+    }
     }
     &__container {
       display: flex;
@@ -219,7 +243,9 @@ export default {
     line-height: 18px;
     margin-bottom: 20px;
     text-align: center;
-
+    @include lg() {
+      font-size: 30px;
+    }
     @include xs() {
       font-size: 12px;
       line-height: 12px;

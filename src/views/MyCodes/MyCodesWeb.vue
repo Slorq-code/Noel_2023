@@ -106,19 +106,54 @@ export default {
         {
           saltinNoel: {
             titleOne: "prueba1",
-            titletwo: "prueba2"
+            titletwo: "prueba2",
           },
-          // ducales: {
-          //   titleOne: "prueba3",
-          //   titletwo: "prueba4"
-          // },
+          ducales: {
+            titleOne: "prueba3",
+            titletwo: "prueba4",
+          },
+          
           award: "felicidaes",
+          cant:1
         },
         {
+          saltinNoel: {
+            titleOne: "prueba1",
+            titletwo: "prueba2",
+          },
+          ducales: {
+            titleOne: "prueba3",
+            titletwo: "prueba4",
+          },
+          
           award: "felicidaes",
+          cant:2
         },
         {
+          saltinNoel: {
+            titleOne: "prueba1",
+            titletwo: "prueba2",
+          },
+          ducales: {
+            titleOne: "prueba3",
+            titletwo: "prueba4",
+          },
+          
           award: "felicidaes",
+          cant:3
+        },
+        {
+          saltinNoel: {
+            titleOne: "prueba1",
+            titletwo: "prueba2",
+          },
+          ducales: {
+            titleOne: "prueba3",
+            titletwo: "prueba4",
+          },
+          
+          award: "felicidaes",
+          cant:4
         }
       ]
     };
@@ -172,7 +207,10 @@ export default {
     @include mxHeight(600px) {
       height: 57px;
     }
-    
+    @include mnHeight(1000px) {
+        height: 8vh;
+        margin: 3vh 0 0 0;
+      }
   }
   &__content {
     padding-bottom: 10px !important;
@@ -186,18 +224,30 @@ export default {
 
     &-one {
       font-size: 15px;
-      color: #253e87;
+      color: white;
+      @include lg() {
+        font-size: 20px;
+        margin: 18px 0;
+      }
     }
 
     &-two {
       font-size: 10px;
       margin-bottom: 5px;
-      color: #253e87;
+      color: white;
+      @include lg() {
+        font-size: 20px;
+        margin: 18px 0;
+      }
     }
 
     &-three {
       font-size: 14px;
-      color: #253e87;
+      color: white;
+      @include lg() {
+        font-size: 20px;
+        margin: 18px 0;
+      }
     }
   }
 
@@ -213,12 +263,33 @@ export default {
       justify-content: space-between;
       padding: 1px 10px;
       border-radius: 50px;
+      height: 40px;
+      @include lg() {
+        width: 1100px;
+        height: 50px;
+      }
+      @include xlg() {
+        width: 1500px;
+        height: 70px;
+      }
     }
-
+    &-cant {
+      @include lg() {
+        margin-left: 10px !important;
+      }
+    }
     &-header-titles {
       margin: 0 !important;
       color: white;
-      margin: 0px 60px !important;
+      margin: 0px 60px 0px 60px !important;
+      font-size: 20px;
+      @include lg() {
+        font-size: 25px;
+        margin: 0px 90px 0px 40px !important;
+      }
+      @include xlg() {
+        font-size: 30px;
+      }
     }
 
     &-content {
@@ -227,9 +298,14 @@ export default {
       justify-content: space-between;
       padding: 0px 20px 0px 20px;
       border-bottom: 1px dashed #da412e;
-
+      font-size: 20px;
+      @include lg() {
+        margin: 10px 0;
+        font-size: 25px;
+      }
       &:last-of-type {
         margin-bottom: 20px;
+        font-size: 30px;
       }
     }
 
@@ -238,6 +314,11 @@ export default {
       padding: 0px 0px 2px 0px;
       display: flex;
       justify-content: center;
+    }
+    &-content-element:nth-child(1) {  
+      @include lg() {
+        padding: 0px 100px 2px 0px;
+      }
     }
 
     &-cant {
@@ -267,6 +348,9 @@ export default {
         color: #da412e;
         font-size: 12px;
         margin: 0px !important;
+        @include lg() {
+          font-size: 18px;
+        }
       }
 
       &-two {
@@ -274,6 +358,9 @@ export default {
         font-size: 12px;
         font-family: "MyriadProRegular";
         margin: 0px !important;
+        @include lg() {
+          font-size: 18px;
+        }
       }
 
       &-award {
@@ -281,6 +368,9 @@ export default {
         color: #da412e;
         font-size: 11px;
         margin: 0px !important;
+        @include lg() {
+          font-size: 18px;
+        }
       }
     }
 
@@ -289,7 +379,6 @@ export default {
       width: 26px;
       text-align: center;
       margin: 0px !important;
-      background: #005aa7;
       padding: 0px;
       border-radius: 50px;
 

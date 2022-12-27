@@ -1,30 +1,30 @@
 // ------------ Media query responsive screens ------------ //
 @mixin xs() {
-  @media only screen and(max-width: 330px) {
+  @media only screen and (max-width: 330px) {
     @content;
   }
 }
 
 @mixin mobile() {
-  @media only screen and(max-width: 900px) {
+  @media only screen and (max-width: 900px) {
     @content;
   }
 }
 
 @mixin tablet() {
-  @media only screen and(max-width: 1200px) {
+  @media only screen and (max-width: 1200px) {
     @content;
   }
 }
 
 @mixin lg() {
-  @media only screen and(min-width: 1300px) {
+  @media only screen and (min-width: 1300px) {
     @content;
   }
 }
 
 @mixin xlg() {
-  @media only screen and(min-width: 1700px) {
+  @media only screen and (min-width: 1700px) {
     @content;
   }
 }
@@ -36,6 +36,16 @@
 }
 @mixin mnHeight($value) {
   @media (min-height: $value) {
+    @content;
+  }
+}
+@mixin mxWidth($value) {
+  @media (max-width: $value) {
+    @content;
+  }
+}
+@mixin mnWidth($value) {
+  @media (min-width: $value) {
     @content;
   }
 }

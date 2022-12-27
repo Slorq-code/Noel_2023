@@ -72,10 +72,16 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
+    @include mnHeight(1000px) {
+      margin-top: 3vh;
+    }
     &__title__web {
       height: 70px;
       @include mxHeight(600px) {
         height: 65px;
+      }
+      @include mnHeight(1000px) {
+        height: 8vh;
       }
     }
     &__title__mobile {
@@ -132,8 +138,9 @@ export default {
   &__image-content {
     margin: 10px 0;
     width: 65%;
-    @include mnHeight(800px) {
-      width: 85%;
+    @include mnHeight(780px) {
+      height: calc(90vh - 220px);
+      width: 90%;
     }
     &-mobile {
       height: 640px;

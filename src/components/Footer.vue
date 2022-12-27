@@ -1,40 +1,50 @@
 <template>
   <div class="footer">
-    <img
-      class="footer__coljuegos"
-      src="@/assets/web/Logo_coljuegos.png"
-    />
-    <span class="footer__text" v-if="!token">Noel - 2021</span>
+    <div class="footer__routes" v-if="token">
+      <img class="footer__coljuegos" src="@/assets/web/Logo_coljuegos.png" />
+      <span
+        v-if="token"
+        style="margin: 20px"
+        class="footer__text cp"
+        @click="gotoTerms()"
+        >Términos y Condiciones</span
+      >
+      <span
+        v-if="token"
+        style="margin: 20px"
+        class="footer__text cp"
+        @click="gotoContacts()"
+        >Contáctanos</span
+      >
+    </div>
+    <span class="footer__text">Noel - 2023</span>
     <div class="footer__facebook-content">
       <img
         @click="gotoSaltin()"
         class="footer__facebook"
         src="@/assets/web/ico_facebook.png"
       />
-      <span class="footer__facebook-text" @click="gotoSaltin()">galletassaltinnoel</span>
-       <img
+      <span class="footer__facebook-text" @click="gotoSaltin()"
+        >galletassaltinnoel</span
+      >
+      <img
         @click="gotoDucales()"
         class="footer__facebook"
         src="@/assets/web/ico_facebook.png"
       />
-      <span class="footer__facebook-text" @click="gotoDucales()">ducalesgruponutresa</span>
-    </div>
-    <div 
-      class="footer__routes"
-      v-if="token"
-    >
-      <span v-if="token" style="margin: 20px" class="footer__text cp" @click="gotoContacts()">Contáctanos</span>
-      <span v-if="token"  style="margin: 20px" class="footer__text cp" @click="gotoTerms()">Términos y Condiciones</span>
+      <span class="footer__facebook-text" @click="gotoDucales()"
+        >ducalesgruponutresa</span
+      >
     </div>
   </div>
-</template> 
+</template>
 
 <script>
 export default {
-  name: 'Footer',
+  name: "Footer",
   data() {
     return {
-      selectedRoute: ''
+      selectedRoute: "",
     };
   },
   mounted() {},
@@ -56,7 +66,7 @@ export default {
       if (this.$route.path !== `/${path}`) this.$router.push(path);
     },
     gotoContacts() {
-      this.goTo('/contactenos')
+      this.goTo("/contactenos");
     },
     gotoTerms() {
       this.$store.dispatch("setTermsAndConditions", true);
@@ -68,10 +78,7 @@ export default {
       );
     },
     gotoDucales() {
-      window.open(
-        `https://www.facebook.com/ducalesgruponutresa/`,
-        "_blank"
-      );
+      window.open(`https://www.facebook.com/ducalesgruponutresa/`, "_blank");
     },
   },
   watch: {
@@ -80,10 +87,10 @@ export default {
         this.selectedRoute = path;
       },
       deep: true,
-      immediate: true
+      immediate: true,
     },
-  }
-}
+  },
+};
 </script>
 
 <style lang="scss">
@@ -92,13 +99,19 @@ export default {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  height: 46px;
+  flex-direction: row-reverse;
+  height: 50px;
   z-index: 3;
   background-color: #882518;
   padding: 0 0;
+  @include lg() {
+    height: 60px;
+  }
+  @include xlg() {
+    height: 70px;
+  }
   &__coljuegos {
-    height: 46px;
-    margin-top: 8px;
+    height: 59.3px;
   }
   &__facebook {
     height: 20px;
@@ -110,15 +123,27 @@ export default {
     align-items: center;
   }
   &__facebook-text {
-    color: white;
+    color: #f0b824;
     font-size: 13px;
     margin-right: 20px;
     cursor: pointer;
+    @include lg() {
+      font-size: 15px;
+    }
+    @include xlg() {
+      font-size: 22px;
+    }
   }
   &__text {
     font-size: 13px;
-    color: white;
+    color: #f0b824;
     text-align: center;
+    @include lg() {
+      font-size: 15px;
+    }
+    @include xlg() {
+      font-size: 22px;
+    }
   }
   .cp {
     cursor: pointer;
@@ -126,6 +151,7 @@ export default {
   &__routes {
     display: flex;
     align-items: center;
+    flex-direction: row-reverse;
   }
 }
 </style>

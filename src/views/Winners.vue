@@ -2,7 +2,7 @@
   <div class="winners">
     <img
       v-if="!mobile"
-      class="title-views-global__web"
+      class="winners__title"
       src="../assets/Assets_Web_New/Titulo_ganadores.png"
       alt="Ganadores titulo"
     />
@@ -22,7 +22,7 @@
       </div>
       <div
         class="winners__table-content-row"
-        v-for="(item, index) in tableWinners"
+        v-for="(item, index) in tableWinnerss"
         :key="index"
       >
         <div class="winners__table-header-item winners__color">
@@ -41,7 +41,7 @@
       v-if="tableWinners"
       class="winners__winners-button"
     >
-      Ver todos los ganadores
+      Ver los ganadores
     </button>
     <modal width="850" :dialog="dialog">
       <div class="winners__modal-content" slot="component">
@@ -54,17 +54,17 @@
         </div>
         <img
           class="winners__image"
-          src="@/assets/web/Logo_promo_que_nos_une_modales.png"
+          src="../assets/Assets_Mobile_New/Logo_Juntos_Premiarte_2022_modales.png"
         />
         <div class=" winners__table winners__table-modal">
-          <div class="winners__table-header" style="margin-right: 20px;">
+          <div class="winners__table-header">
             <div class="winners__table-header-item">
               {{ mobile ? "Nombre" : "Nombre del Participante" }}
             </div>
             <div v-if="!mobile" class="winners__table-header-item">Ciudad</div>
             <div class="winners__table-header-item">Premio</div>
           </div>
-          <div class="winners__wrapper-table-row" style="padding-right: 20px;">
+          <div class="winners__wrapper-table-row">
             <div
               class="winners__table-content-row"
               v-for="(item, index) in tableWinnersModal"
@@ -98,8 +98,61 @@ export default {
   data() {
     return {
       tableWinners: [],
-      tableWinnersModal: [],
+      tableWinnersModal: [
+      {
+          name: "Pablo prueba",
+          city: "manix",
+          result: "recarga"
+        },
+        {
+          name: "Pablo prueba",
+          city: "manix",
+          result: "recarga"
+        },
+        {
+          name: "Pablo prueba",
+          city: "manix",
+          result: "recarga"
+        },
+        {
+          name: "Pablo",
+          city: "manix",
+          result: "recarga"
+        },
+        {
+          name: "Pablo",
+          city: "manix",
+          result: "recarga"
+        },
+      ],
       dialog: false,
+      tableWinnerss: [
+        {
+          name: "Pablo prueba",
+          city: "manix",
+          result: "recarga"
+        },
+        {
+          name: "Pablo prueba",
+          city: "manix",
+          result: "recarga"
+        },
+        {
+          name: "Pablo prueba",
+          city: "manix",
+          result: "recarga"
+        },
+        {
+          name: "Pablo",
+          city: "manix",
+          result: "recarga"
+        },
+        {
+          name: "Pablo",
+          city: "manix",
+          result: "recarga"
+        },
+      ]
     };
   },
   mounted() {
@@ -161,11 +214,32 @@ export default {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  @include mnHeight(1000px) {
+      margin-top: 3vh;
+    }
+  @include lg() {
+    width: 80%;
+    margin-top: 3vh;
+  }
+  &__title {
+    height: 70px;
+      @include mxHeight(600px) {
+        height: 65px;
+      }
+      @include mnHeight(1000px) {
+        height: 8vh;
+      }
+  }
   &__wrapper-table-row {
     height: 220px;
+    padding: 0 20px 0 0;
     overflow-y: auto;
     @include mobile() {
       height: 250px;
+      padding: 0 0px 0 0;
+    }
+    @include mnHeight(1000px){
+      height: 50vh;
     }
   }
 
@@ -175,7 +249,13 @@ export default {
     width: 800px;
     padding: 0px !important;
     @include mobile() {
-      width: 92%;
+      width: 50vh;
+    }
+    @include lg() {
+      width: 70%;
+    }
+    @include xlg() {
+      width: 80%;
     }
   }
 
@@ -183,21 +263,37 @@ export default {
     display: flex;
     justify-content: space-around;
     padding: 5px 50px;
+    margin: 0 0 0 0;
     background: #309f3a;
     border-radius: 30px;
     @include mobile() {
       padding: 5px 10px;
+      margin: 0 10px 0 10px;
+    }
+    @include lg () {
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    @include xlg() {
+      height: 70px;
     }
 
     &-item {
       color: white;
       flex-basis: 33.3%;
       text-align: center;
-
+      font-size: 15px;
       @include mobile() {
         flex-basis: 50%;
-        /* padding: 5px 10px; */
-        font-size: 12px;
+        font-size: 13px;
+      }
+      @include lg() {
+        font-size: 17px;
+      }
+      @include xlg() {
+        font-size: 25px;
       }
     }
   }
@@ -219,11 +315,17 @@ export default {
   }
 
   &__color {
-    color: #0057b7;
+    color: rgb(173, 36, 30);
+    @include mobile() {
+      font-size: 18px;
+    }
   }
 
   &__color-dark {
-    color: #253e87;
+    color: rgb(173, 36, 30);
+    @include mobile() {
+      font-size: 18px;
+    }
   }
 
   &__reset-padding {
@@ -236,13 +338,30 @@ export default {
     box-shadow: 0px 3px 6px #00000067;
     border-radius: 30px;
     color: white;
-    padding: 10px 61px;
-    margin: 20px;
-
+    padding: 10px 50px;
+    margin: 20px 0px 0px 0px;
+    font-size: 13px;
     @include xs() {
       margin: 10px;
       padding: 10px;
       font-size: 14px;
+    }
+    @include mobile() {
+      font-size: 15px;
+    }
+    @include lg() {
+      margin: 40px 0px 0px 0px;
+      width: 30%;
+      height: 60px;
+      font-size: 20px;
+    }
+    @include xlg() {
+      margin: 60px 0px 0px 0px;
+      height: 70px;
+      font-size: 25px;
+    }
+    @include mxHeight(550px) {
+      margin: 25px 0 0 0 ;
     }
   }
 
@@ -255,6 +374,9 @@ export default {
     min-height: 300px;
     padding: 10px 20px;
     height: 370px;
+    @include mnHeight(1000px) {
+      height: 70vh !important;
+    }
     margin-bottom: 20px;
     @include mobile() {
       padding: 10px;
@@ -290,6 +412,7 @@ export default {
     cursor: pointer;
     @include mobile() {
       height: 28px;
+      z-index: 999;
     }
   }
   /* width */

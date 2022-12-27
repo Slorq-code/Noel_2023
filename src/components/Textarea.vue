@@ -165,12 +165,15 @@ export default {
       padding: 3px 0 0 10px;
     }
     &__error {
-      color: #253E87;
+      color: #E31552;
       font-family: NexaBold;
       font-size: 11px;
       @include mobile() {
         font-size: 12px;
       }
+      @include lg() {
+      font-size: 20px;
+    }
     }
     &__hint {
         color: #253E87;
@@ -190,9 +193,15 @@ export default {
         @include mobile() {
           text-align: center;
         }
+        @include lg() {
+          font-size: 28px;
+        }
     }
     &__messages-box {
         width: 100%;
+        @include lg() {
+          margin: 10px 0 0 0;
+        }
     }
     &__required {
       color: #E31552;

@@ -75,10 +75,16 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
+    @include mnHeight(1000px) {
+      margin-top: 3vh;
+    }
     &__title {
       height: 70px;
       @include mxHeight(600px) {
         height: 65px;
+      }
+      @include mnHeight(1000px) {
+        height: 8vh;
       }
     }
   }
@@ -110,12 +116,12 @@ export default {
     }
     &__banner {
       width: 90%;
-      @include mxHeight(600px) {
-        width: 70%;
-      }
       @include lg() {
         width: 100%;
       }
+      @include mnHeight(780px) {
+      height: calc(90vh - 220px);
+    }
       &__mobile {
       width: 80%;
       @include mxHeight(600px) {

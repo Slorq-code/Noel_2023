@@ -3,16 +3,16 @@
     <div class="title-views-global">
       <img
         class="title-views-global__mobile"
-        src="@/assets/mobile/Titulo_mis_codigos_respons.png"
+        src="../../assets/Assets_Mobile_New/Titulo_mis_codigos.png"
         alt="Mis codigos titulo"
       />
     </div>
 
-    <div class="box-wrapper-views-global myCodesMobile__margin-wrapper">
+    <div class="myCodesMobile__margin-wrapper">
       <div class="myCodesMobile__title">
-        <h1 class="myCodesMobile__title-one">¡Bienvenido {{ user.name }}!</h1>
+        <h1 class="myCodesMobile__title-one">¡Bienvenido !</h1>
         <h2 class="myCodesMobile__title-two">
-          Celular para premios: {{ user.phone.slice(2, user.phone.length) }}
+          Celular para premios:
         </h2>
         <h3 class="myCodesMobile__title-three">
           Éste es el estado de tus códigos:
@@ -21,7 +21,11 @@
 
       <div class="myCodesMobile__content">
         <div
-          v-for="(item, index) in tableData" :key="index" class="myCodesMobile__content-items myCodesMobile__boxItem" @click="onClickElement(item)">
+          v-for="(item, index) in tableDatas"
+          :key="index"
+          class="myCodesMobile__content-items myCodesMobile__boxItem"
+          @click="onClickElement(item)"
+        >
           <div class="myCodesMobile__content-items-header">
             <span class="myCodesMobile__content-items-header-index">{{
               index + 1
@@ -31,25 +35,20 @@
             </p>
           </div>
           <div class="myCodesMobile__content-items-content">
-            <img
-              class="myCodesMobile__content-items-content-image" :src="item.image"
-              alt="celular"
-            />
+            <span
+            class= "myCodesMobile__content-items-content__textSpan"
+            >Te falta uno</span>
             <div class="myCodesMobile__content-items-content-action">
-              <p class="myCodesMobile__content-items-content-action-text">
+              <!-- <p class="myCodesMobile__content-items-content-action-text">
                 {{ item.resultCouple }}
-              </p>
-              <img
-                class="myCodesMobile__content-items-content-action-arrow"
-                src="@/assets/mobile/Flecha_ir_detalle_codigo.png"
-                alt="flecha"
-              />
+              </p> -->
+              <Button text="Registrar Código" type="primary" />
             </div>
           </div>
         </div>
       </div>
     </div>
-    <modal width="600" v-if="actualItem" :dialog="dialog">
+    <modal width="600" v-if="item" :dialog="dialog">
       <div class="myCodesMobile__modal-content" slot="component">
         <div class="myCodesMobile__close-container">
           <img
@@ -67,48 +66,36 @@
           <div class="myCodesMobile__content-modal-content-item">
             <img
               class="myCodesMobile__content-modal-content-item-img-left-padding"
-              :src="actualItem.saltinTacoImage"
+              :src="item.saltinTacoImage"
               alt="Taco Saltin"
             />
             <div class="myCodesMobile__content-modal-content-item-text">
               <p class="myCodesMobile__content-modal-content-item-text-one">
-                {{
-                  actualItem.saltinNoel
-                    ? actualItem.saltinNoel.titleOne
-                    : "SIN DATOS"
-                }}
+                {{ item.saltinNoel ? item.saltinNoel.titleOne : "SIN DATOS" }}
               </p>
               <p class="myCodesMobile__content-modal-content-item-text-two">
-                {{
-                  actualItem.saltinNoel
-                    ? actualItem.saltinNoel.titleTwo
-                    : "SIN DATOS"
-                }}
+                {{ item.saltinNoel ? item.saltinNoel.titleTwo : "SIN DATOS" }}
               </p>
             </div>
           </div>
           <div class="myCodesMobile__content-modal-content-item">
             <img
               class="myCodesMobile__content-modal-content-item-img"
-              :src="actualItem.ducalesTacoImage"
+              :src="item.ducalesTacoImage"
               :alt="'Taco Ducales'"
             />
             <div class="myCodesMobile__content-modal-content-item-text">
               <p class="myCodesMobile__content-modal-content-item-text-one">
-                {{
-                  actualItem.ducales ? actualItem.ducales.titleOne : "SIN DATOS"
-                }}
+                {{ item.ducales ? item.ducales.titleOne : "SIN DATOS" }}
               </p>
               <p class="myCodesMobile__content-modal-content-item-text-two">
-                {{
-                  actualItem.ducales ? actualItem.ducales.titleTwo : "SIN DATOS"
-                }}
+                {{ item.ducales ? item.ducales.titleTwo : "SIN DATOS" }}
               </p>
             </div>
           </div>
           <div class="myCodesMobile__award">
             <p class="myCodesMobile__award-title">Premio:</p>
-            <p class="myCodesMobile__award-prime">{{ actualItem.result }}</p>
+            <p class="myCodesMobile__award-prime">{{ item.result }}</p>
           </div>
         </div>
       </div>
@@ -118,12 +105,32 @@
 
 <script>
 import Modal from "../../components/Modal";
+import Button from "../../components/Button.vue";
 export default {
   name: "MyCodesMobile",
   data() {
     return {
       dialog: false,
-      actualItem: null,
+      //actualItem: null,
+      tableDatas: [
+        {
+          saltinNoel: {
+            titleOne: "prueba1",
+            titletwo: "prueba2",
+          },
+          ducales: {
+            titleOne: "prueba3",
+            titletwo: "prueba4",
+          },
+          award: "felicidaes",
+        },
+        {
+          award: "felicidaes",
+        },
+        {
+          award: "felicidaes",
+        },
+      ],
     };
   },
   mounted() {},
@@ -132,6 +139,7 @@ export default {
   },
   components: {
     Modal,
+    Button,
   },
   props: {
     tableData: {
@@ -169,31 +177,26 @@ export default {
 @import "@/assets/scss/mixins.scss";
 .myCodesMobile {
   display: flex;
-  justify-content: center;
   flex-direction: column;
-
+  justify-content: center;
   &__margin-wrapper {
     margin: 10px;
   }
-
   &__title {
     margin-top: 10px;
     text-align: center;
     line-height: 18px;
-
     &-one {
       font-size: 15px;
-      color: #253e87;
+      color: white;
     }
-
     &-two {
       font-size: 15px;
-      color: #253e87;
+      color: white;
     }
-
     &-three {
       font-size: 15px;
-      color: #253e87;
+      color: white;
     }
   }
 
@@ -206,15 +209,13 @@ export default {
     margin-top: 10px;
     flex-basis: 20%;
     margin: 10px;
-
     &-header {
       display: flex;
-      background: #005aa7;
       border-radius: 20px;
+      background: #309f3a;
       height: 41px;
       align-items: center;
       position: relative;
-
       &-index {
         position: absolute;
         left: 0;
@@ -229,11 +230,10 @@ export default {
         width: 43px;
         font-size: 25px;
       }
-
       &-title {
         margin: 0px !important;
-        flex-basis: 90%;
         color: white;
+        flex-basis: 90%;
         text-align: center;
         padding-left: 20px;
       }
@@ -241,14 +241,16 @@ export default {
   }
 
   &__content-items-content {
-    padding: 5px 10px 5px 25px;
+    padding: 5px 10px 5px 10px;
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    height: 120px;
     &-image {
       margin: 10px 0px 10px 0px;
       height: 90px;
       flex-basis: 20%;
-
       @include mobile() {
         height: 110px;
       }
@@ -256,7 +258,10 @@ export default {
         height: 70px;
       }
     }
-
+    &__textSpan {
+      color: #d93d2c;
+      font-size: 23px;
+    }
     &-action {
       flex-basis: 80%;
       display: flex;
@@ -266,7 +271,7 @@ export default {
         margin: 0px !important;
         width: 80%;
         margin-left: 10px !important;
-        color: #005aa7;
+        color: #ffffff;
         @include mobile() {
           font-size: 15px;
           width: 90%;
@@ -313,9 +318,8 @@ export default {
     }
 
     @include xs() {
-      margin-bottom: -15px; 
+      margin-bottom: -15px;
       height: 150px;
-
     }
   }
   &__close-container {
@@ -337,9 +341,9 @@ export default {
     &-title {
       font-size: 17px;
       color: #253e87;
-      
+
       @include xs() {
-	margin-bottom: -10px;
+        margin-bottom: -10px;
       }
     }
 
