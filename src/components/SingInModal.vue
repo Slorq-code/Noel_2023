@@ -12,6 +12,7 @@
                 <Input field="idn" @handle-input="setValue($event)" placeholder="Número de cédula" :onlyNumbers="true"
                     :error="error" maxlength="10" />
             </div>
+            <br>
             <div class="SingIngModal__contentCenter">
                 <Button text="Ingresar" type="primary" :isLoading="loading" @handle-click="signIn()" />
             </div>

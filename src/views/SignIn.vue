@@ -210,6 +210,7 @@ export default {
 
     @include mobile() {
       margin: 10px 0px;
+      width: 90%;
     }
 
     @include xs() {

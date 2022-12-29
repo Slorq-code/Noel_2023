@@ -121,16 +121,25 @@ export default {
 
 .select {
   height: 68px;
-  width: 310px;
-  margin: 0 10px 0 0;
+  width: 280px;
+  margin: 0 10px;
   @include mobile() {
     width: 270px !important;
+    margin: 25px 10px;
   }
   @include xs() {
     width: 100% !important;
   }
   @include lg() {
-    width: 380px;
+    width: 330px;
+    height: 56px;
+  }
+  @include mnHeight(1000px) {
+    width: 330px;
+    height: 56px;
+  }
+  @include xs() {
+    margin-bottom: 5px;
   }
   &__main-box {
     display: flex;
@@ -150,15 +159,24 @@ export default {
     justify-content: center;
     background-color: white;
     width: 100%;
-    height: 34px;
-    border-radius: 18px;
-    font-size: 17px;
+    height: 40px;
+    border-radius: 20px;
+    font-size: 15px;
     padding: 2px 10px;
+    text-align: center;
     cursor: pointer;
     position: relative;
     @include mobile() {
       height: 38px;
       padding-top: 3px;
+    }
+    @include lg() {
+      margin: 10px 0 0 0;
+      height: 50px;
+      border-radius: 32px;
+    }
+    @include xs() {
+      height: 30px;
     }
   }
   &__label {
@@ -172,7 +190,7 @@ export default {
       text-align: center;
     }
     @include lg() {
-      font-size: 24px;
+      font-size: 18px;
     }
   }
   &__placeholder {

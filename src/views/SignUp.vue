@@ -1,22 +1,22 @@
 <template>
   <div class="signUp">
-      <div class="back-content" @click="goTo('/ingresar')" v-if="mobile">
+      <div class="back-content" @click="goTo('/ingresar')" v-if="false">
         <div class="back">
           <span class="back-text">Volver</span>
         </div>
       </div>
       <div class="signUp__content">
-        <div class="title-views-global">
+        <div class="">
           <img
             v-if="!mobile"
-            class="title-views-global__web signUp__title"
-            src="@/assets/web/Titulo_registro_usuario.png"
+            class="signUp__title"
+            src="../assets/Assets_Web_New/Titulo_registro_usuarios.png"
             alt="Como participar titulo"
           />
           <img
             v-if="mobile"
-            class="title-views-global__mobile"
-            src="@/assets/mobile/Titulo_registro_respons.png"
+            class="signUp__title__titleMobile"
+            src="../assets/Assets_Mobile_New/Titulo_registro_usuario.png"
             alt="Como participar"
           />
         </div>
@@ -29,12 +29,41 @@
               $refs.department_state.open = false;
             "
             field="name"
-            label="Nombre Completo"
+            label="Nombres"
             @handle-input="setValue($event)"
             placeholder="Ingresar nombre completo"
             :required="true"
             :error="errors.name"
           />
+          <Input
+            :model="user.lastName"
+            @close-all="
+              $refs.operator.open = false;
+              $refs.department_state.open = false;
+            "
+            field="lastName"
+            label="Apellidos"
+            @handle-input="setValue($event)"
+            placeholder="Ingresar apellidos"
+            :required="true"
+            :error="errors.lastnAME"
+          />
+          <Input
+          label="Cédula"
+          field="idn"
+          @close-all="
+              $refs.operator.open = false;
+              $refs.department_state.open = false;
+            "
+            :model="user.idn"
+            @handle-input="setValue($event)"
+            placeholder="Ingresa nº de cédula"
+            :required="true"
+            :error="errors.idn"
+            :onlyNumbers="true"
+            />
+          </div>
+          <div class="signUp__form-row">
           <Input
             :model="user.email"
             field="email"
@@ -48,22 +77,6 @@
             :required="true"
             :error="errors.email"
           />
-        </div>
-        <div class="signUp__form-row">
-          <Input
-            label="Cédula"
-            field="idn"
-            @close-all="
-              $refs.operator.open = false;
-              $refs.department_state.open = false;
-            "
-            :model="user.idn"
-            @handle-input="setValue($event)"
-            placeholder="Ingresa nº de cédula"
-            :required="true"
-            :error="errors.idn"
-            :onlyNumbers="true"
-          />
           <Select
               ref="department_state"
               @close-all="$refs.operator.open = false"
@@ -71,6 +84,18 @@
               label="Departamento"
               :model="user.department_state"
               placeholder="Seleccionar departamento"
+              :items="fomattedStates"
+              @handle-input="setValue($event)"
+              :required="true"
+              :error="errors.department_state"
+            />
+            <Select
+              ref="department_state"
+              @close-all="$refs.operator.open = false"
+              field="department_state"
+              label="Futura ciudad"
+              :model="user.department_state"
+              placeholder="Relacionar con state"
               :items="fomattedStates"
               @handle-input="setValue($event)"
               :required="true"
@@ -105,13 +130,26 @@
               :required="true"
               :error="errors.operator"
             />
+            <Select
+              style="opacity: 0;"
+              ref="operator"
+              field="operator"
+              @close-all="$refs.department_state.open = false"
+              label="Operador"
+              :model="user.operator"
+              placeholder="Seleccionar operador"
+              :items="fomattedOperators"
+              @handle-input="setValue($event)"
+              :required="true"
+              :error="errors.operator"
+            />
           </div>
-          <div>
+          <div class="signUp__radioBigBox" >
             <div class="signUp__radio-container">
               <div>
                 <Radio @handle-click="toggleTerms()" :value="terms"/>
               </div>
-              <span class="signUp__radio-text">Acepto los <span class="signUp__radio-text-action" @click="goToTerms()">términos y condiciones</span> de la promoción.</span>
+              <span class="signUp__radio-text">Acepto los <span class="signUp__radio-text-action" @click="goToTerms()">términos y condiciones</span>.</span>
             </div>
             <div class="signUp__radio-container">
               <div style="width:40px;">
@@ -119,7 +157,7 @@
                   <Radio @handle-click="toggleTerms4()" :value="terms4"/>
                 </div>
               </div>
-              <span class="signUp__radio-text" style="margin-left: -12px;">Acepto las <span class="signUp__radio-text-action" @click="goToPolo()">políticas de privacidad</span> de la promoción.</span>
+              <span class="signUp__radio-text" style="margin-left: -12px;">Acepto las <span class="signUp__radio-text-action" @click="goToPolo()">políticas de privacidad</span>.</span>
             </div>
           </div>
           <Button text="Registrarme" type="primary" @handle-click="send()"/>
@@ -370,23 +408,30 @@ export default {
 @import "@/assets/scss/mixins.scss";
 .signUp {
   display: flex;
-  justify-content: center;
-  padding: 10px 0;
-  position: relative;
+  justify-content: flex-start;
   flex-direction: column;
+  position: relative;
   align-items: center;
-  &__title{
-    margin-top: 10px !important;
-    height: 60px !important;
-  }
+  width: 80%;
+  padding: 10px 0;
+  
   @include mobile() {
     flex-direction: column;
     align-items: center;
     padding: 10px 0 70px 0;
+    width: 90%;
+  }
+  &__title{
+    margin: 2% 0 0 0;
+    height: 60px;
+    @include mnHeight(1000px){
+      height: 8vh;
+    }
+    &__titleMobile {
+      width: 100%;
+    }
   }
   &__content {
-    box-shadow: 0px 3px 6px #00000029;
-    background: rgba(255, 255, 255, 0.1);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -439,6 +484,8 @@ export default {
   &__form-row {
     display: flex;
     align-items: center;
+    height: auto;
+    min-height: 100px;
     @include mobile() {
       flex-direction: column;
       padding: 0 20px;
@@ -448,13 +495,19 @@ export default {
       padding: 0 6px;
     }
   }
+  &__radioBigBox {
+    margin: 30px 0 0 0;
+    @include mobile() {
+      margin: -100px 0 0 0;
+    }
+  }
   &__radio-text {
-    color: #253E87;
+    color: white;
     font-family: MontserratRegular;
-    font-size: 13px;
+    font-size: 15px;
   }
   &__radio-text-action {
-    color: #253E87;
+    color: white;
     cursor: pointer;
   }
   &__radio-container {
@@ -470,7 +523,8 @@ export default {
   &__subtitle {
     margin-bottom: 10px;
     font-family: NexaBold;
-    color: #253E87;
+    color: white;
+    font-size: 15px;
   }
 }
 </style>
