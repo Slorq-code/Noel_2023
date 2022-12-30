@@ -230,7 +230,7 @@ export default {
   }
   &__section1-text {
     font-family: NexaBold;
-    color: #253e87;
+    color: white;
     line-height: 12px;
     font-size: 12px;
     margin-bottom: 10px;

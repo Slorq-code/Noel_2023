@@ -10,7 +10,7 @@
       </div>
       <img
         class="alert__image"
-        src="@/assets/web/Logo_promo_que_nos_une_modales.png"
+        src="../assets/Assets_Web_New/Logo_modales_Juntos_Premiarte_2022.png"
       />
       <div class="alert__content" v-if="data">
         <span v-if="true" class="alert__title">{{ data.title }}</span>
@@ -103,7 +103,7 @@ export default {
   &__message {
     font-family: "NexaBold";
     font-size: 18px;
-    color: #253E87;
+    color: white;
     text-align: center;
     text-align: center;
     @include mobile() {
@@ -114,7 +114,7 @@ export default {
     margin-bottom: 10px;
     font-family: "NexaBold";
     text-align: center;
-    color: #253E87;
+    color: white;
     font-size: 28px;
     @include mobile() {
       font-size: 22px;

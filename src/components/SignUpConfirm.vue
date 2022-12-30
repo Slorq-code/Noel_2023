@@ -9,7 +9,7 @@
     </div>
     <img
       class="signup-confirm__image"
-      src="@/assets/web/Logo_promo_que_nos_une_modales.png"
+      src="../assets/Assets_Web_New/Logo_modales_Juntos_Premiarte_2022.png"
     />
     <div class="signup-confirm__content">
       <span class="signup-confirm__text1" style="margin-bottom: 10px">
@@ -163,7 +163,7 @@ export default {
     }
   }
   &__text1 {
-    color: #253E87;
+    color: white;
     font-family: NexaBold;
     font-size: 16px;
     margin-bottom: 20px;
@@ -175,7 +175,7 @@ export default {
     }
   }
   &__text {
-    color: #253E87;
+    color: white;
     margin: 0 !important;
     font-family: NexaBold;
     text-transform: capitalize;

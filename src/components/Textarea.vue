@@ -176,7 +176,7 @@ export default {
     }
     }
     &__hint {
-        color: #253E87;
+        color: white;
         font-family: NexaBold;
         font-size: 11px;
         @include mobile() {

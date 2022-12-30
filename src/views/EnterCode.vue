@@ -464,7 +464,7 @@ export default {
   &__box-text {
     margin-top: -24px;
     font-family: NexaBold;
-    color: #253e87;
+    color: white;
     font-size: 16px;
   }
   &__rec {

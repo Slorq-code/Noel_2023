@@ -229,7 +229,7 @@ export default {
     padding: 3px 0 0 10px;
   }
   &__error {
-    color: #253e87;
+    color: white;
     font-family: NexaBold;
     font-size: 11px;
     @include mobile() {
@@ -237,7 +237,7 @@ export default {
     }
   }
   &__hint {
-    color: #253e87;
+    color: white;
     font-family: NexaBold;
     font-size: 11px;
     @include mobile() {

@@ -9,7 +9,7 @@
     </div>
     <img
       class="register-code-confirm__image"
-      src="@/assets/web/Logo_promo_que_nos_une_modales.png"
+      src="../assets/Assets_Web_New/Logo_modales_Juntos_Premiarte_2022.png"
     />
     <div class="register-code-confirm__section">
       <img
@@ -227,7 +227,7 @@ export default {
   }
   &__text {
     font-family: NexaBold;
-    color: #253E87;
+    color: white;
     font-size: 16px;
 
     @include xs() {

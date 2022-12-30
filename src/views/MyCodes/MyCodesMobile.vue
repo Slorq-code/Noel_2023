@@ -59,7 +59,7 @@
         </div>
         <img
           class="myCodesMobile__image"
-          src="@/assets/web/Logo_promo_que_nos_une_modales.png"
+          src="../assets/Assets_Web_New/Logo_modales_Juntos_Premiarte_2022.png"
         />
         <h2 class="myCodesMobile__content-modal-title">Detalle Pareja</h2>
         <div class="myCodesMobile__content-modal-content">
@@ -340,7 +340,7 @@ export default {
   &__content-modal {
     &-title {
       font-size: 17px;
-      color: #253e87;
+      color: white;
 
       @include xs() {
         margin-bottom: -10px;
@@ -372,7 +372,7 @@ export default {
         }
 
         &-text {
-          color: #253e87;
+          color: white;
           display: flex;
           flex-direction: column;
           justify-content: center;
