@@ -335,10 +335,10 @@ export default {
     align-items: center;
     color: white;
     font-family: NexaBold;
-    font-size: 14px;
+    font-size: 11px;
     text-align: center;
     @include xlg() {
-      font-size: 22px;
+      font-size: 18px;
     }
   }
   &--web-route-text-selected {
