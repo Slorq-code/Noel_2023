@@ -1,23 +1,5 @@
 <template>
   <div class="footer">
-    <div class="footer__routes" v-if="token">
-      <img class="footer__coljuegos" src="@/assets/web/Logo_coljuegos.png" />
-      <span
-        v-if="token"
-        style="margin: 20px"
-        class="footer__text cp"
-        @click="gotoTerms()"
-        >Términos y Condiciones</span
-      >
-      <span
-        v-if="token"
-        style="margin: 20px"
-        class="footer__text cp"
-        @click="gotoContacts()"
-        >Contáctanos</span
-      >
-    </div>
-    <span class="footer__text">Noel - 2023</span>
     <div class="footer__facebook-content">
       <img
         @click="gotoSaltin()"
@@ -34,6 +16,24 @@
       />
       <span class="footer__facebook-text" @click="gotoDucales()"
         >ducalesgruponutresa</span
+      >
+    </div>
+    <span class="footer__text">Noel - 2023</span>
+    <div class="footer__routes" v-if="token">
+      <img class="footer__coljuegos" src="@/assets/web/Logo_coljuegos.png" />
+      <span
+        v-if="token"
+        style="margin: 20px"
+        class="footer__text cp"
+        @click="gotoTerms()"
+        >Términos y Condiciones</span
+      >
+      <span
+        v-if="token"
+        style="margin: 20px"
+        class="footer__text cp"
+        @click="gotoContacts()"
+        >Contáctanos</span
       >
     </div>
     <img v-if="!token" class="footer__coljuegos" src="@/assets/web/Logo_coljuegos.png" />
@@ -100,7 +100,6 @@ export default {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  flex-direction: row-reverse;
   height: 50px;
   z-index: 3;
   background-color: #882518;
