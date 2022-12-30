@@ -266,7 +266,7 @@ export default {
     width: 100%;
   }
   &__required {
-    color: #e31552;
+    color: white;
   }
 }
 </style>

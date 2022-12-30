@@ -204,7 +204,7 @@ export default {
         }
     }
     &__required {
-      color: #E31552;
+      color: white;
     }
 }
 </style>

@@ -229,11 +229,14 @@ export default {
     padding: 3px 0 0 10px;
   }
   &__error {
-    color: white;
+    color: #e31552;
     font-family: NexaBold;
     font-size: 11px;
     @include mobile() {
       font-size: 12px;
+    }
+    @include lg() {
+      font-size: 18px;
     }
   }
   &__hint {
@@ -262,7 +265,7 @@ export default {
     width: 100%;
   }
   &__required {
-    color: #e31552;
+    color: white;
   }
 }
 </style>

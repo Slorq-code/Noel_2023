@@ -486,13 +486,17 @@ export default {
     align-items: center;
     height: auto;
     min-height: 100px;
+    margin: 0px 0 20px 0;
+    @include xs() {
+      padding: 0 6px;
+    }
     @include mobile() {
       flex-direction: column;
       padding: 0 20px;
       width: 100%;
     }
-    @include xs() {
-      padding: 0 6px;
+    @include mnHeight(1000px) {
+      margin: 10px 0 10px 0;
     }
   }
   &__radioBigBox {
