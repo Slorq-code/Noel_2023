@@ -255,7 +255,8 @@ export default {
     margin-top: 10px;
     display: flex;
     flex-direction: column;
-    background-color: rgba(255,255,255,0.21380427170868344);
+    background-color: rgba(255, 255, 255, 0.371);
+    border-radius: 50px;
 
     &-header {
       background: #309f3a;

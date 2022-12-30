@@ -507,7 +507,7 @@ export default {
   }
   &__radio-text {
     color: white;
-    font-family: MontserratRegular;
+    font-family: NexaBold;
     font-size: 15px;
   }
   &__radio-text-action {

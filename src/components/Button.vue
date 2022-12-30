@@ -70,10 +70,10 @@ export default {
     line-height: 14px;
     color: white;
     @include lg(){
-      font-size: 25px;
+      font-size: 23px;
     }
     @include xlg() {
-      font-size: 35px;
+      font-size: 28px;
     }
   }
 }
