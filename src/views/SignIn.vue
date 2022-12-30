@@ -215,6 +215,9 @@ export default {
       margin: 10px 0px;
       width: 90%;
     }
+    @include xlg() {
+      width: 40%;
+    }
     @include mnHeight (1000px) {
       height: 350px;
       justify-content: center;
@@ -253,10 +256,10 @@ export default {
     margin-bottom: 15px;
     text-align: center;
     @include lg() {
-      font-size: 16px;
+      font-size: 20px;
     }
     @include xlg() {
-      font-size: 20px;
+      font-size: 27px;
     }
   }
   &__dispachModalSingIn{

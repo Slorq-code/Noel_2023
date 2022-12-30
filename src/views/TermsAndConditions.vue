@@ -650,6 +650,9 @@ export default {
       font-size: 12px;
     }
   }
+  &__text p{
+    color: white;
+  }
   &__image {
     height: 150px;
     margin-top: -65px;
