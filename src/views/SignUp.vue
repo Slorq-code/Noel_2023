@@ -500,9 +500,9 @@ export default {
     }
   }
   &__radioBigBox {
-    margin: 30px 0 0 0;
+    margin: 30px 0 30px 0;
     @include mobile() {
-      margin: -100px 0 0 0;
+      margin: -100px 0 30px 0;
     }
   }
   &__radio-text {
