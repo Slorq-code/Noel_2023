@@ -11,10 +11,10 @@
     <div class="myCodesWeb__content">
       <div class="myCodesWeb__title">
         <h1 class="myCodesWeb__title-one">
-          ¡Bienvenido!
+          ¡Bienvenido Carlos Moran!
         </h1>
         <h2 class="myCodesWeb__title-two">
-          Celular para premios:k
+          Celular para premios: (311) 522 3148
         </h2>
         <h3 class="myCodesWeb__title-three">
           Éste es el estado de tus códigos:
@@ -255,6 +255,7 @@ export default {
     margin-top: 10px;
     display: flex;
     flex-direction: column;
+    background-color: rgba(255,255,255,0.21380427170868344);
 
     &-header {
       background: #309f3a;

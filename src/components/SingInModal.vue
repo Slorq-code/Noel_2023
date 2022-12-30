@@ -6,7 +6,9 @@
         <img class="SingIngModal__image" src="../assets/Assets_Web_New/Logo_modales_Juntos_Premiarte_2022.png" />
         <div class="SingIngModal__content">
             <div class="SingIngModal__contentCenter">
-                <span>Ingresa al portal para que puedas participar</span>
+                <span
+                style="color: white;"
+                >Ingresa al portal para que puedas participar</span>
             </div>
             <div class="SingIngModal__contentCenter">
                 <Input field="idn" @handle-input="setValue($event)" placeholder="Número de cédula" :onlyNumbers="true"

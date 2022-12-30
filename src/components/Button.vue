@@ -44,6 +44,7 @@ export default {
 
 <style lang="scss">
 @import "@/assets/scss/mixins.scss";
+
 .button {
   background-color: #309f3a;
   display: flex;
@@ -60,8 +61,8 @@ export default {
     height: 60px;
   }
   @include xlg() {
-    width: 400px;
-    height: 88px;
+    width: 300px;
+    height: 60px;
   }
   &__text {
     font-family: NexaBold;

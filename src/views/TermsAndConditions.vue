@@ -602,6 +602,7 @@ export default {
 
 <style lang="scss">
 @import "@/assets/scss/mixins.scss";
+
 .termsAndConditions {
   display: flex;
   flex-direction: column;
