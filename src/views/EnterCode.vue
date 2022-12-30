@@ -392,7 +392,7 @@ export default {
         font-size: 15px;
       }
       @include mnHeight(1000px) {
-        font-size: 18px;
+        font-size: 25px;
       }
     }
   }

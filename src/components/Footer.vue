@@ -147,6 +147,7 @@ export default {
   }
   .cp {
     cursor: pointer;
+    text-decoration: underline;
   }
   &__routes {
     display: flex;
