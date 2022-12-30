@@ -3,7 +3,7 @@
         <div class="SingIngModal-container">
             <img @click="close()" class="SingIngModal__close-image" src="../assets/Assets_Mobile_New/btn_cerrar.png" />
         </div>
-        <img class="SingIngModal__image" src="../assets/Assets_Web_New/Logo_modales_Juntos_Premiarte_2022.png" />
+        <img class="SingIngModal__image" src="@/assets/Assets_Web_New/Logo_modales_Juntos_Premiarte_2022.png" />
         <div class="SingIngModal__content">
             <div class="SingIngModal__contentCenter">
                 <span

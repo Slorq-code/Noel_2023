@@ -59,7 +59,7 @@
         </div>
         <img
           class="myCodesMobile__image"
-          src="../assets/Assets_Web_New/Logo_modales_Juntos_Premiarte_2022.png"
+          src="@/assets/Assets_Web_New/Logo_modales_Juntos_Premiarte_2022.png"
         />
         <h2 class="myCodesMobile__content-modal-title">Detalle Pareja</h2>
         <div class="myCodesMobile__content-modal-content">

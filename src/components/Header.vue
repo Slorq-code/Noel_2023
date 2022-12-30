@@ -66,7 +66,7 @@
           </div>
           <img
             class="modal-mobile-navigator__image"
-            src="../assets/Assets_Web_New/Logo_modales_Juntos_Premiarte_2022.png"
+            src="@/assets/Assets_Web_New/Logo_modales_Juntos_Premiarte_2022.png"
           />
           <div class="modal-mobile-navigator__close-container">
             <img

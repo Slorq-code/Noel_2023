@@ -9,7 +9,7 @@
     </div>
     <img
       class="signup-confirm__image"
-      src="../assets/Assets_Web_New/Logo_modales_Juntos_Premiarte_2022.png"
+      src="@/assets/Assets_Web_New/Logo_modales_Juntos_Premiarte_2022.png"
     />
     <div class="signup-confirm__content">
       <span class="signup-confirm__text1" style="margin-bottom: 10px">
