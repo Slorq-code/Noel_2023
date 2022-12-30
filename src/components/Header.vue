@@ -266,7 +266,7 @@ export default {
   );
   height: 70px;
   border-radius: 30px;
-  padding: 0 14% 0 20px;
+  padding: 0 0 0 20px;
   margin: 10px 10px 0 10px;
   position: relative;
   @include mxHeight(600px) {
