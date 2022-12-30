@@ -207,14 +207,17 @@ export default {
     border-radius: 20px;
     width: 35%;
     margin: 1% 0 0 0;
-
+    
+    @include xs() {
+      margin-top: -15px;
+    }
     @include mobile() {
       margin: 10px 0px;
       width: 90%;
     }
-
-    @include xs() {
-      margin-top: -15px;
+    @include mnHeight (1000px) {
+      height: 350px;
+      justify-content: center;
     }
   }
   &__section1 {
@@ -237,6 +240,10 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
+    @include mnHeight(1000px) {
+      height: 100%;
+      justify-content: space-evenly;
+    }
   }
   &__section2-text {
     font-family: NexaBold;
@@ -245,6 +252,12 @@ export default {
     font-size: 12px;
     margin-bottom: 15px;
     text-align: center;
+    @include lg() {
+      font-size: 16px;
+    }
+    @include xlg() {
+      font-size: 20px;
+    }
   }
   &__dispachModalSingIn{
     color: white !important;

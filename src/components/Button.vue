@@ -57,8 +57,8 @@ export default {
   padding-top: 2px;
   border: 3px white solid;
   @include lg() {
-    width: 300px;
-    height: 60px;
+    width: 260px;
+    height: 45px;
   }
   @include xlg() {
     width: 300px;
