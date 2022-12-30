@@ -195,7 +195,7 @@ export default {
   }
   &__placeholder {
     color: #bcbcbc;
-    font-family: MontserratItalic;
+    font-family: NexaBold;
     font-size: 12px;
   }
   &__icon-content {
@@ -203,7 +203,7 @@ export default {
     right: 12px;
   }
   &__icon {
-    color: #d72626;
+    color: grey;
     font-size: 16px;
   }
   &__pre-box {
@@ -229,7 +229,7 @@ export default {
     font-size: 13px;
     color: black;
     padding: 3px 2px 1px 2px;
-    font-family: MontserratItalic;
+    font-family: NexaBold;
     @include mobile() {
       font-size: 14px;
     }
@@ -238,7 +238,7 @@ export default {
     background: #eee;
   }
   &__text {
-    font-family: MontserratItalic;
+    font-family: NexaBold;
     font-size: 14px;
     @include xs() {
       font-size: 12px;

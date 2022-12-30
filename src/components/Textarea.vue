@@ -126,7 +126,7 @@ export default {
     
     textarea::placeholder {
       color: #BCBCBC;
-      font-family: MontserratItalic;
+      font-family: NexaBold;
       font-size: 14px;
     }
     @include mobile() {
@@ -149,7 +149,7 @@ export default {
       font-size: 14px;
       padding: 6px 10px;
       text-align: center;
-      font-family: MontserratItalic !important;
+      font-family: NexaBold !important;
       @include mobile() {
         font-size: 14px;
       }

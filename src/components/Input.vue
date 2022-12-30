@@ -169,7 +169,7 @@ export default {
   margin-bottom: 10px;
   input::placeholder {
     color: #bcbcbc;
-    font-family: MontserratItalic;
+    font-family: NexaBold;
     font-size: 12px;
   }
   @include mobile() {
@@ -204,7 +204,7 @@ export default {
     font-size: 15px;
     padding: 2px 10px 2px 10px;
     text-align: center;
-    font-family: MontserratItalic !important;
+    font-family: NexaBold !important;
     @include mobile() {
       font-size: 14px;
       height: 38px;
