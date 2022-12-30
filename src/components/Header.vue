@@ -48,7 +48,7 @@
     <img
       class="header__logo__logoCurva"
       @click="logoClick()"
-      src="../assets/Assets_Mobile_New/logos_header.png"
+      src="../assets/Assets_Web_New/logos_header_barriga.png"
       alt="logos"
       v-if="token"
     />
@@ -286,8 +286,6 @@ export default {
       width: 70%;
     }
     &__logoCurva {
-      position: absolute;
-      right: -3.5px;
       height: 100% !important;
     }
     &__second {
