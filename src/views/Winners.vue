@@ -12,7 +12,7 @@
       src="../assets/Assets_Mobile_New/Titulo_ganadores.png"
       alt="Ganadores titulo"
     />
-    <div class="box-wrapper-views-global winners__table">
+    <div class="winners__table">
       <div class="winners__table-header">
         <div class="winners__table-header-item">
           {{ mobile ? "Nombre" : "Nombre del Participante" }}
@@ -248,6 +248,8 @@ export default {
     flex: 1;
     width: 800px;
     padding: 0px !important;
+    background-color: rgba(255, 255, 255, 0.371);
+    border-radius: 50px;
     @include mobile() {
       width: 50vh;
     }
