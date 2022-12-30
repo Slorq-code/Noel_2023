@@ -265,7 +265,7 @@ export default {
     rgba(129, 36, 26, 1) 100%
   );
   height: 70px;
-  border-radius: 30px;
+  border-radius: 35px;
   padding: 0 0 0 20px;
   margin: 10px 10px 0 10px;
   position: relative;
@@ -273,10 +273,10 @@ export default {
     height: 55px;
   }
   @include tablet() {
-    padding: 0 40px;
+    padding: 0 0px 0 40px;
   }
   @include mobile() {
-    padding: 0 20px;
+    padding: 0 0px 0 20px;
   }
   &__logo {
     height: 90%;
