@@ -36,6 +36,7 @@
         >ducalesgruponutresa</span
       >
     </div>
+    <img v-if="!token" class="footer__coljuegos" src="@/assets/web/Logo_coljuegos.png" />
   </div>
 </template>
 

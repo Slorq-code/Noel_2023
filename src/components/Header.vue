@@ -401,9 +401,9 @@ export default {
     @include mobile() {
       padding: 0px 0px 10px 10px;
     }
-    &__active {
-      //informacion
-    }
+    // &__active {
+    //   informacion
+    // }
   }
 
   &__image {
