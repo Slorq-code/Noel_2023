@@ -21,7 +21,6 @@
     <div 
       class="header__web-routes" 
       v-if="!this.mobile"
-      :class="['header__web-routes', token === true ? 'header__web-routesSeparate' : '']"
     >
       <div 
       v-for="(route, k) in webRoutes" :key="k"
@@ -319,9 +318,6 @@ export default {
       margin-left: 20px;
     }
   } 
-  &__web-routesSeparate{
-    background-color: red;
-  }
   &__web-routes div{
     display: flex;
     gap: 7px;
