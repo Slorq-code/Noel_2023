@@ -90,16 +90,15 @@
               :error="errors.department_state"
             />
             <Select
-              ref="department_state"
-              @close-all="$refs.operator.open = false"
-              field="department_state"
-              label="Futura ciudad"
-              :model="user.department_state"
-              placeholder="Relacionar con state"
-              :items="fomattedStates"
-              @handle-input="setValue($event)"
-              :required="true"
-              :error="errors.department_state"
+                ref="city"
+                field="city"
+                label="Ciudad"
+                :model="user.city"
+                placeholder="Seleccionar Ciudad"
+                :items="formattedCities"
+                @handle-input="setValue($event)"
+                :required="true"
+                :error="errors.city"
             />
           </div>
           <div class="signUp__form-row">
