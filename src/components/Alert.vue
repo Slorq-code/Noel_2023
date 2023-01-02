@@ -101,7 +101,7 @@ export default {
     justify-content: center;
   }
   &__message {
-    font-family: "NexaBold";
+    font-family: "GeneralLeter";
     font-size: 18px;
     color: white;
     text-align: center;
@@ -112,7 +112,7 @@ export default {
   }
   &__title {
     margin-bottom: 10px;
-    font-family: "NexaBold";
+    font-family: "GeneralLeter";
     text-align: center;
     color: white;
     font-size: 28px;

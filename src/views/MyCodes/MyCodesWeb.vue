@@ -193,7 +193,7 @@ export default {
 @import "@/assets/scss/mixins.scss";
 
 * {
-  font-family: "NexaBold";
+  font-family: "GeneralLeter";
 }
 
 .myCodesWeb {

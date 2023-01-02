@@ -181,7 +181,7 @@ export default {
   }
   &__label {
     margin-left: 10px;
-    font-family: NexaBold;
+    font-family: GeneralLeter;
     margin-right: 10px;
     font-size: 15px;
     color: white;
@@ -195,7 +195,7 @@ export default {
   }
   &__placeholder {
     color: #bcbcbc;
-    font-family: NexaBold;
+    font-family: GeneralLeter;
     font-size: 12px;
   }
   &__icon-content {
@@ -229,7 +229,7 @@ export default {
     font-size: 13px;
     color: black;
     padding: 3px 2px 1px 2px;
-    font-family: NexaBold;
+    font-family: GeneralLeter;
     @include mobile() {
       font-size: 14px;
     }
@@ -238,7 +238,7 @@ export default {
     background: #eee;
   }
   &__text {
-    font-family: NexaBold;
+    font-family: GeneralLeter;
     font-size: 14px;
     @include xs() {
       font-size: 12px;
@@ -246,7 +246,7 @@ export default {
   }
   &__error {
     color: #e31552;
-    font-family: NexaBold;
+    font-family: GeneralLeter;
     font-size: 11px;
     @include mobile() {
       font-size: 12px;

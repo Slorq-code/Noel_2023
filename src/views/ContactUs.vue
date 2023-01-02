@@ -237,7 +237,7 @@ export default {
   }
   &__text {
     padding: 0 0 0 10px;
-    font-family: NexaBold;
+    font-family: GeneralLeter;
     color: white;
     font-size: 18px;
     line-height: 18px;

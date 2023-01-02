@@ -65,7 +65,7 @@ export default {
     height: 60px;
   }
   &__text {
-    font-family: NexaBold;
+    font-family: GeneralLeter;
     font-size: 16px;
     line-height: 14px;
     color: white;

@@ -164,7 +164,7 @@ export default {
   }
   &__text1 {
     color: white;
-    font-family: NexaBold;
+    font-family: GeneralLeter;
     font-size: 16px;
     margin-bottom: 20px;
     @include mobile() {
@@ -177,7 +177,7 @@ export default {
   &__text {
     color: white;
     margin: 0 !important;
-    font-family: NexaBold;
+    font-family: GeneralLeter;
     text-transform: capitalize;
     @include mobile() {
       font-size: 14px;

@@ -109,7 +109,7 @@ export default {
       font-size: 16px;
       line-height: 16px;
       color: white;
-      font-family: "NexaBold";
+      font-family: "GeneralLeter";
 
       @include mobile() {
         font-size: 15px;

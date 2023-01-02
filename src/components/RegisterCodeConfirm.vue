@@ -226,7 +226,7 @@ export default {
       }
   }
   &__text {
-    font-family: NexaBold;
+    font-family: GeneralLeter;
     color: white;
     font-size: 16px;
 

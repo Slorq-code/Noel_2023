@@ -19,29 +19,34 @@
       v-if="token && !mobile"
     />
     <div class="header__web-routes" v-if="!this.mobile">
-      <div v-for="(route, k) in webRoutes" :key="k">
-        <img 
-          src="../assets/Assets_Web_New/moneda_hover_header.png" alt="Modena"
-          :class="{
-            'header--web-route-selected-img header--web-route-selected': route.path === selectedRoute,
-          }"
-          v-if="selectedRoute==route.path"
-        >
-        <div
-          v-if="route.isVisible()"
-          @click="click(route)"
-          class="header__web-route"
-          :class="{
-            'header--web-route-selected': route.path === selectedRoute,
-          }"
-        >
-          <span
-            class="header__web-route-text"
+      <div 
+      v-for="(route, k) in webRoutes" :key="k"
+      :class="{
+      'header--web-route-selectedBorder': route.path === selectedRoute,
+      }" 
+      >
+          <img 
+            src="../assets/Assets_Web_New/moneda_hover_header.png" alt="Modena"
             :class="{
-              'header--web-route-text-selected': route.path === selectedRoute,
+              'header--web-route-selected-img header--web-route-selected': route.path === selectedRoute,
             }"
-            >{{ route.name }}
-          </span>
+            v-if="selectedRoute==route.path"
+          >
+          <div
+            v-if="route.isVisible()"
+            @click="click(route)"
+            class="header__web-route"
+            :class="{
+              'header--web-route-selected': route.path === selectedRoute,
+            }"
+          >
+            <span
+              class="header__web-route-text"
+              :class="{
+                'header--web-route-text-selected': route.path === selectedRoute,
+              }"
+              >{{ route.name }}
+            </span>
         </div>
       </div>
     </div>
@@ -312,6 +317,7 @@ export default {
   } 
   &__web-routes div{
     display: flex;
+    gap: 7px;
   }
   &__web-route {
     cursor: pointer;
@@ -325,16 +331,19 @@ export default {
     margin: 5px 0px 10px 0px;
   }
   &--web-route-selected {
-    border-bottom: 1px #eeb024 solid;
+    padding: 0 0 4px 0;
+  }
+  &--web-route-selectedBorder {
+    border-bottom: 2px #eeb024 solid;
   }
   &--web-route-selected-img {
-    height: 20px;
+    height: 17px;
   }
   &__web-route-text {
     display: flex;
     align-items: center;
     color: white;
-    font-family: NexaBold;
+    font-family: GeneralLeter;
     font-size: 11px;
     text-align: center;
     @include xlg() {
@@ -342,7 +351,7 @@ export default {
     }
   }
   &--web-route-text-selected {
-    transform: scale(1.09);
+    transform: scale(1.04);
     transition: 1s ease-out;
     color: #eeb024;
   }

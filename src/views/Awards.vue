@@ -112,7 +112,7 @@ export default {
       text-align: center;
       line-height: 16px;
       color: white;
-      font-family: "NexaBold";
+      font-family: "GeneralLeter";
     }
     &__banner {
       width: 90%;
@@ -164,7 +164,7 @@ export default {
       line-height: 17px;
       color: white;
       line-height: 17px;
-      font-family: "NexaBold";
+      font-family: "GeneralLeter";
     }
 
     &-image {
@@ -185,7 +185,7 @@ export default {
   &__titleTwo {
     font-size: 15px;
     color: white;
-    font-family: "NexaBold";
+    font-family: "GeneralLeter";
   }
 
   &__helperImage {

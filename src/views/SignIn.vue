@@ -229,7 +229,7 @@ export default {
     align-items: center;
   }
   &__section1-text {
-    font-family: NexaBold;
+    font-family: GeneralLeter;
     color: white;
     line-height: 12px;
     font-size: 12px;
@@ -249,7 +249,7 @@ export default {
     }
   }
   &__section2-text {
-    font-family: NexaBold;
+    font-family: GeneralLeter;
     color: #ffffff;
     line-height: 12px;
     font-size: 12px;
@@ -266,7 +266,7 @@ export default {
     color: white !important;
   }
   &__title {
-    font-family: NexaBold;
+    font-family: GeneralLeter;
     font-size: 36px;
     margin-right: 60px;
     color: #131f45;

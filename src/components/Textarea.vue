@@ -126,7 +126,7 @@ export default {
     
     textarea::placeholder {
       color: #BCBCBC;
-      font-family: NexaBold;
+      font-family: GeneralLeter;
       font-size: 14px;
     }
     @include mobile() {
@@ -149,7 +149,7 @@ export default {
       font-size: 14px;
       padding: 6px 10px;
       text-align: center;
-      font-family: NexaBold !important;
+      font-family: GeneralLeter !important;
       @include mobile() {
         font-size: 14px;
       }
@@ -166,7 +166,7 @@ export default {
     }
     &__error {
       color: #E31552;
-      font-family: NexaBold;
+      font-family: GeneralLeter;
       font-size: 11px;
       @include mobile() {
         font-size: 12px;
@@ -177,7 +177,7 @@ export default {
     }
     &__hint {
         color: white;
-        font-family: NexaBold;
+        font-family: GeneralLeter;
         font-size: 11px;
         @include mobile() {
           font-size: 12px;
@@ -185,7 +185,7 @@ export default {
     }
     &__label {
         margin-left: 10px;
-        font-family: NexaBold;
+        font-family: GeneralLeter;
         margin-right: 10px;
         font-size: 15px;
         color: white;

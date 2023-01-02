@@ -507,7 +507,7 @@ export default {
   }
   &__radio-text {
     color: white;
-    font-family: NexaBold;
+    font-family: GeneralLeter;
     font-size: 15px;
   }
   &__radio-text-action {
@@ -526,7 +526,7 @@ export default {
   }
   &__subtitle {
     margin-bottom: 10px;
-    font-family: NexaBold;
+    font-family: GeneralLeter;
     color: white;
     font-size: 15px;
   }

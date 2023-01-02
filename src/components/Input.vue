@@ -169,7 +169,7 @@ export default {
   margin-bottom: 10px;
   input::placeholder {
     color: #bcbcbc;
-    font-family: NexaBold;
+    font-family: GeneralLeter;
     font-size: 12px;
   }
   @include mobile() {
@@ -204,7 +204,7 @@ export default {
     font-size: 15px;
     padding: 2px 10px 2px 10px;
     text-align: center;
-    font-family: NexaBold !important;
+    font-family: GeneralLeter !important;
     @include mobile() {
       font-size: 14px;
       height: 38px;
@@ -230,7 +230,7 @@ export default {
   }
   &__error {
     color: #e31552;
-    font-family: NexaBold;
+    font-family: GeneralLeter;
     font-size: 11px;
     @include mobile() {
       font-size: 12px;
@@ -241,7 +241,7 @@ export default {
   }
   &__hint {
     color: white;
-    font-family: NexaBold;
+    font-family: GeneralLeter;
     font-size: 11px;
     @include mobile() {
       font-size: 12px;
@@ -249,7 +249,7 @@ export default {
   }
   &__label {
     margin-left: 10px;
-    font-family: NexaBold;
+    font-family: GeneralLeter;
     margin-right: 10px;
     font-size: 15px;
     color: white;

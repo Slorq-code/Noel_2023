@@ -1,6 +1,6 @@
 <template>
   <div 
-  :class="[token === true ? 'footer2' : 'footer1']"
+  :class="[token == true ? 'footer2' : 'footer1']"
   >
     <div class="footer1__facebook-content footer2__facebook-content">
       <img

@@ -347,7 +347,7 @@ export default {
   &__mini-text {
     width: 80%;
     margin: 5% 0;
-    font-family: NexaBold;
+    font-family: GeneralLeter;
     color: white;
     font-size: 20px;
     line-height: 20px;
@@ -463,7 +463,7 @@ export default {
   }
   &__box-text {
     margin-top: -24px;
-    font-family: NexaBold;
+    font-family: GeneralLeter;
     color: white;
     font-size: 16px;
   }
