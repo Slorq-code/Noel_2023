@@ -318,6 +318,7 @@ export default {
     justify-content: space-between;
     padding: 0 20px 0 0px;
     margin: 0 0px 0 40px;
+    height: 22px;
     @include tablet() {
       margin-left: 20px;
     }
