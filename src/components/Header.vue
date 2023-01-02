@@ -18,7 +18,11 @@
       src="../assets/Assets_Web_New/Logo_header_Juntos_Premiarte_2022.png"
       v-if="token && !mobile"
     />
-    <div class="header__web-routes" v-if="!this.mobile">
+    <div 
+      class="header__web-routes" 
+      v-if="!this.mobile"
+      :class="['header__web-routes', token === true ? 'header__web-routesSeparate' : '']"
+    >
       <div 
       v-for="(route, k) in webRoutes" :key="k"
       :class="{
@@ -315,6 +319,9 @@ export default {
       margin-left: 20px;
     }
   } 
+  &__web-routesSeparate{
+    background-color: red;
+  }
   &__web-routes div{
     display: flex;
     gap: 7px;
