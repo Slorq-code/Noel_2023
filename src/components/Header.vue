@@ -52,10 +52,10 @@
             </span>
         </div>
       </div>
-      <br>
-      <br>
-      <br>
-      <br>
+      <br v-if="!token" >
+      <br v-if="!token" >
+      <br v-if="!token" >
+      <br v-if="!token" >
     </div>
     <img
       class="header__logo__logoCurva"
