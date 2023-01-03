@@ -25,28 +25,28 @@
       >
       <div class="signUp__form-row">
         <Input
-          :model="user.name"
           @close-all="
             $refs.operator.open = false;
             $refs.department_state.open = false;
-          "
+            "
+          @handle-input="setValue($event)"
           field="name"
           label="Nombres"
-          @handle-input="setValue($event)"
           placeholder="Ingresa tus nombres"
+          :model="user.name"
           :required="true"
           :error="errors.name"
         />
         <Input
-          :model="user.lastName"
+          field="lastName"
+          placeholder="Ingresa tus apellidos"
+          label="Apellidos"
           @close-all="
             $refs.operator.open = false;
             $refs.department_state.open = false;
-          "
-          field="lastName"
-          label="Apellidos"
+            "
           @handle-input="setValue($event)"
-          placeholder="Ingresa tus apellidos"
+          :model="user.lastName"
           :required="true"
           :error="errors.lastnAME"
         />
@@ -57,8 +57,8 @@
             $refs.operator.open = false;
             $refs.department_state.open = false;
           "
-          :model="user.idn"
           @handle-input="setValue($event)"
+          :model="user.idn"
           placeholder="Ingresa nº de cédula"
           :required="true"
           :error="errors.idn"
@@ -67,15 +67,15 @@
       </div>
       <div class="signUp__form-row">
         <Input
-          :model="user.email"
+          label="Correo Electrónico"
           field="email"
+          placeholder="Ingresar correo electrónico"
           @close-all="
             $refs.operator.open = false;
             $refs.department_state.open = false;
-          "
-          label="Correo Electrónico"
+            "
           @handle-input="setValue($event)"
-          placeholder="Ingresar correo electrónico"
+          :model="user.email"
           :required="true"
           :error="errors.email"
         />
@@ -83,7 +83,7 @@
           ref="department_state"
           field="department_state"
           label="Departamento"
-          placeholder="Seleccionar departamento"
+          placeholder="Ingresa departamento"
           :model="user.department_state"
           :items="GetDepartments"
           :required="true"
@@ -96,56 +96,54 @@
           field="city"
           label="Ciudad"
           placeholder="Seleccionar Ciudad"
+          @handle-input="setValue($event)"
           :model="user.city"
           :items="formattedCities"
           :required="true"
           :error="errors.city"
-          @handle-input="setValue($event)"
         />
       </div>
       <div class="signUp__form-row">
         <Input
           field="phone"
           label="Celular"
-          :model="user.phone"
+          maxlength="10"
+          placeholder="Ingresa nº celular"
           @close-all="
             $refs.operator.open = false;
             $refs.department_state.open = false;
-          "
+            "
           @handle-input="setValue($event)"
-          placeholder="Ingresa nº celular"
+          :model="user.phone"
           :required="true"
           :error="errors.phone"
-          maxlength="10"
           :onlyNumbers="true"
         />
         <Select
           ref="operator"
           field="operator"
-          @close-all="$refs.department_state.open = false"
-          label="Operador"
-          :model="user.operator"
           placeholder="Seleccionar operador"
-          :items="fomattedOperators"
+          label="Operador"
+          @close-all="$refs.department_state.open = false"
           @handle-input="setValue($event)"
+          :model="user.operator"
+          :items="fomattedOperators"
           :required="true"
           :error="errors.operator"
         />
         <Select
-          style="
-          opacity: 0;
-          "
+          v-if="!mobile"
+          style="opacity: 0"
           ref="operator"
           field="operator"
-          @close-all="$refs.department_state.open = false"
           label="Operador"
-          :model="user.operator"
           placeholder="Seleccionar operador"
-          :items="fomattedOperators"
+          @close-all="$refs.department_state.open = false"
           @handle-input="setValue($event)"
+          :model="user.operator"
+          :items="fomattedOperators"
           :required="true"
           :error="errors.operator"
-          v-if="moible"
         />
       </div>
       <div class="signUp__radioBigBox">
@@ -186,7 +184,7 @@
       ></signup-confirm>
     </modal>
   </div>
-</template> 
+</template>
 
 <script>
 import Radio from "../components/Radio";
@@ -501,6 +499,13 @@ export default {
     height: auto;
     min-height: 100px;
     margin: 0px 0 20px 0;
+    @include mxHeight(590px) {
+      min-height: 80px;
+      margin: 0px 0 0px 0;
+    }
+    @include mnHeight(1000px) {
+      margin: 10px 0 10px 0;
+    }
     @include xs() {
       padding: 0 6px;
     }
@@ -508,13 +513,8 @@ export default {
       flex-direction: column;
       padding: 0 20px;
       width: 100%;
-    }
-    @include mxHeight(590px) {
-      min-height: 80px;
-      margin: 0px 0 0px 0;
-    }
-    @include mnHeight(1000px) {
-      margin: 10px 0 10px 0;
+      gap: 17px;
+      margin: 0 0 17px 0;
     }
   }
   &__radioBigBox {
@@ -528,11 +528,14 @@ export default {
       flex-direction: row;
       margin: 10px 0 0px 0;
     }
+    @include mobile() {
+      flex-direction: column;
+    }
   }
   &__radio-text {
     color: white;
     font-family: generalLeter;
-text-shadow: 0px 3px 6px #00000029;
+    text-shadow: 0px 3px 6px #00000029;
     font-size: 15px;
   }
   &__radio-text-action {
@@ -552,12 +555,15 @@ text-shadow: 0px 3px 6px #00000029;
   &__subtitle {
     margin-bottom: 10px;
     font-family: generalLeter;
-text-shadow: 0px 3px 6px #00000029;
+    text-shadow: 0px 3px 6px #00000029;
     color: white;
     text-align: center;
     font-size: 15px;
     @include mxHeight(590px) {
       display: none;
+    }
+    @include mobile() {
+      display: initial;
     }
   }
 }

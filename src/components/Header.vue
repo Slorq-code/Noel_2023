@@ -435,6 +435,9 @@ text-shadow: 0px 3px 6px #00000029;
     }
     &__social span{
       color: white;
+      @include xs() {
+        font-size: 14px;
+      }
     }
   }
 }

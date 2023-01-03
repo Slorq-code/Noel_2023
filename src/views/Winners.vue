@@ -231,7 +231,7 @@ export default {
       }
   }
   &__wrapper-table-row {
-    height: 220px;
+    height: 192px;
     padding: 0 20px 0 0;
     overflow-y: auto;
     @include mobile() {

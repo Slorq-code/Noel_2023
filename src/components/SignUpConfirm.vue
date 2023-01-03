@@ -13,57 +13,70 @@
     />
     <div class="signup-confirm__content">
       <span class="signup-confirm__text1" style="margin-bottom: 10px">
-        Por favor confirma que tus datos estén correctos, especialmente tu número celular y operador al cual perteneces; recuerda que las recargas se realizarán a este número celular.
+        Por favor confirma que tus datos estén correctos, especialmente tu
+        número celular y operador al cual perteneces; recuerda que las recargas
+        se realizarán a este número celular.
       </span>
       <span class="signup-confirm__text">Nombre: {{ user.name }}</span>
       <span class="signup-confirm__text">Apellido: {{ user.lastName }}</span>
       <span class="signup-confirm__text">Cédula: {{ user.idn }}</span>
       <span class="signup-confirm__text">Correo: {{ user.email }}</span>
-      <span class="signup-confirm__text">Dpto: {{ user.department_state }}</span>
+      <span class="signup-confirm__text"
+        >Dpto: {{ user.department_state }}</span
+      >
       <span class="signup-confirm__text">ciudad: {{ user.city }}</span>
-      <span class="signup-confirm__text">
-        N° Celular: {{ number }}
-      </span>
-      <span class="signup-confirm__text">
-       Operador: {{ user.operator }}
-      </span>
+      <span class="signup-confirm__text"> N° Celular: {{ number }} </span>
+      <span class="signup-confirm__text"> Operador: {{ user.operator }} </span>
     </div>
     <div class="signup-confirm__buttons">
-      <Button color="1" text="Editar" type="secondary" @handle-click="close()" />
-      <Button text="Continuar " type="primary" :isLoading="loading"  @handle-click="preRegister()"/>
+      <Button
+        color="1"
+        text="Editar"
+        type="secondary"
+        @handle-click="close()"
+      />
+      <Button
+        text="Continuar "
+        type="primary"
+        :isLoading="loading"
+        @handle-click="preRegister()"
+      />
     </div>
   </div>
 </template>
 
 <script>
 import { Register, UpdateUser } from "@/api";
-import Button from '../components/Button'
+import Button from "../components/Button";
 export default {
   name: "SignupConfirm",
   components: {
-    Button
+    Button,
   },
   props: {
     user: {
       type: Object,
-      required: true
-    }, 
+      required: true,
+    },
     edit: {
       type: Boolean,
-      required: false
-    }
+      required: false,
+    },
   },
   computed: {
     name() {
-       return this.user.firstName + ' ' + this.user.lastName;
-    }, 
+      return this.user.firstName + " " + this.user.lastName;
+    },
     number() {
-      return `${this.user.phone.substring(0,3)}-${this.user.phone.substring(3,6)}-${this.user.phone.substring(6,10)}`
-    }
+      return `${this.user.phone.substring(0, 3)}-${this.user.phone.substring(
+        3,
+        6
+      )}-${this.user.phone.substring(6, 10)}`;
+    },
   },
   data() {
     return {
-      loading: false
+      loading: false,
     };
   },
   methods: {
@@ -78,60 +91,68 @@ export default {
       this.edit ? this.update() : this.register();
     },
     capitalize(val, onlyFirstLetter = true) {
-      const replacer = match => match.toUpperCase()
-      if (typeof val !== 'string') return ''
-      const acronymRegex = /(([a-zA-Z]\.){2,})/g
-      const inLowerCase = val.toLowerCase()
+      const replacer = (match) => match.toUpperCase();
+      if (typeof val !== "string") return "";
+      const acronymRegex = /(([a-zA-Z]\.){2,})/g;
+      const inLowerCase = val.toLowerCase();
       const capitalized = onlyFirstLetter
         ? inLowerCase.charAt(0).toUpperCase() + inLowerCase.slice(1)
-        : inLowerCase.replace(/\b(\w)/g, s => s.toUpperCase())
-      return capitalized.replace(acronymRegex, replacer)
+        : inLowerCase.replace(/\b(\w)/g, (s) => s.toUpperCase());
+      return capitalized.replace(acronymRegex, replacer);
     },
     register() {
-      Register({ ...this.user, adult_registration: 1, name: this.capitalize(this.user.name) })
-        .then(resp => {
+      Register({
+        ...this.user,
+        adult_registration: 1,
+        name: this.capitalize(this.user.name),
+      })
+        .then((resp) => {
           this.loading = false;
           this.closeSuccess(resp);
           this.$store.dispatch("setAlert", {
             buttonLabel: "CONTINUAR",
-            type:'SUCCESS',
+            type: "SUCCESS",
             showClose: true,
             title: "¡TU REGISTRO HA SIDO EXITOSO!",
-            message: "¡Ya puedes comenzar a ingresar códigos!."
+            message: "¡Ya puedes comenzar a ingresar códigos!.",
           });
         })
-        .catch(err => {
+        .catch((err) => {
           this.loading = false;
           this.close();
           this.$store.dispatch("setAlert", {
             buttonLabel: "Aceptar",
-            type:'INFO',
+            type: "INFO",
             showClose: true,
-            messages: err.response.data.errors
+            messages: err.response.data.errors,
           });
         });
-    }, 
+    },
     update() {
-      UpdateUser({ ...this.user, adult_registration: 1, name: this.capitalize(this.user.name) })
-        .then(resp => {
+      UpdateUser({
+        ...this.user,
+        adult_registration: 1,
+        name: this.capitalize(this.user.name),
+      })
+        .then((resp) => {
           this.loading = false;
           this.closeSuccess(resp);
           this.$store.dispatch("setAlert", {
             buttonLabel: "Aceptar",
             title: "¡Felicitaciones!",
-            message: "¡El registro se ha realizado exitosamente!"
+            message: "¡El registro se ha realizado exitosamente!",
           });
         })
-        .catch(err => {
+        .catch((err) => {
           this.loading = false;
           this.close();
           this.$store.dispatch("setAlert", {
             buttonLabel: "Aceptar",
-            messages: err.response.data.errors
+            messages: err.response.data.errors,
           });
         });
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -167,7 +188,7 @@ export default {
   &__text1 {
     color: white;
     font-family: generalLeter;
-text-shadow: 0px 3px 6px #00000029;
+    text-shadow: 0px 3px 6px #00000029;
     font-size: 13px;
     margin-bottom: 20px;
     @include mobile() {
@@ -181,7 +202,7 @@ text-shadow: 0px 3px 6px #00000029;
     color: white;
     margin: 0 !important;
     font-family: generalLeter;
-text-shadow: 0px 3px 6px #00000029;
+    text-shadow: 0px 3px 6px #00000029;
     text-transform: capitalize;
     font-size: 13px;
     @include mobile() {
@@ -227,7 +248,6 @@ text-shadow: 0px 3px 6px #00000029;
     @include mobile() {
       padding: 0px 10px;
     }
-
     @include xs() {
       margin-top: 10px;
     }

@@ -190,10 +190,9 @@ export default {
     }
     &-mobile {
       display: none;
-      height: 306px;
+      height: 180px;
       margin-bottom: 10px;
       @include mobile() {
-        height: 230px;
         display: initial;
       }
       @include xs() {

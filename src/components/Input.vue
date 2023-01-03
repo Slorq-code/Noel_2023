@@ -172,15 +172,9 @@ export default {
     text-shadow: 0px 3px 6px #00000029;
     font-size: 12px;
   }
-  @include xs() {
-    margin-bottom: 5px;
-  }
   @include mobile() {
     width: 270px !important;
     margin: 25px 10px;
-  }
-  @include xs() {
-    width: 100% !important;
   }
   @include lg() {
     width: 330px;
@@ -192,6 +186,10 @@ export default {
   @include mnHeight(1000px) {
     width: 330px;
     height: 56px;
+  }
+  @include xs() {
+    width: 100% !important;
+    margin-bottom: 5px;
   }
   &__main-box {
     display: flex;

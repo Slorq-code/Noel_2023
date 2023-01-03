@@ -11,7 +11,9 @@
       class="privacyPolicy__image"
       src="@/assets/Assets_Web_New/Logo_modales_Juntos_Premiarte_2022.png"
     />
-    <h3 class="privacyPolicy__title" >Politica de privacidad general de la campaña.</h3>
+    <h3 class="privacyPolicy__title">
+      Politica de privacidad general de la campaña.
+    </h3>
     <div class="privacyPolicy__content">
       <div class="privacyPolicy__box">
         <div class="privacyPolicy__scroll">
@@ -1054,7 +1056,7 @@ export default {
     line-height: 16px;
     text-align: justify;
   }
-  &__text p{
+  &__text p {
     color: white;
     @include mobile() {
       font-size: 14px;
@@ -1063,11 +1065,11 @@ export default {
   &__title {
     color: white;
     font-family: generalLeter;
-text-shadow: 0px 3px 6px #00000029;
+    text-shadow: 0px 3px 6px #00000029;
     text-align: center;
     @include mobile() {
       font-size: 17px;
-      padding: 0 20px;
+      padding: 15px 20px 0 20px;
     }
   }
   &__image {
