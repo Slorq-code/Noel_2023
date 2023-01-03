@@ -61,8 +61,8 @@ export default {
     height: 45px;
   }
   @include xlg() {
-    width: 300px;
-    height: 60px;
+    width: 290px;
+    height: 50px;
   }
   &__text {
     font-family: GeneralLeter;

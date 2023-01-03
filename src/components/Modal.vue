@@ -1,6 +1,6 @@
 <template>
   <div v-if="dialog" class="modal" @click="permanentAction()">
-    <div class="modal__content" :style="{ width: `${width}px` }" @click.stop>
+    <div class="modal__content" :style="{width:`${width}px`}" @click.stop>
       <div>
         <slot name="component"></slot>
       </div>

@@ -168,12 +168,11 @@ export default {
   &__image {
     width: 70%;
     @include mxHeight(600px) {
-      width: 60%;
+      width: 56%;
     }
     @include mobile() {
       display: none;
     }
-
     &-mobile {
       display: none;
       height: 306px;

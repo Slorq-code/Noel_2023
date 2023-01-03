@@ -516,11 +516,13 @@ export default {
   }
   &__radioBigBox {
     display: flex;
+    flex-direction: column;
     margin: 30px 0 30px 0;
     @include mobile() {
       margin: -100px 0 30px 0;
     }
     @include mxHeight(590px) {
+      flex-direction: row;
       margin: 10px 0 0px 0;
     }
   }

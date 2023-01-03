@@ -1,6 +1,6 @@
 <template>
     <div class="SingIngModal">
-        <div class="SingIngModal-container">
+        <div class="SingIngModal-container SingIngModal__close-container">
             <img @click="close()" class="SingIngModal__close-image" src="../assets/Assets_Mobile_New/btn_cerrar.png" />
         </div>
         <img class="SingIngModal__image" src="@/assets/Assets_Web_New/Logo_modales_Juntos_Premiarte_2022.png" />
@@ -14,7 +14,7 @@
                 <Input field="idn" @handle-input="setValue($event)" placeholder="Número de cédula" :onlyNumbers="true"
                     :error="error" maxlength="10" />
             </div>
-            <br>
+            <br class="SingIngModal__space" >
             <div class="SingIngModal__contentCenter">
                 <Button text="Ingresar" type="primary" :isLoading="loading" @handle-click="signIn()" />
             </div>
@@ -105,25 +105,41 @@ export default {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
+    position: relative;
+    &__space {
+        @include mxHeight(590px) {
+            display: none;
+        }
+        @include mnHeight(600px) {
+            display: block;
+            height: 100px;
+        }
+    }
     &__content {
         display: flex;
-        justify-content: center;
+        justify-content: flex-start;
         align-content: center;
         align-items: center;
         flex-direction: column;
         width: 100%;
-        height: 300px;
+        height: 230px;
         position: relative;
+        @include mnHeight(1000px) {
+            height: 250px;
+        }
+    }
+    &__content:nth-child(2) {
+        margin: 0 0 0 0;
+        background-color: red;
     }
 
     &__contentCenter {
         display: flex;
         justify-content: center;
+        align-items: center;
         width: 80%;
         height: 17%;
     }
-
     &__box {
         position: absolute;
         top: 20px;
@@ -186,10 +202,9 @@ export default {
     &__close-container {
         display: flex;
         justify-content: flex-end;
-        width: 100%;
+        width: calc(100% + 60px);
         padding: 10px;
-        margin-top: -56px;
-
+        margin-top: -35px;
         @include xs() {
             margin-top: -50px;
             margin-bottom: -40px;

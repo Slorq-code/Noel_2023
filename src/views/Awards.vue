@@ -116,12 +116,15 @@ export default {
     }
     &__banner {
       width: 90%;
-      @include lg() {
+      @include mnHeight(780px) {
+        height: calc(90vh - 220px);
+      }
+      @include mxHeight(590px) {
+        width: 53%;
+      }
+      @include xlg() {
         width: 100%;
       }
-      @include mnHeight(780px) {
-      height: calc(90vh - 220px);
-    }
       &__mobile {
       width: 80%;
       @include mxHeight(600px) {

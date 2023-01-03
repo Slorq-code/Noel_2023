@@ -14,23 +14,23 @@
         alt="Como participar"
       />
     </div>
-      <div class="howToTakePart__contentBox">
-        <h2 class="howToTakePart__contentBox-title">
-          ¡Participar es muy fácil! Solo sigue estos sencillos pasos:
-        </h2>
-        <img
-          v-if="!mobile"
-          class="howToTakePart__image-content"
-          src="../assets/Assets_Web_New/img_como_participar.png"
-          alt="Como participar contenido"
-        />
-        <img
-          v-if="mobile"
-          class="howToTakePart__image-content-mobile"
-          src="../assets/Assets_Mobile_New/Como_particiapr.png"
-          alt="Como participar contenido"
-        />
-      </div>
+    <div class="howToTakePart__contentBox">
+      <h2 class="howToTakePart__contentBox-title">
+        ¡Participar es muy fácil! Solo sigue estos sencillos pasos:
+      </h2>
+      <img
+        v-if="!mobile"
+        class="howToTakePart__image-content"
+        src="../assets/Assets_Web_New/img_como_participar.png"
+        alt="Como participar contenido"
+      />
+      <img
+        v-if="mobile"
+        class="howToTakePart__image-content-mobile"
+        src="../assets/Assets_Mobile_New/Como_particiapr.png"
+        alt="Como participar contenido"
+      />
+    </div>
   </div>
 </template>
 
@@ -138,14 +138,18 @@ export default {
   &__image-content {
     margin: 10px 0;
     width: 65%;
+    @include mxHeight(590px) {
+      margin: 0px 0;
+      width: 38.5%;
+    }
     @include mnHeight(780px) {
-      height: calc(90vh - 220px);
+      height: calc(85vh - 220px);
       width: 90%;
     }
     &-mobile {
       height: 640px;
       @include xs() {
-	height: 650px;
+        height: 650px;
       }
     }
   }
