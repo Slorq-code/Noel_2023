@@ -1,15 +1,13 @@
 <template>
   <div class="enterCode">
     <div v-if="!mobile" class="enterCode__counter-content">
-          <img
-            class="enterCode__counter-img"
-            src="../assets/Assets_Web_New/Contador_premios.png"
-          />
-          <span class="enterCode__counter-text"
-            >3 0 0 1</span
-          >
-          <!-- {{ total | amount }}  dentro del span-->
-        </div>
+      <img
+        class="enterCode__counter-img"
+        src="../assets/Assets_Web_New/Contador_premios.png"
+      />
+      <span class="enterCode__counter-text">3 0 0 1</span>
+      <!-- {{ total | amount }}  dentro del span-->
+    </div>
     <div v-if="!mobile" class="enterCode-web">
       <div class="enterCode-web__section-1">
         <img
@@ -24,9 +22,10 @@
         />
         <div class="enterCode-web__section-2__middleTitle">
           <span>
-            Ingresa aquí los códigos que encontraste en los stickers dentro de los empaques de Saltín Noel y Ducales.
+            Ingresa aquí los códigos que encontraste en los stickers dentro de
+            los empaques de Saltín Noel y Ducales.
           </span>
-        </div>  
+        </div>
         <div class="enterCode-web__flex">
           <div class="enterCode-web__box">
             <div class="enterCode-web__box-item">
@@ -100,11 +99,14 @@
         class="enterCode-mobile__mini"
         src="../assets/Assets_Mobile_New/stickers_ingreso_codi.png"
       />
-      <div style="
-        margin-bottom: 4%; 
-        text-align: center; 
-        width: 270px;
-        margin-right:20px;">
+      <div
+        style="
+          margin-bottom: 4%;
+          text-align: center;
+          width: 270px;
+          margin-right: 20px;
+        "
+      >
         <Input
           :field="'code'"
           :model="code"
@@ -172,7 +174,7 @@ export default {
     return {
       loading: false,
       errors: {},
-//      recaptchaCode: "",
+      //      recaptchaCode: "",
       count: 0,
       ducales: "",
       saltin: "",
@@ -190,7 +192,7 @@ export default {
   components: {
     Input,
     Button,
-//  VueRecaptcha,
+    //  VueRecaptcha,
     RegisterCodeConfirm,
     Modal,
   },
@@ -344,10 +346,12 @@ export default {
   flex-direction: column;
   width: 80%;
   text-align: center;
+  align-items: center;
   &__mini-text {
     width: 80%;
     margin: 5% 0;
-    font-family: GeneralLeter;
+    font-family: generalLeter;
+    text-shadow: 0px 3px 6px #00000029;
     color: white;
     font-size: 20px;
     line-height: 20px;
@@ -363,6 +367,8 @@ export default {
   }
   &__flex {
     display: flex;
+    justify-content: center;
+    width: 100%;
   }
   &__section-1 {
     display: flex;
@@ -379,14 +385,17 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 90vw;
     &__middleTitle {
       color: white;
-      width: 100%;
+      width: 50%;
+      margin: 10px 0px;
       @include xlg() {
         width: 60%;
+        margin: 30px 0px;
       }
     }
-    &__middleTitle span{
+    &__middleTitle span {
       font-size: 12px;
       @include lg() {
         font-size: 15px;
@@ -398,14 +407,15 @@ export default {
   }
   &__title {
     margin-top: -40px;
-    @include mxHeight(550px) {
-      margin-top: -25px;
-    }
     @include lg() {
       width: 80vh;
     }
     @include xlg() {
-      width: 850px;
+      width: 40%;
+    }
+    @include mxHeight(550px) {
+      margin-top: -25px;
+      width: 61vh;
     }
   }
   &__box {
@@ -439,31 +449,38 @@ export default {
   }
   &__saltin-image {
     width: 40%;
-    @include mnHeight(1000px) {
-      width: 60%;
-    }
     @include lg() {
       width: 45%;
     }
     @include xlg() {
       width: 75%;
+    }
+    @include mxHeight(590px) {
+      width: 35%;
+    }
+    @include mnHeight(1000px) {
+      width: 60%;
     }
   }
   &__ducales-image {
     width: 40%;
-    @include mnHeight(1000px) {
-      width: 60%;
-    }
     @include lg() {
       width: 45%;
     }
     @include xlg() {
       width: 75%;
     }
+    @include mxHeight(590px) {
+      width: 35%;
+    }
+    @include mnHeight(1000px) {
+      width: 60%;
+    }
   }
   &__box-text {
     margin-top: -24px;
-    font-family: GeneralLeter;
+    font-family: generalLeter;
+    text-shadow: 0px 3px 6px #00000029;
     color: white;
     font-size: 16px;
   }
@@ -481,10 +498,10 @@ export default {
     height: 40px;
     margin: 10px;
     @include lg() {
-      height: 55px;
+      height: 45px;
     }
     @include xlg() {
-      height: 65px;
+      height: 50px;
     }
   }
 }
@@ -542,5 +559,5 @@ export default {
       align-items: center;
     }
   }
-} 
+}
 </style>

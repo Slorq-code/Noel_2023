@@ -1,6 +1,10 @@
 <template>
   <div class="signIn__wrapper">
-    <img class="signIn__titlePage" src="../assets/Assets_Web_New/Titulo_Bienvenido.png" alt="Bienvenida">
+    <img
+      class="signIn__titlePage"
+      src="../assets/Assets_Web_New/Titulo_Bienvenido.png"
+      alt="Bienvenida"
+    />
     <div class="signIn">
       <div class="signIn__image-content">
         <!-- <span class="signIn__title" v-if="!mobile">Bienvenido a</span> -->
@@ -26,23 +30,30 @@
               @handle-click="register()"
             />
           </div>
-          <br>
+          <br />
           <span class="signIn__section2-singIn signIn__section2-text">
             ¿Ya estás registrado?
-            <a  class="signIn__dispachModalSingIn" href="#" @click="boolSingIn = true">
+            <a
+              class="signIn__dispachModalSingIn"
+              href="#"
+              @click="boolSingIn = true"
+            >
               Inicia Sesión
             </a>
           </span>
         </div>
       </div>
     </div>
-    <img
-      class="signIn__image-login-bottom"
-      src="@/assets/web/Caja_texto_login.png"
-      alt="texto_login"
-    />
-    <modal :dialog="boolSingIn" width="600" @close="boolSingIn = false" :permanent="false">
-      <sing-in-modal slot="component" @close="boolSingIn = false"></sing-in-modal>
+    <modal
+      :dialog="boolSingIn"
+      width="600"
+      @close="boolSingIn = false"
+      :permanent="false"
+    >
+      <sing-in-modal
+        slot="component"
+        @close="boolSingIn = false"
+      ></sing-in-modal>
     </modal>
   </div>
 </template>
@@ -50,8 +61,8 @@
 <script>
 import Button from "../components/Button";
 import { Login } from "../api";
-import Modal from '../components/Modal';
-import SingInModal from '../components/SingInModal.vue';
+import Modal from "../components/Modal";
+import SingInModal from "../components/SingInModal.vue";
 
 export default {
   name: "SignIn",
@@ -145,10 +156,14 @@ export default {
     align-items: center;
     width: 100%;
   }
-  &__titlePage{
+  &__titlePage {
     margin: 2% 0 0 0;
-    @include mxHeight (600px) {
-      height: 69px;
+    @include mxHeight(600px) {
+      width: 50%;
+    }
+    @include mobile() {
+      margin: 8% 0 -10px 0;
+      width: 78vh;
     }
   }
   &__image-login-bottom {
@@ -196,7 +211,7 @@ export default {
     border-radius: 20px;
     width: 35%;
     margin: 1% 0 0 0;
-    
+
     @include xs() {
       margin-top: -15px;
     }
@@ -207,7 +222,7 @@ export default {
     @include xlg() {
       width: 40%;
     }
-    @include mnHeight (1000px) {
+    @include mnHeight(1000px) {
       height: 300px;
       justify-content: center;
     }
@@ -218,7 +233,8 @@ export default {
     align-items: center;
   }
   &__section1-text {
-    font-family: GeneralLeter;
+    font-family: generalLeter;
+    text-shadow: 0px 3px 6px #00000029;
     color: white;
     line-height: 12px;
     font-size: 12px;
@@ -238,24 +254,29 @@ export default {
     }
   }
   &__section2-text {
-    font-family: GeneralLeter;
+    font-family: generalLeter;
+    text-shadow: 0px 3px 6px #00000029;
     color: #ffffff;
     line-height: 12px;
-    font-size: 12px;
+    font-size: 16px;
     margin-bottom: 15px;
     text-align: center;
+    @include mobile() {
+      font-size: 14px;
+    }
     @include lg() {
-      font-size: 20px;
+      font-size: 18px;
     }
     @include xlg() {
       font-size: 27px;
     }
   }
-  &__dispachModalSingIn{
+  &__dispachModalSingIn {
     color: white !important;
   }
   &__title {
-    font-family: GeneralLeter;
+    font-family: generalLeter;
+    text-shadow: 0px 3px 6px #00000029;
     font-size: 36px;
     margin-right: 60px;
     color: #131f45;

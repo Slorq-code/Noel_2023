@@ -109,8 +109,8 @@ export default {
       font-size: 16px;
       line-height: 16px;
       color: white;
-      font-family: "GeneralLeter";
-
+      font-family: generalLeter;
+      text-shadow: 0px 3px 6px #00000029;
       @include mobile() {
         font-size: 15px;
         line-height: 15px;

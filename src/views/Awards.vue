@@ -112,7 +112,8 @@ export default {
       text-align: center;
       line-height: 16px;
       color: white;
-      font-family: "GeneralLeter";
+      font-family: generalLeter;
+      text-shadow: 0px 3px 6px #00000029;
     }
     &__banner {
       width: 90%;
@@ -167,7 +168,8 @@ export default {
       line-height: 17px;
       color: white;
       line-height: 17px;
-      font-family: "GeneralLeter";
+      font-family: generalLeter;
+      text-shadow: 0px 3px 6px #00000029;
     }
 
     &-image {
@@ -188,7 +190,7 @@ export default {
   &__titleTwo {
     font-size: 15px;
     color: white;
-    font-family: "GeneralLeter";
+    font-family: generalLeter;
   }
 
   &__helperImage {

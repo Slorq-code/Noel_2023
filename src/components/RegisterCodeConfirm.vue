@@ -226,7 +226,8 @@ export default {
       }
   }
   &__text {
-    font-family: GeneralLeter;
+    font-family: generalLeter;
+text-shadow: 0px 3px 6px #00000029;
     color: white;
     font-size: 16px;
 

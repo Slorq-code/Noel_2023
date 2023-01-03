@@ -101,9 +101,9 @@ export default {
     justify-content: center;
   }
   &__message {
-    font-family: "GeneralLeter";
     font-size: 18px;
     color: white;
+    text-shadow: 0px 3px 6px #00000029;
     text-align: center;
     text-align: center;
     @include mobile() {
@@ -112,7 +112,8 @@ export default {
   }
   &__title {
     margin-bottom: 10px;
-    font-family: "GeneralLeter";
+    font-family: generalLeter;
+    text-shadow: 0px 3px 6px #00000029;
     text-align: center;
     color: white;
     font-size: 28px;

@@ -168,7 +168,8 @@ export default {
   margin: 0 10px 10px 0;
   input::placeholder {
     color: #929292;
-    font-family: GeneralLeter;
+    font-family: generalLeter;
+    text-shadow: 0px 3px 6px #00000029;
     font-size: 12px;
   }
   @include xs() {
@@ -206,7 +207,8 @@ export default {
     font-size: 15px;
     padding: 2px 10px 2px 10px;
     text-align: center;
-    font-family: GeneralLeter !important;
+    font-family: generalLeter;
+    text-shadow: 0px 3px 6px #00000029;
     @include xs() {
       height: 30px;
     }
@@ -236,7 +238,8 @@ export default {
   }
   &__error {
     color: #e31552;
-    font-family: GeneralLeter;
+    font-family: generalLeter;
+    text-shadow: 0px 3px 6px #00000029;
     font-size: 9px;
     @include mobile() {
       font-size: 10px;
@@ -250,7 +253,8 @@ export default {
   }
   &__hint {
     color: white;
-    font-family: GeneralLeter;
+    font-family: generalLeter;
+    text-shadow: 0px 3px 6px #00000029;
     font-size: 11px;
     @include mobile() {
       font-size: 12px;
@@ -258,7 +262,8 @@ export default {
   }
   &__label {
     margin: 0 10px 0px 10px;
-    font-family: GeneralLeter;
+    font-family: generalLeter;
+    text-shadow: 0px 3px 6px #00000029;
     font-size: 15px;
     color: white;
     @include mobile() {

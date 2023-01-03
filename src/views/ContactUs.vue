@@ -237,7 +237,8 @@ export default {
   }
   &__text {
     padding: 0 0 0 10px;
-    font-family: GeneralLeter;
+    font-family: generalLeter;
+text-shadow: 0px 3px 6px #00000029;
     color: white;
     font-size: 18px;
     line-height: 18px;

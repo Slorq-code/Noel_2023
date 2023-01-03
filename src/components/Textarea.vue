@@ -1,13 +1,13 @@
 <template>
   <div class="textarea">
     <div class="textarea__main-box">
-        <div class="textarea__label-container" v-if="label">
-          <span class="textarea__label">
+      <div class="textarea__label-container" v-if="label">
+        <span class="textarea__label">
           {{ label }}
           <span v-if="required" class="textarea__required">*</span>
-          </span>
-        </div>
-        <textarea
+        </span>
+      </div>
+      <textarea
         v-model="componentModel"
         @input="input()"
         class="textarea__field"
@@ -17,82 +17,82 @@
         :maxlength="maxlength"
         autocomplete="off"
         :disabled="disabled"
-        />
+      />
     </div>
     <div class="textarea__messages">
-       <div class="textarea__messages-box">
-            <span class="textarea__error">{{ error || "" }}</span>
-            <span v-if="hint && !error" class="textarea__hint">{{ hint }}</span>
-       </div>
+      <div class="textarea__messages-box">
+        <span class="textarea__error">{{ error || "" }}</span>
+        <span v-if="hint && !error" class="textarea__hint">{{ hint }}</span>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Textarea',
-    data() {
+  name: "Textarea",
+  data() {
     return {
-      componentModel: ""
+      componentModel: "",
     };
   },
   props: {
     field: {
       type: String,
-      required: true
+      required: true,
     },
     label: {
       type: String,
-      default: ""
+      default: "",
     },
     placeholder: {
       type: String,
-      default: ""
+      default: "",
     },
     required: {
       type: Boolean,
-      required: false
+      required: false,
     },
     error: {
       type: String,
-      default: ""
+      default: "",
     },
     disabled: {
       type: Boolean,
-      default: false
+      default: false,
     },
     hint: {
       type: String,
-      default: ""
+      default: "",
     },
     type: {
       type: String,
-      default: "text"
+      default: "text",
     },
     model: {
       type: [String, Number],
-      default: ""
+      default: "",
     },
     onlyNumbers: {
       type: Boolean,
-      default: false
+      default: false,
     },
     maxlength: {
       type: String,
-      default: "160"
-    }
+      default: "160",
+    },
   },
   methods: {
     input() {
       this.$emit("handle-input", {
         key: this.field,
-        value: this.componentModel
+        value: this.componentModel,
       });
     },
     focus() {
       this.$emit("close-all");
     },
-    isNumber: function(evt) {
+    isNumber: function (evt) {
       evt = evt ? evt : window.event;
       var charCode = evt.which ? evt.which : evt.keyCode;
       if (
@@ -104,107 +104,112 @@ export default {
       } else {
         return true;
       }
-    }
+    },
   },
   watch: {
     model: {
       immediate: true,
       handler(newVal) {
         this.componentModel = newVal;
-      }
-    }
-  }
-}
+      },
+    },
+  },
+};
 </script>
 
 <style lang="scss">
 @import "@/assets/scss/mixins.scss";
 .textarea {
-    height: 68px;
+  height: 68px;
+  width: 100%;
+  margin: 0 0px 10px 0;
+
+  textarea::placeholder {
+    color: #bcbcbc;
+    font-family: generalLeter;
+    text-shadow: 0px 3px 6px #00000029;
+    font-size: 14px;
+  }
+  @include mobile() {
+    width: 270px !important;
+  }
+  @include xs() {
+    width: 100% !important;
+  }
+  &__main-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  &__field {
+    border-style: none;
+    background-color: white;
     width: 100%;
-    margin: 0 0px 10px 0;
-    
-    textarea::placeholder {
-      color: #BCBCBC;
-      font-family: GeneralLeter;
-      font-size: 14px;
-    }
+    height: 100px;
+    border-radius: 18px;
+    font-size: 14px;
+    padding: 6px 10px;
+    text-align: center;
+    font-family: generalLeter;
+    text-shadow: 0px 3px 6px #00000029;
     @include mobile() {
-      width: 270px !important;
-    }
-    @include xs() {
-      width: 100% !important;
-    }
-    &__main-box {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-    }
-    &__field {
-      border-style: none;
-      background-color: white;
-      width: 100%;
-      height: 100px;
-      border-radius: 18px;
       font-size: 14px;
-      padding: 6px 10px;
-      text-align: center;
-      font-family: GeneralLeter !important;
-      @include mobile() {
-        font-size: 14px;
-      }
     }
-    textarea:focus {
-      outline: 0;
+  }
+  textarea:focus {
+    outline: 0;
+  }
+  &__messages {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    line-height: 11px !important;
+    padding: 3px 0 0 10px;
+  }
+  &__error {
+    color: #e31552;
+    font-family: generalLeter;
+    text-shadow: 0px 3px 6px #00000029;
+    font-size: 11px;
+    @include mobile() {
+      font-size: 12px;
     }
-    &__messages {
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      line-height: 11px !important;
-      padding: 3px 0 0 10px;
-    }
-    &__error {
-      color: #E31552;
-      font-family: GeneralLeter;
-      font-size: 11px;
-      @include mobile() {
-        font-size: 12px;
-      }
-      @include lg() {
+    @include lg() {
       font-size: 20px;
     }
+  }
+  &__hint {
+    color: white;
+    font-family: generalLeter;
+    text-shadow: 0px 3px 6px #00000029;
+    font-size: 11px;
+    @include mobile() {
+      font-size: 12px;
     }
-    &__hint {
-        color: white;
-        font-family: GeneralLeter;
-        font-size: 11px;
-        @include mobile() {
-          font-size: 12px;
-        }
+  }
+  &__label {
+    margin-left: 10px;
+    font-family: generalLeter;
+    text-shadow: 0px 3px 6px #00000029;
+    margin-right: 10px;
+    font-size: 15px;
+    color: white;
+    margin-bottom: 6px;
+    @include mobile() {
+      text-align: center;
     }
-    &__label {
-        margin-left: 10px;
-        font-family: GeneralLeter;
-        margin-right: 10px;
-        font-size: 15px;
-        color: white;
-        margin-bottom: 6px;
-        @include mobile() {
-          text-align: center;
-        }
-        @include lg() {
-          font-size: 28px;
-        }
+    @include lg() {
+      font-size: 28px;
     }
-    &__messages-box {
-        width: 100%;
-        @include lg() {
-          margin: 10px 0 0 0;
-        }
+  }
+  &__messages-box {
+    width: 100%;
+    @include lg() {
+      margin: 10px 0 0 0;
     }
-    &__required {
-      color: white;
-    }
+  }
+  &__required {
+    color: white;
+  }
 }
 </style>

@@ -117,7 +117,7 @@ export default {
     }
     &__content {
         display: flex;
-        justify-content: flex-start;
+        justify-content: space-evenly;
         align-content: center;
         align-items: center;
         flex-direction: column;

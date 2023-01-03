@@ -193,7 +193,8 @@ export default {
 @import "@/assets/scss/mixins.scss";
 
 * {
-  font-family: "GeneralLeter";
+  font-family: generalLeter;
+  text-shadow: 0px 3px 6px #00000029;
 }
 
 .myCodesWeb {
@@ -256,7 +257,7 @@ export default {
     display: flex;
     flex-direction: column;
     background-color: rgba(255, 255, 255, 0.371);
-    border-radius: 50px;
+    border-radius: 25px;
 
     &-header {
       background: #309f3a;
@@ -267,11 +268,11 @@ export default {
       border-radius: 50px;
       height: 40px;
       @include lg() {
-        width: 1100px;
+        width: 955px;
         height: 50px;
       }
       @include xlg() {
-        width: 1500px;
+        width: 1100px;
         height: 70px;
       }
     }
@@ -391,6 +392,7 @@ export default {
         color: white;
         background-color: #309f3a;
         border-radius: 50%;
+        font-weight: 10;
       }
     }
   }

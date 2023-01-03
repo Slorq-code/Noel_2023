@@ -166,7 +166,8 @@ export default {
   }
   &__text1 {
     color: white;
-    font-family: GeneralLeter;
+    font-family: generalLeter;
+text-shadow: 0px 3px 6px #00000029;
     font-size: 13px;
     margin-bottom: 20px;
     @include mobile() {
@@ -179,7 +180,8 @@ export default {
   &__text {
     color: white;
     margin: 0 !important;
-    font-family: GeneralLeter;
+    font-family: generalLeter;
+text-shadow: 0px 3px 6px #00000029;
     text-transform: capitalize;
     font-size: 13px;
     @include mobile() {

@@ -531,7 +531,8 @@ export default {
   }
   &__radio-text {
     color: white;
-    font-family: GeneralLeter;
+    font-family: generalLeter;
+text-shadow: 0px 3px 6px #00000029;
     font-size: 15px;
   }
   &__radio-text-action {
@@ -550,7 +551,8 @@ export default {
   }
   &__subtitle {
     margin-bottom: 10px;
-    font-family: GeneralLeter;
+    font-family: generalLeter;
+text-shadow: 0px 3px 6px #00000029;
     color: white;
     text-align: center;
     font-size: 15px;

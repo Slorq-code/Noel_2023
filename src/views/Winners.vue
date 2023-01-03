@@ -249,7 +249,7 @@ export default {
     width: 800px;
     padding: 0px !important;
     background-color: rgba(255, 255, 255, 0.371);
-    border-radius: 50px;
+    border-radius: 28px;
     @include mobile() {
       width: 50vh;
     }

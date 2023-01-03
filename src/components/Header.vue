@@ -408,7 +408,8 @@ export default {
     display: flex;
     align-items: center;
     color: white;
-    font-family: GeneralLeter;
+    font-family: generalLeter;
+text-shadow: 0px 3px 6px #00000029;
     font-size: 11px;
     text-align: center;
     @include xlg() {

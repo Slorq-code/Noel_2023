@@ -69,7 +69,8 @@ export default {
     height: 50px;
   }
   &__text {
-    font-family: GeneralLeter;
+    font-family: generalLeter;
+text-shadow: 0px 3px 6px #00000029;
     font-size: 16px;
     line-height: 14px;
     color: white;

@@ -659,7 +659,8 @@ export default {
   }
   &__title {
     color: white;
-    font-family: GeneralLeter;
+    font-family: generalLeter;
+text-shadow: 0px 3px 6px #00000029;
     @include mobile() {
       font-size: 17px;
       padding: 0 20px;

@@ -186,7 +186,8 @@ export default {
   }
   &__label {
     margin: 0 10px 0px 10px;
-    font-family: GeneralLeter;
+    font-family: generalLeter;
+text-shadow: 0px 3px 6px #00000029;
     font-size: 15px;
     color: white;
     @include mobile() {
@@ -198,7 +199,8 @@ export default {
   }
   &__placeholder {
     color: #929292;
-    font-family: GeneralLeter;
+    font-family: generalLeter;
+text-shadow: 0px 3px 6px #00000029;
     font-size: 12px;
   }
   &__icon-content {
@@ -232,7 +234,8 @@ export default {
     font-size: 13px;
     color: black;
     padding: 3px 2px 1px 2px;
-    font-family: GeneralLeter;
+    font-family: generalLeter;
+text-shadow: 0px 3px 6px #00000029;
     @include mobile() {
       font-size: 14px;
     }
@@ -241,7 +244,8 @@ export default {
     background: #eee;
   }
   &__text {
-    font-family: GeneralLeter;
+    font-family: generalLeter;
+text-shadow: 0px 3px 6px #00000029;
     font-size: 14px;
     @include xs() {
       font-size: 12px;
@@ -249,7 +253,8 @@ export default {
   }
   &__error {
     color: #e31552;
-    font-family: GeneralLeter;
+    font-family: generalLeter;
+text-shadow: 0px 3px 6px #00000029;
     font-size: 9px;
     @include mobile() {
       font-size: 10px;
