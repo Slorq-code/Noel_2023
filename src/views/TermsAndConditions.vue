@@ -11,6 +11,7 @@
       class="termsAndConditions__image"
       src="@/assets/Assets_Web_New/Logo_modales_Juntos_Premiarte_2022.png"
     />
+    <h3 class="privacyPolicy__title" >Terminos y condiciones generales de la campaña.</h3>
     <div class="termsAndConditions__content">
       <div class="termsAndConditions__box">
         <div class="termsAndConditions__scroll">
@@ -652,6 +653,10 @@ export default {
   }
   &__text p{
     color: white;
+  }
+  &__title {
+    color: white;
+    font-family: GeneralLeter;
   }
   &__image {
     height: 150px;
