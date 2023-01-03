@@ -660,7 +660,6 @@ export default {
       height: 140px;
       margin-top: -80px;
     }
-
     @include xs() {
       margin-top: -40px;
       margin-bottom: -20px;
