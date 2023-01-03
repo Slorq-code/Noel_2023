@@ -256,6 +256,7 @@ export default {
     margin-top: 10px;
     display: flex;
     flex-direction: column;
+    align-items: center;
     background-color: rgba(255, 255, 255, 0.371);
     border-radius: 25px;
 
@@ -263,8 +264,7 @@ export default {
       background: #309f3a;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      padding: 1px 10px;
+      justify-content: space-evenly;
       border-radius: 50px;
       height: 40px;
       @include lg() {
@@ -284,11 +284,9 @@ export default {
     &-header-titles {
       margin: 0 !important;
       color: white;
-      margin: 0px 60px 0px 60px !important;
       font-size: 20px;
       @include lg() {
         font-size: 25px;
-        margin: 0px 90px 0px 40px !important;
       }
       @include xlg() {
         font-size: 30px;
@@ -298,9 +296,9 @@ export default {
     &-content {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      padding: 0px 20px 0px 20px;
-      border-bottom: 1px dashed #da412e;
+      justify-content: space-around;
+      width: 95%;
+      border-bottom: 2.5px dashed #da412e;
       font-size: 20px;
       @include lg() {
         margin: 10px 0;
@@ -314,13 +312,11 @@ export default {
 
     &-content-element {
       flex-basis: 20%;
-      padding: 0px 0px 2px 0px;
       display: flex;
       justify-content: center;
     }
     &-content-element:nth-child(1) {  
       @include lg() {
-        padding: 0px 100px 2px 0px;
       }
     }
 
