@@ -15,8 +15,12 @@
       <span class="signup-confirm__text1" style="margin-bottom: 10px">
         Por favor confirma que tus datos estén correctos, especialmente tu número celular y operador al cual perteneces; recuerda que las recargas se realizarán a este número celular.
       </span>
-      <span class="signup-confirm__text">Nombre: {{ capitalize(user.name) }}</span>
+      <span class="signup-confirm__text">Nombre: {{ user.name }}</span>
+      <span class="signup-confirm__text">Apellido: {{ user.lastName }}</span>
       <span class="signup-confirm__text">Cédula: {{ user.idn }}</span>
+      <span class="signup-confirm__text">Correo: {{ user.email }}</span>
+      <span class="signup-confirm__text">Dpto: {{ user.department_state }}</span>
+      <span class="signup-confirm__text">ciudad: {{ user.city }}</span>
       <span class="signup-confirm__text">
         N° Celular: {{ number }}
       </span>
@@ -25,10 +29,8 @@
       </span>
     </div>
     <div class="signup-confirm__buttons">
-      <div style="margin-bottom: 10px">  
-        <Button text="Editar Datos" type="secondary" @handle-click="close()" />
-      </div>
-      <Button text="Registrarme" type="primary" :isLoading="loading"  @handle-click="preRegister()"/>
+      <Button color="1" text="Editar" type="secondary" @handle-click="close()" />
+      <Button text="Continuar " type="primary" :isLoading="loading"  @handle-click="preRegister()"/>
     </div>
   </div>
 </template>
@@ -165,13 +167,13 @@ export default {
   &__text1 {
     color: white;
     font-family: GeneralLeter;
-    font-size: 16px;
+    font-size: 13px;
     margin-bottom: 20px;
     @include mobile() {
-      font-size: 14px;
+      font-size: 12px;
     }
     @include mobile() {
-      font-size: 12px;
+      font-size: 10px;
     }
   }
   &__text {
@@ -179,25 +181,24 @@ export default {
     margin: 0 !important;
     font-family: GeneralLeter;
     text-transform: capitalize;
-    @include mobile() {
-      font-size: 14px;
-    }
+    font-size: 13px;
     @include mobile() {
       font-size: 12px;
     }
+    @include mobile() {
+      font-size: 10px;
+    }
   }
   &__image {
-    height: 220px;
-    margin-top: -100px;
-    margin-bottom: 10px;
+    height: 173px;
+    margin: -100px 0 10px 0;
     @include mobile() {
       height: 160px;
-      margin-top: -80px;
+      margin: -80px 0 0px 0;
     }
     @include xs() {
       height: 140px;
-      margin-top: -70px;
-      margin-bottom: -1px;
+      margin: -70px 0 -1px 0;
     }
   }
   &__close-container {
@@ -216,8 +217,8 @@ export default {
   }
   &__buttons {
     display: flex;
-    flex-direction: column;
     align-items: center;
+    gap: 6px;
     width: 100%;
     margin-top: 30px;
     padding: 0px 40px;

@@ -22,6 +22,10 @@ export default {
       type: String,
       default: 'primary'
     },
+    color: {
+      type: String,
+      default: ''
+    },
     text: {
       type: String,
       default: ''
@@ -76,6 +80,9 @@ export default {
       font-size: 28px;
     }
   }
+}
+.button-1 {
+  background-color: #e43f27;
 }
 .button:hover {
   transform: scale(1.1);
