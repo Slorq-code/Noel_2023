@@ -506,14 +506,22 @@ export default {
       padding: 0 20px;
       width: 100%;
     }
+    @include mxHeight(590px) {
+      min-height: 80px;
+      margin: 0px 0 0px 0;
+    }
     @include mnHeight(1000px) {
       margin: 10px 0 10px 0;
     }
   }
   &__radioBigBox {
+    display: flex;
     margin: 30px 0 30px 0;
     @include mobile() {
       margin: -100px 0 30px 0;
+    }
+    @include mxHeight(590px) {
+      margin: 10px 0 0px 0;
     }
   }
   &__radio-text {
@@ -540,6 +548,9 @@ export default {
     font-family: GeneralLeter;
     color: white;
     font-size: 15px;
+    @include mxHeight(590px) {
+      display: none;
+    }
   }
 }
 </style>

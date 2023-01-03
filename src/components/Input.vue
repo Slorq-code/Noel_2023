@@ -165,12 +165,14 @@ export default {
 .input {
   height: 47px;
   width: 280px;
-  margin: 0 10px;
-  margin-bottom: 10px;
+  margin: 0 10px 10px 0;
   input::placeholder {
     color: #bcbcbc;
     font-family: GeneralLeter;
     font-size: 12px;
+  }
+  @include xs() {
+    margin-bottom: 5px;
   }
   @include mobile() {
     width: 270px !important;
@@ -183,12 +185,12 @@ export default {
     width: 330px;
     height: 56px;
   }
+  @include mxHeight(590px) {
+    margin: 0 10px;
+  }
   @include mnHeight(1000px) {
     width: 330px;
     height: 56px;
-  }
-  @include xs() {
-    margin-bottom: 5px;
   }
   &__main-box {
     display: flex;
@@ -205,6 +207,9 @@ export default {
     padding: 2px 10px 2px 10px;
     text-align: center;
     font-family: GeneralLeter !important;
+    @include xs() {
+      height: 30px;
+    }
     @include mobile() {
       font-size: 14px;
       height: 38px;
@@ -214,7 +219,8 @@ export default {
       height: 50px;
       border-radius: 32px;
     }
-    @include xs() {
+    @include mxHeight(590px) {
+      margin: 0 0 0 0;
       height: 30px;
     }
   }
@@ -231,12 +237,15 @@ export default {
   &__error {
     color: #e31552;
     font-family: GeneralLeter;
-    font-size: 11px;
+    font-size: 9px;
     @include mobile() {
-      font-size: 12px;
+      font-size: 10px;
     }
     @include lg() {
-      font-size: 18px;
+      font-size: 14px;
+    }
+    @include mxHeight(590px) {
+      font-size: 10px;
     }
   }
   &__hint {

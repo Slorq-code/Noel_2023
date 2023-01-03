@@ -122,24 +122,25 @@ export default {
 .select {
   height: 68px;
   width: 280px;
-  margin: 0 10px;
+  margin: 0 10px 10px 0;
+  @include xs() {
+    margin: 0 0 5px 0;
+    width: 100% !important;
+  }
   @include mobile() {
     width: 270px !important;
     margin: 25px 10px;
-  }
-  @include xs() {
-    width: 100% !important;
   }
   @include lg() {
     width: 330px;
     height: 56px;
   }
+  @include mxHeight(590px) {
+    margin: 0 10px;
+  }
   @include mnHeight(1000px) {
     width: 330px;
     height: 56px;
-  }
-  @include xs() {
-    margin-bottom: 5px;
   }
   &__main-box {
     display: flex;
@@ -166,6 +167,9 @@ export default {
     text-align: center;
     cursor: pointer;
     position: relative;
+    @include xs() {
+      height: 30px;
+    }
     @include mobile() {
       height: 38px;
       padding-top: 3px;
@@ -175,7 +179,8 @@ export default {
       height: 50px;
       border-radius: 32px;
     }
-    @include xs() {
+    @include mxHeight(590px) {
+      margin: 0 0 0 0;
       height: 30px;
     }
   }
@@ -245,12 +250,15 @@ export default {
   &__error {
     color: #e31552;
     font-family: GeneralLeter;
-    font-size: 11px;
+    font-size: 9px;
     @include mobile() {
-      font-size: 12px;
+      font-size: 10px;
     }
     @include lg() {
-      font-size: 18px;
+      font-size: 14px;
+    }
+    @include mxHeight(590px) {
+      font-size: 10px;
     }
   }
   &__messages {
