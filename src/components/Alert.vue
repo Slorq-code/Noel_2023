@@ -128,7 +128,7 @@ export default {
     }
   }
   &__image {
-    height: 220px;
+    height: 180px;
     margin-top: -100px;
     margin-bottom: 10px;
     @include mobile() {

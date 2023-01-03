@@ -46,7 +46,7 @@
                 {{ item.saltinNoel.titleOne }}
               </p>
               <p class="myCodesWeb__table-text-content-two">
-                {{ item.saltinNoel.titleTwo }}
+                {{ item.saltinNoel.titletwo }}
               </p>
             </div>
             <div
@@ -70,7 +70,7 @@
                 {{ item.ducales.titleOne }}
               </p>
               <p class="myCodesWeb__table-text-content-two">
-                {{ item.ducales.titleTwo }}
+                {{ item.ducales.titletwo }}
               </p>
             </div>
             <div
@@ -105,12 +105,12 @@ export default {
       tableDatas: [
         {
           saltinNoel: {
-            titleOne: "prueba1",
-            titletwo: "prueba2",
+            titleOne: "ZET82F",
+            titletwo: "12/12/2022",
           },
           ducales: {
-            titleOne: "prueba3",
-            titletwo: "prueba4",
+            titleOne: "ZET82F",
+            titletwo: "12/12/2022",
           },
           
           award: "felicidaes",
@@ -118,12 +118,12 @@ export default {
         },
         {
           saltinNoel: {
-            titleOne: "prueba1",
-            titletwo: "prueba2",
+            titleOne: "ZET82F",
+            titletwo: "12/12/2022",
           },
           ducales: {
-            titleOne: "prueba3",
-            titletwo: "prueba4",
+            titleOne: "ZET82F",
+            titletwo: "12/12/2022",
           },
           
           award: "felicidaes",
@@ -131,12 +131,12 @@ export default {
         },
         {
           saltinNoel: {
-            titleOne: "prueba1",
-            titletwo: "prueba2",
+            titleOne: "ZET82F",
+            titletwo: "12/12/2022",
           },
           ducales: {
-            titleOne: "prueba3",
-            titletwo: "prueba4",
+            titleOne: "ZET82F",
+            titletwo: "12/12/2022",
           },
           
           award: "felicidaes",
@@ -144,12 +144,12 @@ export default {
         },
         {
           saltinNoel: {
-            titleOne: "prueba1",
-            titletwo: "prueba2",
+            titleOne: "ZET82F",
+            titletwo: "12/12/2022",
           },
           ducales: {
-            titleOne: "prueba3",
-            titletwo: "prueba4",
+            titleOne: "ZET82F",
+            titletwo: "12/12/2022",
           },
           
           award: "felicidaes",
