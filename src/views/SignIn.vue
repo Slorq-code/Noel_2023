@@ -15,16 +15,6 @@
         />
       </div>
       <div class="signIn__content">
-        <!-- <div class="signIn__section1">
-          <div class="signIn__section1-button">
-            <Button
-              text="Ingresar"
-              type="primary"
-              :isLoading="loading"
-              @handle-click="signIn()"
-            />
-          </div>
-        </div> -->
         <div class="signIn__section2">
           <span class="signIn__section2-text">
             Para participar, completa tu registro.

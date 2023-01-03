@@ -171,7 +171,7 @@ export default {
       padding-top: 3px;
     }
     @include lg() {
-      margin: 10px 0 0 0;
+      margin: 4px 0 0 0;
       height: 50px;
       border-radius: 32px;
     }
@@ -180,12 +180,10 @@ export default {
     }
   }
   &__label {
-    margin-left: 10px;
+    margin: 0 10px 0px 10px;
     font-family: GeneralLeter;
-    margin-right: 10px;
     font-size: 15px;
     color: white;
-    margin-bottom: 6px;
     @include mobile() {
       text-align: center;
     }

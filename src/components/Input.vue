@@ -248,12 +248,10 @@ export default {
     }
   }
   &__label {
-    margin-left: 10px;
+    margin: 0 10px 0px 10px;
     font-family: GeneralLeter;
-    margin-right: 10px;
     font-size: 15px;
     color: white;
-    margin-bottom: 6px;
     @include mobile() {
       text-align: center;
     }

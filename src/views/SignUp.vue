@@ -81,26 +81,26 @@
         />
         <Select
           ref="department_state"
-          @close-all="$refs.operator.open = false"
           field="department_state"
           label="Departamento"
-          :model="user.department_state"
           placeholder="Seleccionar departamento"
-          :items="fomattedStates"
-          @handle-input="setValue($event)"
+          :model="user.department_state"
+          :items="GetDepartments"
           :required="true"
           :error="errors.department_state"
+          @handle-input="setValue($event)"
+          @close-all="$refs.operator.open = false"
         />
         <Select
           ref="city"
           field="city"
           label="Ciudad"
-          :model="user.city"
           placeholder="Seleccionar Ciudad"
+          :model="user.city"
           :items="formattedCities"
-          @handle-input="setValue($event)"
           :required="true"
           :error="errors.city"
+          @handle-input="setValue($event)"
         />
       </div>
       <div class="signUp__form-row">
@@ -200,7 +200,16 @@ export default {
     return {
       terms: false,
       terms4: false,
-      user: {},
+      user: {
+        names: "",
+        last_names: "",
+        document_type: "",
+        idn: "",
+        phone: "",
+        email: "",
+        department_state: "",
+        city: "",
+      },
       loading: false,
       touch: false,
       errors: {},
@@ -214,41 +223,6 @@ export default {
         "ETB",
         "Flash Mobile",
         "Móvil Éxito",
-      ],
-      states: [
-        "AMAZONAS",
-        "ANTIOQUIA",
-        "ARAUCA",
-        "ATLÁNTICO",
-        "BOGOTÁ D.C.",
-        "BOLÍVAR",
-        "BOYACÁ",
-        "CALDAS",
-        "CAQUETA",
-        "CAUCA",
-        "CESAR",
-        "CHOCÓ",
-        "CÓRDOBA",
-        "CUNDINAMARCA",
-        "GUAINÍA",
-        "GUAVIARE",
-        "HUILA",
-        "MAGDALENA",
-        "NARIÑO",
-        "RISARALDA",
-        "NORTE DE SANTANDER",
-        "QUINDIO",
-        "SANTANDER",
-        "SUCRE",
-        "TOLIMA",
-        "VALLE DEL CAUCA",
-        "CASANARE",
-        "LA GUAJIRA",
-        "META",
-        "SAN ANDRES",
-        "PUTUMAYO",
-        "VAUPÉS",
-        "VICHADA",
       ],
       list_cities: [],
       data_colombia: json,
@@ -271,10 +245,10 @@ export default {
         text: o,
       }));
     },
-    fomattedStates() {
-      return this.states.map((s) => ({
-        value: s,
-        text: s,
+    GetDepartments() {
+      return this.data_colombia.map((s) => ({
+        value: s.departamento,
+        text: s.departamento,
       }));
     },
     formattedCities() {
@@ -311,7 +285,8 @@ export default {
         !this.user.idn ||
         !this.user.operator ||
         !this.user.phone ||
-        !this.user.department_state
+        !this.user.department_state ||
+        !this.user.city
       ) {
         this.touch = true;
         this.validate();
@@ -401,9 +376,9 @@ export default {
       }
       if (
         this.user.name &&
-        !(this.user.name.length > 6 && this.user.name.length < 60)
+        !(this.user.name.length > 2 && this.user.name.length < 60)
       ) {
-        errors.name = "El nombre debe tener entre 6 y 60 carácteres.";
+        errors.name = "El nombre debe tener entre 3 y 60 carácteres.";
       }
       if (this.user.phone && !phoneReq.test(this.user.phone)) {
         errors.phone = "Ingresa un número de celular válido.";
@@ -426,11 +401,17 @@ export default {
         if (!this.user.operator) errors.operator = "Este campo es obligatorio.";
         if (!this.user.department_state)
           errors.department_state = "Este campo es obligatorio.";
+        if (!this.user.city) errors.city = "Este campo es obligatorio.";
       }
       this.errors = errors;
     },
   },
-  watch: {},
+  watch: {
+    "user.department_state": function (v) {
+      this.user.city = "";
+      this.SetCities(v);
+    },
+  },
 };
 </script>
 

@@ -42,7 +42,7 @@
               <!-- <p class="myCodesMobile__content-items-content-action-text">
                 {{ item.resultCouple }}
               </p> -->
-              <Button text="Registrar Código" type="primary" />
+              <Button text="Registrar Código" type="primary"/>
             </div>
           </div>
         </div>
