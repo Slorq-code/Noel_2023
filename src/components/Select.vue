@@ -175,7 +175,7 @@ export default {
       padding-top: 3px;
     }
     @include lg() {
-      margin: 4px 0 0 0;
+      margin: 10px 0 0 0;
       height: 50px;
       border-radius: 32px;
     }

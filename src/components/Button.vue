@@ -1,49 +1,47 @@
 <template>
-  <div 
+  <div
     :class="['button', color === '1' ? 'button-1' : 'button-2']"
-    @click="click()"    
-    >
-    <span class="button__text" >{{text}}</span>
+    @click="click()"
+  >
+    <span class="button__text">{{ text }}</span>
   </div>
-</template> 
+</template>
 
 <script>
 export default {
-  name: 'Button',
+  name: "Button",
   data() {
-    return {
-      
-    };
+    return {};
   },
   mounted() {},
   components: {},
   props: {
     type: {
       type: String,
-      default: 'primary'
+      default: "primary",
     },
     color: {
       type: String,
-      default: ''
+      default: "",
     },
     text: {
       type: String,
-      default: ''
+      default: "",
     },
     isLoading: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   methods: {
     click() {
-        if (!this.isLoading) {
-            this.$emit('handle-click')
-        }
-    }
+      if (!this.isLoading) {
+        this.$emit("handle-click");
+      }
+    },
   },
-  watch: {}
-}
+  watch: {},
+};
 </script>
 
 <style lang="scss">
@@ -70,11 +68,11 @@ export default {
   }
   &__text {
     font-family: generalLeter;
-text-shadow: 0px 3px 6px #00000029;
+    text-shadow: 0px 3px 6px #00000029;
     font-size: 16px;
     line-height: 14px;
     color: white;
-    @include lg(){
+    @include lg() {
       font-size: 23px;
     }
     @include xlg() {
@@ -83,6 +81,9 @@ text-shadow: 0px 3px 6px #00000029;
   }
 }
 .button-1 {
+  background-color: #e43f27;
+}
+.button-2 {
   background-color: #e43f27;
 }
 .button:hover {
