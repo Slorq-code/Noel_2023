@@ -1056,10 +1056,18 @@ export default {
   }
   &__text p{
     color: white;
+    @include mobile() {
+      font-size: 14px;
+    }
   }
   &__title {
     color: white;
     font-family: GeneralLeter;
+    text-align: center;
+    @include mobile() {
+      font-size: 17px;
+      padding: 0 20px;
+    }
   }
   &__image {
     height: 150px;
@@ -1103,5 +1111,8 @@ export default {
     background: white !important;
     border: 1px solid black;
   }
+}
+li {
+  color: white;
 }
 </style>

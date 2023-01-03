@@ -653,10 +653,17 @@ export default {
   }
   &__text p{
     color: white;
+    @include mobile() {
+      font-size: 14px;
+    }
   }
   &__title {
     color: white;
     font-family: GeneralLeter;
+    @include mobile() {
+      font-size: 17px;
+      padding: 0 20px;
+    }
   }
   &__image {
     height: 150px;
@@ -708,5 +715,8 @@ export default {
     border: 1px solid #ff5e00;
     border-radius: 50%;
   }
+}
+li {
+  color: white;
 }
 </style>

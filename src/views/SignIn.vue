@@ -208,7 +208,7 @@ export default {
       width: 40%;
     }
     @include mnHeight (1000px) {
-      height: 350px;
+      height: 300px;
       justify-content: center;
     }
   }

@@ -167,7 +167,7 @@ export default {
   width: 280px;
   margin: 0 10px 10px 0;
   input::placeholder {
-    color: #bcbcbc;
+    color: #929292;
     font-family: GeneralLeter;
     font-size: 12px;
   }

@@ -33,7 +33,7 @@
           field="name"
           label="Nombres"
           @handle-input="setValue($event)"
-          placeholder="Ingresar nombre completo"
+          placeholder="Ingresa tus nombres"
           :required="true"
           :error="errors.name"
         />
@@ -46,7 +46,7 @@
           field="lastName"
           label="Apellidos"
           @handle-input="setValue($event)"
-          placeholder="Ingresar apellidos"
+          placeholder="Ingresa tus apellidos"
           :required="true"
           :error="errors.lastnAME"
         />
@@ -132,7 +132,9 @@
           :error="errors.operator"
         />
         <Select
-          style="opacity: 0"
+          style="
+          opacity: 0;
+          "
           ref="operator"
           field="operator"
           @close-all="$refs.department_state.open = false"
@@ -143,6 +145,7 @@
           @handle-input="setValue($event)"
           :required="true"
           :error="errors.operator"
+          v-if="moible"
         />
       </div>
       <div class="signUp__radioBigBox">
@@ -519,7 +522,7 @@ export default {
     flex-direction: column;
     margin: 30px 0 30px 0;
     @include mobile() {
-      margin: -100px 0 30px 0;
+      margin: -0px 0 30px 0;
     }
     @include mxHeight(590px) {
       flex-direction: row;
@@ -549,6 +552,7 @@ export default {
     margin-bottom: 10px;
     font-family: GeneralLeter;
     color: white;
+    text-align: center;
     font-size: 15px;
     @include mxHeight(590px) {
       display: none;

@@ -6,7 +6,7 @@
       <img
         @click="gotoSaltin()"
         class="footer1__facebook footer2__facebook"
-        src="@/assets/web/ico_facebook.png"
+        src="../assets/Assets_Web_New/ico_facebook.png"
       />
       <span class="footer1__facebook-text footer2__facebook-text" @click="gotoSaltin()"
         >galletassaltinnoel</span
@@ -14,7 +14,7 @@
       <img
         @click="gotoDucales()"
         class="footer1__facebook footer2__facebook"
-        src="@/assets/web/ico_facebook.png"
+        src="../assets/Assets_Web_New/ico_facebook.png"
       />
       <span class="footer1__facebook-text footer2__facebook-text" @click="gotoDucales()"
         >ducalesgruponutresa</span

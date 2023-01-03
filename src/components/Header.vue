@@ -13,52 +13,58 @@
       v-if="!token"
     />
     <img
+      class="header__logo__logoCurva1"
+      @click="logoClick()"
+      src="../assets/Assets_Web_New/logos_header_barriga.png"
+      alt="logos"
+    />
+    <img
       class="header__logo__second"
       @click="logoClick()"
       src="../assets/Assets_Web_New/Logo_header_Juntos_Premiarte_2022.png"
       v-if="token && !mobile"
     />
-    <div 
-      class="header__web-routes" 
-      v-if="!this.mobile"
-    >
-      <div 
-      v-for="(route, k) in webRoutes" :key="k"
-      :class="{
-      'header--web-route-selectedBorder': route.path === selectedRoute,
-      }" 
+    <div class="header__web-routes" v-if="!this.mobile">
+      <div
+        v-for="(route, k) in webRoutes"
+        :key="k"
+        :class="{
+          'header--web-route-selectedBorder': route.path === selectedRoute,
+        }"
       >
-          <img 
-            src="../assets/Assets_Web_New/moneda_hover_header.png" alt="Modena"
+        <img
+          src="../assets/Assets_Web_New/moneda_hover_header.png"
+          alt="Modena"
+          :class="{
+            'header--web-route-selected-img header--web-route-selected':
+              route.path === selectedRoute,
+          }"
+          v-if="selectedRoute == route.path"
+        />
+        <div
+          v-if="route.isVisible()"
+          @click="click(route)"
+          class="header__web-route"
+          :class="{
+            'header--web-route-selected': route.path === selectedRoute,
+          }"
+        >
+          <span
+            class="header__web-route-text"
             :class="{
-              'header--web-route-selected-img header--web-route-selected': route.path === selectedRoute,
+              'header--web-route-text-selected': route.path === selectedRoute,
             }"
-            v-if="selectedRoute==route.path"
-          >
-          <div
-            v-if="route.isVisible()"
-            @click="click(route)"
-            class="header__web-route"
-            :class="{
-              'header--web-route-selected': route.path === selectedRoute,
-            }"
-          >
-            <span
-              class="header__web-route-text"
-              :class="{
-                'header--web-route-text-selected': route.path === selectedRoute,
-              }"
-              >{{ route.name }}
-            </span>
+            >{{ route.name }}
+          </span>
         </div>
       </div>
-      <br v-if="!token" >
-      <br v-if="!token" >
-      <br v-if="!token" >
-      <br v-if="!token" >
+      <br v-if="!token" />
+      <br v-if="!token" />
+      <br v-if="!token" />
+      <br v-if="!token" />
     </div>
     <img
-      class="header__logo__logoCurva"
+      class="header__logo__logoCurva2"
       @click="logoClick()"
       src="../assets/Assets_Web_New/logos_header_barriga.png"
       alt="logos"
@@ -66,8 +72,13 @@
     />
     <div v-if="dialog" class="modal-mobile-navigator">
       <div class="modal-mobile-navigator__content">
-        <div 
-          :class="['modal-mobile-navigator__modal-content', active===true ? 'modal-mobile-navigator__modal-content modal-mobile-navigator__modal-content__active' : 'modal-mobile-navigator__modal-content']"
+        <div
+          :class="[
+            'modal-mobile-navigator__modal-content',
+            active === true
+              ? 'modal-mobile-navigator__modal-content modal-mobile-navigator__modal-content__active'
+              : 'modal-mobile-navigator__modal-content',
+          ]"
         >
           <div class="modal-mobile-navigator__centerBox">
             <img
@@ -88,11 +99,15 @@
             />
           </div>
           <div class="container-routes-mobile">
-            <div v-for="(route, k) in webRoutes" :key="k" class="header__web-route header__web-route-mobile">
+            <div
+              v-for="(route, k) in webRoutes"
+              :key="k"
+              class="header__web-route header__web-route-mobile"
+            >
               <div
                 v-if="route.isVisible()"
                 @click="click(route)"
-                                :class="{
+                :class="{
                   'header--web-route-selected': route.path === selectedRoute,
                 }"
               >
@@ -105,6 +120,32 @@
                   >{{ route.name }}
                 </span>
               </div>
+            </div>
+          </div>
+          <div class="header__container" >
+            <div class="header__container__social" >
+              <img
+                @click="gotoSaltin()"
+                class="footer1__facebook footer2__facebook"
+                src="../assets/Assets_Mobile_New/facebook.png"
+              />
+              <span
+                class=""
+                @click="gotoSaltin()"
+                >galletassaltinnoel</span
+              >
+            </div>
+            <div class="header__container__social" > 
+              <img
+                @click="gotoDucales()"
+                class="footer1__facebook footer2__facebook"
+                src="../assets/Assets_Mobile_New/facebook.png"
+              />
+              <span
+                class=""
+                @click="gotoDucales()"
+                >ducalesgruponutresa</span
+              >
             </div>
           </div>
           <img
@@ -131,7 +172,7 @@ export default {
   }),
   watch: {
     "$route.path": {
-      handler: function(path) {
+      handler: function (path) {
         this.selectedRoute = path;
       },
       deep: true,
@@ -142,7 +183,6 @@ export default {
     },
   },
   mounted() {
-    
     this.routes = [
       {
         name: "Iniciar Sesión",
@@ -184,8 +224,8 @@ export default {
         path: "/terminos-y-condiciones",
         isVisible: () => !this.token || this.mobile,
         clickAction: () => {
-          this.dialog = false
-          this.$store.dispatch("setTermsAndConditions", true)
+          this.dialog = false;
+          this.$store.dispatch("setTermsAndConditions", true);
         },
       },
       {
@@ -198,7 +238,7 @@ export default {
         clickAction: () => {
           //this.dialog = false
           // this.logout();
-          this.goTo("/registrarse")
+          this.goTo("/registrarse");
         },
         isVisible: () => this.token,
       },
@@ -212,7 +252,7 @@ export default {
       return this.$store.getters.token;
     },
     webRoutes() {
-      return this.routes.filter(r => r.isVisible());
+      return this.routes.filter((r) => r.isVisible());
     },
     user() {
       return this.$store.getters.user;
@@ -237,6 +277,15 @@ export default {
     },
     goTo(path) {
       if (this.$route.path !== `${path}`) this.$router.push(path);
+    },
+    gotoSaltin() {
+      window.open(
+        `https://www.facebook.com/galletassaltinnoel/?epa=SEARCH_BOX`,
+        "_blank"
+      );
+    },
+    gotoDucales() {
+      window.open(`https://www.facebook.com/ducalesgruponutresa/`, "_blank");
     },
     click(item) {
       if (item.clickAction) {
@@ -296,15 +345,23 @@ export default {
     @include mobile() {
       height: auto;
       width: 70%;
+      display: none;
     }
-    &__logoCurva {
+    &__logoCurva1 {
+      height: 100% !important;
+      display: none;
+      @include mobile() {
+        display: initial;
+      }
+    }
+    &__logoCurva2 {
       height: 100% !important;
     }
     &__second {
       width: 20%;
       padding: 5% 0 0 0;
       @include lg() {
-        width: 15%
+        width: 15%;
       }
     }
   }
@@ -322,8 +379,8 @@ export default {
     @include tablet() {
       margin-left: 20px;
     }
-  } 
-  &__web-routes div{
+  }
+  &__web-routes div {
     display: flex;
     gap: 7px;
   }
@@ -363,6 +420,22 @@ export default {
     transition: 1s ease-out;
     color: #eeb024;
   }
+  &__container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: 15%;
+    width: 100%;
+    padding: 0px 15px;
+    z-index: 999;
+    &__social {
+      display: flex;
+      justify-content: flex-start;
+    }
+    &__social span{
+      color: white;
+    }
+  }
 }
 
 .modal-mobile-navigator {
@@ -381,11 +454,11 @@ export default {
     max-height: 70% !important;
     width: 600px;
     background: radial-gradient(
-    circle,
-    rgba(222, 62, 40, 1) 0%,
-    rgba(129, 36, 26, 1) 100%
-  );
-  position: relative;
+      circle,
+      rgba(222, 62, 40, 1) 0%,
+      rgba(129, 36, 26, 1) 100%
+    );
+    position: relative;
     box-shadow: 0px 0px 15px #0000004d;
     border-radius: 15px;
     @include mobile() {
@@ -430,16 +503,15 @@ export default {
     @include mobile() {
       margin: 10px 0 0 11%;
     }
-
   }
   &__centerBox {
     width: 100%;
     display: flex;
     justify-content: flex-end;
   }
-  &__imageHeader{
+  &__imageHeader {
     height: 100%;
-    width: 95%;
+    width: 100%;
     margin: 0 0px 20px 0;
   }
   &__close-container {
@@ -459,8 +531,9 @@ export default {
   }
 
   &__col-juegos {
-    margin-top: 20px;
     height: 60px;
+    position: absolute;
+    bottom: 0;
   }
 }
 .container-routes-mobile {

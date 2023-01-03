@@ -197,7 +197,7 @@ export default {
     }
   }
   &__placeholder {
-    color: #bcbcbc;
+    color: #929292;
     font-family: GeneralLeter;
     font-size: 12px;
   }
