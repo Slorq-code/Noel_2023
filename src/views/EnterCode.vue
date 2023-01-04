@@ -34,6 +34,7 @@
                 src="../assets/Assets_Web_New/circulo_noel.png"
               />
               <Input
+              class="Uppercase"
                 field="saltin"
                 :model="saltin"
                 :error="errors.saltin"
@@ -52,6 +53,7 @@
                 src="../assets/Assets_Web_New/circulo_ducales.png"
               />
               <Input
+                class="Uppercase"
                 field="ducales"
                 :model="ducales"
                 :error="errors.ducales"
@@ -66,7 +68,7 @@
             />
           </div>
           <div class="enterCode-web__rec">
-            <vue-recaptcha
+            <!-- <vue-recaptcha
               sitekey=" 6Lfh6Y4aAAAAAI-8nSMl7mVqcaetUMQC9ZCDoqvK"
               :loadRecaptchaScript="true"
               @verify="verifyRecaptcha"
@@ -74,12 +76,12 @@
               class="mb-1"
               language="es"
               ref="recaptcha"
-            ></vue-recaptcha>
+            ></vue-recaptcha> -->
             <div>
               <Button
-                text="Registrar Código"
-                type="primary"
-                @handle-click="send()"
+              text="Registrar Código"
+              type="primary"
+              @handle-click="send()"
               />
             </div>
           </div>
@@ -314,6 +316,10 @@ export default {
 
 <style lang="scss">
 @import "@/assets/scss/mixins.scss";
+.Uppercase div input{ 
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
 .enterCode {
   position: relative;
   display: flex;
@@ -396,12 +402,12 @@ export default {
       }
     }
     &__middleTitle span {
-      font-size: 12px;
+      font-size: 1rem;
       @include lg() {
-        font-size: 15px;
+        font-size: 1.2rem;
       }
       @include mnHeight(1000px) {
-        font-size: 25px;
+        font-size: 1.2rem;
       }
     }
   }

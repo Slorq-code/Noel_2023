@@ -120,7 +120,7 @@ export default {
 @import "@/assets/scss/mixins.scss";
 
 .select {
-  height: 68px;
+  height: 48px;
   width: 280px;
   margin: 0 10px 10px 0;
   @include mobile() {

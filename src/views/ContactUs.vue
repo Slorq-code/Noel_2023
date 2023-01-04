@@ -40,14 +40,8 @@
           :error="error"
           class="mt-0"
         />
-        <div 
-          class="contactUs__content__container"
-        >
-          <Button 
-            text="Enviar" 
-            type="primary" 
-            @handle-click="send()" 
-          />
+        <div class="contactUs__content__container">
+          <Button text="Enviar" type="primary" @handle-click="send()" />
         </div>
       </div>
     </div>
@@ -213,20 +207,20 @@ export default {
       padding: 5px 20px;
     }
     @include lg() {
-      width: 1100px;
+      width: 700px;
     }
     &__options {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-evenly;
-    width: 100%;
-    @include lg() {
-      height: calc(80vh - 300px);
-    }
-    @include mnHeight(1000px) {
-      height: calc(80vh - 300px);
-    }
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: space-evenly;
+      width: 100%;
+      @include lg() {
+        height: calc(80vh - 300px);
+      }
+      @include mnHeight(1000px) {
+        height: calc(80vh - 300px);
+      }
     }
     &__container {
       display: flex;
@@ -238,14 +232,17 @@ export default {
   &__text {
     padding: 0 0 0 10px;
     font-family: generalLeter;
-text-shadow: 0px 3px 6px #00000029;
+    text-shadow: 0px 3px 6px #00000029;
     color: white;
-    font-size: 18px;
+    font-size: 15px;
     line-height: 18px;
-    margin-bottom: 20px;
+    margin-bottom: 80px;
     text-align: center;
     @include lg() {
-      font-size: 30px;
+      font-size: 17px;
+    }
+    @include xlg() {
+      font-size: 20px;
     }
     @include xs() {
       font-size: 12px;
