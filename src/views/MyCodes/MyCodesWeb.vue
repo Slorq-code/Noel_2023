@@ -264,11 +264,11 @@ export default {
       border-radius: 50px;
       height: 40px;
       @include lg() {
-        width: 955px;
+        width: 850px;
         height: 50px;
       }
       @include xlg() {
-        width: 1100px;
+        width: 955px;
         height: 70px;
       }
     }
@@ -345,20 +345,21 @@ export default {
 
       &-one {
         color: #da412e;
-        font-size: 12px;
+        font-size: 14px;
         margin: 0px !important;
+        letter-spacing: 1.5px;
         @include lg() {
-          font-size: 18px;
+          font-size: 20px;
         }
       }
 
       &-two {
         color: #da412e;
-        font-size: 12px;
+        font-size: 11px;
         font-family: "Tahoma";
         margin: 0px !important;
         @include lg() {
-          font-size: 18px;
+          font-size: 13px;
         }
       }
 

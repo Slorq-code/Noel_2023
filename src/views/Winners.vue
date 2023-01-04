@@ -99,58 +99,58 @@ export default {
     return {
       tableWinners: [],
       tableWinnersModal: [
-      {
-          name: "Pablo prueba",
-          city: "manix",
+        {
+          name: "Martín Barrera",
+          city: "Bogota",
           result: "recarga"
         },
         {
           name: "Pablo prueba",
-          city: "manix",
+          city: "Felipe López",
+          result: "Tarjeta Regalo"
+        },
+        {
+          name: "Giovanni Ruíz",
+          city: "Bogota",
           result: "recarga"
         },
         {
-          name: "Pablo prueba",
-          city: "manix",
-          result: "recarga"
+          name: "Luciana Torres",
+          city: "Bogota",
+          result: "Tarjeta Regalo"
         },
         {
-          name: "Pablo",
-          city: "manix",
-          result: "recarga"
-        },
-        {
-          name: "Pablo",
-          city: "manix",
-          result: "recarga"
+          name: "Adriana Rodriguez",
+          city: "Bogota",
+          result: "Tarjeta Regalo"
         },
       ],
       dialog: false,
       tableWinnerss: [
         {
-          name: "Pablo prueba",
-          city: "manix",
+          name: "Martín Barrera",
+          city: "Bogota",
           result: "recarga"
         },
         {
           name: "Pablo prueba",
-          city: "manix",
+          city: "Felipe López",
+          result: "Tarjeta Regalo"
+        },
+        {
+          name: "Giovanni Ruíz",
+          city: "Bogota",
           result: "recarga"
         },
         {
-          name: "Pablo prueba",
-          city: "manix",
-          result: "recarga"
+          name: "Luciana Torres",
+          city: "Bogota",
+          result: "Tarjeta Regalo"
         },
         {
-          name: "Pablo",
-          city: "manix",
-          result: "recarga"
-        },
-        {
-          name: "Pablo",
-          city: "manix",
-          result: "recarga"
+          name: "Adriana Rodriguez",
+          city: "Bogota",
+          result: "Tarjeta Regalo"
         },
       ]
     };
