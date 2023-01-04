@@ -125,10 +125,19 @@ export default {
   margin: 0 0px 10px 0;
 
   textarea::placeholder {
-    color: #bcbcbc;
+    color: #929292;
     font-family: generalLeter;
     text-shadow: 0px 3px 6px #00000029;
-    font-size: 14px;
+    font-size: 12px;
+    @include mnHeight(1000px){
+      font-size: 18px;
+    }
+    @include lg(){
+      font-size: 16px;
+    }
+    @include xlg(){
+      font-size: 18px;
+    }
   }
   @include mobile() {
     width: 270px !important;
@@ -146,10 +155,10 @@ export default {
     background-color: white;
     width: 100%;
     height: 100px;
-    border-radius: 18px;
+    border-radius: 11px;
     font-size: 14px;
     padding: 6px 10px;
-    text-align: center;
+    text-align: start;
     font-family: generalLeter;
     text-shadow: 0px 3px 6px #00000029;
     @include mobile() {
@@ -167,15 +176,18 @@ export default {
     padding: 3px 0 0 10px;
   }
   &__error {
-    color: #e31552;
+    color:  red;
     font-family: generalLeter;
-    text-shadow: 0px 3px 6px #00000029;
+    text-shadow: 0px 3px 7px #ffffff73;
     font-size: 11px;
     @include mobile() {
       font-size: 12px;
     }
     @include lg() {
-      font-size: 20px;
+      font-size: 14px;
+    }
+    @include xlg() {
+      font-size: 17px;
     }
   }
   &__hint {
@@ -186,6 +198,9 @@ export default {
     @include mobile() {
       font-size: 12px;
     }
+  }
+  &__label-container {
+    margin: 0 0 10px 0;
   }
   &__label {
     margin-left: 10px;
@@ -199,7 +214,11 @@ export default {
       text-align: center;
     }
     @include lg() {
-      font-size: 28px;
+      font-size: 18px;
+    }
+    @include xlg() {
+      font-size: 20px;
+      margin: 0 0 10px 0;
     }
   }
   &__messages-box {

@@ -142,6 +142,9 @@ export default {
     margin: 0 0 5px 0;
     width: 100% !important;
   }
+  @include xlg() {
+    width: 380px;
+  }
   &__main-box {
     display: flex;
     flex-direction: column;
@@ -187,7 +190,7 @@ export default {
   &__label {
     margin: 0 10px 0px 10px;
     font-family: generalLeter;
-text-shadow: 0px 3px 6px #00000029;
+    text-shadow: 0px 3px 6px #00000029;
     font-size: 15px;
     color: white;
     @include mobile() {
@@ -196,11 +199,14 @@ text-shadow: 0px 3px 6px #00000029;
     @include lg() {
       font-size: 18px;
     }
+    @include xlg() {
+      font-size: 20px;
+    }
   }
   &__placeholder {
     color: #929292;
     font-family: generalLeter;
-text-shadow: 0px 3px 6px #00000029;
+    text-shadow: 0px 3px 6px #00000029;
     font-size: 12px;
   }
   &__icon-content {
@@ -235,7 +241,7 @@ text-shadow: 0px 3px 6px #00000029;
     color: black;
     padding: 3px 2px 1px 2px;
     font-family: generalLeter;
-text-shadow: 0px 3px 6px #00000029;
+    text-shadow: 0px 3px 6px #00000029;
     @include mobile() {
       font-size: 14px;
     }
@@ -245,7 +251,7 @@ text-shadow: 0px 3px 6px #00000029;
   }
   &__text {
     font-family: generalLeter;
-text-shadow: 0px 3px 6px #00000029;
+    text-shadow: 0px 3px 6px #00000029;
     font-size: 14px;
     @include xs() {
       font-size: 12px;
@@ -254,7 +260,7 @@ text-shadow: 0px 3px 6px #00000029;
   &__error {
     color: #e31552;
     font-family: generalLeter;
-text-shadow: 0px 3px 6px #00000029;
+    text-shadow: 0px 3px 6px #00000029;
     font-size: 9px;
     @include mobile() {
       font-size: 10px;

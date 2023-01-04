@@ -404,6 +404,9 @@ export default {
     text-shadow: 0px 3px 6px #00000029;
     font-size: 1rem;
     text-align: center;
+    @include mxHeight(590px) {
+      font-size: 0.9rem;
+    }
     @include xlg() {
       font-size: 1.2rem;
     }

@@ -35,10 +35,10 @@
           @close-all="$refs.topic.open = false"
           :model="message.message"
           @handle-input="setValue($event)"
-          placeholder="Ingresar mensaje"
+          placeholder="Ingresar mensaje..."
           :required="true"
           :error="error"
-          class="mt-0"
+          class="FlexStartClass"
         />
         <div class="contactUs__content__container">
           <Button text="Enviar" type="primary" @handle-click="send()" />
@@ -184,6 +184,12 @@ export default {
 
 <style lang="scss">
 @import "@/assets/scss/mixins.scss";
+.FlexStartClass {
+  margin: 18px 0 0 0;
+  @include mnHeight(1000px) {
+    margin: 26px 0 0 0;
+  }
+}
 .contactUs {
   display: flex;
   justify-content: center;
@@ -221,12 +227,18 @@ export default {
       @include mnHeight(1000px) {
         height: calc(80vh - 300px);
       }
+      @include xlg() {
+        width: 50vw;
+      }
     }
     &__container {
       display: flex;
       justify-content: center;
-      margin-top: 70px;
+      margin-top: 100px;
       width: 100%;
+      @include mnHeight(1000px) {
+        margin-top: 90px;
+      }
     }
   }
   &__text {
@@ -243,6 +255,7 @@ export default {
     }
     @include xlg() {
       font-size: 20px;
+      margin-bottom: 20px;
     }
     @include xs() {
       font-size: 12px;
