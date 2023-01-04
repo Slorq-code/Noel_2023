@@ -122,30 +122,22 @@
               </div>
             </div>
           </div>
-          <div class="header__container" >
-            <div class="header__container__social" >
+          <div class="header__container">
+            <div class="header__container__social">
               <img
                 @click="gotoSaltin()"
                 class="footer1__facebook footer2__facebook"
                 src="../assets/Assets_Mobile_New/facebook.png"
               />
-              <span
-                class=""
-                @click="gotoSaltin()"
-                >galletassaltinnoel</span
-              >
+              <span class="" @click="gotoSaltin()">galletassaltinnoel</span>
             </div>
-            <div class="header__container__social" > 
+            <div class="header__container__social">
               <img
                 @click="gotoDucales()"
                 class="footer1__facebook footer2__facebook"
                 src="../assets/Assets_Mobile_New/facebook.png"
               />
-              <span
-                class=""
-                @click="gotoDucales()"
-                >ducalesgruponutresa</span
-              >
+              <span class="" @click="gotoDucales()">ducalesgruponutresa</span>
             </div>
           </div>
           <img
@@ -409,11 +401,11 @@ export default {
     align-items: center;
     color: white;
     font-family: generalLeter;
-text-shadow: 0px 3px 6px #00000029;
-    font-size: 11px;
+    text-shadow: 0px 3px 6px #00000029;
+    font-size: 1rem;
     text-align: center;
     @include xlg() {
-      font-size: 18px;
+      font-size: 1.2rem;
     }
   }
   &--web-route-text-selected {
@@ -433,7 +425,7 @@ text-shadow: 0px 3px 6px #00000029;
       display: flex;
       justify-content: flex-start;
     }
-    &__social span{
+    &__social span {
       color: white;
       @include xs() {
         font-size: 14px;

@@ -83,9 +83,9 @@ export default {
 .button-1 {
   background-color: #e43f27;
 }
-.button-2 {
-  background-color: #e43f27;
-}
+// .button-2 {
+//   background-color: #e43f27;
+// }
 .button:hover {
   transform: scale(1.1);
   transition: 0.3s ease-out;

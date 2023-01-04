@@ -21,6 +21,7 @@
       >
     </div>
     <span class="footer1__text footer2__text">Noel - 2023</span>
+    <br v-if="!token">
     <div class="footer1__routes footer2__routes" v-if="token">
       <img class="footer1__coljuegos footer2__coljuegos" src="@/assets/web/Logo_coljuegos.png" />
       <span

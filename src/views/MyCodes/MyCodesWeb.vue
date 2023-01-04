@@ -10,9 +10,7 @@
 
     <div class="myCodesWeb__content">
       <div class="myCodesWeb__title">
-        <h1 class="myCodesWeb__title-one">
-          ¡Bienvenido Carlos Moran!
-        </h1>
+        <h1 class="myCodesWeb__title-one">¡Bienvenido Carlos Moran!</h1>
         <h2 class="myCodesWeb__title-two">
           Celular para premios: (311) 522 3148
         </h2>
@@ -56,9 +54,7 @@
               -
             </div>
             <div class="myCodesWeb__table-btn-action">
-              <p>
-                +
-              </p>
+              <p>+</p>
             </div>
           </div>
           <div class="myCodesWeb__table-content-element myCodesWeb__text-row">
@@ -85,7 +81,7 @@
           </div>
           <div class="myCodesWeb__table-content-element">
             <p
-              style="text-align: center;"
+              style="text-align: center"
               class="myCodesWeb__table-text-content-award myCodesWeb__alignmentText"
             >
               {{ item.award }}
@@ -112,9 +108,9 @@ export default {
             titleOne: "ZET82F",
             titletwo: "12/12/2022",
           },
-          
-          award: "felicidaes",
-          cant:1
+
+          award: "¡RECARGA!",
+          cant: 1,
         },
         {
           saltinNoel: {
@@ -125,9 +121,9 @@ export default {
             titleOne: "ZET82F",
             titletwo: "12/12/2022",
           },
-          
-          award: "felicidaes",
-          cant:2
+
+          award: "¡RECARGA!",
+          cant: 2,
         },
         {
           saltinNoel: {
@@ -138,9 +134,9 @@ export default {
             titleOne: "ZET82F",
             titletwo: "12/12/2022",
           },
-          
-          award: "felicidaes",
-          cant:3
+
+          award: "¡T. REGALO!",
+          cant: 3,
         },
         {
           saltinNoel: {
@@ -151,11 +147,11 @@ export default {
             titleOne: "ZET82F",
             titletwo: "12/12/2022",
           },
-          
-          award: "felicidaes",
-          cant:4
-        }
-      ]
+
+          award: "¡T. REGALO!",
+          cant: 4,
+        },
+      ],
     };
   },
   mounted() {
@@ -209,9 +205,9 @@ export default {
       height: 57px;
     }
     @include mnHeight(1000px) {
-        height: 8vh;
-        margin: 3vh 0 0 0;
-      }
+      height: 8vh;
+      margin: 3vh 0 0 0;
+    }
   }
   &__content {
     padding-bottom: 10px !important;
@@ -301,7 +297,7 @@ export default {
       border-bottom: 2.5px dashed #da412e;
       font-size: 20px;
       @include lg() {
-        margin: 10px 0;
+        margin: 10px 0 10px 0;
         font-size: 25px;
       }
       &:last-of-type {
@@ -315,7 +311,7 @@ export default {
       display: flex;
       justify-content: center;
     }
-    &-content-element:nth-child(1) {  
+    &-content-element:nth-child(1) {
       @include lg() {
       }
     }
@@ -334,10 +330,14 @@ export default {
 
     &-text-content {
       margin-left: 15px;
-      line-height: 14px;
       margin-right: 25px;
       margin-top: 5px;
+      margin-bottom: 5px;
+      line-height: 14px;
       text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
 
       &-alignEmpty {
         margin-left: 40px !important;
@@ -355,7 +355,7 @@ export default {
       &-two {
         color: #da412e;
         font-size: 12px;
-        font-family: "MyriadProRegular";
+        font-family: "Tahoma";
         margin: 0px !important;
         @include lg() {
           font-size: 18px;
