@@ -68,15 +68,15 @@
             />
           </div>
           <div class="enterCode-web__rec">
-            <!-- <vue-recaptcha
+            <vue-recaptcha
               sitekey=" 6Lfh6Y4aAAAAAI-8nSMl7mVqcaetUMQC9ZCDoqvK"
-              :loadRecaptchaScript="true"
               @verify="verifyRecaptcha"
+              :loadRecaptchaScript="true"
               @expired="expiredRecaptcha"
-              class="mb-1"
-              language="es"
               ref="recaptcha"
-            ></vue-recaptcha> -->
+              language="es"
+              class="mb-1"
+            ></vue-recaptcha>
             <div>
               <Button
               text="Registrar Código"
@@ -122,18 +122,18 @@
         </span>
       </div>
       
-      <!-- <div class="enterCode-web__rec">
-          EN ESTE ESPACIO VA EL RECAPTCHA
+       <div class="enterCode-web__rec">
+          <!-- EN ESTE ESPACIO VA EL RECAPTCHA -->
           <vue-recaptcha
-          sitekey=" 6Lfh6Y4aAAAAAI-8nSMl7mVqcaetUMQC9ZCDoqvK"
           :loadRecaptchaScript="true"
+          sitekey=" 6Lfh6Y4aAAAAAI-8nSMl7mVqcaetUMQC9ZCDoqvK"
           @verify="verifyRecaptcha"
-          @expired="expiredRecaptcha"
           class="mb-1"
-          language="es"
+          @expired="expiredRecaptcha"
           ref="recaptcha"
+          language="es"
           ></vue-recaptcha> 
-        </div> -->
+        </div>
       
       <div class="enterCode-mobile__button-wrapper">
         <Button text="Registrar Código" type="primary" @handle-click="send()" />
@@ -165,7 +165,7 @@
 <script>
 import Input from "../components/Input";
 import Button from "../components/Button";
-//import VueRecaptcha from "vue-recaptcha";
+import VueRecaptcha from "vue-recaptcha";
 import { SaveCodes, GetStatus } from "../api";
 import RegisterCodeConfirm from "../components/RegisterCodeConfirm";
 import Modal from "../components/Modal";
@@ -176,7 +176,7 @@ export default {
     return {
       loading: false,
       errors: {},
-      //recaptchaCode: "",
+      recaptchaCode: "",
       count: 0,
       ducales: "",
       saltin: "",
@@ -194,7 +194,7 @@ export default {
   components: {
     Input,
     Button,
-    //VueRecaptcha,
+    VueRecaptcha,
     RegisterCodeConfirm,
     Modal,
   },
@@ -268,7 +268,8 @@ export default {
             };
             this.dialog = true;
             this.$refs.recaptcha.reset();
-            this.recaptchaCode = null;
+           // this.recaptchaCode = null;
+            this.recaptchaCode = "null";
             this.$store.dispatch("loadBalance");
             this.ducales = "";
             this.saltin = "";
@@ -316,6 +317,17 @@ export default {
 
 <style lang="scss">
 @import "@/assets/scss/mixins.scss";
+.rc-anchor-normal, 
+.rc-anchor-pt{
+  margin: 2px 80px 0 0 !important;
+}
+.rc-anchor-normal{
+  margin: 2px 80px 0 0 !important;
+}
+
+.rc-anchor-pt{
+  margin: 2px 80px 0 0 !important;
+}
 .Uppercase div input{ 
   letter-spacing: 2px;
   text-transform: uppercase;
