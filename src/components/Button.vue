@@ -1,6 +1,6 @@
 <template>
   <div
-    :class="['button', color === '1' ? 'button-1' : 'button-2']"
+    :class="['button', color === '1' ? 'button-1' : 'button-2' && color === '3' ? 'button-3' : 'button-2']"
     @click="click()"
   >
     <span class="button__text">{{ text }}</span>
@@ -48,7 +48,6 @@ export default {
 @import "@/assets/scss/mixins.scss";
 
 .button {
-  background-color: #309f3a;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -83,9 +82,12 @@ export default {
 .button-1 {
   background-color: #e43f27;
 }
-// .button-2 {
-//   background-color: #e43f27;
-// }
+.button-2 {
+  background-color: #309f3a;
+}
+.button-3 {
+  background-color: #f0b824;
+}
 .button:hover {
   transform: scale(1.1);
   transition: 0.3s ease-out;

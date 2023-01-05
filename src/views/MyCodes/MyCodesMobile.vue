@@ -31,18 +31,19 @@
               index + 1
             }}</span>
             <p class="myCodesMobile__content-items-header-title">
-              {{ item.titleMobile }}
+              <!-- {{ item.titleMobile }} -->
+              Pareja completa
             </p>
           </div>
           <div class="myCodesMobile__content-items-content">
             <span
             class= "myCodesMobile__content-items-content__textSpan"
-            >Te falta uno</span>
+            >Te falta 1 código</span>
             <div class="myCodesMobile__content-items-content-action">
               <!-- <p class="myCodesMobile__content-items-content-action-text">
                 {{ item.resultCouple }}
               </p> -->
-              <Button text="Registrar Código" type="primary"/>
+              <Button text="Registrar Código" type="primary" color="3"/>
             </div>
           </div>
         </div>
@@ -246,7 +247,7 @@ export default {
     justify-content: space-between;
     flex-direction: column;
     align-items: center;
-    height: 120px;
+    height: 100px;
     &-image {
       margin: 10px 0px 10px 0px;
       height: 90px;

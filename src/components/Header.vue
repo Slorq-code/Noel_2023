@@ -17,6 +17,7 @@
       @click="logoClick()"
       src="../assets/Assets_Web_New/logos_header_barriga.png"
       alt="logos"
+      v-if="!token"
     />
     <img
       class="header__logo__second"
@@ -85,6 +86,7 @@
               class="modal-mobile-navigator__imageHeader"
               src="../assets/Assets_Web_New/logos_header.png"
               alt="informacion"
+              @click="logoClick()"
             />
           </div>
           <img
@@ -144,6 +146,7 @@
             class="modal-mobile-navigator__col-juegos"
             src="@/assets/web/Logo_coljuegos.png"
             alt="Col juegos"
+            @click="gotoColjuegos()"
           />
         </div>
       </div>
@@ -279,6 +282,9 @@ export default {
     gotoDucales() {
       window.open(`https://www.facebook.com/ducalesgruponutresa/`, "_blank");
     },
+    gotoColjuegos() {
+      window.open(`https://www.coljuegos.gov.co/`, "_blank");
+    },
     click(item) {
       if (item.clickAction) {
         item.clickAction();
@@ -348,6 +354,7 @@ export default {
     }
     &__logoCurva2 {
       height: 100% !important;
+      cursor: pointer;
     }
     &__second {
       width: 20%;
@@ -360,6 +367,7 @@ export default {
   &__menu {
     height: 30px;
     z-index: 99;
+    cursor: pointer;
   }
   &__web-routes {
     flex: 1;
@@ -429,6 +437,7 @@ export default {
       justify-content: flex-start;
     }
     &__social span {
+      cursor: pointer;
       color: white;
       @include xs() {
         font-size: 14px;
@@ -512,6 +521,7 @@ export default {
     height: 100%;
     width: 100%;
     margin: 0 0px 20px 0;
+    cursor: pointer;
   }
   &__close-container {
     position: absolute;
@@ -533,6 +543,8 @@ export default {
     height: 60px;
     position: absolute;
     bottom: 0;
+    left: 0;
+    cursor: pointer;
   }
 }
 .container-routes-mobile {

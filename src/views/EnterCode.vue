@@ -110,6 +110,7 @@
         "
       >
         <Input
+          class="Uppercase"
           :field="'code'"
           :model="code"
           maxlength="9"
