@@ -475,36 +475,24 @@ export default {
       margin: 0 80px;
     }
   }
+  &__ducales-image,
   &__saltin-image {
-    width: 40%;
+    width: 140px;
+    height: 127px;
+    @include mxHeight(590px) {
+      width: 105px;
+      height: 98px;
+    }
     @include lg() {
-      width: 45%;
+      width: 150px;
+      height: 137px;
     }
     @include xlg() {
-      width: 75%;
-    }
-    @include mxHeight(590px) {
-      width: 35%;
-    }
-    @include mnHeight(1000px) {
-      width: 60%;
+      width: 252px;
+      height: 226px;
     }
   }
-  &__ducales-image {
-    width: 40%;
-    @include lg() {
-      width: 45%;
-    }
-    @include xlg() {
-      width: 75%;
-    }
-    @include mxHeight(590px) {
-      width: 35%;
-    }
-    @include mnHeight(1000px) {
-      width: 60%;
-    }
-  }
+  
   &__box-text {
     margin-top: -24px;
     font-family: generalLeter;

@@ -254,10 +254,10 @@ export default {
       width: 50vh;
     }
     @include lg() {
-      width: 70%;
+      width: 60%;
     }
     @include xlg() {
-      width: 80%;
+      width: 70%;
     }
   }
   &__table-modal {
@@ -294,10 +294,10 @@ export default {
         font-size: 13px;
       }
       @include lg() {
-        font-size: 17px;
+        font-size: 16px;
       }
       @include xlg() {
-        font-size: 25px;
+        font-size: 19px;
       }
     }
   }

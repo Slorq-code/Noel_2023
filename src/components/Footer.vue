@@ -187,25 +187,26 @@ export default {
   }
   &__facebook-text {
     color: #f0b824;
-    font-size: 13px;
+    font-size: 12px;
     margin-right: 20px;
     cursor: pointer;
     @include lg() {
-      font-size: 15px;
+      font-size: 14px;
     }
     @include xlg() {
-      font-size: 22px;
+      font-size: 18px;
     }
   }
   &__text {
+    margin: 0 0 0 10px;
     font-size: 13px;
     color: #f0b824;
     text-align: center;
     @include lg() {
-      font-size: 15px;
+      font-size: 14px;
     }
     @include xlg() {
-      font-size: 22px;
+      font-size: 18px;
     }
   }
   .cp {

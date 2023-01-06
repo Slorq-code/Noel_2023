@@ -53,8 +53,9 @@
             >
               -
             </div>
-            <div class="myCodesWeb__table-btn-action">
-              <p>+</p>
+            <div class="myCodesWeb__table-btn-plus">
+              <svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m12.002 2c5.518 0 9.998 4.48 9.998 9.998 0 5.517-4.48 9.997-9.998 9.997-5.517 0-9.997-4.48-9.997-9.997 0-5.518 4.48-9.998 9.997-9.998zm-.747 9.25h-3.5c-.414 0-.75.336-.75.75s.336.75.75.75h3.5v3.5c0 .414.336.75.75.75s.75-.336.75-.75v-3.5h3.5c.414 0 .75-.336.75-.75s-.336-.75-.75-.75h-3.5v-3.5c0-.414-.336-.75-.75-.75s-.75.336-.75.75z" fill-rule="nonzero"/></svg>
+              <div class="myCodesWeb__table-btn-plus__background"></div>
             </div>
           </div>
           <div class="myCodesWeb__table-content-element myCodesWeb__text-row">
@@ -75,8 +76,9 @@
             >
               -
             </div>
-            <div class="myCodesWeb__table-btn-action">
-              <p>=</p>
+            <div class="myCodesWeb__table-btn-equal">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-1 17h-3v-10h3v10zm5 0h-3v-10h3v10z"/></svg>
+              <div class="myCodesWeb__table-btn-plus__background"></div>
             </div>
           </div>
           <div class="myCodesWeb__table-content-element">
@@ -374,24 +376,51 @@ export default {
       }
     }
 
-    &-btn-action {
+    &-btn-plus {
+      position: relative;
       height: 26px;
       width: 26px;
       text-align: center;
       margin: 0px !important;
       padding: 0px;
       border-radius: 50px;
-
-      p {
-        margin: 0px !important;
-        margin-top: -1px !important;
-        font-size: 20px !important;
-        color: white;
-        background-color: #309f3a;
+      &__background {
+        background-color: white;
+        position: absolute;
+        height: 24px;
+        width: 24px;
+        top:4px;
+        left: 4px;
         border-radius: 50%;
-        font-weight: 10;
       }
     }
+    &-btn-plus svg{
+      z-index: 99;
+      top:0;
+      left: 0;
+      position: absolute;
+      fill: #309f3a;
+      height: 35px;
+      width: 35px;
+  }
+  &-btn-equal {
+    position: relative;
+      height: 26px;
+      width: 26px;
+      text-align: center;
+      margin: 0px !important;
+      padding: 0px;
+      border-radius: 50px;
+    }
+    &-btn-equal svg{
+      z-index: 99;
+      top:0;
+      left: 0;
+      position: absolute;
+      fill: #309f3a;
+      height: 30px;
+      width: 30px;
+      transform: rotate(90deg);
   }
 
   &__text-row {
@@ -404,5 +433,6 @@ export default {
   &__alignmentText {
     margin-right: 25px !important;
   }
+}
 }
 </style>

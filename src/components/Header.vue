@@ -323,7 +323,7 @@ export default {
     rgba(222, 62, 40, 1) 0%,
     rgba(129, 36, 26, 1) 100%
   );
-  height: 70px;
+  height: 60px;
   border-radius: 35px;
   padding: 0 0 0 20px;
   margin: 10px 10px 0 10px;
@@ -357,10 +357,11 @@ export default {
       cursor: pointer;
     }
     &__second {
-      width: 20%;
+      width: 15%;
       padding: 5% 0 0 0;
+      margin: 0 0 0 20px;
       @include lg() {
-        width: 15%;
+        width: 17%;
       }
     }
   }
@@ -385,11 +386,11 @@ export default {
     gap: 7px;
   }
   &__web-route {
+    display: flex;
     cursor: pointer;
     padding: 0px 10px 0px 10px;
     text-align: center;
     line-height: 14px;
-    display: flex;
   }
 
   &__web-route-mobile {
@@ -410,17 +411,17 @@ export default {
     color: white;
     font-family: generalLeter;
     text-shadow: 0px 3px 6px #00000029;
-    font-size: 1rem;
+    font-size: 0.9rem;
     text-align: center;
     @include mxHeight(590px) {
-      font-size: 0.9rem;
+      font-size: 0.8rem;
     }
     @include xlg() {
       font-size: 1.2rem;
     }
   }
   &--web-route-text-selected {
-    transform: scale(1.04);
+    transform: scale(1.01);
     transition: 1s ease-out;
     color: #eeb024;
   }
