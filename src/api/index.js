@@ -3,7 +3,7 @@ import Vue from "vue";
 export const Login = async identification => {
   const resp = await Vue.axios({
     method: "POST",
-    url: "login",
+    url: "v1/login",
     data: {
       identification,
     },
@@ -14,7 +14,7 @@ export const Login = async identification => {
 export const ClearSession = async () => {
   const resp = await Vue.axios({
     method: "POST",
-    url: "v1/clear-session",
+    url: "v1/logout",
   });
   return resp.data;
 };

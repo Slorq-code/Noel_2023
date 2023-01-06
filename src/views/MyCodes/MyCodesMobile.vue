@@ -116,20 +116,52 @@ export default {
       tableDatas: [
         {
           saltinNoel: {
-            titleOne: "prueba1",
-            titletwo: "prueba2",
+            titleOne: "ZET82F",
+            titletwo: "12/12/2022",
           },
           ducales: {
-            titleOne: "prueba3",
-            titletwo: "prueba4",
           },
-          award: "felicidaes",
+          award: "",
+          cant: 1,
         },
         {
-          award: "felicidaes",
+          saltinNoel: {
+            titleOne: "ZET82F",
+            titletwo: "12/12/2022",
+          },
+          ducales: {
+            titleOne: "ZET82F",
+            titletwo: "12/12/2022",
+          },
+
+          award: "¡RECARGA!",
+          cant: 2,
         },
         {
-          award: "felicidaes",
+          saltinNoel: {
+            titleOne: "ZET82F",
+            titletwo: "12/12/2022",
+          },
+          ducales: {
+            titleOne: "ZET82F",
+            titletwo: "12/12/2022",
+          },
+
+          award: "¡T. REGALO!",
+          cant: 3,
+        },
+        {
+          saltinNoel: {
+            titleOne: "ZET82F",
+            titletwo: "12/12/2022",
+          },
+          ducales: {
+            titleOne: "ZET82F",
+            titletwo: "12/12/2022",
+          },
+
+          award: "¡T. REGALO!",
+          cant: 4,
         },
       ],
     };

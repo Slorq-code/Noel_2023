@@ -52,16 +52,16 @@
         />
         <Input
           label="Cédula"
-          field="document"
+          field="idn"
           @close-all="
             $refs.operator.open = false;
             $refs.department_state.open = false;
           "
           @handle-input="setValue($event)"
-          :model="user.document"
+          :model="user.idn"
           placeholder="Ingresa nº de cédula"
           :required="true"
-          :error="errors.document"
+          :error="errors.idn"
           :onlyNumbers="true"
         />
       </div>
@@ -204,7 +204,7 @@ export default {
       user: {
         names: "",
         last_names: "",
-        document: "",
+        idn: "",
         phone: "",
         email: "",
         department_state: "",
@@ -282,7 +282,7 @@ export default {
       if (
         !this.user.names ||
         !this.user.last_names ||
-        !this.user.document ||
+        !this.user.idn ||
         !this.user.email ||
         !this.user.department_state ||
         !this.user.city ||
@@ -350,7 +350,7 @@ export default {
       this.user = {
         names: "",
         last_names: "",
-        document: "",
+        idn: "",
         email: "",
         department_state: "",
         city: "",
@@ -364,7 +364,7 @@ export default {
     },
     validate() {
       if (this.user.phone) this.user.phone = this.user.phone.trim();
-      if (this.user.document) this.user.document = this.user.document.trim();
+      if (this.user.idn) this.user.idn = this.user.idn.trim();
       if (this.user.email) {
         this.user.email = this.user.email.trim();
       }
@@ -388,17 +388,17 @@ export default {
       if (this.user.phone && !(this.user.phone.length === 10)) {
         errors.phone = "El celular debe tener 10 carácteres.";
       }
-      if (this.user.document && !idReq.test(this.user.document)) {
-        errors.document = "Ingresa un número de cédula válido.";
+      if (this.user.idn && !idReq.test(this.user.idn)) {
+        errors.idn = "Ingresa un número de cédula válido.";
       }
-      if (this.user.document && this.user.document.length === 10) {
-        if (!(+this.user.document > 1000000000 && +this.user.document < 1999999999))
-          errors.document = "Ingresa un número de cédula válido.";
+      if (this.user.idn && this.user.idn.length === 10) {
+        if (!(+this.user.idn > 1000000000 && +this.user.idn < 1999999999))
+          errors.idn = "Ingresa un número de cédula válido.";
       }
       if (this.touch) {
         if (!this.user.names) errors.name = "Este campo es obligatorio.";
         if (!this.user.email) errors.email = "Este campo es obligatorio.";
-        if (!this.user.document) errors.document = "Este campo es obligatorio.";
+        if (!this.user.idn) errors.idn = "Este campo es obligatorio.";
         if (!this.user.phone) errors.phone = "Este campo es obligatorio.";
         if (!this.user.operator) errors.operator = "Este campo es obligatorio.";
         if (!this.user.department_state)
