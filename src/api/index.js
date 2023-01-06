@@ -31,7 +31,7 @@ export const UpdateUser = async user => {
 export const Register = async user => {
   const resp = await Vue.axios({
     method: "POST",
-    url: "register",
+    url: "v1/register",
     data: user,
   });
   return resp.data;

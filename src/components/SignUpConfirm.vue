@@ -17,9 +17,9 @@
         número celular y operador al cual perteneces; recuerda que las recargas
         se realizarán a este número celular.
       </span>
-      <span class="signup-confirm__text">Nombre: {{ user.name }}</span>
-      <span class="signup-confirm__text">Apellido: {{ user.lastName }}</span>
-      <span class="signup-confirm__text">Cédula: {{ user.idn }}</span>
+      <span class="signup-confirm__text">Nombre: {{ user.names }}</span>
+      <span class="signup-confirm__text">Apellido: {{ user.last_names }}</span>
+      <span class="signup-confirm__text">Cédula: {{ user.document }}</span>
       <span class="signup-confirm__text">Correo: {{ user.email }}</span>
       <span class="signup-confirm__text"
         >Dpto: {{ user.department_state }}</span

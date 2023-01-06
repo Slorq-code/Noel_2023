@@ -1,6 +1,6 @@
 import axios from "axios";
 import Vue from "vue";
 import VueAxios from "vue-axios";
-const baseURL = "https://lapromoquenosune.loyalquo.com/api";
+const baseURL = "http://localhost:8000/api";
 axios.defaults.baseURL = baseURL;
 Vue.use(VueAxios, axios);
