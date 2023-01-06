@@ -212,8 +212,14 @@ export default {
     }
   }
   &__content {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
     padding-bottom: 10px !important;
     margin-bottom: 10px !important;
+    width: 100%;
   }
 
   &__title {
@@ -257,6 +263,13 @@ export default {
     align-items: center;
     background-color: rgba(255, 255, 255, 0.371);
     border-radius: 25px;
+    width: 100%;
+    @include lg() {
+        width: 850px;
+      }
+      @include xlg() {
+        width: 955px;
+      }
 
     &-header {
       background: #309f3a;
@@ -264,15 +277,8 @@ export default {
       align-items: center;
       justify-content: space-evenly;
       border-radius: 50px;
-      height: 40px;
-      @include lg() {
-        width: 850px;
-        height: 50px;
-      }
-      @include xlg() {
-        width: 955px;
-        height: 70px;
-      }
+      height: 35px;
+      width: 100%;
     }
     &-cant {
       @include lg() {
