@@ -55,11 +55,8 @@ export default {
   z-index: 10 !important;
   background-color: rgba(0, 0, 0, 0.7);
 
-
   @include xs() {
-
     bottom: -30px;
-
   }
 
   &__content {
@@ -71,7 +68,6 @@ export default {
     @include mobile() {
       width: 90% !important;
     }
-
   }
 }
 </style>

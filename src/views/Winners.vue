@@ -43,7 +43,7 @@
     >
       Ver los ganadores
     </button>
-    <modal width="850" :dialog="dialog">
+    <modal width="950" :dialog="dialog">
       <div class="winners__modal-content" slot="component">
         <div class="winners__close-container">
           <img
@@ -231,15 +231,15 @@ export default {
       }
   }
   &__wrapper-table-row {
-    height: 192px;
+    height: 86%;
     padding: 0 20px 0 0;
     overflow-y: auto;
     @include mobile() {
       height: 250px;
       padding: 0 0px 0 0;
     }
-    @include mnHeight(1000px){
-      height: 50vh;
+    @include mxHeight(701px){
+      height: 71%;
     }
   }
 
@@ -260,7 +260,9 @@ export default {
       width: 80%;
     }
   }
-
+  &__table-modal {
+    background-color: initial;
+  }
   &__table-header {
     display: flex;
     justify-content: space-around;
@@ -375,7 +377,7 @@ export default {
     position: relative;
     min-height: 300px;
     padding: 10px 20px;
-    height: 370px;
+    height: 71vh;
     @include mnHeight(1000px) {
       height: 70vh !important;
     }
@@ -391,15 +393,17 @@ export default {
   &__image {
     height: 220px;
     margin-top: -100px;
-    @include mobile() {
-      height: 160px;
-      margin-top: -80px;
-    }
-
     @include xs() {
       height: 140px;
       margin-bottom: -25px;
       margin-top: -65px;
+    }
+    @include mobile() {
+      height: 160px;
+      margin-top: -80px;
+    }
+    @include mxHeight(590px) {
+      height: 120px;
     }
   }
   &__close-container {

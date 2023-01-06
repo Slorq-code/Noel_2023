@@ -43,36 +43,36 @@ export default {
     computed: {},
     methods: {
         signIn() {
-            if (this.idn) {
-                if (!this.error) {
-                    this.loading = true;
-                    // Login(this.idn)
-                    //     .then((resp) => {
-                            this.loading = false;
+            // if (this.idn) {
+            //     if (!this.error) {
+            //         this.loading = true;
+            //         Login(this.idn)
+            //             .then((resp) => {
+            //           this.loading = false;
                             this.$store.dispatch("setToken", "resp.token");
                             this.$store.dispatch("setUser", "resp.user");
                             this.$store.dispatch("loadBalance");
                             this.goTo("/ingresar-codigo");
-                    //     })
-                    //     .catch(() => {
-                    //         this.loading = false;
-                    //         this.$store.dispatch("setAlert", {
-                    //             buttonLabel: "Aceptar",
-                    //             showClose: true,
-                    //             type: "INFO",
-                    //             message:
-                    //                 "¡El número de cédula ingresado no se encuentra registrado!",
-                    //         });
-                    //     });
-                }
-            } else {
-                this.$store.dispatch("setAlert", {
-                    buttonLabel: "Aceptar",
-                    type: "INFO",
-                    showClose: true,
-                    message: "¡Ingresa un número de cédula válido!.",
-                });
-            }
+            //             })
+            //             .catch(() => {
+            //                 this.loading = false;
+            //                 this.$store.dispatch("setAlert", {
+            //                     buttonLabel: "Aceptar",
+            //                     showClose: true,
+            //                     type: "INFO",
+            //                     message:
+            //                         "¡El número de cédula ingresado no se encuentra registrado!",
+            //                 });
+            //             });
+            //     }
+            // } else {
+            //     this.$store.dispatch("setAlert", {
+            //         buttonLabel: "Aceptar",
+            //         type: "INFO",
+            //         showClose: true,
+            //         message: "¡Ingresa un número de cédula válido!.",
+            //     });
+            // }
         },
         setValue(e) {
             this.idn = e.value;
