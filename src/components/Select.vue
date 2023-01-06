@@ -123,6 +123,11 @@ export default {
   height: 48px;
   width: 280px;
   margin: 0 10px 10px 0;
+  
+  @include xs() {
+    margin: 0 0 5px 0;
+    width: 100% !important;
+  }
   @include mobile() {
     width: 270px !important;
     margin: 25px 10px;
@@ -137,10 +142,6 @@ export default {
   @include mnHeight(1000px) {
     width: 330px;
     height: 56px;
-  }
-  @include xs() {
-    margin: 0 0 5px 0;
-    width: 100% !important;
   }
   @include xlg() {
     width: 380px;

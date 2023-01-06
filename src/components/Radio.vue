@@ -26,8 +26,8 @@ export default {
 <style lang="scss">
 .radio {
     background-color: white;
-    height: 14px;
-    width: 14px;
+    height: 20px;
+    width: 20px;
     border-radius: 50%;
     display: flex;
     flex-direction: column;
@@ -37,9 +37,9 @@ export default {
     margin-top: 2px;
     cursor: pointer;
     &__value {
-        background-color: #EC2C8D;
-        height: 8px;
-        width: 8px;
+        background-color: #309f3a;
+        height: 15px;
+        width: 15px;
         border-radius: 50%;
     } 
 }

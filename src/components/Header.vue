@@ -230,11 +230,11 @@ export default {
       },
       {
         name: "Cerrar Sesión",
-        clickAction: () => {
-          //this.dialog = false
-          // this.logout();
-          this.goTo("/registrarse");
-        },
+        path: "/ingresar",
+        // clickAction: () => {
+        //   this.dialog = false
+        //   this.logout();
+        // },
         isVisible: () => this.token,
       },
     ];
@@ -261,7 +261,7 @@ export default {
     logout() {
       ClearSession().then(() => {
         this.$store.dispatch("logout");
-        this.goTo("/ingresar");
+        this.goTo("/contactenos");
       });
     },
     logoClick() {

@@ -167,7 +167,7 @@
 import Input from "../components/Input";
 import Button from "../components/Button";
 import VueRecaptcha from "vue-recaptcha";
-import { SaveCodes, GetStatus } from "../api";
+// import { SaveCodes, GetStatus } from "../api";
 import RegisterCodeConfirm from "../components/RegisterCodeConfirm";
 import Modal from "../components/Modal";
 
@@ -225,6 +225,9 @@ export default {
     },
   },
   methods: {
+
+
+
     send() {
       this.verifyCatptcha();
       if (this.saltin || this.ducales) {
@@ -251,48 +254,54 @@ export default {
         });
       }
     },
-    save(saltin, ducales) {
+
+
+
+      // dentro del save( saltin, ducales )
+    save() {
       this.loading = true;
-      SaveCodes({
-        code_saltin: saltin,
-        code_ducales: ducales,
-      })
-        .then((resp) => {
-          GetStatus().then((resp2) => {
-            this.loading = false;
-            this.respStatus = {
-              ducales: resp.data.ducales.res,
-              saltin: resp.data.saltin.res,
-              saltinMsg: resp.data.saltin.message,
-              ducalesMsg: resp.data.ducales.message,
-              status: resp2.data || "",
-            };
-            this.dialog = true;
-            this.$refs.recaptcha.reset();
-           // this.recaptchaCode = null;
-            this.recaptchaCode = "null";
-            this.$store.dispatch("loadBalance");
-            this.ducales = "";
-            this.saltin = "";
-            this.code = "";
-          });
-        })
-        .catch((err) => {
-          if (err.response.status !== 401) {
-            this.ducales = "";
-            this.saltin = "";
-            this.code = "";
-            this.loading = false;
-            this.$store.dispatch("setAlert", {
-              buttonLabel: "Aceptar",
-              type: "INFO",
-              showClose: true,
-              message:
-                err.response.data.message.mensaje || "Error en el servicio.",
-            });
-          }
-        });
+      // SaveCodes({
+      //   code_saltin: saltin,
+      //   code_ducales: ducales,
+      // })
+      //   .then((resp) => {
+      //     GetStatus().then((resp2) => {
+      //       this.loading = false;
+              this.respStatus = {
+              ducales: "textoPrueba-Ducales",
+              saltin: "textoPrueba-Saltin",
+              saltinMsg: "textoPrueba-Saltin-Mensaje",
+              ducalesMsg: "textoPrueba-Ducales-Mensaje",
+              status: true || "",
+              };
+      //       this.dialog = true;
+      //       this.$refs.recaptcha.reset();
+      //       this.recaptchaCode = null;
+      //       this.recaptchaCode = "null";
+      //       this.$store.dispatch("loadBalance");
+      //       this.ducales = "";
+      //       this.saltin = "";
+      //       this.code = "";
+      //     });
+      //   })
+      //   .catch((err) => {
+      //     if (err.response.status !== 401) {
+      //       this.ducales = "";
+      //       this.saltin = "";
+      //       this.code = "";
+      //       this.loading = false;
+      //       this.$store.dispatch("setAlert", {
+      //         buttonLabel: "Aceptar",
+      //         type: "INFO",
+      //         showClose: true,
+      //         message:
+      //           err.response.data.message.mensaje || "Error en el servicio.",
+      //       });
+      //     }
+      //   });
     },
+
+    
     verifyRecaptcha(token) {
       this.recaptchaCode = token;
     },
