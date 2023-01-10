@@ -396,7 +396,7 @@ export default {
   }
   &__flex {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     width: 100%;
   }
   &__section-1 {
