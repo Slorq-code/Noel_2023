@@ -34,7 +34,7 @@
                 src="../assets/Assets_Web_New/circulo_noel.png"
               />
               <Input
-              class="Uppercase"
+                class="Uppercase"
                 field="saltin"
                 :model="saltin"
                 :error="errors.saltin"
@@ -68,7 +68,7 @@
             />
           </div>
           <div class="enterCode-web__rec">
-            <vue-recaptcha
+            <!-- <vue-recaptcha
               sitekey=" 6Lfh6Y4aAAAAAI-8nSMl7mVqcaetUMQC9ZCDoqvK"
               @verify="verifyRecaptcha"
               :loadRecaptchaScript="true"
@@ -76,16 +76,23 @@
               ref="recaptcha"
               language="es"
               class="mb-1"
-            ></vue-recaptcha>
+            ></vue-recaptcha> -->
             <div>
               <Button
-              text="Registrar Código"
-              type="primary"
-              @handle-click="send()"
+                text="Registrar Código"
+                type="primary"
+                @handle-click="send()"
               />
             </div>
           </div>
         </div>
+                    <div v-if="!mobile" class="containerAnimation">
+              <img
+                class="objetAnimation"
+                src="../assets/Assets_Web_New/flechaAnimation2.png"
+                alt="scroll"
+              />
+            </div>
       </div>
     </div>
     <div v-if="mobile" class="enterCode-mobile">
@@ -122,10 +129,10 @@
           Recuerda guardar los stickers que registraste.
         </span>
       </div>
-      
-       <div class="enterCode-web__rec">
-          <!-- EN ESTE ESPACIO VA EL RECAPTCHA -->
-          <vue-recaptcha
+
+      <!-- <div class="enterCode-web__rec">
+        EN ESTE ESPACIO VA EL RECAPTCHA
+        <vue-recaptcha
           :loadRecaptchaScript="true"
           sitekey=" 6Lfh6Y4aAAAAAI-8nSMl7mVqcaetUMQC9ZCDoqvK"
           @verify="verifyRecaptcha"
@@ -133,9 +140,9 @@
           @expired="expiredRecaptcha"
           ref="recaptcha"
           language="es"
-          ></vue-recaptcha> 
-        </div>
-      
+        ></vue-recaptcha>
+      </div> -->
+
       <div class="enterCode-mobile__button-wrapper">
         <Button text="Registrar Código" type="primary" @handle-click="send()" />
       </div>
@@ -166,7 +173,7 @@
 <script>
 import Input from "../components/Input";
 import Button from "../components/Button";
-import VueRecaptcha from "vue-recaptcha";
+// import VueRecaptcha from "vue-recaptcha";
 // import { SaveCodes, GetStatus } from "../api";
 import RegisterCodeConfirm from "../components/RegisterCodeConfirm";
 import Modal from "../components/Modal";
@@ -195,7 +202,7 @@ export default {
   components: {
     Input,
     Button,
-    VueRecaptcha,
+    // VueRecaptcha,
     RegisterCodeConfirm,
     Modal,
   },
@@ -225,9 +232,6 @@ export default {
     },
   },
   methods: {
-
-
-
     send() {
       this.verifyCatptcha();
       if (this.saltin || this.ducales) {
@@ -255,9 +259,7 @@ export default {
       }
     },
 
-
-
-      // dentro del save( saltin, ducales )
+    // dentro del save( saltin, ducales )
     save() {
       this.loading = true;
       // SaveCodes({
@@ -267,13 +269,13 @@ export default {
       //   .then((resp) => {
       //     GetStatus().then((resp2) => {
       //       this.loading = false;
-              this.respStatus = {
-              ducales: "textoPrueba-Ducales",
-              saltin: "textoPrueba-Saltin",
-              saltinMsg: "textoPrueba-Saltin-Mensaje",
-              ducalesMsg: "textoPrueba-Ducales-Mensaje",
-              status: true || "",
-              };
+      this.respStatus = {
+        ducales: "textoPrueba-Ducales",
+        saltin: "textoPrueba-Saltin",
+        saltinMsg: "textoPrueba-Saltin-Mensaje",
+        ducalesMsg: "textoPrueba-Ducales-Mensaje",
+        status: true || "",
+      };
       //       this.dialog = true;
       //       this.$refs.recaptcha.reset();
       //       this.recaptchaCode = null;
@@ -301,7 +303,6 @@ export default {
       //   });
     },
 
-    
     verifyRecaptcha(token) {
       this.recaptchaCode = token;
     },
@@ -327,18 +328,18 @@ export default {
 
 <style lang="scss">
 @import "@/assets/scss/mixins.scss";
-.rc-anchor-normal, 
-.rc-anchor-pt{
+.rc-anchor-normal,
+.rc-anchor-pt {
   margin: 2px 80px 0 0 !important;
 }
-.rc-anchor-normal{
+.rc-anchor-normal {
   margin: 2px 80px 0 0 !important;
 }
 
-.rc-anchor-pt{
+.rc-anchor-pt {
   margin: 2px 80px 0 0 !important;
 }
-.Uppercase div input{ 
+.Uppercase div input {
   letter-spacing: 2px;
   text-transform: uppercase;
 }
@@ -434,15 +435,15 @@ export default {
     }
   }
   &__title {
-    margin-top: -40px;
+    margin: -40px 0 0 0;
     @include lg() {
-      width: 80vh;
+      width: 50%;
     }
     @include xlg() {
       width: 40%;
     }
     @include mxHeight(550px) {
-      margin-top: -25px;
+      margin: -20px 0 0 0;
       width: 61vh;
     }
   }
@@ -492,7 +493,7 @@ export default {
       height: 226px;
     }
   }
-  
+
   &__box-text {
     margin-top: -24px;
     font-family: generalLeter;
@@ -574,6 +575,56 @@ export default {
       display: flex;
       align-items: center;
     }
+  }
+}
+.containerAnimation {
+  display: none;
+  @media (max-height: 740px) {
+    display: flex;
+    justify-content: center;
+    left: 0%;
+    bottom: 25%;
+    position: fixed;
+    width: 150px;
+    height: 150px;
+    margin: auto;
+  }
+}
+.containerAnimation:hover {
+  opacity: 0;
+  transition: opacity 4s ease-in-out;
+}
+
+.objetAnimation {
+  display: none;
+  @media (max-height: 740px) {
+    display: block;
+    height: 40px;
+    width: 20px !important;
+    position: relative;
+    animation: bounce 1.5s infinite;
+  }
+}
+@keyframes bounce {
+  10% {
+    height: 40px;
+    width: 20px;
+  }
+  30% {
+    height: 40px;
+    width: 15px;
+  }
+  50% {
+    height: 35px;
+    width: 25px;
+    transform: translateY(110px);
+  }
+  75% {
+    height: 40px;
+    width: 23px;
+  }
+  100% {
+    transform: translateY(0px);
   }
 }
 </style>

@@ -15,13 +15,13 @@
       <img
         v-if="savedSaltin && !awardDucales && (mobile ? !savedDucales: !ducales)"
         class="register-code-confirm__saltin-image"
-        src="@/assets/web/Taco_Saltin.png"
+        src="../assets/Assets_Web_New/Empaque_Saltin_reflejo.png"
         alt="premio"
       />
       <img
         v-if="savedDucales && !awardSaltin && (mobile ? !savedSaltin : !saltin)"
         class="register-code-confirm__ducales-image"
-        src="@/assets/web/Taco_Ducales.png"
+        src="../assets/Assets_Web_New/Empaque_Ducales_reflejo.png"
         alt="premio"
       />
     </div>

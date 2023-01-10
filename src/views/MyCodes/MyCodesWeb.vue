@@ -21,15 +21,14 @@
 
       <div class="myCodesWeb__table">
         <div class="myCodesWeb__table-header">
-          <p class="myCodesWeb__table-header-titles">Cant.</p>
-          <p class="myCodesWeb__table-header-titles">Saltín Noel</p>
-          <p class="myCodesWeb__table-header-titles">Ducales</p>
-          <p class="myCodesWeb__table-header-titles">Premios</p>
+          <div class="myCodesWeb__table-header-titles"> <p> Cant.</p></div>
+          <div class="myCodesWeb__table-header-titles"> <p> Saltín Noel</p></div>
+          <div class="myCodesWeb__table-header-titles"> <p> Ducales</p></div>
+          <div class="myCodesWeb__table-header-titles"> <p> Premios</p></div>
         </div>
-
         <div
           class="myCodesWeb__table-content"
-          v-for="(item, index) in tableDatas"
+          v-for="(item, index) in tableData"
           v-bind:key="index"
         >
           <div class="myCodesWeb__table-content-element">
@@ -74,7 +73,6 @@
               v-else
               class="myCodesWeb__table-text-content myCodesWeb__table-text-content-alignEmpty"
             >
-              -
             </div>
             <div class="myCodesWeb__table-btn-equal">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-1 17h-3v-10h3v10zm5 0h-3v-10h3v10z"/></svg>
@@ -98,64 +96,7 @@
 <script>
 export default {
   name: "MyCodesWeb",
-  data() {
-    return {
-      tableDatas: [
-        {
-          saltinNoel: {
-            titleOne: "ZET82F",
-            titletwo: "12/12/2022",
-          },
-          ducales: {
-            titleOne: "ZET82F",
-            titletwo: "12/12/2022",
-          },
-
-          award: "¡RECARGA!",
-          cant: 1,
-        },
-        {
-          saltinNoel: {
-            titleOne: "ZET82F",
-            titletwo: "12/12/2022",
-          },
-          ducales: {
-            titleOne: "ZET82F",
-            titletwo: "12/12/2022",
-          },
-
-          award: "¡RECARGA!",
-          cant: 2,
-        },
-        {
-          saltinNoel: {
-            titleOne: "ZET82F",
-            titletwo: "12/12/2022",
-          },
-          ducales: {
-            titleOne: "ZET82F",
-            titletwo: "12/12/2022",
-          },
-
-          award: "¡T. REGALO!",
-          cant: 3,
-        },
-        {
-          saltinNoel: {
-            titleOne: "ZET82F",
-            titletwo: "12/12/2022",
-          },
-          ducales: {
-            titleOne: "ZET82F",
-            titletwo: "12/12/2022",
-          },
-
-          award: "¡T. REGALO!",
-          cant: 4,
-        },
-      ],
-    };
-  },
+  data() {},
   mounted() {
     console.log("actual2", this.tableData[1]);
   },
@@ -277,7 +218,7 @@ export default {
       align-items: center;
       justify-content: space-evenly;
       border-radius: 50px;
-      height: 35px;
+      height: 38px;
       width: 100%;
     }
     &-cant {
@@ -287,13 +228,18 @@ export default {
     }
     &-header-titles {
       margin: 0 !important;
+      height: 100%;
+      padding: 4px 0 0 0;
+    }
+    &-header-titles p{
       color: white;
       font-size: 20px;
       @include lg() {
-        font-size: 25px;
+        font-size: 23px;
       }
       @include xlg() {
-        font-size: 30px;
+        padding: 3px 0 0 0;
+        font-size: 25px;
       }
     }
 

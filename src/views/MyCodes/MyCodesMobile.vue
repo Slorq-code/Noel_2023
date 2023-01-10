@@ -21,7 +21,7 @@
 
       <div class="myCodesMobile__content">
         <div
-          v-for="(item, index) in tableDatas"
+          v-for="(item, index) in tableData"
           :key="index"
           class="myCodesMobile__content-items myCodesMobile__boxItem"
           @click="onClickElement(item)"
@@ -43,13 +43,18 @@
               <!-- <p class="myCodesMobile__content-items-content-action-text">
                 {{ item.resultCouple }}
               </p> -->
-              <Button text="Registrar Código" type="primary" color="3"/>
+              <Button @click="onClickElement(item)" text="Registrar Código" type="primary" color="3"/>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <modal width="600" v-if="item" :dialog="dialog">
+
+
+      <!-- dentro del v-if estaba item -->
+
+      
+    <modal width="600" v-if="actualItem" :dialog="dialog">
       <div class="myCodesMobile__modal-content" slot="component">
         <div class="myCodesMobile__close-container">
           <img
@@ -112,26 +117,7 @@ export default {
   data() {
     return {
       dialog: false,
-      //actualItem: null,
-      tableDatas: [
-        {
-          saltinNoel: {
-            titleOne: "prueba1",
-            titletwo: "prueba2",
-          },
-          ducales: {
-            titleOne: "prueba3",
-            titletwo: "prueba4",
-          },
-          award: "felicidaes",
-        },
-        {
-          award: "felicidaes",
-        },
-        {
-          award: "felicidaes",
-        },
-      ],
+      actualItem: null,
     };
   },
   mounted() {},

@@ -11,11 +11,6 @@ import MyCodesWeb from "./MyCodesWeb";
 
 export default {
   name: "MyCodes",
-  data() {
-    return {
-      tableData: [],
-    };
-  },
   mounted() {
     this.$store.dispatch("getCodes");
   },
@@ -51,16 +46,14 @@ export default {
       const newData = data.map((item, index) => {
         const saltinCodeEmpty = !item.code && "Saltín";
         const ducalesCodeEmpty = !item.code_2 && "Ducales";
-
         const emptyCode = saltinCodeEmpty ? saltinCodeEmpty : ducalesCodeEmpty;
-
         const image = {
           noComplete: require(`../../assets/mobile/Pareja_incompleta_mis_codigos_respons.png`),
           primeCompu: require(`@/assets/mobile/Premio_compus_mis_codigos_respons.png`),
           tacoSaltin: require("@/assets/mobile/Taco_Saltin.png"),
-          tacoDucales: require("@/assets/mobile/Taco_Ducales.png"),
-          tacoSaltinDisabled: require("@/assets/mobile/taco_faltante_saltin-respons.png"),
-          tacoDucalesDisabled: require("@/assets/mobile/taco_faltante_ducales_respons.png"),
+          tacoDucales: require("../../assets/Assets_Web_New/Empaque_Ducales_reflejo.png"),
+          tacoSaltinDisabled: require("../../assets/Assets_Mobile_New/Saltin_gris.png"),
+          tacoDucalesDisabled: require("../../assets/Assets_Mobile_New/Ducales_gris.png"),
           bonus: require("@/assets/mobile/Premio_tarjetas_mis_codigos_respons.png"),
           phone: require("@/assets/mobile/Premio_celulares_mis_codigos_respons.png"),
           computer: require("@/assets/mobile/Premio_compus_mis_codigos_respons.png"),
@@ -77,7 +70,7 @@ export default {
           charge: "¡RECARGA!",
           phone: "¡CELULAR!",
           none: "SIGUE INTENTANDO",
-          reversed: '¡CANCELADO!'
+          reversed: "¡CANCELADO!",
         };
 
         const texts = {
@@ -86,7 +79,7 @@ export default {
           computer: `¡Ganaste computador!`,
           charge: `¡Ganaste recarga!`,
           none: `!Esta vez no ganaste premio!`,
-          reversed: '¡CANCELADO!'
+          reversed: "¡CANCELADO!",
         };
 
         const results = {
@@ -95,12 +88,11 @@ export default {
           computer: `¡Ganaste computador!`,
           charge: `¡Ganaste recarga!`,
           none: `¡SIGUE INTENTANDO!`,
-          reversed: '¡CANCELADO!'
+          reversed: "¡CANCELADO!",
         };
 
+        index === 0 && console.log(item.result);
 
-	index === 0 && console.log(item.result)
-       
         return {
           cant: index + 1,
           saltinNoel: item.code && {
@@ -111,7 +103,10 @@ export default {
             titleOne: item.code_2,
             titleTwo: item.ducales_at ? this.formatDate(item.ducales_at) : "",
           },
-          award: item.code && item.code_2 ? strings[item.result] : "PAREJA INCOMPLETA",
+          award:
+            item.code && item.code_2
+              ? strings[item.result]
+              : "PAREJA INCOMPLETA",
           titleMobile:
             item.code && item.code_2 ? "Pareja Completa" : "Pareja Incompleta",
           resultCouple:
@@ -128,13 +123,67 @@ export default {
           saltinTacoImage: item.code
             ? image["tacoSaltin"]
             : image["tacoSaltinDisabled"],
-          ducalesTacoImage: item.code_2
+          ducalesTacoImage: item.code
             ? image["tacoDucales"]
             : image["tacoDucalesDisabled"],
         };
       });
       return newData;
     },
+  },
+  data() {
+    return {
+      tableData: [
+        {
+          saltinNoel: {
+            titleOne: "ZET82F",
+            titletwo: "12/12/2022",
+          },
+          ducales: {
+            titleOne: "ZET82F",
+            titletwo: "12/12/2022",
+          },
+          award: "¡RECARGA!",
+          cant: 1,
+        },
+        {
+          saltinNoel: {
+            titleOne: "ZET82F",
+            titletwo: "12/12/2022",
+          },
+          ducales: {
+            titleOne: "ZET82F",
+            titletwo: "12/12/2022",
+          },
+          award: "¡RECARGA!",
+          cant: 2,
+        },
+        {
+          saltinNoel: {
+            titleOne: "ZET82F",
+            titletwo: "12/12/2022",
+          },
+          ducales: {
+            titleOne: "ZET82F",
+            titletwo: "12/12/2022",
+          },
+          award: "¡T. REGALO!",
+          cant: 3,
+        },
+        {
+          saltinNoel: {
+            titleOne: "ZET82F",
+            titletwo: "12/12/2022",
+          },
+          ducales: {
+            titleOne: "ZET82F",
+            titletwo: "12/12/2022",
+          },
+          award: "¡T. REGALO!",
+          cant: 4,
+        },
+      ],
+    };
   },
   watch: {
     codes(data) {
