@@ -250,6 +250,9 @@ export default {
     line-height: 18px;
     margin-bottom: 80px;
     text-align: center;
+    @include mobile() {
+      margin-bottom: 10px;
+    }
     @include lg() {
       font-size: 17px;
     }

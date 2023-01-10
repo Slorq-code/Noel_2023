@@ -12,7 +12,7 @@
       src="@/assets/Assets_Web_New/Logo_modales_Juntos_Premiarte_2022.png"
     />
     <div class="signup-confirm__content">
-      <span class="signup-confirm__text1" style="margin-bottom: 10px">
+      <span class="signup-confirm__text1" style="margin-top: 20px; margin-bottom: 10px">
         Por favor confirma que tus datos estén correctos, especialmente tu
         número celular y operador al cual perteneces; recuerda que las recargas
         se realizarán a este número celular.
