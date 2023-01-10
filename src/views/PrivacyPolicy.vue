@@ -629,7 +629,6 @@
               <li>
                 <p>Gestionar trámites de solicitudes, quejas o reclamos</p>
               </li>
-              \
             </ul>
             <p>IX. Tratamiento de Datos Sensibles</p>
             <p>
