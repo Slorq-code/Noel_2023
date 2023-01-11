@@ -573,8 +573,8 @@ export default {
     @include mxHeight(650px) {
       margin: 15px 0 0% 10%;
     }
-    @include mxHeight(900px) {
-      background-color: red;
+    @include mxHeight(800px) {
+      background-color: blue;
     }
   }
 }
