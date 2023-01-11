@@ -228,8 +228,8 @@ export default {
     cursor: pointer;
     border: 0.5px solid #9d9d9d;
     padding: 2px;
-    border-bottom-left-radius: 25px;
-    border-bottom-right-radius: 25px;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
   }
   &__box {
     display: flex;
