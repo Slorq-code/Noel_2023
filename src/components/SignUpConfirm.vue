@@ -242,7 +242,7 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 6px;
+    gap: 20px;
     width: 100%;
     margin-top: 30px;
     padding: 0px 40px;
