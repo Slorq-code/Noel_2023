@@ -364,8 +364,8 @@ export default {
     position: absolute;
     color: white;
     right: 34%;
-    top: 41%;
-    font-size: 25px;
+    top: 43.5%;
+    font-size: 22px;
   }
 }
 .enterCode-web {
