@@ -5,7 +5,7 @@
         class="enterCode__counter-img"
         src="../assets/Assets_Web_New/Contador_premios.png"
       />
-      <span class="enterCode__counter-text">3 0 0 1</span>
+      <span class="enterCode__counter-text">3.001</span>
       <!-- {{ total | amount }}  dentro del span-->
     </div>
     <div v-if="!mobile" class="enterCode-web">
@@ -363,11 +363,9 @@ export default {
   &__counter-text {
     position: absolute;
     color: white;
-    right: 38%;
-    top: 44%;
-    @include xlg() {
-      font-size: 22px;
-    }
+    right: 34%;
+    top: 41%;
+    font-size: 25px;
   }
 }
 .enterCode-web {
