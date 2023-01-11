@@ -573,7 +573,7 @@ export default {
     @include mxHeight(650px) {
       margin: 15px 0 0% 10%;
     }
-    @include mxHeight(700px) {
+    @include mxHeight(725px) {
       background-color: gray;
     }
   }
