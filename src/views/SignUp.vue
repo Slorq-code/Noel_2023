@@ -499,7 +499,7 @@ export default {
     height: auto;
     min-height: 100px;
     margin: 0px 0 20px 0;
-    @include mxHeight(590px) {
+    @include mxHeight(650px) {
       min-height: 80px;
       margin: 0px 0 0px 0;
     }
@@ -524,7 +524,7 @@ export default {
     @include mobile() {
       margin: -0px 0 30px 0;
     }
-    @include mxHeight(590px) {
+    @include mxHeight(650px) {
       flex-direction: row;
       margin: 10px 0 0px 0;
     }
@@ -559,7 +559,7 @@ export default {
     color: white;
     text-align: center;
     font-size: 15px;
-    @include mxHeight(590px) {
+    @include mxHeight(650px) {
       display: none;
     }
     @include mobile() {

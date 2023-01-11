@@ -120,7 +120,7 @@ export default {
       @include mnHeight(780px) {
         height: calc(90vh - 220px);
       }
-      @include mxHeight(590px) {
+      @include mxHeight(650px) {
         width: 53%;
       }
       @include xlg() {

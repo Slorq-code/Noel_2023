@@ -136,7 +136,7 @@ export default {
     width: 330px;
     height: 56px;
   }
-  @include mxHeight(590px) {
+  @include mxHeight(650px) {
     margin: 0 10px;
   }
   @include mnHeight(1000px) {
@@ -183,7 +183,7 @@ export default {
       height: 50px;
       border-radius: 32px;
     }
-    @include mxHeight(590px) {
+    @include mxHeight(650px) {
       margin: 0 0 0 0;
       height: 30px;
     }
@@ -271,7 +271,7 @@ export default {
     @include lg() {
       font-size: 14px;
     }
-    @include mxHeight(590px) {
+    @include mxHeight(650px) {
       font-size: 10px;
     }
   }

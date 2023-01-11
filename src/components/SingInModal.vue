@@ -107,7 +107,7 @@ export default {
     align-items: center;
     position: relative;
     &__space {
-        @include mxHeight(590px) {
+        @include mxHeight(650px) {
             display: none;
         }
         @include mnHeight(600px) {

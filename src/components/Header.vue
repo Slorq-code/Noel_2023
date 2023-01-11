@@ -413,7 +413,7 @@ export default {
     text-shadow: 0px 3px 6px #00000029;
     font-size: 0.9rem;
     text-align: center;
-    @include mxHeight(590px) {
+    @include mxHeight(650px) {
       font-size: 0.8rem;
     }
     @include xlg() {
@@ -498,7 +498,7 @@ export default {
     transition: transform 0.7s ease-out;
     transform: translateX(46vh);
     @include mobile() {
-      padding: 0px 0px 10px 10px;
+      padding: 10.5% 0px 10px 10px;
     }
     // &__active {
     //   informacion
@@ -531,6 +531,7 @@ export default {
     width: 100%;
     padding: 10px 0px;
     left: 15%;
+    top: 6%;
   }
   &__close-image {
     height: 30px;

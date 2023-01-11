@@ -480,7 +480,7 @@ export default {
   &__saltin-image {
     width: 140px;
     height: 127px;
-    @include mxHeight(590px) {
+    @include mxHeight(650px) {
       width: 105px;
       height: 98px;
     }

@@ -189,6 +189,9 @@ export default {
   @include mnHeight(1000px) {
     margin: 26px 0 0 0;
   }
+  @include mobile() {
+    margin: 20% 0 0 0;
+  }
 }
 .contactUs {
   display: flex;

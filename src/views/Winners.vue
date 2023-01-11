@@ -402,7 +402,7 @@ export default {
       height: 160px;
       margin-top: -80px;
     }
-    @include mxHeight(590px) {
+    @include mxHeight(650px) {
       height: 120px;
     }
   }

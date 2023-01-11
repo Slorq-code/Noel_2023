@@ -138,7 +138,7 @@ export default {
   &__image-content {
     margin: 10px 0;
     width: 65%;
-    @include mxHeight(590px) {
+    @include mxHeight(650px) {
       margin: 0px 0;
       width: 38.5%;
     }
