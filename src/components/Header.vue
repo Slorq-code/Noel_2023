@@ -437,6 +437,9 @@ export default {
       @include mxHeight(650px) {
         bottom: 20%;
       }
+      @include mxHeight(850px) {
+        bottom: 25%;
+      }
     }
     &__social {
       display: flex;
@@ -556,8 +559,8 @@ export default {
     bottom: 0;
     left: 0;
     cursor: pointer;
-    @include mxHeight(650px) {
-      bottom: 60px;
+    @include mxHeight(850px) {
+      bottom: 50px;
     }
   }
 }
