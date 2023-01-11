@@ -570,11 +570,8 @@ export default {
   align-items: flex-start;
   @include mobile() {
     margin: 21px 0 5% 10%;
-    @include mxHeight(650px) {
+    @include mxHeight(850px) {
       margin: 15px 0 0% 10%;
-    }
-    @include mxHeight(725px) {
-      background-color: gray;
     }
   }
 }
