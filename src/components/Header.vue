@@ -433,6 +433,11 @@ export default {
     width: 100%;
     padding: 0px 15px;
     z-index: 999;
+    @include mobile() {
+      @include mxHeight(650px) {
+        bottom: 20%;
+      }
+    }
     &__social {
       display: flex;
       justify-content: flex-start;
@@ -498,7 +503,7 @@ export default {
     transition: transform 0.7s ease-out;
     transform: translateX(46vh);
     @include mobile() {
-      padding: 10.5% 0px 10px 10px;
+      padding: 11.0% 0px 10px 10px;
     }
     // &__active {
     //   informacion
@@ -511,6 +516,10 @@ export default {
     margin-bottom: 10px;
     @include mobile() {
       margin: 10px 0 0 11%;
+    }
+    @include mxHeight(650px) {
+      width: 60%;
+      margin: 10px 0 0 20%;
     }
   }
   &__centerBox {
@@ -547,6 +556,9 @@ export default {
     bottom: 0;
     left: 0;
     cursor: pointer;
+    @include mxHeight(650px) {
+      bottom: 60px;
+    }
   }
 }
 .container-routes-mobile {
@@ -558,6 +570,12 @@ export default {
   align-items: flex-start;
   @include mobile() {
     margin: 21px 0 5% 10%;
+    @include mxHeight(650px) {
+      margin: 15px 0 0% 10%;
+    }
+    @include mxHeight(1000px) {
+      background-color: red;
+    }
   }
 }
 </style>
