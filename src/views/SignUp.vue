@@ -48,7 +48,7 @@
           @handle-input="setValue($event)"
           :model="user.lastName"
           :required="true"
-          :error="errors.lastnAME"
+          :error="errors.lastName"
         />
         <Input
           label="Cédula"
@@ -381,6 +381,12 @@ export default {
       ) {
         errors.name = "El nombre debe tener entre 3 y 60 carácteres.";
       }
+      if (
+        this.user.lastName &&
+        !(this.user.lastName.length > 2 && this.user.lastName.length < 60)
+      ) {
+        errors.lastName = "El apellido debe tener entre 3 y 60 carácteres.";
+      }
       if (this.user.phone && !phoneReq.test(this.user.phone)) {
         errors.phone = "Ingresa un número de celular válido.";
       }
@@ -396,6 +402,7 @@ export default {
       }
       if (this.touch) {
         if (!this.user.name) errors.name = "Este campo es obligatorio.";
+        if (!this.user.lastName) errors.lastName = "Este campo es obligatorio.";
         if (!this.user.email) errors.email = "Este campo es obligatorio.";
         if (!this.user.idn) errors.idn = "Este campo es obligatorio.";
         if (!this.user.phone) errors.phone = "Este campo es obligatorio.";
