@@ -10,7 +10,7 @@
       class="header__logo"
       @click="logoClick()"
       src="../assets/Assets_Web_New/logos_header.png"
-      v-if="!token"
+      v-if="!token || selectedRoute === '/ingresar-codigo'"
     />
     <img
       class="header__logo__logoCurva1"
@@ -23,7 +23,7 @@
       class="header__logo__second"
       @click="logoClick()"
       src="../assets/Assets_Web_New/Logo_header_Juntos_Premiarte_2022.png"
-      v-if="token && !mobile"
+      v-if="token && !mobile && selectedRoute !== '/ingresar-codigo'"
     />
     <div class="header__web-routes" v-if="!this.mobile">
       <div
@@ -59,17 +59,17 @@
           </span>
         </div>
       </div>
-      <br v-if="!token" />
-      <br v-if="!token" />
-      <br v-if="!token" />
-      <br v-if="!token" />
+      <br v-if="!token || selectedRoute === '/ingresar-codigo'" />
+      <br v-if="!token || selectedRoute === '/ingresar-codigo'" />
+      <br v-if="!token || selectedRoute === '/ingresar-codigo'" />
+      <br v-if="!token || selectedRoute === '/ingresar-codigo'" />
     </div>
     <img
       class="header__logo__logoCurva2"
       @click="logoClick()"
       src="../assets/Assets_Web_New/logos_header_barriga.png"
       alt="logos"
-      v-if="token"
+      v-if="token && selectedRoute !== '/ingresar-codigo'"
     />
     <div v-if="dialog" class="modal-mobile-navigator">
       <div class="modal-mobile-navigator__content">
@@ -270,6 +270,16 @@ export default {
     toggle() {
       this.drawer = !this.drawer;
     },
+    // funcion de prueba logica header
+    // samePathLogo() {
+    //   if (this.selectedRoute === "/ingresar-codigo" && !this.token) {
+    //     console.log("true")
+    //     return true;
+    //   } else{
+    //     console.log("false")
+    //     return false;
+    //   }
+    // },
     goTo(path) {
       if (this.$route.path !== `${path}`) this.$router.push(path);
     },
@@ -338,11 +348,9 @@ export default {
     padding: 0 0px 0 20px;
   }
   &__logo {
-    height: 90%;
+    height: 100%;
     cursor: pointer;
     @include mobile() {
-      height: auto;
-      width: 70%;
       display: none;
     }
     &__logoCurva1 {
@@ -362,6 +370,10 @@ export default {
       margin: 0 0 0 20px;
       @include lg() {
         width: 17%;
+      }
+      &__img {
+        width: 100%;
+        height: auto;
       }
     }
   }
@@ -506,7 +518,7 @@ export default {
     transition: transform 0.7s ease-out;
     transform: translateX(46vh);
     @include mobile() {
-      padding: 11.0% 0px 10px 10px;
+      padding: 11% 0px 10px 10px;
     }
     // &__active {
     //   informacion

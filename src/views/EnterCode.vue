@@ -86,13 +86,15 @@
             </div>
           </div>
         </div>
-                    <div v-if="!mobile" class="containerAnimation">
-              <img
-                class="objetAnimation"
-                src="../assets/Assets_Web_New/flechaAnimation2.png"
-                alt="scroll"
-              />
-            </div>
+        <!-- v-if animation false porque aun no se aprueba la animacion || v-if="!mobile" -->
+        <div v-if="false" class="containerAnimation">
+          <img
+            class="objetAnimation"
+            src="../assets/Assets_Web_New/flechaAnimation2.png"
+            alt="scroll"
+          />
+        </div>
+        <!-- fin de la animacion -->
       </div>
     </div>
     <div v-if="mobile" class="enterCode-mobile">
