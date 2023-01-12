@@ -69,7 +69,7 @@
       @click="logoClick()"
       src="../assets/Assets_Web_New/logos_header_barriga.png"
       alt="logos"
-      v-if="token && selectedRoute !== '/ingresar-codigo'"
+      v-if="token && selectedRoute !== '/ingresar-codigo' || mobile"
     />
     <div v-if="dialog" class="modal-mobile-navigator">
       <div class="modal-mobile-navigator__content">

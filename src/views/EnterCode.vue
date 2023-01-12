@@ -450,7 +450,7 @@ export default {
         font-size: 1rem;
       }
       @include mnHeight(1000px) {
-        font-size: 1rem;
+        font-size: 1.5rem;
       }
     }
   }
@@ -527,6 +527,15 @@ export default {
   align-items: center;
   padding: 10px 20px;
   width: 100%;
+  &__mini {
+    width: 90%;
+    margin-bottom: 10px;
+    @include xs() {
+      height: 120px;
+      width: initial;
+      margin-bottom: 10px;
+    }
+  }
   @include xs() {
     padding: 10px 0px;
   }
@@ -535,15 +544,6 @@ export default {
 
     @include xs() {
       height: 30px;
-    }
-  }
-  &__mini {
-    width: 90%;
-    margin-bottom: 10px;
-    @include xs() {
-      height: 120px;
-      width: initial;
-      margin-bottom: 10px;
     }
   }
   &__counter {
