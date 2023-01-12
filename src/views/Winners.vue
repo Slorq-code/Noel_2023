@@ -473,6 +473,7 @@ export default {
     height: 30px;
     cursor: pointer;
     @include mobile() {
+      right: -11px;
       height: 28px;
       z-index: 999;
     }
