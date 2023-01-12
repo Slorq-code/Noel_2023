@@ -43,7 +43,7 @@
     >
       Ver los ganadores
     </button>
-    <modal width="950" :dialog="dialog">
+    <modal width="640" :dialog="dialog">
       <div class="winners__modal-content" slot="component">
         <div class="winners__close-container">
           <img
@@ -56,7 +56,13 @@
           class="winners__image"
           src="../assets/Assets_Mobile_New/Logo_Juntos_Premiarte_2022_modales.png"
         />
-        <div class=" winners__table winners__table-modal">
+        <img
+          v-if="!mobile"
+          class="winners__title"
+          src="../assets/Assets_Web_New/Titulo_ganadores.png"
+          alt="Ganadores titulo"
+        />
+        <div class="winners__table winners__table-modal">
           <div class="winners__table-header">
             <div class="winners__table-header-item">
               {{ mobile ? "Nombre" : "Nombre del Participante" }}
@@ -101,58 +107,108 @@ export default {
       tableWinnersModal: [
         {
           name: "Martín Barrera",
-          city: "Bogota",
-          result: "recarga"
+          city: "Bogotá",
+          result: "Recarga",
         },
         {
           name: "Pablo prueba",
           city: "Felipe López",
-          result: "Tarjeta Regalo"
+          result: "Tarjeta Regalo",
         },
         {
           name: "Giovanni Ruíz",
-          city: "Bogota",
-          result: "recarga"
+          city: "Bogotá",
+          result: "Recarga",
         },
         {
           name: "Luciana Torres",
-          city: "Bogota",
-          result: "Tarjeta Regalo"
+          city: "Bogotá",
+          result: "Tarjeta Regalo",
         },
         {
           name: "Adriana Rodriguez",
-          city: "Bogota",
-          result: "Tarjeta Regalo"
+          city: "Bogotá",
+          result: "Tarjeta Regalo",
+        },
+        {
+          name: "Martín Barrera",
+          city: "Bogotá",
+          result: "Recarga",
+        },
+        {
+          name: "Pablo prueba",
+          city: "Bogotá",
+          result: "Tarjeta Regalo",
+        },
+        {
+          name: "Giovanni Ruíz",
+          city: "Bogotá",
+          result: "Recarga",
+        },
+        {
+          name: "Luciana Torres",
+          city: "Bogotá",
+          result: "Tarjeta Regalo",
+        },
+        {
+          name: "Adriana Rodriguez",
+          city: "Bogotá",
+          result: "Tarjeta Regalo",
         },
       ],
       dialog: false,
       tableWinnerss: [
         {
           name: "Martín Barrera",
-          city: "Bogota",
-          result: "recarga"
+          city: "Bogotá",
+          result: "Recarga",
         },
         {
           name: "Pablo prueba",
-          city: "Felipe López",
-          result: "Tarjeta Regalo"
+          city: "Bogotá",
+          result: "Tarjeta Regalo",
         },
         {
           name: "Giovanni Ruíz",
-          city: "Bogota",
-          result: "recarga"
+          city: "Bogotá",
+          result: "Recarga",
         },
         {
           name: "Luciana Torres",
-          city: "Bogota",
-          result: "Tarjeta Regalo"
+          city: "Bogotá",
+          result: "Tarjeta Regalo",
         },
         {
           name: "Adriana Rodriguez",
-          city: "Bogota",
-          result: "Tarjeta Regalo"
+          city: "Bogotá",
+          result: "Tarjeta Regalo",
         },
-      ]
+        {
+          name: "Martín Barrera",
+          city: "Bogotá",
+          result: "Recarga",
+        },
+        {
+          name: "Pablo prueba",
+          city: "Bogotá",
+          result: "Tarjeta Regalo",
+        },
+        {
+          name: "Giovanni Ruíz",
+          city: "Bogotá",
+          result: "Recarga",
+        },
+        {
+          name: "Luciana Torres",
+          city: "Bogotá",
+          result: "Tarjeta Regalo",
+        },
+        {
+          name: "Adriana Rodriguez",
+          city: "Bogotá",
+          result: "Tarjeta Regalo",
+        },
+      ],
     };
   },
   mounted() {
@@ -215,20 +271,20 @@ export default {
   align-items: center;
   flex-direction: column;
   @include mnHeight(1000px) {
-      margin-top: 3vh;
-    }
+    margin-top: 3vh;
+  }
   @include lg() {
     width: 80%;
     margin-top: 3vh;
   }
   &__title {
     height: 70px;
-      @include mxHeight(600px) {
-        height: 65px;
-      }
-      @include mnHeight(1000px) {
-        height: 8vh;
-      }
+    @include mxHeight(600px) {
+      height: 65px;
+    }
+    @include mnHeight(1000px) {
+      height: 8vh;
+    }
   }
   &__wrapper-table-row {
     height: 86%;
@@ -238,8 +294,8 @@ export default {
       height: 250px;
       padding: 0 0px 0 0;
     }
-    @include mxHeight(701px){
-      height: 71%;
+    @include mxHeight(701px) {
+      height: 51%;
     }
   }
 
@@ -248,7 +304,7 @@ export default {
     flex: 1;
     width: 800px;
     padding: 0px !important;
-    background-color: rgba(255, 255, 255, 0.371);
+    background-color: rgba(255, 255, 255, 0.256);
     border-radius: 28px;
     @include mobile() {
       width: 50vh;
@@ -257,31 +313,33 @@ export default {
       width: 60%;
     }
     @include xlg() {
-      width: 70%;
+      width: 50%;
     }
   }
   &__table-modal {
     background-color: initial;
+    width: 100%;
   }
   &__table-header {
     display: flex;
     justify-content: space-around;
-    padding: 5px 50px;
+    padding: 5px 8px;
     margin: 0 0 0 0;
+    height: 38px;
     background: #309f3a;
     border-radius: 30px;
     @include mobile() {
       padding: 5px 10px;
       margin: 0 10px 0 10px;
     }
-    @include lg () {
-      height: 50px;
+    @include lg() {
+      height: 41px;
       display: flex;
       justify-content: center;
       align-items: center;
     }
     @include xlg() {
-      height: 70px;
+      height: 50px;
     }
 
     &-item {
@@ -305,13 +363,8 @@ export default {
   &__table-content-row {
     display: flex;
     justify-content: space-around;
-    padding: 5px 50px;
+    padding: 5px 12px;
     border-bottom: 1px dashed #fff581;
-
-    @include mobile() {
-      padding: 5px 10px;
-    }
-
     &:last-of-type {
       margin-bottom: 10px;
       border-bottom: none;
@@ -365,7 +418,7 @@ export default {
       font-size: 25px;
     }
     @include mxHeight(550px) {
-      margin: 25px 0 0 0 ;
+      margin: 25px 0 0 0;
     }
   }
 
@@ -392,7 +445,7 @@ export default {
   }
   &__image {
     height: 220px;
-    margin-top: -100px;
+    margin-top: -30px;
     @include xs() {
       height: 140px;
       margin-bottom: -25px;
@@ -407,13 +460,15 @@ export default {
     }
   }
   &__close-container {
-    display: flex;
-    justify-content: flex-end;
     width: 100%;
     padding: 10px;
     margin-top: -60px;
+    position: relative;
   }
   &__close-image {
+    position: absolute;
+    top: 15px;
+    right: -40px;
     height: 30px;
     cursor: pointer;
     @include mobile() {
