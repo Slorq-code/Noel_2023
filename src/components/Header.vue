@@ -450,7 +450,7 @@ export default {
         bottom: 20%;
       }
       @include mxHeight(850px) {
-        bottom: 25%;
+        bottom: 21%;
       }
     }
     &__social {

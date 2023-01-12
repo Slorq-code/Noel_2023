@@ -328,7 +328,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped> 
 @import "@/assets/scss/mixins.scss";
 .rc-anchor-normal,
 .rc-anchor-pt {
@@ -521,13 +521,24 @@ export default {
     font-size: 16px;
   }
 }
+}
 .enterCode-mobile {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 10px 20px;
   width: 100%;
-  &__mini {
+  @include xs() {
+    padding: 10px 0px;
+  }
+}
+.enterCode-mobile__title {
+    height: 50px;
+    @include xs() {
+      height: 30px;
+    }
+  }
+.enterCode-mobile__mini {
     width: 90%;
     margin-bottom: 10px;
     @include xs() {
@@ -536,37 +547,26 @@ export default {
       margin-bottom: 10px;
     }
   }
-  @include xs() {
-    padding: 10px 0px;
-  }
-  &__title {
-    height: 50px;
-
-    @include xs() {
-      height: 30px;
-    }
-  }
-  &__counter {
+.enterCode-mobile__counter {
     height: 80px;
   }
-  .other {
+.other {
     margin-top: -34px;
     font-size: 12px;
     margin-bottom: 10px;
-  }
-  &__counter-content {
+}
+.enterCode-mobile__counter-content {
     position: relative;
     margin-top: 0px;
-  }
-  &__counter-text {
+}
+.enterCode-mobile__counter-text {
     position: absolute;
     bottom: 31px;
     right: 60px;
-  }
+}
 
-  &__button-wrapper {
+.enterCode-mobile__button-wrapper {
     height: 30px !important;
-
     *,
     *:after {
       font-size: 12px !important;
@@ -574,8 +574,8 @@ export default {
       display: flex;
       align-items: center;
     }
-  }
 }
+
 .containerAnimation {
   display: none;
   @media (max-height: 740px) {
@@ -626,5 +626,5 @@ export default {
     transform: translateY(0px);
   }
 }
-}
+
 </style>
