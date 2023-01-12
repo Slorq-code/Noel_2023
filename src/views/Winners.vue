@@ -57,7 +57,6 @@
           src="../assets/Assets_Mobile_New/Logo_Juntos_Premiarte_2022_modales.png"
         />
         <img
-          v-if="!mobile"
           class="winners__title"
           src="../assets/Assets_Web_New/Titulo_ganadores.png"
           alt="Ganadores titulo"
@@ -319,6 +318,9 @@ export default {
   &__table-modal {
     background-color: initial;
     width: 100%;
+    @include mobile() {
+      margin: 15px 0 0 0;
+    }
   }
   &__table-header {
     display: flex;
@@ -330,7 +332,7 @@ export default {
     border-radius: 30px;
     @include mobile() {
       padding: 5px 10px;
-      margin: 0 10px 0 10px;
+      height: 30px;
     }
     @include lg() {
       height: 41px;
@@ -349,7 +351,6 @@ export default {
       font-size: 15px;
       @include mobile() {
         flex-basis: 50%;
-        font-size: 13px;
       }
       @include lg() {
         font-size: 16px;
@@ -374,14 +375,14 @@ export default {
   &__color {
     color: rgb(173, 36, 30);
     @include mobile() {
-      font-size: 18px;
+      font-size: 13px;
     }
   }
 
   &__color-dark {
     color: rgb(173, 36, 30);
     @include mobile() {
-      font-size: 18px;
+      font-size: 13px;
     }
   }
 
@@ -431,14 +432,14 @@ export default {
     min-height: 300px;
     padding: 10px 20px;
     height: 71vh;
-    @include mnHeight(1000px) {
-      height: 70vh !important;
-    }
     margin-bottom: 20px;
     @include mobile() {
       padding: 10px;
+      height: 57vh;
     }
-
+    @include mnHeight(1000px) {
+      height: 70vh !important;
+    }
     @include xs() {
       height: 340px;
     }

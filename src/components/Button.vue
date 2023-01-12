@@ -57,6 +57,10 @@ export default {
   cursor: pointer;
   padding-top: 2px;
   border: 3px white solid;
+  @include mobile() {
+    width: 270px;
+    height: 40px;
+  }
   @include lg() {
     width: 260px;
     height: 45px;
