@@ -376,6 +376,25 @@ export default {
   width: 80%;
   text-align: center;
   align-items: center;
+  &__rec {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    @include xlg() {
+      margin: 3% 0 0 5%;
+    }
+  }
+  &__more {
+    height: 35px;
+    margin: 10px;
+    @include lg() {
+      height: 40px;
+    }
+    @include xlg() {
+      height: 45px;
+    }
+  }
   &__mini-text {
     width: 80%;
     margin: 5% 0;
@@ -425,12 +444,13 @@ export default {
       }
     }
     &__middleTitle span {
-      font-size: 1rem;
+      font-size: 0.8rem;
+      text-shadow: 0px 3px 6px #00000029;
       @include lg() {
-        font-size: 1.2rem;
+        font-size: 1rem;
       }
       @include mnHeight(1000px) {
-        font-size: 1.2rem;
+        font-size: 1rem;
       }
     }
   }
@@ -442,9 +462,9 @@ export default {
     @include xlg() {
       width: 40%;
     }
-    @include mxHeight(550px) {
+    @include mxHeight(650px) {
       margin: -20px 0 0 0;
-      width: 61vh;
+      width: 58vh;
     }
   }
   &__box {
@@ -478,19 +498,18 @@ export default {
   }
   &__ducales-image,
   &__saltin-image {
-    width: 140px;
-    height: 127px;
+    width: 135px;
+    height: 121px;
     @include mxHeight(650px) {
       width: 105px;
       height: 98px;
     }
     @include lg() {
-      width: 150px;
-      height: 137px;
-    }
+      width: 130px;
+      height: 117px;
     @include xlg() {
-      width: 252px;
-      height: 226px;
+      width: 232px;
+      height: 208px;
     }
   }
 
@@ -500,26 +519,6 @@ export default {
     text-shadow: 0px 3px 6px #00000029;
     color: white;
     font-size: 16px;
-  }
-  &__rec {
-    transform: scale(0.9);
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    @include xlg() {
-      margin: 3% 0 0 5%;
-    }
-  }
-  &__more {
-    height: 40px;
-    margin: 10px;
-    @include lg() {
-      height: 45px;
-    }
-    @include xlg() {
-      height: 50px;
-    }
   }
 }
 .enterCode-mobile {
@@ -626,5 +625,6 @@ export default {
   100% {
     transform: translateY(0px);
   }
+}
 }
 </style>
