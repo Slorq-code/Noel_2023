@@ -14,7 +14,7 @@
                 <Input field="idn" @handle-input="setValue($event)" placeholder="Número de cédula" :onlyNumbers="true"
                     :error="error" maxlength="10" />
             </div>
-            <br class="SingIngModal__space" >
+            <div class="SingIngModal__space" ></div>
             <div class="SingIngModal__contentCenter">
                 <Button text="Ingresar" type="primary" :isLoading="loading" @handle-click="signIn()" />
             </div>
@@ -107,13 +107,7 @@ export default {
     align-items: center;
     position: relative;
     &__space {
-        @include mxHeight(650px) {
-            display: none;
-        }
-        @include mnHeight(600px) {
-            display: block;
-            height: 100px;
-        }
+        display: none;
     }
     &__content {
         display: flex;
@@ -139,6 +133,9 @@ export default {
         align-items: center;
         width: 80%;
         height: 17%;
+    }
+    &__contentCenter span{
+        text-align: center;
     }
     &__box {
         position: absolute;
@@ -202,7 +199,7 @@ export default {
     &__close-container {
         display: flex;
         justify-content: flex-end;
-        width: calc(100% + 60px);
+        width: calc(100% + 45px);
         padding: 10px;
         margin-top: -35px;
         @include xs() {
