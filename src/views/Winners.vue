@@ -286,9 +286,7 @@ export default {
     }
   }
   &__title2 {
-    @include mobile() {
       height: 55px;
-    }
   }
   &__wrapper-table-row {
     height: 86%;
