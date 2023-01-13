@@ -158,6 +158,9 @@ export default {
   }
   &__titlePage {
     margin: 2% 0 0 0;
+    @include xlg() {
+      margin: 6% 0 0 0;  
+    }
     @include mxHeight(600px) {
       width: 50%;
     }
@@ -182,6 +185,9 @@ export default {
   }
   &__image {
     width: 70%;
+    @include xlg() {
+      width: 80%;
+    }
     @include mxHeight(600px) {
       width: 56%;
     }
@@ -220,6 +226,7 @@ export default {
     }
     @include xlg() {
       width: 40%;
+      margin: 4% 0 0 0;
     }
     @include mnHeight(1000px) {
       height: 300px;
