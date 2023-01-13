@@ -17,7 +17,7 @@
       @click="logoClick()"
       src="../assets/Assets_Web_New/logos_header_barriga.png"
       alt="logos"
-      v-if="!token"
+      v-if="!token && !mobile"
     />
     <img
       class="header__logo__second"

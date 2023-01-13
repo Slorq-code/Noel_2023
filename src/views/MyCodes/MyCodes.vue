@@ -135,17 +135,30 @@ export default {
     return {
       tableData: [
         {
-          saltinNoel: {
-            titleOne: "ZET82F",
-            titletwo: "12/12/2022",
-          },
-          ducales: {
-            titleOne: "ZET82F",
-            titletwo: "12/12/2022",
-          },
+          code: "6546",
+          saltin_at: 12122022,
+          code_2: "xxxxx",
+          ducales_at: 12122022,
           award: "¡RECARGA!",
           cant: 1,
         },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         {
           saltinNoel: {
             titleOne: "ZET82F",

@@ -31,8 +31,7 @@
               index + 1
             }}</span>
             <p class="myCodesMobile__content-items-header-title">
-              <!-- {{ item.titleMobile }} -->
-              Pareja completa
+              {{ item.titleMobile }} prueba
             </p>
           </div>
           <div class="myCodesMobile__content-items-content">

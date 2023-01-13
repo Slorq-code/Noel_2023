@@ -57,7 +57,7 @@
           src="../assets/Assets_Mobile_New/Logo_Juntos_Premiarte_2022_modales.png"
         />
         <img
-          class="winners__title"
+          class="winners__title2"
           src="../assets/Assets_Web_New/Titulo_ganadores.png"
           alt="Ganadores titulo"
         />
@@ -285,6 +285,11 @@ export default {
       height: 8vh;
     }
   }
+  &__title2 {
+    @include mobile() {
+      height: 55px;
+    }
+  }
   &__wrapper-table-row {
     height: 86%;
     padding: 0 20px 0 0;
@@ -454,7 +459,7 @@ export default {
     }
     @include mobile() {
       height: 160px;
-      margin-top: -80px;
+      margin-top: -20px;
     }
     @include mxHeight(650px) {
       height: 120px;
