@@ -30,15 +30,15 @@
             $refs.department_state.open = false;
             "
           @handle-input="setValue($event)"
-          field="name"
+          field="names"
           label="Nombres"
           placeholder="Ingresa tus nombres"
-          :model="user.name"
+          :model="user.names"
           :required="true"
-          :error="errors.name"
+          :error="errors.names"
         />
         <Input
-          field="lastName"
+          field="last_names"
           placeholder="Ingresa tus apellidos"
           label="Apellidos"
           @close-all="
@@ -46,9 +46,9 @@
             $refs.department_state.open = false;
             "
           @handle-input="setValue($event)"
-          :model="user.lastName"
+          :model="user.last_names"
           :required="true"
-          :error="errors.lastName"
+          :error="errors.last_names"
         />
         <Input
           label="Cédula"
@@ -194,7 +194,6 @@ import Select from "../components/Select";
 import Modal from "../components/Modal";
 import SignupConfirm from "../components/SignUpConfirm";
 import json from "../assets/json/colombia.json";
-
 export default {
   name: "SignUp",
   data() {
@@ -204,7 +203,6 @@ export default {
       user: {
         names: "",
         last_names: "",
-        document_type: "",
         idn: "",
         phone: "",
         email: "",
@@ -281,13 +279,14 @@ export default {
     },
     send() {
       if (
-        !this.user.name ||
-        !this.user.email ||
+        !this.user.names ||
+        !this.user.last_names ||
         !this.user.idn ||
-        !this.user.operator ||
-        !this.user.phone ||
+        !this.user.email ||
         !this.user.department_state ||
-        !this.user.city
+        !this.user.city ||
+        !this.user.phone ||
+        !this.user.operator
       ) {
         this.touch = true;
         this.validate();
@@ -348,13 +347,14 @@ export default {
     closeSuccess(resp) {
       this.dialog = false;
       this.user = {
-        name: "",
-        email: "",
+        names: "",
+        last_names: "",
         idn: "",
-        operator: "",
-        phone: "",
-        adult_registration: 1,
+        email: "",
         department_state: "",
+        city: "",
+        phone: "",
+        operator: "",
       };
       this.$store.dispatch("setToken", resp.token);
       this.$store.dispatch("setUser", resp.user);
@@ -376,16 +376,10 @@ export default {
         errors.email = "Ingresa un correo válido.";
       }
       if (
-        this.user.name &&
-        !(this.user.name.length > 2 && this.user.name.length < 60)
+        this.user.names &&
+        !(this.user.names.length > 2 && this.user.names.length < 60)
       ) {
-        errors.name = "El nombre debe tener entre 3 y 60 carácteres.";
-      }
-      if (
-        this.user.lastName &&
-        !(this.user.lastName.length > 2 && this.user.lastName.length < 60)
-      ) {
-        errors.lastName = "El apellido debe tener entre 3 y 60 carácteres.";
+        errors.names = "El nombre debe tener entre 3 y 60 carácteres.";
       }
       if (this.user.phone && !phoneReq.test(this.user.phone)) {
         errors.phone = "Ingresa un número de celular válido.";
@@ -401,8 +395,7 @@ export default {
           errors.idn = "Ingresa un número de cédula válido.";
       }
       if (this.touch) {
-        if (!this.user.name) errors.name = "Este campo es obligatorio.";
-        if (!this.user.lastName) errors.lastName = "Este campo es obligatorio.";
+        if (!this.user.names) errors.name = "Este campo es obligatorio.";
         if (!this.user.email) errors.email = "Este campo es obligatorio.";
         if (!this.user.idn) errors.idn = "Este campo es obligatorio.";
         if (!this.user.phone) errors.phone = "Este campo es obligatorio.";
@@ -433,7 +426,6 @@ export default {
   align-items: center;
   width: 80%;
   padding: 10px 0;
-
   @include mobile() {
     flex-direction: column;
     align-items: center;
@@ -506,7 +498,7 @@ export default {
     height: auto;
     min-height: 100px;
     margin: 0px 0 20px 0;
-    @include mxHeight(650px) {
+    @include mxHeight(590px) {
       min-height: 80px;
       margin: 0px 0 0px 0;
     }
@@ -531,7 +523,7 @@ export default {
     @include mobile() {
       margin: -0px 0 30px 0;
     }
-    @include mxHeight(650px) {
+    @include mxHeight(590px) {
       flex-direction: row;
       margin: 10px 0 0px 0;
     }
@@ -566,7 +558,7 @@ export default {
     color: white;
     text-align: center;
     font-size: 15px;
-    @include mxHeight(650px) {
+    @include mxHeight(590px) {
       display: none;
     }
     @include mobile() {

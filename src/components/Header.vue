@@ -231,10 +231,10 @@ export default {
       {
         name: "Cerrar Sesión",
         path: "/ingresar",
-        // clickAction: () => {
-        //   this.dialog = false
-        //   this.logout();
-        // },
+        clickAction: () => {
+          this.dialog = false
+          this.logout();
+        },
         isVisible: () => this.token,
       },
     ];

@@ -12,14 +12,14 @@
       src="@/assets/Assets_Web_New/Logo_modales_Juntos_Premiarte_2022.png"
     />
     <div class="signup-confirm__content">
-      <span class="signup-confirm__text1" style="margin-top: 20px; margin-bottom: 10px">
+      <span class="signup-confirm__text1" style="margin-bottom: 10px">
         Por favor confirma que tus datos estén correctos, especialmente tu
         número celular y operador al cual perteneces; recuerda que las recargas
         se realizarán a este número celular.
       </span>
-      <span class="signup-confirm__text">Nombre: {{ user.name }}</span>
-      <span class="signup-confirm__text">Apellido: {{ user.lastName }}</span>
-      <span class="signup-confirm__text">Cédula: {{ user.idn }}</span>
+      <span class="signup-confirm__text">Nombre: {{ user.names }}</span>
+      <span class="signup-confirm__text">Apellido: {{ user.last_names }}</span>
+      <span class="signup-confirm__text">Cédula: {{ user.document }}</span>
       <span class="signup-confirm__text">Correo: {{ user.email }}</span>
       <span class="signup-confirm__text"
         >Dpto: {{ user.department_state }}</span
@@ -242,7 +242,7 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 20px;
+    gap: 6px;
     width: 100%;
     margin-top: 30px;
     padding: 0px 40px;

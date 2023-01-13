@@ -63,7 +63,6 @@ export default {
           pending_ducales: require("@/assets/mobile/Pareja_incompleta_mis_codigos_respons.png"),
           reversed: require("@/assets/mobile/Quitar_premio_mis_codigos_respons.png"),
         };
-
         const strings = {
           bonus: "¡T. REGALO!",
           computer: "¡COMPUTADOR!",
@@ -72,7 +71,6 @@ export default {
           none: "SIGUE INTENTANDO",
           reversed: "¡CANCELADO!",
         };
-
         const texts = {
           bonus: `¡Ganaste tarjeta débito!`,
           phone: `¡Ganaste celular!`,
@@ -81,7 +79,6 @@ export default {
           none: `!Esta vez no ganaste premio!`,
           reversed: "¡CANCELADO!",
         };
-
         const results = {
           bonus: `¡Ganaste tarjeta débito!`,
           phone: `¡Ganaste celular!`,
@@ -90,9 +87,7 @@ export default {
           none: `¡SIGUE INTENTANDO!`,
           reversed: "¡CANCELADO!",
         };
-
         index === 0 && console.log(item.result);
-
         return {
           cant: index + 1,
           saltinNoel: item.code && {
