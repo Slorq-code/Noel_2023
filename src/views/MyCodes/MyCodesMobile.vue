@@ -10,9 +10,9 @@
 
     <div class="myCodesMobile__margin-wrapper">
       <div class="myCodesMobile__title">
-        <h1 class="myCodesMobile__title-one">¡Bienvenido !</h1>
+        <h1 class="myCodesMobile__title-one">¡Bienvenido Carlos Moran!</h1>
         <h2 class="myCodesMobile__title-two">
-          Celular para premios:
+          Celular para premios: 310 310 310
         </h2>
         <h3 class="myCodesMobile__title-three">
           Éste es el estado de tus códigos:
@@ -21,7 +21,7 @@
 
       <div class="myCodesMobile__content">
         <div
-          v-for="(item, index) in tableData"
+          v-for="(item, index) in tableDatas"
           :key="index"
           class="myCodesMobile__content-items myCodesMobile__boxItem"
           @click="onClickElement(item)"
@@ -31,18 +31,15 @@
               index + 1
             }}</span>
             <p class="myCodesMobile__content-items-header-title">
-              {{ item.titleMobile }} prueba
+              {{ item.titleMobile }}
             </p>
           </div>
           <div class="myCodesMobile__content-items-content">
             <span
             class= "myCodesMobile__content-items-content__textSpan"
-            >Te falta 1 código</span>
+            >{{ item.resultCouple }}</span>
             <div class="myCodesMobile__content-items-content-action">
-              <!-- <p class="myCodesMobile__content-items-content-action-text">
-                {{ item.resultCouple }}
-              </p> -->
-              <Button @click="onClickElement(item)" text="Registrar Código" type="primary" color="3"/>
+              <Button @click="onClickElement(item)" text="Ver detalle" type="primary" color="3"/>
             </div>
           </div>
         </div>
@@ -53,7 +50,7 @@
       <!-- dentro del v-if estaba item -->
 
       
-    <modal width="600" v-if="actualItem" :dialog="dialog">
+    <modal width="600" v-if="item" :dialog="dialog">
       <div class="myCodesMobile__modal-content" slot="component">
         <div class="myCodesMobile__close-container">
           <img
@@ -117,6 +114,25 @@ export default {
     return {
       dialog: false,
       actualItem: null,
+      tableDatas: [
+        {
+          saltinNoel: {
+            titleOne: "ZET82F",
+            titletwo: "12/12/2022",
+          },
+          ducales: {
+            titleOne: "ZET82F",
+            titletwo: "12/12/2022",
+          },
+          titleMobile: "Pareja Completa",
+          resultCouple:"¡Ganaste Recarga!",
+          result: "¡Ganaste Recarga!",
+          saltinTacoImage: ("../../assets/Assets_Web_New/Empaque_Ducales_reflejo.png"),
+          ducalesTacoImage: ("../../assets/Assets_Web_New/Empaque_Ducales_reflejo.png"),
+          award: "¡RECARGA!",
+          cant: 2,
+        },
+      ],
     };
   },
   mounted() {},
@@ -152,7 +168,7 @@ export default {
     onClickElement(item) {
       console.log("actual", item);
       this.dialog = true;
-      this.actualItem = item;
+     // this.actualItem = item;
     },
   },
   watch: {},

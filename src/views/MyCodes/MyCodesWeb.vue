@@ -28,7 +28,7 @@
         </div>
         <div
           class="myCodesWeb__table-content"
-          v-for="(item, index) in tableData"
+          v-for="(item, index) in tableDatas"
           v-bind:key="index"
         >
           <div class="myCodesWeb__table-content-element">
@@ -96,7 +96,60 @@
 <script>
 export default {
   name: "MyCodesWeb",
-  data() {},
+  data() {
+    return {
+      tableDatas: [
+        {
+          saltinNoel: {
+            titleOne: "ZET82F",
+            titletwo: "12/12/2022",
+          },
+          ducales: {
+            titleOne: "ZET82F",
+            titletwo: "12/12/2022",
+          },
+          award: "¡RECARGA!",
+          cant: 2,
+        },
+        {
+          saltinNoel: {
+            titleOne: "ZET82F",
+            titletwo: "12/12/2022",
+          },
+          ducales: {
+            titleOne: "ZET82F",
+            titletwo: "12/12/2022",
+          },
+          award: "¡RECARGA!",
+          cant: 2,
+        },
+        {
+          saltinNoel: {
+            titleOne: "ZET82F",
+            titletwo: "12/12/2022",
+          },
+          ducales: {
+            titleOne: "ZET82F",
+            titletwo: "12/12/2022",
+          },
+          award: "¡T. REGALO!",
+          cant: 3,
+        },
+        {
+          saltinNoel: {
+            titleOne: "ZET82F",
+            titletwo: "12/12/2022",
+          },
+          ducales: {
+            titleOne: "ZET82F",
+            titletwo: "12/12/2022",
+          },
+          award: "¡T. REGALO!",
+          cant: 4,
+        },
+      ],
+    }
+  },
   mounted() {
     console.log("actual2", this.tableData[1]);
   },
