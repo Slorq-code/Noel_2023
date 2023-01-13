@@ -126,7 +126,6 @@ export default {
         margin: 0 0 0 0;
         background-color: red;
     }
-
     &__contentCenter {
         display: flex;
         justify-content: center;
@@ -143,7 +142,6 @@ export default {
         left: 30px;
         right: 30px;
         bottom: 20px;
-
         @include mobile() {
             top: 10px;
             left: 15px;
@@ -151,7 +149,6 @@ export default {
             bottom: 10px;
         }
     }
-
     &__scroll {
         overflow-y: auto;
         width: 100%;
@@ -159,43 +156,35 @@ export default {
         height: 100%;
         padding-right: 30px;
         text-align: center;
-
         @include mobile() {
             padding-right: 15px;
         }
-
         @include xs() {
             width: 100%;
             overflow-x: hidden;
         }
     }
-
     &__text {
         font-family: BebasNeue;
         font-size: 16px;
         line-height: 16px;
         text-align: justify;
-
         @include mobile() {
             font-size: 12px;
         }
     }
-
     &__image {
         height: 150px;
         margin-top: -100px;
-
         @include mobile() {
             height: 140px;
             margin-top: -80px;
         }
-
         @include xs() {
             margin-top: -40px;
             margin-bottom: -20px;
         }
     }
-
     &__close-container {
         display: flex;
         justify-content: flex-end;
@@ -207,28 +196,23 @@ export default {
             margin-bottom: -40px;
         }
     }
-
     &__close-image {
         height: 30px;
         cursor: pointer;
-
         @include mobile() {
             height: 28px;
         }
     }
-
     /* width */
     ::-webkit-scrollbar {
         width: 12px !important;
     }
-
     /* Track */
     ::-webkit-scrollbar-track {
         background-color: #eeb493 !important;
         border-radius: 10px !important;
         border-radius: 6px;
     }
-
     /* Handle */
     ::-webkit-scrollbar-thumb {
         background: #de7f48 !important;

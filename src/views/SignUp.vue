@@ -159,12 +159,11 @@
           >
         </div>
         <div class="signUp__radio-container">
-          <div style="width: 40px">
-            <div>
+          <div class="signUp__radio-container__specific">
               <Radio @handle-click="toggleTerms4()" :value="terms4" />
-            </div>
           </div>
-          <span class="signUp__radio-text" style="margin-left: -12px"
+          <span 
+            class="signUp__radio-text" 
             >Acepto las
             <span class="signUp__radio-text-action" @click="goToPolo()"
               >políticas de privacidad</span
@@ -381,6 +380,12 @@ export default {
       ) {
         errors.names = "El nombre debe tener entre 3 y 60 carácteres.";
       }
+      if (
+        this.user.last_names &&
+        !(this.user.last_names.length > 2 && this.user.last_names.length < 60)
+      ) {
+        errors.last_names = "El apellido debe tener entre 3 y 60 carácteres.";
+      }
       if (this.user.phone && !phoneReq.test(this.user.phone)) {
         errors.phone = "Ingresa un número de celular válido.";
       }
@@ -396,6 +401,7 @@ export default {
       }
       if (this.touch) {
         if (!this.user.names) errors.name = "Este campo es obligatorio.";
+        if (!this.user.names) errors.last_names = "Este campo es obligatorio.";
         if (!this.user.email) errors.email = "Este campo es obligatorio.";
         if (!this.user.idn) errors.idn = "Este campo es obligatorio.";
         if (!this.user.phone) errors.phone = "Este campo es obligatorio.";
@@ -439,7 +445,7 @@ export default {
       height: 8vh;
     }
     &__titleMobile {
-      width: 100%;
+      height: 30px;
     }
   }
   &__content {
@@ -536,6 +542,7 @@ export default {
     font-family: generalLeter;
     text-shadow: 0px 3px 6px #00000029;
     font-size: 15px;
+    margin: 0 -12px 0 0;
   }
   &__radio-text-action {
     color: white;

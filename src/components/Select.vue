@@ -120,9 +120,9 @@ export default {
 @import "@/assets/scss/mixins.scss";
 
 .select {
-  height: 48px;
-  width: 280px;
-  margin: 0 10px 10px 0;
+  height: 46px;
+  width: 275px;
+  margin: 5px 10px 5px 0;
   
   @include xs() {
     margin: 0 0 5px 0;
@@ -130,14 +130,14 @@ export default {
   }
   @include mobile() {
     width: 270px !important;
-    margin: 25px 10px;
+    margin: 10px 10px;
   }
   @include lg() {
     width: 330px;
     height: 56px;
   }
   @include mxHeight(650px) {
-    margin: 0 10px;
+    margin: 5px 10px;
   }
   @include mnHeight(1000px) {
     width: 330px;
@@ -206,7 +206,7 @@ export default {
   }
   &__placeholder {
     color: #929292;
-    font-family: generalLeter;
+    font-family: SlintGeneralLeter;
     text-shadow: 0px 3px 6px #00000029;
     font-size: 12px;
   }
