@@ -270,11 +270,14 @@ export default {
   align-items: center;
   flex-direction: column;
   @include mnHeight(1000px) {
-    margin-top: 3vh;
+    margin: 3vh 0 0 0;
   }
   @include lg() {
     width: 80%;
-    margin-top: 3vh;
+    margin: 3vh 0 0 0;
+  }
+  @include mxHeight(600px) {
+    margin: 3vh 0 7vh 0;
   }
   &__title {
     height: 70px;
@@ -290,7 +293,7 @@ export default {
   }
   &__wrapper-table-row {
     height: 86%;
-    padding: 0 20px 0 0;
+    padding: 0 0px 0 15px;
     overflow-y: auto;
     @include mobile() {
       height: 250px;

@@ -224,6 +224,9 @@ export default {
       align-items: flex-start;
       justify-content: space-evenly;
       width: 100%;
+      @include mobile() {
+        align-items: center;
+      }
       @include lg() {
         height: calc(80vh - 300px);
       }

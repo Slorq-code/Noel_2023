@@ -332,7 +332,7 @@ export default {
       color: white;
       padding-top: 7px;
       border-radius: 50px;
-      font-size: 10px;
+      font-size: 15px;
     }
 
     &-text-content {
@@ -363,7 +363,7 @@ export default {
       &-two {
         color: #da412e;
         font-size: 11px;
-        font-family: "Tahoma";
+        font-family: "SlintGeneralLeter";
         margin: 0px !important;
         @include lg() {
           font-size: 13px;

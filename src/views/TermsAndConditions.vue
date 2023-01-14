@@ -656,7 +656,7 @@ export default {
   &__text p {
     color: white;
     @include mobile() {
-      font-size: 14px;
+      font-size: 11px;
     }
   }
   &__title {
