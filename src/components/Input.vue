@@ -199,6 +199,9 @@ export default {
     flex-direction: column;
     justify-content: flex-end;
   }
+  &__main-bo::first-letter {
+    color: red;
+  }
   &__field {
     border-style: none;
     background-color: white;

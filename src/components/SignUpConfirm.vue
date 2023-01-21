@@ -39,7 +39,7 @@
         text="Continuar "
         type="primary"
         :isLoading="loading"
-        @handle-click="preRegister()"
+        @handle-click="validateRecaptchaForSingUp()"
       />
     </div>
   </div>
@@ -80,6 +80,32 @@ export default {
     };
   },
   methods: {
+
+    //-----------------------------------------
+      async validateRecaptchaForSingUp() {
+          try {
+              
+              await this.$recaptchaLoaded()
+
+              await this.$recaptcha('login');
+
+              const token = await this.$recaptcha('login');
+
+              //console.log(token);
+              this.recaptchaCode = token;
+
+
+              console.log("Execute recaptcha for Sing Up");
+
+              this.loading=true;
+              this.preRegister();
+          } catch (error) {
+              console.log("Sing Up error:", error);
+          }
+      },
+    //-----------------------------------------
+
+
     close() {
       this.$emit("close");
     },

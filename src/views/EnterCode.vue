@@ -5,8 +5,7 @@
         class="enterCode__counter-img"
         src="../assets/Assets_Web_New/Contador_premios.png"
       />
-      <span class="enterCode__counter-text">3.001</span>
-      <!-- {{ total | amount }}  dentro del span-->
+      <span class="enterCode__counter-text">{{ total | amount }}</span>
     </div>
     <div v-if="!mobile" class="enterCode-web">
       <div class="enterCode-web__section-1">
@@ -34,7 +33,7 @@
                 src="../assets/Assets_Web_New/circulo_noel.png"
               />
               <Input
-                class="Uppercase"
+                class="uppercase"
                 field="saltin"
                 :model="saltin"
                 :error="errors.saltin"
@@ -53,7 +52,7 @@
                 src="../assets/Assets_Web_New/circulo_ducales.png"
               />
               <Input
-                class="Uppercase"
+                class="uppercase"
                 field="ducales"
                 :model="ducales"
                 :error="errors.ducales"
@@ -68,21 +67,40 @@
             />
           </div>
           <div class="enterCode-web__rec">
-            <!-- <vue-recaptcha
-              sitekey=" 6Lfh6Y4aAAAAAI-8nSMl7mVqcaetUMQC9ZCDoqvK"
-              @verify="verifyRecaptcha"
-              :loadRecaptchaScript="true"
-              @expired="expiredRecaptcha"
-              ref="recaptcha"
-              language="es"
-              class="mb-1"
-            ></vue-recaptcha> -->
+          
+        <!-- <vue-recaptcha
+          sitekey=" 6Lfh6Y4aAAAAAI-8nSMl7mVqcaetUMQC9ZCDoqvK"
+          @verify="verifyRecaptcha"
+          @expired="expiredRecaptcha"
+          class="mb-1"
+          ref="recaptcha"
+          language="es"
+          :loadRecaptchaScript="true"
+        ></vue-recaptcha> -->
+          
+        <!-- <invisible-recaptcha
+          sitekey=" 6Ld_BT4jAAAAAH2hFBxPNyDn4U-XToSBxiZFSOCc"
+          class="btn btn-danger"
+          type="submit"
+          id="do-something-btn"
+          @verify="verifyRecaptcha"
+          @expired="expiredRecaptcha"
+          :disabled="loading"
+          :validate="prepare"
+        >
+        </invisible-recaptcha> -->
+
+        
+
+
             <div>
+              <!-- <vue-recaptcha ref="recaptcha" sitekey="6LekVRQkAAAAANRGSRnWxuyXiqQj6VmZb-BPBpVl"> -->
               <Button
                 text="Registrar Código"
                 type="primary"
-                @handle-click="send()"
+                @handle-click="validateRecaptcha()"
               />
+              <!-- </vue-recaptcha> -->
             </div>
           </div>
         </div>
@@ -119,7 +137,7 @@
         "
       >
         <Input
-          class="Uppercase"
+          class="uppercase"
           :field="'code'"
           :model="code"
           maxlength="9"
@@ -131,22 +149,35 @@
           Recuerda guardar los stickers que registraste.
         </span>
       </div>
+      <div class="enterCode-web__rec">
 
-      <!-- <div class="enterCode-web__rec">
-        EN ESTE ESPACIO VA EL RECAPTCHA
-        <vue-recaptcha
-          :loadRecaptchaScript="true"
+        <!-- <vue-recaptcha
           sitekey=" 6Lfh6Y4aAAAAAI-8nSMl7mVqcaetUMQC9ZCDoqvK"
           @verify="verifyRecaptcha"
-          class="mb-1"
           @expired="expiredRecaptcha"
+          class="mb-1"
           ref="recaptcha"
           language="es"
-        ></vue-recaptcha>
-      </div> -->
+          :loadRecaptchaScript="true"
+        ></vue-recaptcha> -->
 
+        <!-- <invisible-recaptcha
+          sitekey=" 6Ld_BT4jAAAAAH2hFBxPNyDn4U-XToSBxiZFSOCc"
+          class="btn btn-danger"
+          type="submit"
+          id="do-something-btn"
+          @verify="verifyRecaptcha"
+          @expired="expiredRecaptcha"
+          :disabled="loading"
+          :validate="prepare"
+        >
+        </invisible-recaptcha> -->
+
+
+      </div>
       <div class="enterCode-mobile__button-wrapper">
-        <Button text="Registrar Código" type="primary" @handle-click="send()" />
+        <!-- <Button text="Registrar Código" type="primary" @handle-click="send()" /> -->
+        <Button text="Registrar Código" type="primary" @handle-click="validateRecaptcha()" />
       </div>
     </div>
     <modal
@@ -175,18 +206,27 @@
 <script>
 import Input from "../components/Input";
 import Button from "../components/Button";
+
+
+/* import { VueReCaptcha, useReCaptcha } from 'vue-recaptcha-v3' */
 // import VueRecaptcha from "vue-recaptcha";
-// import { SaveCodes, GetStatus } from "../api";
+// import InvisibleRecaptcha from "vue-invisible-recaptcha";
+//import VueRecaptcha  from 'vue-recaptcha';
+
+
+import { SaveCodes, GetStatus } from "../api";
 import RegisterCodeConfirm from "../components/RegisterCodeConfirm";
 import Modal from "../components/Modal";
 
+
+
 export default {
-  name: "EnterCode",
+  name: 'EnterCode',
   data() {
     return {
       loading: false,
       errors: {},
-      recaptchaCode: "",
+      recaptchaCode: null,
       count: 0,
       ducales: "",
       saltin: "",
@@ -195,18 +235,19 @@ export default {
         ducales: "",
         saltin: "",
         saltinMsg: "",
-        ducalesMsg: "",
+        ducalesMsg: ""
       },
       dialog: false,
-      code: "",
+      code: ''
     };
   },
   components: {
     Input,
     Button,
-    // VueRecaptcha,
+    //'vue-recaptcha': VueRecaptcha,
+    // InvisibleRecaptcha,
     RegisterCodeConfirm,
-    Modal,
+    Modal
   },
   filters: {
     amount(value) {
@@ -222,6 +263,7 @@ export default {
   mounted() {
     this.$store.dispatch("loadBalance");
   },
+
   computed: {
     mobile() {
       return this.$store.getters.mobile;
@@ -233,78 +275,107 @@ export default {
       return this.$store.getters.user;
     },
   },
+
   methods: {
-    send() {
-      this.verifyCatptcha();
-      if (this.saltin || this.ducales) {
-        if (this.recaptchaCode) {
-          this.save(
-            this.mobile ? this.code : this.saltin,
-            this.mobile ? this.code : this.ducales
-          );
-        } else {
-          this.$store.dispatch("setAlert", {
-            buttonLabel: "Aceptar",
-            type: "INFO",
-            showClose: true,
-            message:
-              "¡Para poder continuar, debes marcar la casilla de verificación (No soy un robot)!.",
-          });
-        }
+
+
+    //-----------NUEVA LOGICA RECAPCHA----------------------
+    
+    validateRegister() {
+      console.log("validateRegister");
+      if (this.id.length == 8) {
+        this.validateRecaptcha();
       } else {
-        this.$store.dispatch("setAlert", {
+        this.$store.dispatch("app/setAlert", {
           buttonLabel: "Aceptar",
           type: "INFO",
-          showClose: true,
-          message: "¡Ingresa un código de Saltín Noel o Ducales válido!.",
+          showClose: false,
+          message: "¡Ingresa un código válido!.",
         });
+        return false;
       }
     },
 
-    // dentro del save( saltin, ducales )
-    save() {
-      this.loading = true;
-      // SaveCodes({
-      //   code_saltin: saltin,
-      //   code_ducales: ducales,
-      // })
-      //   .then((resp) => {
-      //     GetStatus().then((resp2) => {
-      //       this.loading = false;
-      this.respStatus = {
-        ducales: "textoPrueba-Ducales",
-        saltin: "textoPrueba-Saltin",
-        saltinMsg: "textoPrueba-Saltin-Mensaje",
-        ducalesMsg: "textoPrueba-Ducales-Mensaje",
-        status: true || "",
-      };
-      //       this.dialog = true;
-      //       this.$refs.recaptcha.reset();
-      //       this.recaptchaCode = null;
-      //       this.recaptchaCode = "null";
-      //       this.$store.dispatch("loadBalance");
-      //       this.ducales = "";
-      //       this.saltin = "";
-      //       this.code = "";
-      //     });
-      //   })
-      //   .catch((err) => {
-      //     if (err.response.status !== 401) {
-      //       this.ducales = "";
-      //       this.saltin = "";
-      //       this.code = "";
-      //       this.loading = false;
-      //       this.$store.dispatch("setAlert", {
-      //         buttonLabel: "Aceptar",
-      //         type: "INFO",
-      //         showClose: true,
-      //         message:
-      //           err.response.data.message.mensaje || "Error en el servicio.",
-      //       });
-      //     }
-      //   });
+    async validateRecaptcha() {
+      try {
+        
+        await this.$recaptchaLoaded()
+
+        await this.$recaptcha('login');
+
+        const token = await this.$recaptcha('login');
+
+        // console.log(token);
+        this.recaptchaCode = token;
+
+
+        console.log("Execute recaptcha");
+
+        this.loading=true;
+        this.send();
+      } catch (error) {
+        console.log("Login error:", error);
+      }
     },
 
+    send() {
+      if (this.saltin || this.ducales) {
+        this.save(
+            this.mobile ? this.code : this.saltin,
+            this.mobile ? this.code : this.ducales
+          );
+      } else {
+        this.$store.dispatch("setAlert", {
+          buttonLabel: "Aceptar",
+          type:'INFO',
+          showClose: true,
+          message: "¡Ingresa un código de Saltín Noel o Ducales válido!."
+        });
+      }
+    },
+    //------------------------------------------------------
+
+    // para este punto ya se valido el recaptcha
+    save(saltin, ducales) {
+      this.loading = true;
+      SaveCodes({
+        code_saltin: saltin,
+        code_ducales: ducales
+      })
+        .then((resp) => {
+          GetStatus().then(resp2 => {
+              this.loading = false;
+              this.respStatus = {
+                ducales: resp.data.ducales.res,
+                saltin: resp.data.saltin.res,
+                saltinMsg: resp.data.saltin.message,
+                ducalesMsg: resp.data.ducales.message,
+                status: resp2.data || ''
+              };
+              this.dialog = true;
+              this.$refs.recaptcha.reset()
+              this.recaptchaCode = null;
+              this.$store.dispatch("loadBalance");
+              this.ducales = "";
+              this.saltin = "";
+              this.code = ""
+          });
+        })
+        .catch((err) => {
+          if (err.response.status !== 401) {
+            this.ducales = "";
+            this.saltin = "";
+            this.code = ""
+            this.loading = false;
+            this.$store.dispatch("setAlert", {
+            buttonLabel: "Aceptar",
+            type:'INFO',
+            showClose: true,
+            message: err.response.data.message.mensaje || "Error en el servicio.",
+          });
+          }
+        });
+    },
     verifyRecaptcha(token) {
       this.recaptchaCode = token;
     },
@@ -317,23 +388,42 @@ export default {
     },
     verifyCatptcha() {
       if (this.count === 3) {
-        this.$refs.recaptcha.reset();
+        this.$refs.recaptcha.reset()
         this.recaptchaCode = null;
-        this.count = 0;
+        this.count = 0
       } else {
         this.count = this.count + 1;
       }
-    },
-  },
-};
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </script>
 
-<style lang="scss" scoped> 
+<style lang="scss" scoped>
 @import "@/assets/scss/mixins.scss";
+
+
 .rc-anchor-normal,
 .rc-anchor-pt {
   margin: 2px 80px 0 0 !important;
 }
+
 .rc-anchor-normal {
   margin: 2px 80px 0 0 !important;
 }
@@ -341,41 +431,53 @@ export default {
 .rc-anchor-pt {
   margin: 2px 80px 0 0 !important;
 }
-.Uppercase div input {
+
+.uppercase div input {
   letter-spacing: 2px;
   text-transform: uppercase;
 }
+
 .enterCode {
   position: relative;
   display: flex;
   justify-content: center;
   width: 100%;
+
   &__counter-content {
     position: absolute;
     right: 10%;
     top: 5%;
     width: 180px;
+
     @include xlg() {
       width: 240px;
     }
   }
+
   &__counter-img {
     width: 100%;
   }
+
   &__counter-text {
     position: absolute;
     color: white;
     right: 34%;
     top: 43.5%;
-    font-size: 22px;
+    font-size: 30px;
+    @include mxHeight(650px) {
+      right: 29%;
+      top: 40.5%;
+    }
   }
 }
+
 .enterCode-web {
   display: flex;
   flex-direction: column;
   width: 80%;
   text-align: center;
   align-items: center;
+
   &__rec {
     display: flex;
     justify-content: center;
@@ -385,16 +487,20 @@ export default {
       margin: 3% 0 0 5%;
     }
   }
+
   &__more {
     height: 35px;
     margin: 10px;
+
     @include lg() {
       height: 40px;
     }
+
     @include xlg() {
       height: 45px;
     }
   }
+
   &__mini-text {
     width: 80%;
     margin: 5% 0;
@@ -403,181 +509,220 @@ export default {
     color: white;
     font-size: 20px;
     line-height: 20px;
+
     @include mobile() {
       text-align: center;
       font-size: 18px;
     }
+
     @include xs() {
       font-size: 14px;
       line-height: 12px;
       margin: 10px 0px 15px 0px;
     }
   }
+
   &__flex {
     display: flex;
     justify-content: space-evenly;
     width: 100%;
   }
+
   &__section-1 {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
+
   &__logo {
     margin: 2% 0 0 0;
+
     @include mxHeight(600px) {
       height: 60px;
     }
   }
+
   &__section-2 {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 90vw;
+
     &__middleTitle {
       color: white;
       width: 50%;
       margin: 10px 0px;
+
       @include xlg() {
         width: 60%;
         margin: 30px 0px;
       }
     }
+
     &__middleTitle span {
       font-size: 0.8rem;
       text-shadow: 0px 3px 6px #00000029;
+
       @include lg() {
         font-size: 1rem;
       }
+
       @include mnHeight(1000px) {
         font-size: 1.5rem;
       }
     }
   }
+
   &__title {
     margin: -40px 0 0 0;
+
     @include lg() {
       width: 50%;
     }
+
     @include xlg() {
       width: 40%;
     }
+
     @include mxHeight(650px) {
       margin: -20px 0 0 0;
       width: 58vh;
     }
   }
+
   &__box {
     display: flex;
     align-items: center;
+
     @include xlg() {
       margin-top: 60px;
     }
   }
+
   &__mini {
     height: 54px;
     margin: 10px;
   }
+
   &__subtitle-box {
     display: flex;
     align-items: center;
     width: 500px;
   }
+
   &__box-item {
     display: flex;
     flex-direction: column;
     align-items: center;
+
     @include lg() {
       @include mnHeight(1000px) {
         margin: 0 30px;
       }
     }
+
     @include xlg() {
       margin: 0 80px;
     }
   }
+
   &__ducales-image,
   &__saltin-image {
     width: 135px;
     height: 121px;
+
     @include mxHeight(650px) {
       width: 105px;
       height: 98px;
     }
+
     @include lg() {
       width: 130px;
       height: 117px;
-    @include xlg() {
-      width: 232px;
-      height: 208px;
+
+      @include xlg() {
+        width: 232px;
+        height: 208px;
+      }
+    }
+
+    &__box-text {
+      margin-top: -24px;
+      font-family: generalLeter;
+      text-shadow: 0px 3px 6px #00000029;
+      color: white;
+      font-size: 16px;
     }
   }
+}
 
-  &__box-text {
-    margin-top: -24px;
-    font-family: generalLeter;
-    text-shadow: 0px 3px 6px #00000029;
-    color: white;
-    font-size: 16px;
-  }
-}
-}
 .enterCode-mobile {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 10px 20px;
   width: 100%;
+
   @include xs() {
     padding: 10px 0px;
   }
 }
+
 .enterCode-mobile__title {
-    height: 50px;
-    @include xs() {
-      height: 30px;
-    }
+  height: 50px;
+
+  @include xs() {
+    height: 30px;
   }
+}
+
 .enterCode-mobile__mini {
-    width: 90%;
+  width: 90%;
+  margin-bottom: 10px;
+
+  @include xs() {
+    height: 120px;
+    width: initial;
     margin-bottom: 10px;
-    @include xs() {
-      height: 120px;
-      width: initial;
-      margin-bottom: 10px;
-    }
   }
+}
+
 .enterCode-mobile__counter {
-    height: 80px;
-  }
+  height: 80px;
+}
+
 .other {
-    margin-top: -34px;
-    font-size: 12px;
-    margin-bottom: 10px;
+  margin-top: -34px;
+  font-size: 12px;
+  margin-bottom: 10px;
 }
+
 .enterCode-mobile__counter-content {
-    position: relative;
-    margin-top: 0px;
+  position: relative;
+  margin-top: 0px;
 }
+
 .enterCode-mobile__counter-text {
-    position: absolute;
-    bottom: 31px;
-    right: 60px;
+  position: absolute;
+  bottom: 31px;
+  right: 60px;
 }
 
 .enterCode-mobile__button-wrapper {
-    height: 30px !important;
-    *,
-    *:after {
-      font-size: 12px !important;
-      height: 30px;
-      display: flex;
-      align-items: center;
-    }
+  height: 30px !important;
+
+  *,
+  *:after {
+    font-size: 12px !important;
+    height: 30px;
+    display: flex;
+    align-items: center;
+  }
 }
 
 .containerAnimation {
   display: none;
+
   @media (max-height: 740px) {
     display: flex;
     justify-content: center;
@@ -589,6 +734,7 @@ export default {
     margin: auto;
   }
 }
+
 .containerAnimation:hover {
   opacity: 0;
   transition: opacity 4s ease-in-out;
@@ -596,6 +742,7 @@ export default {
 
 .objetAnimation {
   display: none;
+
   @media (max-height: 740px) {
     display: block;
     height: 40px;
@@ -604,27 +751,31 @@ export default {
     animation: bounce 1.5s infinite;
   }
 }
+
 @keyframes bounce {
   10% {
     height: 40px;
     width: 20px;
   }
+
   30% {
     height: 40px;
     width: 15px;
   }
+
   50% {
     height: 35px;
     width: 25px;
     transform: translateY(110px);
   }
+
   75% {
     height: 40px;
     width: 23px;
   }
+
   100% {
     transform: translateY(0px);
   }
 }
-
 </style>

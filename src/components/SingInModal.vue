@@ -6,17 +6,15 @@
         <img class="SingIngModal__image" src="@/assets/Assets_Web_New/Logo_modales_Juntos_Premiarte_2022.png" />
         <div class="SingIngModal__content">
             <div class="SingIngModal__contentCenter">
-                <span
-                style="color: white;"
-                >Ingresa al portal para que puedas participar</span>
+                <span style="color: white;">Ingresa al portal para que puedas participar</span>
             </div>
             <div class="SingIngModal__contentCenter">
                 <Input field="idn" @handle-input="setValue($event)" placeholder="Número de cédula" :onlyNumbers="true"
                     :error="error" maxlength="10" />
             </div>
-            <div class="SingIngModal__space" ></div>
+            <div class="SingIngModal__space"></div>
             <div class="SingIngModal__contentCenter">
-                <Button text="Ingresar" type="primary" :isLoading="loading" @handle-click="signIn()" />
+                <Button text="Ingresar" type="primary" :isLoading="loading" @handle-click="validateRecaptchaForLogin()" />
             </div>
         </div>
     </div>
@@ -42,6 +40,31 @@ export default {
     props: {},
     computed: {},
     methods: {
+
+        //-----------------------------------------
+        async validateRecaptchaForLogin() {
+            try {
+                
+                await this.$recaptchaLoaded()
+
+                await this.$recaptcha('login');
+
+                const token = await this.$recaptcha('login');
+
+                //console.log(token);
+                this.recaptchaCode = token;
+
+
+                console.log("Execute recaptcha for login");
+
+                this.loading=true;
+                this.signIn();
+            } catch (error) {
+                console.log("Login error:", error);
+            }
+        },
+        //-----------------------------------------
+
         signIn() {
             if (this.idn) {
                 if (!this.error) {
@@ -118,14 +141,17 @@ export default {
         width: 100%;
         height: 230px;
         position: relative;
+
         @include mnHeight(1000px) {
             height: 250px;
         }
     }
+
     &__content:nth-child(2) {
         margin: 0 0 0 0;
         background-color: red;
     }
+
     &__contentCenter {
         display: flex;
         justify-content: center;
@@ -133,15 +159,18 @@ export default {
         width: 80%;
         height: 17%;
     }
-    &__contentCenter span{
+
+    &__contentCenter span {
         text-align: center;
     }
+
     &__box {
         position: absolute;
         top: 20px;
         left: 30px;
         right: 30px;
         bottom: 20px;
+
         @include mobile() {
             top: 10px;
             left: 15px;
@@ -149,6 +178,7 @@ export default {
             bottom: 10px;
         }
     }
+
     &__scroll {
         overflow-y: auto;
         width: 100%;
@@ -156,63 +186,77 @@ export default {
         height: 100%;
         padding-right: 30px;
         text-align: center;
+
         @include mobile() {
             padding-right: 15px;
         }
+
         @include xs() {
             width: 100%;
             overflow-x: hidden;
         }
     }
+
     &__text {
         font-family: BebasNeue;
         font-size: 16px;
         line-height: 16px;
         text-align: justify;
+
         @include mobile() {
             font-size: 12px;
         }
     }
+
     &__image {
         height: 150px;
         margin-top: -100px;
+
         @include mobile() {
             height: 140px;
             margin-top: -80px;
         }
+
         @include xs() {
             margin-top: -40px;
             margin-bottom: -20px;
         }
     }
+
     &__close-container {
         display: flex;
         justify-content: flex-end;
         width: calc(100% + 45px);
         padding: 10px;
         margin-top: -35px;
+
         @include xs() {
             margin-top: -50px;
             margin-bottom: -40px;
         }
     }
+
     &__close-image {
         height: 30px;
         cursor: pointer;
+
         @include mobile() {
             height: 28px;
         }
     }
+
     /* width */
     ::-webkit-scrollbar {
         width: 12px !important;
     }
+
     /* Track */
     ::-webkit-scrollbar-track {
         background-color: #eeb493 !important;
         border-radius: 10px !important;
         border-radius: 6px;
     }
+
     /* Handle */
     ::-webkit-scrollbar-thumb {
         background: #de7f48 !important;

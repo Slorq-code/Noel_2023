@@ -6,9 +6,16 @@ import vuetify from "@/plugins/vuetify";
 import "./styles.scss";
 import "@/plugins/axios";
 import AxiosInterceptor from "@/plugins/axios-interceptor";
+
+import { VueReCaptcha } from 'vue-recaptcha-v3'
+
+Vue.use(VueReCaptcha, { siteKey: '6LeUtRMkAAAAANg5tKLCHt_Wfw646cij30KsWKlT' })
+
+
 new AxiosInterceptor();
 
 Vue.config.productionTip = false
+
 
 new Vue({
   router,

@@ -114,7 +114,7 @@ export default {
     height: 70px;
   }
   &__coljuegos {
-    height: 59.3px;
+    height: 100%;
   }
   &__facebook {
     height: 20px;
@@ -153,6 +153,7 @@ export default {
     text-decoration: underline;
   }
   &__routes {
+    height: 100%;
     display: flex;
     align-items: center;
     flex-direction: row-reverse;
@@ -174,7 +175,7 @@ export default {
     height: 70px;
   }
   &__coljuegos {
-    height: 59.3px;
+    height: 100%;
   }
   &__facebook {
     height: 20px;
@@ -214,6 +215,7 @@ export default {
     text-decoration: underline;
   }
   &__routes {
+    height: 100%;
     display: flex;
     align-items: center;
     flex-direction: row-reverse;
