@@ -1,6 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Awards from "../views/awards.vue";
+import Awards from "../views/Awards.vue";
 import EnterCode from "../views/EnterCode.vue";
 import HowToTakePart from "../views/HowToTakePart.vue";
 import MyAccount from "../views/MyAccount.vue";
