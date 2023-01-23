@@ -544,7 +544,7 @@ export default {
     justify-content: flex-end;
   }
   &__imageHeader {
-    height: 100%;
+    height: auto;
     width: 100%;
     margin: 0 0px 20px 0;
     cursor: pointer;
