@@ -450,7 +450,7 @@ export default {
         bottom: 20%;
       }
       @include mxHeight(850px) {
-        bottom: 21%;
+        bottom: 18%;
       }
     }
     &__social {
@@ -571,7 +571,7 @@ export default {
     bottom: 0;
     left: 0;
     cursor: pointer;
-    @include mxHeight(850px) {
+    @include mobile() {
       bottom: 50px;
     }
   }
