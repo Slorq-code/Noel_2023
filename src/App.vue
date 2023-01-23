@@ -109,9 +109,6 @@ export default {
     }
   },
   methods: {
-
-
-
     onResize() {
       this.$store.dispatch("setMobile", window.innerWidth <= 900);
     },
@@ -150,12 +147,8 @@ export default {
 @import "@/assets/scss/mixins";
 
 .grecaptcha-badge {
-    bottom: 34% !important;
-    @include mobile() {
-      bottom: 0% !important;
-    }
+    display: none;
 }
-
 .app {
   position: fixed;
   top: 0;

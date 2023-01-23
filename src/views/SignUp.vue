@@ -361,16 +361,20 @@ export default {
       this.goTo("/ingresar-codigo");
     },
     validate() {
-      if (this.user.phone) this.user.phone = this.user.phone.trim();
-      if (this.user.idn) this.user.idn = this.user.idn.trim();
-      if (this.user.email) {
-        this.user.email = this.user.email.trim();
-      }
       let errors = {};
       const emailReg = /^[a-zA-Z0-9_\-\.]{5,30}@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
       const idReq = /^([1-9]{1}[0-9]{6,9})$/;
       const phoneReq =
         /^(300|301|302|304|305|310|311|312|313|314|315|316|317|318|319|320|321|322|323|324|350|351){1}[0-9]{1}[0-9]{6}$/;
+      if (this.user.phone) {
+        this.user.phone = this.user.phone.trim();
+      }
+      if (this.user.idn) {
+        this.user.idn = this.user.idn.trim();
+      }
+      if (this.user.email) {
+        this.user.email = this.user.email.trim();
+      }
       if (this.user.email && !emailReg.test(this.user.email)) {
         errors.email = "Ingresa un correo válido.";
       }
@@ -396,11 +400,11 @@ export default {
         errors.idn = "Ingresa un número de cédula válido.";
       }
       if (this.user.idn && this.user.idn.length === 10) {
-        if (!(+this.user.idn > 1000000000 && +this.user.idn < 1999999999))
+        if (!(this.user.idn > 10 && this.user.idn < 11))
           errors.idn = "Ingresa un número de cédula válido.";
       }
       if (this.touch) {
-        if (!this.user.names) errors.name = "Este campo es obligatorio.";
+        if (!this.user.names) errors.names = "Este campo es obligatorio.";
         if (!this.user.names) errors.last_names = "Este campo es obligatorio.";
         if (!this.user.email) errors.email = "Este campo es obligatorio.";
         if (!this.user.idn) errors.idn = "Este campo es obligatorio.";
