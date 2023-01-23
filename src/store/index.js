@@ -3,13 +3,14 @@ import Vuex from "vuex";
 import { GetBalance, GetLatestWinners, GetCodesRedemtions } from "@/api";
 Vue.use(Vuex);
 
+// const user = localStorage.getItem("user");
 const user = localStorage.getItem("user");
 const token = localStorage.getItem("token");
 
 export default new Vuex.Store({
   state: {
     loading: true,
-    user: user ? JSON.parse(user) : null,
+    user: user !== undefined ? JSON.parse(user) : null,
     token: token ? token : null,
     alert: null,
     total: 0,

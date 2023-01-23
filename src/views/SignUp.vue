@@ -348,7 +348,7 @@ export default {
       this.user = {
         names: "",
         last_names: "",
-        idn: "",
+        idn: Number,
         email: "",
         department_state: "",
         city: "",

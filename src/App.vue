@@ -60,7 +60,7 @@ export default {
   data() {
     return {
       show: false,
-      selectedRoute: ''
+      selectedRoute: '',
     };
   },
   mounted() {

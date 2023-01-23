@@ -9,7 +9,12 @@ import AxiosInterceptor from "@/plugins/axios-interceptor";
 
 import { VueReCaptcha } from 'vue-recaptcha-v3'
 
-Vue.use(VueReCaptcha, { siteKey: '6LeUtRMkAAAAANg5tKLCHt_Wfw646cij30KsWKlT' })
+Vue.use(VueReCaptcha, { 
+  siteKey: '6LeUtRMkAAAAANg5tKLCHt_Wfw646cij30KsWKlT',
+  explicitRenderParameters: {
+    size: 'invisible'
+  }
+})
 
 
 new AxiosInterceptor();

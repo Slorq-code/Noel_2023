@@ -261,7 +261,7 @@ export default {
     logout() {
       ClearSession().then(() => {
         this.$store.dispatch("logout");
-        this.goTo("/contactenos");
+        this.goTo("/ingresar");
       });
     },
     logoClick() {
@@ -321,7 +321,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import "@/assets/scss/mixins.scss";
 
 .header {
@@ -460,6 +460,7 @@ export default {
     &__social span {
       cursor: pointer;
       color: white;
+      font-family: SlintGeneralLeter;
       @include xs() {
         font-size: 14px;
       }

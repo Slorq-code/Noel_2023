@@ -1,16 +1,9 @@
 <template>
   <div class="signup-confirm">
     <div class="signup-confirm__close-container">
-      <img
-        @click="close()"
-        class="signup-confirm__close-image"
-        src="@/assets/web/btn_cerrar.png"
-      />
+      <img @click="close()" class="signup-confirm__close-image" src="@/assets/web/btn_cerrar.png" />
     </div>
-    <img
-      class="signup-confirm__image"
-      src="@/assets/Assets_Web_New/Logo_modales_Juntos_Premiarte_2022.png"
-    />
+    <img class="signup-confirm__image" src="@/assets/Assets_Web_New/Logo_modales_Juntos_Premiarte_2022.png" />
     <div class="signup-confirm__content">
       <span class="signup-confirm__text1" style="margin-bottom: 10px">
         Por favor confirma que tus datos estén correctos, especialmente tu
@@ -19,35 +12,28 @@
       </span>
       <span class="signup-confirm__text">Nombre: {{ user.names }}</span>
       <span class="signup-confirm__text">Apellido: {{ user.last_names }}</span>
-      <span class="signup-confirm__text">Cédula: {{ user.document }}</span>
+      <span class="signup-confirm__text">Cédula: {{ user.idn }}</span>
       <span class="signup-confirm__text">Correo: {{ user.email }}</span>
-      <span class="signup-confirm__text"
-        >Dpto: {{ user.department_state }}</span
-      >
+      <span class="signup-confirm__text">Dpto: {{ user.department_state }}</span>
       <span class="signup-confirm__text">ciudad: {{ user.city }}</span>
       <span class="signup-confirm__text"> N° Celular: {{ number }} </span>
       <span class="signup-confirm__text"> Operador: {{ user.operator }} </span>
     </div>
     <div class="signup-confirm__buttons">
-      <Button
-        color="1"
-        text="Editar"
-        type="secondary"
-        @handle-click="close()"
-      />
-      <Button
-        text="Continuar "
-        type="primary"
-        :isLoading="loading"
-        @handle-click="validateRecaptchaForSingUp()"
-      />
+      <Button color="1" text="Editar" type="secondary" @handle-click="close()" />
+      <Button text="Continuar " type="primary" :isLoading="loading" @handle-click="validateRecaptchaForSingUp()" />
     </div>
   </div>
 </template>
 
 <script>
-import { Register, UpdateUser } from "@/api";
-import Button from "../components/Button";
+import {
+  Register,
+  UpdateUser,
+  Login,
+} from "@/api";
+import Button from "../components/Button"
+
 export default {
   name: "SignupConfirm",
   components: {
@@ -65,7 +51,7 @@ export default {
   },
   computed: {
     name() {
-      return this.user.firstName + " " + this.user.lastName;
+      return this.user.names + " " + this.user.last_names;
     },
     number() {
       return `${this.user.phone.substring(0, 3)}-${this.user.phone.substring(
@@ -77,32 +63,32 @@ export default {
   data() {
     return {
       loading: false,
+      idn: "",
     };
   },
   methods: {
-
     //-----------------------------------------
-      async validateRecaptchaForSingUp() {
-          try {
-              
-              await this.$recaptchaLoaded()
+    async validateRecaptchaForSingUp() {
+      try {
 
-              await this.$recaptcha('login');
+        await this.$recaptchaLoaded()
 
-              const token = await this.$recaptcha('login');
+        await this.$recaptcha('login');
 
-              //console.log(token);
-              this.recaptchaCode = token;
+        const token = await this.$recaptcha('login');
+
+        //console.log(token);
+        this.recaptchaCode = token;
 
 
-              console.log("Execute recaptcha for Sing Up");
+        console.log("Execute recaptcha for Sing Up");
 
-              this.loading=true;
-              this.preRegister();
-          } catch (error) {
-              console.log("Sing Up error:", error);
-          }
-      },
+        this.loading = true;
+        this.preRegister();
+      } catch (error) {
+        console.log("Sing Up error:", error);
+      }
+    },
     //-----------------------------------------
 
 
@@ -126,11 +112,12 @@ export default {
         : inLowerCase.replace(/\b(\w)/g, (s) => s.toUpperCase());
       return capitalized.replace(acronymRegex, replacer);
     },
+
     register() {
       Register({
         ...this.user,
         adult_registration: 1,
-        name: this.capitalize(this.user.name),
+        name: this.capitalize(this.name),
       })
         .then((resp) => {
           this.loading = false;
@@ -142,6 +129,7 @@ export default {
             title: "¡TU REGISTRO HA SIDO EXITOSO!",
             message: "¡Ya puedes comenzar a ingresar códigos!.",
           });
+          this.LoginAfterRegister()
         })
         .catch((err) => {
           this.loading = false;
@@ -154,6 +142,33 @@ export default {
           });
         });
     },
+
+    LoginAfterRegister() {
+      this.loading = true;
+      Login(this.user.idn)
+        .then((resp) => {
+          this.loading = false;
+          this.$store.dispatch("setToken", resp.token);
+          this.$store.dispatch("setUser", resp.user);
+          this.$store.dispatch("loadBalance");
+          this.goTo("/ingresar-codigo");
+        })
+        .catch(() => {
+          this.loading = false;
+          this.$store.dispatch("setAlert", {
+            buttonLabel: "Aceptar",
+            showClose: true,
+            type: "INFO",
+            message:
+              "¡El número de cédula esta en proceso de registro, intentalo en unos minutos!",
+          });
+        });
+    },
+
+    goTo(path) {
+      if (this.$route.path !== `/${path}`) this.$router.push(path);
+    },
+
     update() {
       UpdateUser({
         ...this.user,
@@ -193,15 +208,18 @@ export default {
   position: relative;
   min-height: 300px;
   padding: 10px 20px;
+
   @include mobile() {
     padding: 10px;
   }
+
   &__content {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
     margin-top: -20px;
+
     @include mobile() {
       overflow-y: auto;
       max-height: 300px;
@@ -211,19 +229,23 @@ export default {
       margin-bottom: -6px;
     }
   }
+
   &__text1 {
     color: white;
     font-family: generalLeter;
     text-shadow: 0px 3px 6px #00000029;
     font-size: 13px;
     margin-bottom: 20px;
+
     @include mobile() {
       font-size: 12px;
     }
+
     @include mobile() {
       font-size: 10px;
     }
   }
+
   &__text {
     color: white;
     margin: 0 !important;
@@ -231,25 +253,31 @@ export default {
     text-shadow: 0px 3px 6px #00000029;
     text-transform: capitalize;
     font-size: 13px;
+
     @include mobile() {
       font-size: 12px;
     }
+
     @include mobile() {
       font-size: 10px;
     }
   }
+
   &__image {
     height: 173px;
     margin: -100px 0 10px 0;
+
     @include mobile() {
       height: 160px;
       margin: -80px 0 0px 0;
     }
+
     @include xs() {
       height: 140px;
       margin: -70px 0 -1px 0;
     }
   }
+
   &__close-container {
     display: flex;
     justify-content: flex-end;
@@ -257,13 +285,16 @@ export default {
     padding: 10px;
     margin-top: -56px;
   }
+
   &__close-image {
     height: 30px;
     cursor: pointer;
+
     @include mobile() {
       height: 28px;
     }
   }
+
   &__buttons {
     display: flex;
     align-items: center;
@@ -272,9 +303,11 @@ export default {
     width: 100%;
     margin-top: 30px;
     padding: 0px 40px;
+
     @include mobile() {
       padding: 0px 10px;
     }
+
     @include xs() {
       margin-top: 10px;
     }
