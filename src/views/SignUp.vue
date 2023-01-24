@@ -53,6 +53,7 @@
         <Input
           label="Cédula"
           field="idn"
+          maxlength="10"
           @close-all="
             $refs.operator.open = false;
             $refs.department_state.open = false;
@@ -399,8 +400,8 @@ export default {
       if (this.user.idn && !idReq.test(this.user.idn)) {
         errors.idn = "Ingresa un número de cédula válido.";
       }
-      if (this.user.idn && this.user.idn.length === 10) {
-        if (!(this.user.idn > 10 && this.user.idn < 11))
+      if (this.user.idn && this.user.idn.length === 11) {
+        if (!(+this.user.idn > 1000000000 && +this.user.idn < 1999999999))
           errors.idn = "Ingresa un número de cédula válido.";
       }
       if (this.touch) {

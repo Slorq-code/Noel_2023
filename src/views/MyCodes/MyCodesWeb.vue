@@ -31,62 +31,10 @@
           v-for="(item, index) in tableData"
           v-bind:key="index"
         >
-          <div class="myCodesWeb__table-content-element">
-            <p class="myCodesWeb__table-cant">{{ item.cant }}</p>
-          </div>
-          <div class="myCodesWeb__table-content-element myCodesWeb__text-row">
-            <div
-              v-if="item.saltinNoel"
-              class="myCodesWeb__table-text-content"
-            >
-              <p class="myCodesWeb__table-text-content-one">
-                {{ item.saltinNoel }}
-              </p>
-              <p class="myCodesWeb__table-text-content-two">
-                {{ item.dateSaltin }}
-              </p>
-            </div>
-            <div
-              v-else
-              class="myCodesWeb__table-text-content myCodesWeb__table-text-content-alignEmpty"
-            >
-              -
-            </div>
-            <div class="myCodesWeb__table-btn-plus">
-              <svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m12.002 2c5.518 0 9.998 4.48 9.998 9.998 0 5.517-4.48 9.997-9.998 9.997-5.517 0-9.997-4.48-9.997-9.997 0-5.518 4.48-9.998 9.997-9.998zm-.747 9.25h-3.5c-.414 0-.75.336-.75.75s.336.75.75.75h3.5v3.5c0 .414.336.75.75.75s.75-.336.75-.75v-3.5h3.5c.414 0 .75-.336.75-.75s-.336-.75-.75-.75h-3.5v-3.5c0-.414-.336-.75-.75-.75s-.75.336-.75.75z" fill-rule="nonzero"/></svg>
-              <div class="myCodesWeb__table-btn-plus__background"></div>
-            </div>
-          </div>
-          <div class="myCodesWeb__table-content-element myCodesWeb__text-row">
-            <div
-              v-if="item.ducales"
-              class="myCodesWeb__table-text-content"
-            >
-              <p class="myCodesWeb__table-text-content-one">
-                {{ item.ducales }}
-              </p>
-              <p class="myCodesWeb__table-text-content-two">
-                {{ item.dateDucales }}
-              </p>
-            </div>
-            <div
-              v-else
-              class="myCodesWeb__table-text-content myCodesWeb__table-text-content-alignEmpty"
-            >
-            </div>
-            <div class="myCodesWeb__table-btn-equal">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-1 17h-3v-10h3v10zm5 0h-3v-10h3v10z"/></svg>
-              <div class="myCodesWeb__table-btn-plus__background"></div>
-            </div>
-          </div>
-          <div class="myCodesWeb__table-content-element">
-            <p
-              style="text-align: center"
-              class="myCodesWeb__table-text-content-award myCodesWeb__alignmentText"
-            >
-              {{ item.award }}
-            </p>
-          </div>
+        <p>{{ }}</p>
+        <p></p>
+        <p></p>
+        <p></p>
         </div>
       </div>
     </div>
@@ -261,6 +209,10 @@ export default {
         font-size: 30px;
       }
     }
+    &-content div{
+      min-width: 192px;
+    }
+
 
     &-content-element {
       display: flex;
@@ -342,6 +294,7 @@ export default {
         background-color: white;
         position: absolute;
         height: 24px;
+        min-width: 24px !important;
         width: 24px;
         top:4px;
         left: 4px;
@@ -389,5 +342,8 @@ export default {
     margin-right: 25px !important;
   }
 }
+
+//----
+
 }
 </style>

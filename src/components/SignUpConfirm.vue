@@ -77,7 +77,7 @@ export default {
 
         const token = await this.$recaptcha('login');
 
-        //console.log(token);
+        console.log(token);
         this.recaptchaCode = token;
 
 
@@ -145,8 +145,7 @@ export default {
 
     LoginAfterRegister() {
       this.loading = true;
-      Login(this.user.idn)
-        .then((resp) => {
+      Login(this.user.idn).then((resp) => {
           this.loading = false;
           this.$store.dispatch("setToken", resp.token);
           this.$store.dispatch("setUser", resp.user);

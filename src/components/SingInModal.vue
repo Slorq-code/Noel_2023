@@ -51,7 +51,7 @@ export default {
 
                 const token = await this.$recaptcha('login');
 
-                //console.log(token);
+                console.log(token);
                 this.recaptchaCode = token;
 
 
@@ -69,8 +69,7 @@ export default {
             if (this.idn) {
                 if (!this.error) {
                     this.loading = true;
-                    Login(this.idn)
-                        .then((resp) => {
+                    Login(this.idn).then((resp) => {
                             this.loading = false;
                             this.$store.dispatch("setToken", resp.token);
                             this.$store.dispatch("setUser", resp.user);
