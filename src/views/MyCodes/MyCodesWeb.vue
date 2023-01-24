@@ -28,7 +28,7 @@
         </div>
         <div
           class="myCodesWeb__table-content"
-          v-for="(item, index) in tableDatas"
+          v-for="(item, index) in tableData"
           v-bind:key="index"
         >
           <div class="myCodesWeb__table-content-element">
@@ -36,14 +36,14 @@
           </div>
           <div class="myCodesWeb__table-content-element myCodesWeb__text-row">
             <div
-              v-if="item.saltinNoel && item.saltinNoel.titleOne"
+              v-if="item.saltinNoel"
               class="myCodesWeb__table-text-content"
             >
               <p class="myCodesWeb__table-text-content-one">
-                {{ item.saltinNoel.titleOne }}
+                {{ item.saltinNoel }}
               </p>
               <p class="myCodesWeb__table-text-content-two">
-                {{ item.saltinNoel.titletwo }}
+                {{ item.dateSaltin }}
               </p>
             </div>
             <div
@@ -59,14 +59,14 @@
           </div>
           <div class="myCodesWeb__table-content-element myCodesWeb__text-row">
             <div
-              v-if="item.ducales && item.ducales.titleOne"
+              v-if="item.ducales"
               class="myCodesWeb__table-text-content"
             >
               <p class="myCodesWeb__table-text-content-one">
-                {{ item.ducales.titleOne }}
+                {{ item.ducales }}
               </p>
               <p class="myCodesWeb__table-text-content-two">
-                {{ item.ducales.titletwo }}
+                {{ item.dateDucales }}
               </p>
             </div>
             <div
@@ -96,62 +96,11 @@
 <script>
 export default {
   name: "MyCodesWeb",
-  data() {
-    return {
-      tableDatas: [
-        {
-          saltinNoel: {
-            titleOne: "ZET82F",
-            titletwo: "12/12/2022",
-          },
-          ducales: {
-            titleOne: "ZET82F",
-            titletwo: "12/12/2022",
-          },
-          award: "¡RECARGA!",
-          cant: 2,
-        },
-        {
-          saltinNoel: {
-            titleOne: "ZET82F",
-            titletwo: "12/12/2022",
-          },
-          ducales: {
-            titleOne: "ZET82F",
-            titletwo: "12/12/2022",
-          },
-          award: "¡RECARGA!",
-          cant: 2,
-        },
-        {
-          saltinNoel: {
-            titleOne: "ZET82F",
-            titletwo: "12/12/2022",
-          },
-          ducales: {
-            titleOne: "ZET82F",
-            titletwo: "12/12/2022",
-          },
-          award: "¡T. REGALO!",
-          cant: 3,
-        },
-        {
-          saltinNoel: {
-            titleOne: "ZET82F",
-            titletwo: "12/12/2022",
-          },
-          ducales: {
-            titleOne: "ZET82F",
-            titletwo: "12/12/2022",
-          },
-          award: "¡T. REGALO!",
-          cant: 4,
-        },
-      ],
-    }
-  },
+  data() {return {}},
+
   mounted() {
     console.log("actual2", this.tableData[1]);
+    this.tableData;
   },
   components: {},
   props: {
@@ -314,9 +263,9 @@ export default {
     }
 
     &-content-element {
-      flex-basis: 20%;
       display: flex;
       justify-content: center;
+      min-width: 22%;
     }
     &-content-element:nth-child(1) {
       @include lg() {
@@ -433,6 +382,7 @@ export default {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    min-width: 23%;
   }
 
   &__alignmentText {

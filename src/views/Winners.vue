@@ -22,7 +22,7 @@
       </div>
       <div
         class="winners__table-content-row"
-        v-for="(item, index) in tableWinnerss"
+        v-for="(item, index) in tableWinners"
         :key="index"
       >
         <div class="winners__table-header-item winners__color">
@@ -103,111 +103,8 @@ export default {
   data() {
     return {
       tableWinners: [],
-      tableWinnersModal: [
-        {
-          name: "Martín Barrera",
-          city: "Bogotá",
-          result: "Recarga",
-        },
-        {
-          name: "Pablo prueba",
-          city: "Felipe López",
-          result: "Tarjeta Regalo",
-        },
-        {
-          name: "Giovanni Ruíz",
-          city: "Bogotá",
-          result: "Recarga",
-        },
-        {
-          name: "Luciana Torres",
-          city: "Bogotá",
-          result: "Tarjeta Regalo",
-        },
-        {
-          name: "Adriana Rodriguez",
-          city: "Bogotá",
-          result: "Tarjeta Regalo",
-        },
-        {
-          name: "Martín Barrera",
-          city: "Bogotá",
-          result: "Recarga",
-        },
-        {
-          name: "Pablo prueba",
-          city: "Bogotá",
-          result: "Tarjeta Regalo",
-        },
-        {
-          name: "Giovanni Ruíz",
-          city: "Bogotá",
-          result: "Recarga",
-        },
-        {
-          name: "Luciana Torres",
-          city: "Bogotá",
-          result: "Tarjeta Regalo",
-        },
-        {
-          name: "Adriana Rodriguez",
-          city: "Bogotá",
-          result: "Tarjeta Regalo",
-        },
-      ],
+      tableWinnersModal: [],
       dialog: false,
-      tableWinnerss: [
-        {
-          name: "Martín Barrera",
-          city: "Bogotá",
-          result: "Recarga",
-        },
-        {
-          name: "Pablo prueba",
-          city: "Bogotá",
-          result: "Tarjeta Regalo",
-        },
-        {
-          name: "Giovanni Ruíz",
-          city: "Bogotá",
-          result: "Recarga",
-        },
-        {
-          name: "Luciana Torres",
-          city: "Bogotá",
-          result: "Tarjeta Regalo",
-        },
-        {
-          name: "Adriana Rodriguez",
-          city: "Bogotá",
-          result: "Tarjeta Regalo",
-        },
-        {
-          name: "Martín Barrera",
-          city: "Bogotá",
-          result: "Recarga",
-        },
-        {
-          name: "Pablo prueba",
-          city: "Bogotá",
-          result: "Tarjeta Regalo",
-        },
-        {
-          name: "Giovanni Ruíz",
-          city: "Bogotá",
-          result: "Recarga",
-        },
-        {
-          name: "Luciana Torres",
-          city: "Bogotá",
-          result: "Tarjeta Regalo",
-        },
-        {
-          name: "Adriana Rodriguez",
-          city: "Bogotá",
-          result: "Tarjeta Regalo",
-        },
-      ],
     };
   },
   mounted() {

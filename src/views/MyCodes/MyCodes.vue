@@ -19,6 +19,7 @@ export default {
     MyCodesWeb,
   },
   props: {},
+
   computed: {
     mobile() {
       return this.$store.getters.mobile;
@@ -30,16 +31,19 @@ export default {
       return this.$store.getters.codes;
     },
   },
+
   methods: {
     goTo(path) {
       if (this.$route.path !== `/${path}`) this.$router.push(path);
     },
     formatDate(date) {
-      if (date) {
+      if(date === null ) {
+        return " "
+      }if (date){
         const splitDate = date.split(" ")[0].split("-");
         return `${splitDate[2]}/${splitDate[1]}/${splitDate[0]}`;
       } else {
-        return "";
+        return " "
       }
     },
     formatData(data) {
@@ -50,7 +54,7 @@ export default {
         const image = {
           noComplete: require(`../../assets/mobile/Pareja_incompleta_mis_codigos_respons.png`),
           primeCompu: require(`@/assets/mobile/Premio_compus_mis_codigos_respons.png`),
-          tacoSaltin: require("@/assets/mobile/Taco_Saltin.png"),
+          tacoSaltin: require("../../assets/Assets_Web_New/Empaque_Ducales_reflejo.png"),
           tacoDucales: require("../../assets/Assets_Web_New/Empaque_Ducales_reflejo.png"),
           tacoSaltinDisabled: require("../../assets/Assets_Mobile_New/Saltin_gris.png"),
           tacoDucalesDisabled: require("../../assets/Assets_Mobile_New/Ducales_gris.png"),
@@ -88,16 +92,14 @@ export default {
           reversed: "¡CANCELADO!",
         };
         index === 0 && console.log(item.result);
+
         return {
           cant: index + 1,
-          saltinNoel: item.code && {
-            titleOne: item.code,
-            titleTwo: item.saltin_at ? this.formatDate(item.saltin_at) : "",
-          },
-          ducales: item.code_2 && {
-            titleOne: item.code_2,
-            titleTwo: item.ducales_at ? this.formatDate(item.ducales_at) : "",
-          },
+          saltinNoel: item.code,
+          dateSaltin:  item.saltin_at ? this.formatDate(item.saltin_at) : "",
+          ducales: item.code_2,
+          dateDucales: item.ducales_at ? this.formatDate(item.ducales_at) : "",
+
           award:
             item.code && item.code_2
               ? strings[item.result]
@@ -128,56 +130,7 @@ export default {
   },
   data() {
     return {
-      tableData: [
-        {
-          saltinNoel: {
-            titleOne: "ZET82F",
-            titletwo: "12/12/2022",
-          },
-          ducales: {
-            titleOne: "ZET82F",
-            titletwo: "12/12/2022",
-          },
-          award: "¡RECARGA!",
-          cant: 2,
-        },
-        {
-          saltinNoel: {
-            titleOne: "ZET82F",
-            titletwo: "12/12/2022",
-          },
-          ducales: {
-            titleOne: "ZET82F",
-            titletwo: "12/12/2022",
-          },
-          award: "¡RECARGA!",
-          cant: 2,
-        },
-        {
-          saltinNoel: {
-            titleOne: "ZET82F",
-            titletwo: "12/12/2022",
-          },
-          ducales: {
-            titleOne: "ZET82F",
-            titletwo: "12/12/2022",
-          },
-          award: "¡T. REGALO!",
-          cant: 3,
-        },
-        {
-          saltinNoel: {
-            titleOne: "ZET82F",
-            titletwo: "12/12/2022",
-          },
-          ducales: {
-            titleOne: "ZET82F",
-            titletwo: "12/12/2022",
-          },
-          award: "¡T. REGALO!",
-          cant: 4,
-        },
-      ],
+      tableData: [],
     };
   },
   watch: {

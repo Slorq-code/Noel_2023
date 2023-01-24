@@ -21,7 +21,7 @@
 
       <div class="myCodesMobile__content">
         <div
-          v-for="(item, index) in tableDatas"
+          v-for="(item, index) in tableData"
           :key="index"
           class="myCodesMobile__content-items myCodesMobile__boxItem"
           @click="onClickElement(item)"
@@ -39,18 +39,13 @@
             class= "myCodesMobile__content-items-content__textSpan"
             >{{ item.resultCouple }}</span>
             <div class="myCodesMobile__content-items-content-action">
-              <Button @click="onClickElement(item)" text="Ver detalle" type="primary" color="3"/>
+              <Button text="Ver detalle" type="primary" color="3"/>
             </div>
           </div>
         </div>
       </div>
     </div>
-
-
-      <!-- dentro del v-if estaba item -->
-
-      
-    <modal width="600" v-if="item" :dialog="dialog">
+    <modal width="600" v-if="actualItem" :dialog="dialog">
       <div class="myCodesMobile__modal-content" slot="component">
         <div class="myCodesMobile__close-container">
           <img
@@ -68,36 +63,36 @@
           <div class="myCodesMobile__content-modal-content-item">
             <img
               class="myCodesMobile__content-modal-content-item-img-left-padding"
-              :src="item.saltinTacoImage"
+              :src="actualItem.saltinTacoImage"
               alt="Taco Saltin"
             />
             <div class="myCodesMobile__content-modal-content-item-text">
               <p class="myCodesMobile__content-modal-content-item-text-one">
-                {{ item.saltinNoel ? item.saltinNoel.titleOne : "SIN DATOS" }}
+                {{ actualItem.saltinNoel ? actualItem.saltinNoel.titleOne : "SIN DATOS" }}
               </p>
               <p class="myCodesMobile__content-modal-content-item-text-two">
-                {{ item.saltinNoel ? item.saltinNoel.titleTwo : "SIN DATOS" }}
+                {{ actualItem.saltinNoel ? actualItem.saltinNoel.titleTwo : "SIN DATOS" }}
               </p>
             </div>
           </div>
           <div class="myCodesMobile__content-modal-content-item">
             <img
               class="myCodesMobile__content-modal-content-item-img"
-              :src="item.ducalesTacoImage"
+              :src="actualItem.ducalesTacoImage"
               :alt="'Taco Ducales'"
             />
             <div class="myCodesMobile__content-modal-content-item-text">
               <p class="myCodesMobile__content-modal-content-item-text-one">
-                {{ item.ducales ? item.ducales.titleOne : "SIN DATOS" }}
+                {{ actualItem.ducales ? actualItem.ducales.titleOne : "SIN DATOS" }}
               </p>
               <p class="myCodesMobile__content-modal-content-item-text-two">
-                {{ item.ducales ? item.ducales.titleTwo : "SIN DATOS" }}
+                {{ actualItem.ducales ? actualItem.ducales.titleTwo : "SIN DATOS" }}
               </p>
             </div>
           </div>
           <div class="myCodesMobile__award">
             <p class="myCodesMobile__award-title">Premio:</p>
-            <p class="myCodesMobile__award-prime">{{ item.result }}</p>
+            <p class="myCodesMobile__award-prime">{{ actualItem.result }}</p>
           </div>
         </div>
       </div>
@@ -106,33 +101,16 @@
 </template>
 
 <script>
+
 import Modal from "../../components/Modal";
 import Button from "../../components/Button.vue";
+
 export default {
   name: "MyCodesMobile",
   data() {
     return {
       dialog: false,
       actualItem: null,
-      tableDatas: [
-        {
-          saltinNoel: {
-            titleOne: "ZET82F",
-            titletwo: "12/12/2022",
-          },
-          ducales: {
-            titleOne: "ZET82F",
-            titletwo: "12/12/2022",
-          },
-          titleMobile: "Pareja Completa",
-          resultCouple:"¡Ganaste Recarga!",
-          result: "¡Ganaste Recarga!",
-          saltinTacoImage: ("../../assets/Assets_Web_New/Empaque_Ducales_reflejo.png"),
-          ducalesTacoImage: ("../../assets/Assets_Web_New/Empaque_Ducales_reflejo.png"),
-          award: "¡RECARGA!",
-          cant: 2,
-        },
-      ],
     };
   },
   mounted() {},
@@ -168,7 +146,7 @@ export default {
     onClickElement(item) {
       console.log("actual", item);
       this.dialog = true;
-     // this.actualItem = item;
+      this.actualItem = item;
     },
   },
   watch: {},
@@ -248,7 +226,7 @@ export default {
     justify-content: space-between;
     flex-direction: column;
     align-items: center;
-    height: 100px;
+    height: 135px;
     &-image {
       margin: 10px 0px 10px 0px;
       height: 90px;
@@ -263,6 +241,7 @@ export default {
     &__textSpan {
       color: #d93d2c;
       font-size: 23px;
+      text-align: center;
     }
     &-action {
       flex-basis: 80%;

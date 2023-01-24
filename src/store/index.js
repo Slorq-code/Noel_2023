@@ -19,6 +19,7 @@ export default new Vuex.Store({
     mobile: false,
     winners: null,
     codes: null,
+    sizesScreenMobile: Number,
   },
   mutations: {
     setLoading(state, loading) {
@@ -44,6 +45,9 @@ export default new Vuex.Store({
     },
     setMobile(state, mobile) {
       state.mobile = mobile;
+    },
+    setSizesScreenMobile(state, sizesScreenMobile) {
+      state.sizesScreenMobile = sizesScreenMobile;
     },
     setWinners(state, winners) {
       state.winners = winners;
@@ -76,6 +80,9 @@ export default new Vuex.Store({
     },
     mobile(state) {
       return state.mobile;
+    },
+    sizesScreenMobile(state) {
+      return state.sizesScreenMobile;
     },
     winners(state) {
       return state.winners;
@@ -113,6 +120,9 @@ export default new Vuex.Store({
     },
     setMobile({ commit }, mobile) {
       commit("setMobile", mobile);
+    },
+    setSizesScreenMobile({ commit }, sizesScreenMobile) {
+      commit("setSizesScreenMobile", sizesScreenMobile);
     },
     loadBalance({ commit }) {
       GetBalance().then(resp => {

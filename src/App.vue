@@ -78,6 +78,11 @@ export default {
         { passive: false }
       );
     }
+        // sizesInWindowsMobile() {
+    //   window.addEventListener('resize', () => {
+    //   let vh = window.innerHeight * 0.01;
+    //   document.documentElement.style.setProperty('--vh', `${vh}px`);});
+    // },
   },
   beforeDestroy() {
     window.removeEventListener("resize", this.onResize);
