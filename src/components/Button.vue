@@ -91,6 +91,7 @@ export default {
 }
 .button-3 {
   background-color: #f0b824;
+  box-shadow: 0px 3px 6px #54545467;
 }
 .button:hover {
   transform: scale(1.1);

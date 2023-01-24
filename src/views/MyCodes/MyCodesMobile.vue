@@ -242,12 +242,16 @@ export default {
       }
     }
     &__textSpan {
-      color: #d93d2c;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
       font-size: 23px;
       text-align: center;
+      color: #d93d2c;
     }
     &-action {
-      flex-basis: 80%;
+      flex-basis: 90%;
       display: flex;
       align-items: center;
       justify-content: space-around;
@@ -293,13 +297,9 @@ export default {
     }
   }
   &__image {
-    height: 220px;
-    margin-top: -100px;
+    height: 120px;
+    margin-top: -58px;
     margin-bottom: 10px;
-    @include mobile() {
-      height: 160px;
-      margin-top: -80px;
-    }
 
     @include xs() {
       margin-bottom: -15px;
@@ -382,7 +382,7 @@ export default {
     background-color: #309f3a;
     border: 3px solid white;
     color: white;
-    margin-top: 10px;
+    margin: 20px 0 0 0;
     border-radius: 15px;
     padding: 10px 0px;
 
