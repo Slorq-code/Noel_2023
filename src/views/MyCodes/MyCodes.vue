@@ -101,7 +101,7 @@ export default {
               ? strings[item.result]
               : "PAREJA INCOMPLETA",
           titleMobile:
-            item.code && item.code_2 ? "¡PAREJA COMPLETA!" : "¡PAREJA INCOMPPLETAL!",
+            item.code && item.code_2 ? "¡PAREJA COMPLETA!" : "¡PAREJA INCOMPLETAL",
           titleMobileLitle:
           item.code && item.code_2 ? "Pareja Completa" : "Pareja Incompleta",
           resultCouple:

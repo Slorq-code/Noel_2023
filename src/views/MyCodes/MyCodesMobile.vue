@@ -93,7 +93,7 @@
               </p>
             </div>
           </div>
-          <div class="myCodesMobile__award">
+          <div class="myCodesMobile__award" @click="dialog = false">
             <p class="myCodesMobile__award-title">Premio:</p>
             <p class="myCodesMobile__award-prime">{{ actualItem.resultLine }}</p>
           </div>
@@ -212,6 +212,7 @@ export default {
         height: 43px;
         width: 43px;
         font-size: 25px;
+        font-family: NexaBold;
       }
       &-title {
         margin: 0px !important;
@@ -338,14 +339,18 @@ export default {
       width: 90%;
 
       &-item {
-        margin-top: 20px;
+        margin-top: 10px;
         display: flex;
-        justify-content: flex-start;
+        justify-content: space-around;
         align-items: center;
         gap: 20px;
 
         &:first-of-type {
           border-bottom: 1px dashed #ffb000;
+          padding: 0 0 10px 0;
+        }
+        &:nth-child(2) {
+          margin: 10px 0 0 0;
         }
         &-img {
           height: 55px;
@@ -364,6 +369,7 @@ export default {
           justify-content: center;
           align-self: center;
           line-height: 15px;
+          min-width: 100px;
           &-one {
             font-size: 15px;
             margin: 0px !important;
@@ -385,6 +391,7 @@ export default {
     margin: 20px 0 0 0;
     border-radius: 15px;
     padding: 10px 0px;
+    cursor: pointer;
 
     &-title {
       margin: 0px !important;
