@@ -18,8 +18,6 @@ export default {
     MyCodesMobile,
     MyCodesWeb,
   },
-  props: {},
-
   computed: {
     mobile() {
       return this.$store.getters.mobile;
@@ -31,7 +29,6 @@ export default {
       return this.$store.getters.codes;
     },
   },
-
   methods: {
     goTo(path) {
       if (this.$route.path !== `/${path}`) this.$router.push(path);
@@ -53,11 +50,11 @@ export default {
         const emptyCode = saltinCodeEmpty ? saltinCodeEmpty : ducalesCodeEmpty;
         const image = {
           noComplete: require(`../../assets/mobile/Pareja_incompleta_mis_codigos_respons.png`),
-          primeCompu: require(`@/assets/mobile/Premio_compus_mis_codigos_respons.png`),
-          tacoSaltin: require("../../assets/Assets_Web_New/Empaque_Ducales_reflejo.png"),
-          tacoDucales: require("../../assets/Assets_Web_New/Empaque_Ducales_reflejo.png"),
+          tacoSaltin: require("../../assets/Assets_Mobile_New/pack_Saltin.png"),
+          tacoDucales: require("../../assets/Assets_Mobile_New/pack_Ducales.png"),
           tacoSaltinDisabled: require("../../assets/Assets_Mobile_New/Saltin_gris.png"),
           tacoDucalesDisabled: require("../../assets/Assets_Mobile_New/Ducales_gris.png"),
+          primeCompu: require(`@/assets/mobile/Premio_compus_mis_codigos_respons.png`),
           bonus: require("@/assets/mobile/Premio_tarjetas_mis_codigos_respons.png"),
           phone: require("@/assets/mobile/Premio_celulares_mis_codigos_respons.png"),
           computer: require("@/assets/mobile/Premio_compus_mis_codigos_respons.png"),
@@ -99,13 +96,14 @@ export default {
           dateSaltin:  item.saltin_at ? this.formatDate(item.saltin_at) : "",
           ducales: item.code_2,
           dateDucales: item.ducales_at ? this.formatDate(item.ducales_at) : "",
-
           award:
             item.code && item.code_2
               ? strings[item.result]
               : "PAREJA INCOMPLETA",
           titleMobile:
-            item.code && item.code_2 ? "Pareja Completa" : "Pareja Incompleta",
+            item.code && item.code_2 ? "¡PAREJA COMPLETA!" : "¡PAREJA INCOMPPLETAL!",
+          titleMobileLitle:
+          item.code && item.code_2 ? "Pareja Completa" : "Pareja Incompleta",
           resultCouple:
             item.code && item.code_2
               ? texts[item.result]
@@ -117,10 +115,14 @@ export default {
             item.code && item.code_2
               ? results[item.result]
               : "¡ingresa el código faltante y participa!",
+          resultLine:
+            item.code && item.code_2
+              ? results[item.result]
+              : "-",
           saltinTacoImage: item.code
             ? image["tacoSaltin"]
             : image["tacoSaltinDisabled"],
-          ducalesTacoImage: item.code
+          ducalesTacoImage: item.code_2
             ? image["tacoDucales"]
             : image["tacoDucalesDisabled"],
         };

@@ -31,7 +31,7 @@
               index + 1
             }}</span>
             <p class="myCodesMobile__content-items-header-title">
-              {{ item.titleMobile }}
+              {{ item.titleMobileLitle }}
             </p>
           </div>
           <div class="myCodesMobile__content-items-content">
@@ -58,7 +58,10 @@
           class="myCodesMobile__image"
           src="@/assets/Assets_Web_New/Logo_modales_Juntos_Premiarte_2022.png"
         />
-        <h2 class="myCodesMobile__content-modal-title">Detalle Pareja</h2>
+        <h2 class="myCodesMobile__content-modal-title">Detalle de Pareja:</h2>
+        <h2 class="myCodesMobile__content-modal-title">
+          {{actualItem.titleMobile}}
+        </h2>
         <div class="myCodesMobile__content-modal-content">
           <div class="myCodesMobile__content-modal-content-item">
             <img
@@ -68,10 +71,10 @@
             />
             <div class="myCodesMobile__content-modal-content-item-text">
               <p class="myCodesMobile__content-modal-content-item-text-one">
-                {{ actualItem.saltinNoel ? actualItem.saltinNoel.titleOne : "SIN DATOS" }}
+                {{ actualItem.saltinNoel ? actualItem.saltinNoel : "SIN DATOS" }}
               </p>
               <p class="myCodesMobile__content-modal-content-item-text-two">
-                {{ actualItem.saltinNoel ? actualItem.saltinNoel.titleTwo : "SIN DATOS" }}
+                {{ actualItem.saltinNoel ? actualItem.dateSaltin : "SIN DATOS" }}
               </p>
             </div>
           </div>
@@ -83,16 +86,16 @@
             />
             <div class="myCodesMobile__content-modal-content-item-text">
               <p class="myCodesMobile__content-modal-content-item-text-one">
-                {{ actualItem.ducales ? actualItem.ducales.titleOne : "SIN DATOS" }}
+                {{ actualItem.ducales ? actualItem.ducales : "-" }}
               </p>
               <p class="myCodesMobile__content-modal-content-item-text-two">
-                {{ actualItem.ducales ? actualItem.ducales.titleTwo : "SIN DATOS" }}
+                {{ actualItem.ducales ? actualItem.dateDucales : "-" }}
               </p>
             </div>
           </div>
           <div class="myCodesMobile__award">
             <p class="myCodesMobile__award-title">Premio:</p>
-            <p class="myCodesMobile__award-prime">{{ actualItem.result }}</p>
+            <p class="myCodesMobile__award-prime">{{ actualItem.resultLine }}</p>
           </div>
         </div>
       </div>
@@ -311,6 +314,7 @@ export default {
     margin-top: -56px;
   }
   &__close-image {
+    z-index: 99;
     height: 30px;
     cursor: pointer;
     @include mobile() {
@@ -336,17 +340,18 @@ export default {
       &-item {
         margin-top: 20px;
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 20px;
 
         &:first-of-type {
           border-bottom: 1px dashed #ffb000;
         }
         &-img {
-          height: 50px;
+          height: 55px;
           margin-right: 10px;
-
           &-left-padding {
-            height: 50px;
+            height: 55px;
             margin-right: 10px;
             margin-left: -5px !important;
           }
@@ -374,7 +379,8 @@ export default {
   }
 
   &__award {
-    background: #005aa7;
+    background-color: #309f3a;
+    border: 3px solid white;
     color: white;
     margin-top: 10px;
     border-radius: 15px;
@@ -388,7 +394,8 @@ export default {
     &-prime {
       margin: 0px !important;
       text-transform: uppercase;
-      font-size: 16px;
+      font-size: 13.5px;
+      text-shadow: 0px 3px 6px #00000029;
     }
   }
 }
