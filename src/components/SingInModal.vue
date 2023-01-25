@@ -130,6 +130,9 @@ export default {
     position: relative;
     &__space {
         display: none;
+        @include xlg() {
+            display: initial;
+        }
     }
     &__content {
         display: flex;
