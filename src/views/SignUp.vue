@@ -363,7 +363,7 @@ export default {
     },
     validate() {
       let errors = {};
-      const emailReg = /^[a-zA-Z0-9_\-\.]{5,30}@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
+      const emailReg = /^[a-zA-Z0-9_\-\.]{2,30}@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
       const idReq = /^([1-9]{1}[0-9]{6,9})$/;
       const phoneReq =
         /^(300|301|302|304|305|310|311|312|313|314|315|316|317|318|319|320|321|322|323|324|350|351){1}[0-9]{1}[0-9]{6}$/;
@@ -509,7 +509,7 @@ export default {
     height: auto;
     min-height: 100px;
     margin: 0px 0 20px 0;
-    @include mxHeight(590px) {
+    @include mxHeight(640px) {
       min-height: 80px;
       margin: 0px 0 0px 0;
     }
@@ -534,7 +534,7 @@ export default {
     @include mobile() {
       margin: -0px 0 30px 0;
     }
-    @include mxHeight(590px) {
+    @include mxHeight(640px) {
       flex-direction: row;
       margin: 10px 0 0px 0;
     }
@@ -570,7 +570,7 @@ export default {
     color: white;
     text-align: center;
     font-size: 15px;
-    @include mxHeight(590px) {
+    @include mxHeight(640px) {
       display: none;
     }
     @include mobile() {

@@ -125,10 +125,9 @@ export default {
   margin: 0 0px 10px 0;
 
   textarea::placeholder {
-    color: #929292;
-    font-family: generalLeter;
-    text-shadow: 0px 3px 6px #00000029;
-    font-size: 12px;
+    color: #686868;
+    font-family: superSlintGeneralLeter;
+    font-size: 15.5px !important;
     @include mnHeight(1000px){
       font-size: 18px;
     }

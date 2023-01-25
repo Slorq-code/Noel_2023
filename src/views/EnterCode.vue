@@ -274,7 +274,6 @@ export default {
     //-----------NUEVA LOGICA RECAPCHA----------------------
     
     validateRegister() {
-      console.log("validateRegister");
       if (this.id.length == 8) {
         this.validateRecaptcha();
       } else {
@@ -297,11 +296,7 @@ export default {
 
         const token = await this.$recaptcha('login');
 
-        // console.log(token);
         this.recaptchaCode = token;
-
-
-        console.log("Execute recaptcha");
 
         this.loading=true;
         this.send();

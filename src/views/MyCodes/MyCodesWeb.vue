@@ -75,7 +75,6 @@ export default {
   data() {return {}},
 
   mounted() {
-    console.log("actual2", this.tableData[1]);
     this.tableData;
   },
   components: {},
@@ -234,13 +233,16 @@ p {
       padding: 0 0 0px 0;
       font-size: 20px;
       height: 24px;
+      text-shadow: none;
     }
     &__award {
       color: #D93D2D;
+      text-shadow: none;
     }
     &__date {
       color: #D93D2D;
-      font-family: SlintGeneralLeter;
+      font-family: SuperSlintGeneralLeter;
+      text-shadow: none;
       font-size: 14px;
       @include xlg() {
         font-size: 15.5px;

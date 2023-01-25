@@ -77,11 +77,7 @@ export default {
 
         const token = await this.$recaptcha('login');
 
-        console.log(token);
         this.recaptchaCode = token;
-
-
-        console.log("Execute recaptcha for Sing Up");
 
         this.loading = true;
         this.preRegister();
@@ -216,7 +212,7 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
+    width: 80%;
     margin-top: -20px;
 
     @include mobile() {
@@ -263,8 +259,8 @@ export default {
   }
 
   &__image {
-    height: 173px;
-    margin: -100px 0 10px 0;
+    height: 150px;
+    margin: -100px 0 25px 0;
 
     @include mobile() {
       height: 160px;
@@ -298,7 +294,7 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 6px;
+    gap: 15px;
     width: 100%;
     margin-top: 30px;
     padding: 0px 40px;

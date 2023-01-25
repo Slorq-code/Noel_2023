@@ -31,7 +31,7 @@
             />
           </div>
           <br />
-          <span class="signIn__section2-singIn signIn__section2-text">
+          <span class="signIn__section2-singIn signIn__section2-text signIn__slint">
             ¿Ya estás registrado?
             <a
               class="signIn__dispachModalSingIn"
@@ -244,8 +244,12 @@ export default {
       font-size: 27px;
     }
   }
+  &__slint {
+    font-family: SuperSlintGeneralLeter;
+  }
   &__dispachModalSingIn {
     color: white !important;
+    font-family: generalLeter;
   }
   &__title {
     font-family: generalLeter;

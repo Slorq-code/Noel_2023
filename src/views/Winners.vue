@@ -43,7 +43,7 @@
     >
       Ver los ganadores
     </button>
-    <modal width="640" :dialog="dialog">
+    <modal color="si" width="640" :dialog="dialog">
       <div class="winners__modal-content" slot="component">
         <div class="winners__close-container">
           <img
@@ -64,7 +64,7 @@
         <div class="winners__table winners__table-modal">
           <div class="winners__table-header">
             <div class="winners__table-header-item">
-              {{ mobile ? "Nombre" : "Nombre del Participante" }}
+              Participante
             </div>
             <div v-if="!mobile" class="winners__table-header-item">Ciudad</div>
             <div class="winners__table-header-item">Premio</div>
@@ -197,7 +197,7 @@ export default {
       padding: 0 0px 0 0;
     }
     @include mxHeight(701px) {
-      height: 51%;
+      height: 65%;
     }
   }
 
@@ -217,6 +217,9 @@ export default {
     @include xlg() {
       width: 50%;
     }
+    // @include mnHeight(1000px) {
+    //   width: 90%;
+    // }
   }
   &__table-modal {
     background-color: initial;
@@ -348,7 +351,7 @@ export default {
     }
   }
   &__image {
-    height: 220px;
+    height: 180px;
     margin-top: -30px;
     @include xs() {
       height: 140px;

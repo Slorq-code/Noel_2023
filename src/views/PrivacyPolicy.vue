@@ -1057,6 +1057,7 @@ export default {
   }
   &__text p {
     color: white;
+    font-family: SuperSlintGeneralLeter;
     @include mobile() {
       font-size: 14px;
     }

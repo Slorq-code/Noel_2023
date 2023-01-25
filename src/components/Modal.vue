@@ -1,6 +1,10 @@
 <template>
   <div v-if="dialog" class="modal" @click="permanentAction()">
-    <div class="modal__content" :style="{width:`${width}px`}" @click.stop>
+    <div 
+      :class="[color=='' ? 'modal__content' : 'modal__content1']" 
+      :style="{width:`${width}px`}" 
+      @click.stop
+    >
       <div>
         <slot name="component"></slot>
       </div>
@@ -23,10 +27,13 @@ export default {
       type: Boolean,
       false: true,
     },
+    color: {
+      type: String,
+      default: "",
+    }
   },
   methods: {
     permanentAction() {
-      console.log("aqui");
       this.$emit("close");
       if (!this.permanent) {
         this.close();
@@ -62,7 +69,14 @@ export default {
   &__content {
     background: transparent linear-gradient(180deg, rgba(241,201,26,1) 0%, rgba(245,102,48,1) 100%)
       0% no-repeat padding-box;
-
+    box-shadow: 7px 7px 7px #00000059;
+    border-radius: 25px;
+    @include mobile() {
+      width: 90% !important;
+    }
+  }
+  &__content1 {
+    background: rgba(241,201,26,1);
     box-shadow: 7px 7px 7px #00000059;
     border-radius: 25px;
     @include mobile() {

@@ -205,9 +205,8 @@ export default {
     }
   }
   &__placeholder {
-    color: #929292;
-    font-family: SlintGeneralLeter;
-    text-shadow: 0px 3px 6px #00000029;
+    color: #686868;
+    font-family: superSlintGeneralLeter;
     font-size: 12px;
   }
   &__icon-content {

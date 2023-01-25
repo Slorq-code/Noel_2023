@@ -238,7 +238,6 @@ export default {
     },
     onClickDrawer() {
       this.dialog = true;
-      console.log("Click");
       this.active = true;
     },
   },
@@ -365,7 +364,6 @@ export default {
     align-items: center;
     color: white;
     font-family: generalLeter;
-    text-shadow: 0px 3px 6px #00000029;
     font-size: 0.9rem;
     text-align: center;
 

@@ -51,11 +51,7 @@ export default {
 
                 const token = await this.$recaptcha('login');
 
-                console.log(token);
                 this.recaptchaCode = token;
-
-
-                console.log("Execute recaptcha for login");
 
                 this.loading=true;
                 this.signIn();

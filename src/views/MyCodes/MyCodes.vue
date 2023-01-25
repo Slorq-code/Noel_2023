@@ -88,7 +88,7 @@ export default {
           none: `¡SIGUE INTENTANDO!`,
           reversed: "¡CANCELADO!",
         };
-        index === 0 && console.log(item.result);
+        index === 0 && console.log("");
 
         return {
           cant: index + 1,

@@ -129,6 +129,7 @@ export default {
     color: #f0b824;
     font-size: 13px;
     margin-right: 20px;
+    font-family: SuperSlintGeneralLeter;
     cursor: pointer;
     @include lg() {
       font-size: 15px;
@@ -141,6 +142,7 @@ export default {
     font-size: 13px;
     color: #f0b824;
     text-align: center;
+    font-family: SuperSlintGeneralLeter;
     @include lg() {
       font-size: 15px;
     }
@@ -190,6 +192,7 @@ export default {
     color: #f0b824;
     font-size: 12px;
     margin-right: 20px;
+    font-family: SuperSlintGeneralLeter;
     cursor: pointer;
     @include lg() {
       font-size: 14px;
@@ -202,6 +205,7 @@ export default {
     margin: 0 0 0 10px;
     font-size: 13px;
     color: #f0b824;
+    font-family: SuperSlintGeneralLeter;
     text-align: center;
     @include lg() {
       font-size: 14px;

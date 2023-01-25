@@ -48,6 +48,7 @@ export default {
 @import "@/assets/scss/mixins.scss";
 
 .button {
+  box-shadow: 0px 3px 6px #00000067;
   display: flex;
   align-items: center;
   justify-content: center;

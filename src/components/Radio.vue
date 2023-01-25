@@ -34,7 +34,7 @@ export default {
     align-items: center;
     justify-content: center;
     margin-right: 10px;
-    margin-top: 2px;
+    margin-top: -2px;
     cursor: pointer;
     &__value {
         background-color: #309f3a;
