@@ -128,14 +128,7 @@
         class="enterCode-mobile__mini"
         src="../assets/Assets_Mobile_New/stickers_ingreso_codi.png"
       />
-      <div
-        style="
-          margin-bottom: 4%;
-          text-align: center;
-          width: 270px;
-          margin-right: 20px;
-        "
-      >
+      <div class="enterCode-mobile__strange">
         <Input
           class="uppercase"
           :field="'code'"
@@ -184,7 +177,6 @@
       :dialog="dialog"
       @close="
         dialog = false;
-        reset();
       "
       width="550"
     >
@@ -353,7 +345,7 @@ export default {
                 status: resp2.data || ''
               };
               this.dialog = true;
-              this.$refs.recaptcha.reset()
+              //this.$refs.recaptcha.reset()
               this.recaptchaCode = null;
               this.$store.dispatch("loadBalance");
               this.ducales = "";
@@ -388,7 +380,7 @@ export default {
     },
     verifyCatptcha() {
       if (this.count === 3) {
-        this.$refs.recaptcha.reset()
+        //this.$refs.recaptcha.reset()
         this.recaptchaCode = null;
         this.count = 0
       } else {
@@ -665,6 +657,12 @@ export default {
 
   @include xs() {
     padding: 10px 0px;
+  }
+  &__strange {
+    margin-bottom: 4%; 
+    text-align: center; 
+    width: 270px; 
+    margin-right: 20px;
   }
 }
 

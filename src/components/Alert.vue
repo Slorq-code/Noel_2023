@@ -28,7 +28,7 @@
           <div style="margin: 20px 10px 0 10px;" v-if="data && data.buttonLabel" >
             <Button :text="data.buttonLabel" @handle-click="close()"/>
           </div>
-          <div style="margin: 20px 10px 0 10px;" v-if="data && data.codesButton">
+          <div style="margin: 15px 10px 0 10px;" v-if="data && data.codesButton">
             <Button type="tertiary" text="Ver mis códigos" @handle-click="goToMyCodes()"/>
           </div>
         </div>
