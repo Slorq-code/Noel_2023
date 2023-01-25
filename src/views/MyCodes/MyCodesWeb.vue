@@ -10,9 +10,9 @@
 
     <div class="myCodesWeb__content">
       <div class="myCodesWeb__title">
-        <h1 class="myCodesWeb__title-one">¡Bienvenido Carlos Moran!</h1>
+        <h1 class="myCodesWeb__title-one">¡Bienvenido {{user.name}}!</h1>
         <h2 class="myCodesWeb__title-two">
-          Celular para premios: (311) 522 3148
+          Celular para premios: {{ user.phone }}
         </h2>
         <h3 class="myCodesWeb__title-three">
           Éste es el estado de tus códigos:
@@ -94,7 +94,8 @@ export default {
     },
     user() {
       const { name, phone } = this.$store.state.user;
-      return { name: String(name).toUpperCase(), phone };
+      const newPhone = " +" + phone.slice(0, 2) + " (" + phone.slice(2, 5) + ") " + phone.slice(5);
+      return { name: String(name).toUpperCase(), phone: newPhone };
     },
   },
   methods: {
@@ -203,18 +204,19 @@ p {
     }
     &__circle p{
       color: white;
-      font-family: NexaBold;
+      font-family: SlintGeneralLeter;
     }
     &__numbers {
       font-size: 28px;
     }
     &__symbols {
-      font-size: 46px;
+      font-size: 42px;
+      padding: 0 1px 2px 0;
     }
     &__codes {
       color: #D93D2D;
       padding: 0 0 0px 0;
-      font-size: 19px;
+      font-size: 20px;
       height: 24px;
     }
     &__award {
