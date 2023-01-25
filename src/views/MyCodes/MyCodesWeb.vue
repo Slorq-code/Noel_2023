@@ -22,7 +22,7 @@
       <div class="myCodesWeb__table">
         <div class="myCodesWeb__table-header">
           <div class="myCodesWeb__table-header-titles"> <p> Cant.</p></div>
-          <div class="myCodesWeb__table-header-titles"> <p> Saltín Noel</p></div>
+          <div class="myCodesWeb__table-header-titles myCodesWeb__table-header-titlesDiferent1"> <p> Saltín Noel</p></div>
           <div class="myCodesWeb__table-header-titles"> <p> Ducales</p></div>
           <div class="myCodesWeb__table-header-titles"> <p> Premios</p></div>
         </div>
@@ -31,10 +31,38 @@
           v-for="(item, index) in tableData"
           v-bind:key="index"
         >
-        <p>{{ }}</p>
-        <p></p>
-        <p></p>
-        <p></p>
+        <div class="myCodesWeb__table__box">
+          <div class="myCodesWeb__table__circle">
+            <p class="myCodesWeb__table__numbers">{{item.cant }}</p>
+          </div>
+        </div>
+
+        <div class="myCodesWeb__table__box myCodesWeb__table__box1">
+          <p class="myCodesWeb__table__codes">{{ item.saltinNoel ? item.saltinNoel : "-" }}</p>
+          <p class="myCodesWeb__table__date">{{ item.dateSaltin}}</p>
+        </div>
+        
+        <div class="myCodesWeb__table__box">
+          <div class="myCodesWeb__table__circle">
+            <p class="myCodesWeb__table__symbols">+</p>
+          </div>
+        </div>
+        
+        <div class="myCodesWeb__table__box">
+          <p class="myCodesWeb__table__codes">{{item.ducales ? item.ducales : "-"}}</p>
+          <p class="myCodesWeb__table__date">{{item.dateDucales}}</p>
+        </div>
+
+        <div class="myCodesWeb__table__box">
+          <div class="myCodesWeb__table__circle">
+            <p class="myCodesWeb__table__symbols">=</p>
+          </div>
+        </div>
+
+        <div class="myCodesWeb__table__box">
+          <p class="myCodesWeb__table__award">{{item.award=="PAREJA INCOMPLETA" ? "-" : item.award}}</p>
+        </div>
+        
         </div>
       </div>
     </div>
@@ -85,6 +113,9 @@ export default {
   font-family: generalLeter;
   text-shadow: 0px 3px 6px #00000029;
 }
+p {
+  margin-bottom: 0px !important;
+}
 
 .myCodesWeb {
   display: flex;
@@ -106,10 +137,8 @@ export default {
     display: flex;
     flex-direction: column;
     align-content: center;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
-    padding-bottom: 10px !important;
-    margin-bottom: 10px !important;
     width: 100%;
   }
 
@@ -161,6 +190,56 @@ export default {
       @include xlg() {
         width: 955px;
       }
+    &__circle {
+      background-color: #309f3a;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      padding: 6px 0px 0px 2px;
+      border: 1.5px solid white;
+    }
+    &__circle p{
+      color: white;
+      font-family: NexaBold;
+    }
+    &__numbers {
+      font-size: 28px;
+    }
+    &__symbols {
+      font-size: 46px;
+    }
+    &__codes {
+      color: #D93D2D;
+      padding: 0 0 0px 0;
+      font-size: 19px;
+      height: 24px;
+    }
+    &__award {
+      color: #D93D2D;
+    }
+    &__date {
+      color: #D93D2D;
+      font-family: SlintGeneralLeter;
+      font-size: 14px;
+      @include xlg() {
+        font-size: 15.5px;
+      }
+    }
+    &__box {
+      min-width: 14%;
+      max-width: 14%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      flex-direction: column;
+    }
+    &__box1 {
+      margin: 0 0 0 80px;
+    }
 
     &-header {
       background: #309f3a;
@@ -171,15 +250,13 @@ export default {
       height: 38px;
       width: 100%;
     }
-    &-cant {
-      @include lg() {
-        margin-left: 10px !important;
-      }
-    }
     &-header-titles {
-      margin: 0 !important;
+      margin: 0;
       height: 100%;
       padding: 4px 0 0 0;
+    }
+    &-header-titlesDiferent1 {
+      margin: 0 10px 0 0;
     }
     &-header-titles p{
       color: white;
@@ -196,154 +273,16 @@ export default {
     &-content {
       display: flex;
       align-items: center;
-      justify-content: space-around;
+      justify-content: space-between;
       width: 95%;
       border-bottom: 2.5px dashed #da412e;
       font-size: 20px;
-      @include lg() {
-        margin: 10px 0 10px 0;
-        font-size: 25px;
-      }
-      &:last-of-type {
-        margin-bottom: 20px;
-        font-size: 30px;
-      }
-    }
-    &-content div{
-      min-width: 192px;
-    }
-
-
-    &-content-element {
-      display: flex;
-      justify-content: center;
-      min-width: 22%;
-    }
-    &-content-element:nth-child(1) {
-      @include lg() {
-      }
-    }
-
-    &-cant {
-      height: 26px;
-      width: 26px;
-      text-align: center;
-      margin: 0px 0px 0px 10px !important;
-      background: #309f3a;
-      color: white;
-      padding-top: 7px;
-      border-radius: 50px;
-      font-size: 15px;
-    }
-
-    &-text-content {
-      margin-left: 15px;
-      margin-right: 25px;
-      margin-top: 5px;
-      margin-bottom: 5px;
-      line-height: 14px;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      gap: 5px;
-
-      &-alignEmpty {
-        margin-left: 40px !important;
-      }
-
-      &-one {
-        color: #da412e;
-        font-size: 14px;
-        margin: 0px !important;
-        letter-spacing: 1.5px;
-        @include lg() {
-          font-size: 20px;
-        }
-      }
-
-      &-two {
-        color: #da412e;
-        font-size: 11px;
-        font-family: "SlintGeneralLeter";
-        margin: 0px !important;
-        @include lg() {
-          font-size: 13px;
-        }
-      }
-
-      &-award {
-        text-align: start;
-        color: #da412e;
-        font-size: 11px;
-        margin: 0px !important;
-        @include lg() {
-          font-size: 18px;
-        }
-      }
-    }
-
-    &-btn-plus {
-      position: relative;
-      height: 26px;
-      width: 26px;
-      text-align: center;
-      margin: 0px !important;
-      padding: 0px;
-      border-radius: 50px;
-      &__background {
-        background-color: white;
-        position: absolute;
-        height: 24px;
-        min-width: 24px !important;
-        width: 24px;
-        top:4px;
-        left: 4px;
-        border-radius: 50%;
-      }
-    }
-    &-btn-plus svg{
-      z-index: 99;
-      top:0;
-      left: 0;
-      position: absolute;
-      fill: #309f3a;
-      height: 35px;
-      width: 35px;
-  }
-  &-btn-equal {
-    position: relative;
-      height: 26px;
-      width: 26px;
-      text-align: center;
-      margin: 0px !important;
-      padding: 0px;
-      border-radius: 50px;
+      padding: 0 50px;
+      margin: 15px 0 0 0;
     }
     &-btn-equal svg{
-      z-index: 99;
-      top:0;
-      left: 0;
-      position: absolute;
       fill: #309f3a;
-      height: 30px;
-      width: 30px;
-      transform: rotate(90deg);
+    }
   }
-
-  &__text-row {
-    margin-left: 25px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    min-width: 23%;
-  }
-
-  &__alignmentText {
-    margin-right: 25px !important;
-  }
-}
-
-//----
-
 }
 </style>
