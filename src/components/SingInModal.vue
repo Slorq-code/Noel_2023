@@ -3,7 +3,7 @@
     <div class="title-views-global">
     <img
         class="myCodesWeb__web"
-        src="../../assets/Assets_Mobile_New/Titulo_mis_codigos.png"
+        src="@/assets/Assets_Mobile_New/Titulo_mis_codigos.png"
         alt="Mis codigos titulo"
     />
     </div>
