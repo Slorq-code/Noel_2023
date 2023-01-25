@@ -193,25 +193,31 @@ p {
       }
     &__circle {
       background-color: #309f3a;
+      position: relative;
       display: flex;
       justify-content: center;
       align-items: center;
-      width: 42px;
-      height: 42px;
+      width: 38px;
+      height: 38px;
       border-radius: 50%;
-      padding: 6px 0px 0px 2px;
-      border: 1.5px solid white;
+      border: 2px solid white;
     }
+    &__numbers {
+      font-size: 24px;
+      position: absolute;
+      top: 4%;
+    }
+    &__symbols {
+      font-size: 36px;
+      position: absolute;
+      top: -35%;
+    }
+
+
+
     &__circle p{
       color: white;
       font-family: SlintGeneralLeter;
-    }
-    &__numbers {
-      font-size: 28px;
-    }
-    &__symbols {
-      font-size: 42px;
-      padding: 0 1px 2px 0;
     }
     &__codes {
       color: #D93D2D;
