@@ -191,14 +191,26 @@ p {
       @include xlg() {
         width: 955px;
       }
+    &__box {
+    position: relative;
+    min-width: 14%;
+    max-width: 14%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    }
+    &__box1 {
+      margin: 0 0 0 80px;
+    }
     &__circle {
       background-color: #309f3a;
-      position: relative;
       display: flex;
       justify-content: center;
       align-items: center;
-      width: 38px;
-      height: 38px;
+      width: 39.5px;
+      height: 39.5px;
       border-radius: 50%;
       border: 2px solid white;
     }
@@ -210,10 +222,8 @@ p {
     &__symbols {
       font-size: 36px;
       position: absolute;
-      top: -35%;
+      top: -10px;
     }
-
-
 
     &__circle p{
       color: white;
@@ -236,18 +246,7 @@ p {
         font-size: 15.5px;
       }
     }
-    &__box {
-      min-width: 14%;
-      max-width: 14%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      flex-direction: column;
-    }
-    &__box1 {
-      margin: 0 0 0 80px;
-    }
+
 
     &-header {
       background: #309f3a;
@@ -287,6 +286,10 @@ p {
       font-size: 20px;
       padding: 0 50px;
       margin: 15px 0 0 0;
+    }
+    &-content:last-child {
+      border-bottom: 0px;
+      margin: 15px 0 10px 0;
     }
     &-btn-equal svg{
       fill: #309f3a;

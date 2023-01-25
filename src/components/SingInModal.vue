@@ -1,295 +1,269 @@
 <template>
-<div class="myCodesWeb">
-    <div class="title-views-global">
-    <img
-        class="myCodesWeb__web"
-        src="@/assets/Assets_Mobile_New/Titulo_mis_codigos.png"
-        alt="Mis codigos titulo"
-    />
-    </div>
-
-    <div class="myCodesWeb__content">
-    <div class="myCodesWeb__title">
-        <h1 class="myCodesWeb__title-one">¡Bienvenido {{user.name}}!</h1>
-        <h2 class="myCodesWeb__title-two">
-        Celular para premios: {{ user.phone }}
-        </h2>
-        <h3 class="myCodesWeb__title-three">
-        Éste es el estado de tus códigos:
-        </h3>
-    </div>
-
-    <div class="myCodesWeb__table">
-        <div class="myCodesWeb__table-header">
-        <div class="myCodesWeb__table-header-titles"> <p> Cant.</p></div>
-        <div class="myCodesWeb__table-header-titles myCodesWeb__table-header-titlesDiferent1"> <p> Saltín Noel</p></div>
-        <div class="myCodesWeb__table-header-titles"> <p> Ducales</p></div>
-        <div class="myCodesWeb__table-header-titles"> <p> Premios</p></div>
+    <div class="SingIngModal">
+        <div class="SingIngModal-container SingIngModal__close-container">
+            <img @click="close()" class="SingIngModal__close-image" src="../assets/Assets_Mobile_New/btn_cerrar.png" />
         </div>
-        <div
-        class="myCodesWeb__table-content"
-        v-for="(item, index) in tableData"
-        v-bind:key="index"
-        >
-        <div class="myCodesWeb__table__box">
-        <div class="myCodesWeb__table__circle">
-            <p class="myCodesWeb__table__numbers">{{item.cant }}</p>
-        </div>
-        </div>
-
-        <div class="myCodesWeb__table__box myCodesWeb__table__box1">
-        <p class="myCodesWeb__table__codes">{{ item.saltinNoel ? item.saltinNoel : "-" }}</p>
-        <p class="myCodesWeb__table__date">{{ item.dateSaltin}}</p>
-        </div>
-        
-        <div class="myCodesWeb__table__box">
-        <div class="myCodesWeb__table__circle">
-            <p class="myCodesWeb__table__symbols">+</p>
-        </div>
-        </div>
-        
-        <div class="myCodesWeb__table__box">
-        <p class="myCodesWeb__table__codes">{{item.ducales ? item.ducales : "-"}}</p>
-        <p class="myCodesWeb__table__date">{{item.dateDucales}}</p>
-        </div>
-
-        <div class="myCodesWeb__table__box">
-        <div class="myCodesWeb__table__circle">
-            <p class="myCodesWeb__table__symbols">=</p>
-        </div>
-        </div>
-
-        <div class="myCodesWeb__table__box">
-        <p class="myCodesWeb__table__award">{{item.award=="PAREJA INCOMPLETA" ? "-" : item.award}}</p>
-        </div>
-        
+        <img class="SingIngModal__image" src="@/assets/Assets_Web_New/Logo_modales_Juntos_Premiarte_2022.png" />
+        <div class="SingIngModal__content">
+            <div class="SingIngModal__contentCenter">
+                <span style="color: white;">Ingresa al portal para que puedas participar</span>
+            </div>
+            <div class="SingIngModal__contentCenter">
+                <Input field="idn" @handle-input="setValue($event)" placeholder="Número de cédula" :onlyNumbers="true"
+                    :error="error" maxlength="10" />
+            </div>
+            <div class="SingIngModal__space"></div>
+            <div class="SingIngModal__contentCenter">
+                <Button text="Ingresar" type="primary" :isLoading="loading" @handle-click="validateRecaptchaForLogin()" />
+            </div>
         </div>
     </div>
-    </div>
-</div>
 </template>
 
 <script>
+import Button from "../components/Button";
+import Input from "../components/Input";
+import { Login } from "../api";
 export default {
-name: "MyCodesWeb",
-data() {return {}},
+    name: "SingInModal",
+    data() {
+        return {
+            loading: false,
+            error: "",
+        };
+    },
+    mounted() { },
+    components: {
+        Input,
+        Button,
+    },
+    props: {},
+    computed: {},
+    methods: {
 
-mounted() {
-    console.log("actual2", this.tableData[1]);
-    this.tableData;
-},
-components: {},
-props: {
-    tableData: {
-    type: Array,
-    default: () => [],
+        //-----------------------------------------
+        async validateRecaptchaForLogin() {
+            try {
+                
+                await this.$recaptchaLoaded()
+
+                await this.$recaptcha('login');
+
+                const token = await this.$recaptcha('login');
+
+                console.log(token);
+                this.recaptchaCode = token;
+
+
+                console.log("Execute recaptcha for login");
+
+                this.loading=true;
+                this.signIn();
+            } catch (error) {
+                console.log("Login error:", error);
+            }
+        },
+        //-----------------------------------------
+
+        signIn() {
+            if (this.idn) {
+                if (!this.error) {
+                    this.loading = true;
+                    Login(this.idn).then((resp) => {
+                            this.loading = false;
+                            this.$store.dispatch("setToken", resp.token);
+                            this.$store.dispatch("setUser", resp.user);
+                            this.$store.dispatch("loadBalance");
+                            this.goTo("/ingresar-codigo");
+                        })
+                        .catch(() => {
+                            this.loading = false;
+                            this.$store.dispatch("setAlert", {
+                                buttonLabel: "Aceptar",
+                                showClose: true,
+                                type: "INFO",
+                                message:
+                                    "¡El número de cédula ingresado no se encuentra registrado!",
+                            });
+                        });
+                }
+            } else {
+                this.$store.dispatch("setAlert", {
+                    buttonLabel: "Aceptar",
+                    type: "INFO",
+                    showClose: true,
+                    message: "¡Ingresa un número de cédula válido!.",
+                });
+            }
+        },
+        setValue(e) {
+            this.idn = e.value;
+            this.validate();
+        },
+        validate() {
+            if (this.idn) this.idn = this.idn.trim();
+            const idReq = /^([1-9]{1}[0-9]{5,9})$/;
+            this.error =
+                this.idn && !idReq.test(this.idn)
+                    ? "Ingresa un número de cédula válido."
+                    : "";
+        },
+        close() {
+            this.$emit("close");
+        },
+        goTo(path) {
+            if (this.$route.path !== `/${path}`) this.$router.push(path);
+        },
     },
-},
-computed: {
-    mobile() {
-    return this.$store.getters.mobile;
-    },
-    token() {
-    return this.$store.getters.token;
-    },
-    user() {
-    const { name, phone } = this.$store.state.user;
-    const newPhone = " +" + phone.slice(0, 2) + " (" + phone.slice(2, 5) + ") " + phone.slice(5);
-    return { name: String(name).toUpperCase(), phone: newPhone };
-    },
-},
-methods: {
-    goTo(path) {
-    if (this.$route.path !== `/${path}`) this.$router.push(path);
-    },
-},
-watch: {},
+    watch: {},
 };
 </script>
 
 <style lang="scss">
 @import "@/assets/scss/mixins.scss";
 
-* {
-font-family: generalLeter;
-text-shadow: 0px 3px 6px #00000029;
-}
-p {
-margin-bottom: 0px !important;
-}
-
-.myCodesWeb {
-display: flex;
-justify-content: center;
-align-items: center;
-flex-direction: column;
-&__web {
-    margin: 10px 0 0 0;
-    height: 70px;
-    @include mxHeight(600px) {
-    height: 57px;
-    }
-    @include mnHeight(1000px) {
-    height: 8vh;
-    margin: 3vh 0 0 0;
-    }
-}
-&__content {
+.SingIngModal {
     display: flex;
     flex-direction: column;
-    align-content: center;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
-    width: 100%;
-}
-
-&__title {
-    margin-top: 10px;
-    text-align: center;
-    line-height: 15px;
-
-    &-one {
-    font-size: 15px;
-    color: white;
-    @include lg() {
-        font-size: 20px;
-        margin: 18px 0;
-    }
-    }
-
-    &-two {
-    font-size: 10px;
-    margin-bottom: 5px;
-    color: white;
-    @include lg() {
-        font-size: 20px;
-        margin: 18px 0;
-    }
-    }
-
-    &-three {
-    font-size: 14px;
-    color: white;
-    @include lg() {
-        font-size: 20px;
-        margin: 18px 0;
-    }
-    }
-}
-
-&__table {
-    margin-top: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: rgba(255, 255, 255, 0.371);
-    border-radius: 25px;
-    width: 100%;
-    @include lg() {
-        width: 850px;
-    }
-    @include xlg() {
-        width: 955px;
-    }
-    &__box {
     position: relative;
-    min-width: 14%;
-    max-width: 14%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    flex-direction: column;
+    &__space {
+        display: none;
+        @include xlg() {
+            display: initial;
+        }
     }
-    &__box1 {
-    margin: 0 0 0 80px;
-    }
-    &__circle {
-    background-color: #309f3a;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 39.5px;
-    height: 39.5px;
-    border-radius: 50%;
-    border: 2px solid white;
-    }
-    &__numbers {
-    font-size: 24px;
-    position: absolute;
-    top: 4%;
-    }
-    &__symbols {
-    font-size: 36px;
-    position: absolute;
-    top: -10px;
+    &__content {
+        display: flex;
+        justify-content: space-evenly;
+        align-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+        height: 230px;
+        position: relative;
+
+        @include mnHeight(1000px) {
+            height: 250px;
+        }
     }
 
-    &__circle p{
-    color: white;
-    font-family: SlintGeneralLeter;
-    }
-    &__codes {
-    color: #D93D2D;
-    padding: 0 0 0px 0;
-    font-size: 20px;
-    height: 24px;
-    }
-    &__award {
-    color: #D93D2D;
-    }
-    &__date {
-    color: #D93D2D;
-    font-family: SlintGeneralLeter;
-    font-size: 14px;
-    @include xlg() {
-        font-size: 15.5px;
-    }
+    &__content:nth-child(2) {
+        margin: 0 0 0 0;
+        background-color: red;
     }
 
-
-    &-header {
-    background: #309f3a;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    border-radius: 50px;
-    height: 38px;
-    width: 100%;
-    }
-    &-header-titles {
-    margin: 0;
-    height: 100%;
-    padding: 4px 0 0 0;
-    }
-    &-header-titlesDiferent1 {
-    margin: 0 10px 0 0;
-    }
-    &-header-titles p{
-    color: white;
-    font-size: 20px;
-    @include lg() {
-        font-size: 23px;
-    }
-    @include xlg() {
-        padding: 3px 0 0 0;
-        font-size: 25px;
-    }
+    &__contentCenter {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 80%;
+        height: 17%;
     }
 
-    &-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 95%;
-    border-bottom: 2.5px dashed #da412e;
-    font-size: 20px;
-    padding: 0 50px;
-    margin: 15px 0 0 0;
+    &__contentCenter span {
+        text-align: center;
     }
-    &-btn-equal svg{
-    fill: #309f3a;
+
+    &__box {
+        position: absolute;
+        top: 20px;
+        left: 30px;
+        right: 30px;
+        bottom: 20px;
+
+        @include mobile() {
+            top: 10px;
+            left: 15px;
+            right: 15px;
+            bottom: 10px;
+        }
     }
-}
+
+    &__scroll {
+        overflow-y: auto;
+        width: 100%;
+        max-height: 100%;
+        height: 100%;
+        padding-right: 30px;
+        text-align: center;
+
+        @include mobile() {
+            padding-right: 15px;
+        }
+
+        @include xs() {
+            width: 100%;
+            overflow-x: hidden;
+        }
+    }
+
+    &__text {
+        font-family: BebasNeue;
+        font-size: 16px;
+        line-height: 16px;
+        text-align: justify;
+
+        @include mobile() {
+            font-size: 12px;
+        }
+    }
+
+    &__image {
+        height: 150px;
+        margin-top: -100px;
+
+        @include mobile() {
+            height: 140px;
+            margin-top: -80px;
+        }
+
+        @include xs() {
+            margin-top: -40px;
+            margin-bottom: -20px;
+        }
+    }
+
+    &__close-container {
+        display: flex;
+        justify-content: flex-end;
+        width: calc(100% + 45px);
+        padding: 10px;
+        margin-top: -35px;
+
+        @include xs() {
+            margin-top: -50px;
+            margin-bottom: -40px;
+        }
+    }
+
+    &__close-image {
+        height: 30px;
+        cursor: pointer;
+
+        @include mobile() {
+            height: 28px;
+        }
+    }
+
+    /* width */
+    ::-webkit-scrollbar {
+        width: 12px !important;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background-color: #eeb493 !important;
+        border-radius: 10px !important;
+        border-radius: 6px;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: #de7f48 !important;
+        border: 1px solid #ff5e00;
+        border-radius: 50%;
+    }
 }
 </style>
