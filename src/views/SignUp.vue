@@ -553,6 +553,9 @@ export default {
     color: white;
     cursor: pointer;
   }
+  &__radio-text-action:hover {
+    color: rgb(156, 156, 156);
+  }
   &__radio-container {
     display: flex;
     align-content: center;
