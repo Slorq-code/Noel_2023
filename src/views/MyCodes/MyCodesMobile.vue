@@ -10,9 +10,9 @@
 
     <div class="myCodesMobile__margin-wrapper">
       <div class="myCodesMobile__title">
-        <h1 class="myCodesMobile__title-one">¡Bienvenido Carlos Moran!</h1>
+        <h1 class="myCodesMobile__title-one">¡Bienvenido {{user.name}}!</h1>
         <h2 class="myCodesMobile__title-two">
-          Celular para premios: 310 310 310
+          Celular para premios: {{ user.phone }}
         </h2>
         <h3 class="myCodesMobile__title-three">
           Éste es el estado de tus códigos:
@@ -138,7 +138,8 @@ export default {
     },
     user() {
       const { name, phone } = this.$store.state.user;
-      return { name: String(name).toUpperCase(), phone };
+      const newPhone = " +" + phone.slice(0, 2) + " (" + phone.slice(2, 5) + ") " + phone.slice(5);
+      return { name: String(name).toUpperCase(), phone: newPhone };
     },
   },
   methods: {
