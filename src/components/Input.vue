@@ -167,6 +167,7 @@ export default {
     color: #686868;
     font-family: superSlintGeneralLeter;
     font-size: 12px;
+    text-shadow: none;
   }
   height: 46px;
   width: 275px;

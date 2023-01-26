@@ -254,6 +254,7 @@ export default {
       color: white;
       flex-basis: 33.3%;
       text-align: center;
+      text-shadow: none;
       font-size: 15px;
       @include mobile() {
         flex-basis: 50%;

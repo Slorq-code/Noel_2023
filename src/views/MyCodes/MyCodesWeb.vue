@@ -21,10 +21,10 @@
 
       <div class="myCodesWeb__table">
         <div class="myCodesWeb__table-header">
-          <div class="myCodesWeb__table-header-titles"> <p> Cant.</p></div>
-          <div class="myCodesWeb__table-header-titles myCodesWeb__table-header-titlesDiferent1"> <p> Saltín Noel</p></div>
-          <div class="myCodesWeb__table-header-titles"> <p> Ducales</p></div>
-          <div class="myCodesWeb__table-header-titles"> <p> Premios</p></div>
+          <div class="myCodesWeb__table-header-titles myCodesWeb__table-header-titles1"> <p> Cant.</p></div>
+          <div class="myCodesWeb__table-header-titles myCodesWeb__table-header-titlesDiferent1 myCodesWeb__table-header-titles2"> <p> Saltín Noel</p></div>
+          <div class="myCodesWeb__table-header-titles myCodesWeb__table-header-titles3"> <p> Ducales</p></div>
+          <div class="myCodesWeb__table-header-titles myCodesWeb__table-header-titles4"> <p> Premios</p></div>
         </div>
         <div
           class="myCodesWeb__table-content"
@@ -37,7 +37,7 @@
           </div>
         </div>
 
-        <div class="myCodesWeb__table__box myCodesWeb__table__box1">
+        <div class="myCodesWeb__table__box">
           <p class="myCodesWeb__table__codes">{{ item.saltinNoel ? item.saltinNoel : "-" }}</p>
           <p class="myCodesWeb__table__date">{{ item.dateSaltin}}</p>
         </div>
@@ -190,19 +190,18 @@ p {
       @include xlg() {
         width: 955px;
       }
+    /* la clase box dentro de la table es completamente fija para que la unica variable sea el header de la tabla y sea mas facil alinearla */
     &__box {
     position: relative;
-    min-width: 14%;
-    max-width: 14%;
+    min-width: 18%;
+    max-width: 18%;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     flex-direction: column;
     }
-    &__box1 {
-      margin: 0 0 0 80px;
-    }
+    //---------------------------------
     &__circle {
       background-color: #309f3a;
       display: flex;
@@ -216,7 +215,7 @@ p {
     &__numbers {
       font-size: 24px;
       position: absolute;
-      top: 4%;
+      top: 5.5%;
     }
     &__symbols {
       font-size: 36px;
@@ -251,23 +250,38 @@ p {
 
 
     &-header {
+      position: relative;
       background: #309f3a;
       display: flex;
       align-items: center;
-      justify-content: space-evenly;
+      justify-content: center;
+      gap: 11%;
       border-radius: 50px;
       height: 38px;
       width: 100%;
     }
     &-header-titles {
+      position: absolute;
       margin: 0;
       height: 100%;
       padding: 4px 0 0 0;
     }
-    &-header-titlesDiferent1 {
-      margin: 0 10px 0 0;
+    /* en la otra clase ya tienen un position absolute y el padre relative y se henero las subclases title1, 2, 3, 4 para manejar el distanciamento centralizadamente*/
+    &-header-titles1 {
+      left: 8%;
     }
+    &-header-titles2 {
+      left: 22%;
+    }
+    &-header-titles3 {
+      right: 37%;
+    }
+    &-header-titles4 {
+      right: 8%;
+    }
+    //----------------------
     &-header-titles p{
+      text-shadow: none;
       color: white;
       font-size: 20px;
       @include lg() {
@@ -278,11 +292,10 @@ p {
         font-size: 25px;
       }
     }
-
     &-content {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
       width: 95%;
       border-bottom: 2.5px dashed #da412e;
       font-size: 20px;

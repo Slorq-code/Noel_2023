@@ -160,9 +160,14 @@ export default {
     text-align: start;
     font-family: generalLeter;
     text-shadow: 0px 3px 6px #00000029;
+    
+    @include mxHeight(650px) {
+    margin: 5px 10px;
+    }
     @include mobile() {
       font-size: 14px;
     }
+    
   }
   textarea:focus {
     outline: 0;
