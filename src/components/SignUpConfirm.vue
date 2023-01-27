@@ -248,9 +248,9 @@ export default {
   &__text1 {
     color: white;
     font-family: generalLeter;
-    font-size: 14px;
+    font-size: 18px;
     @include mobile() {
-      font-size: 13px;
+      font-size: 14px;
     }
   }
 

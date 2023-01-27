@@ -201,16 +201,13 @@
 </template>
 
 <script>
-import Input from "../components/Input";
-import Button from "../components/Button";
-
-
 /* import { VueReCaptcha, useReCaptcha } from 'vue-recaptcha-v3' */
 // import VueRecaptcha from "vue-recaptcha";
 // import InvisibleRecaptcha from "vue-invisible-recaptcha";
 //import VueRecaptcha  from 'vue-recaptcha';
 
-
+import Input from "../components/Input";
+import Button from "../components/Button";
 import { SaveCodes, GetStatus } from "../api";
 import RegisterCodeConfirm from "../components/RegisterCodeConfirm";
 import Modal from "../components/Modal";
@@ -239,10 +236,11 @@ export default {
     };
   },
   components: {
-    Input,
-    Button,
     //'vue-recaptcha': VueRecaptcha,
     // InvisibleRecaptcha,
+
+    Input,
+    Button,
     RegisterCodeConfirm,
     Modal
   },
