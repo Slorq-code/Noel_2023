@@ -496,7 +496,7 @@ export default {
     /* se aplica asi para detectar cuando el celular este horizontal */
     @include mxHeight(440px){
       @include mnWidth(500px) {
-        width: 100vh;
+        width: 85vh;
         left: -55vh;
         padding: 5% 0px 10px 10px;
       }
