@@ -407,7 +407,7 @@ export default {
     @include mxHeight(440px){
       @include mnWidth(500px) {
         flex-direction: row;
-        bottom: 5%;
+        bottom: 10%;
         gap: 15px;
       }
     }
@@ -558,7 +558,7 @@ export default {
     // orientacion vertical mobile
     @include mxHeight(440px){
       @include mnWidth(500px) {
-        top: 0%;
+        top: 5%;
       }
     }
   }
