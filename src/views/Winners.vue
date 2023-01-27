@@ -36,6 +36,7 @@
         </div>
       </div>
     </div>
+
     <button
       @click="dialog = true"
       v-if="tableWinners"
@@ -43,6 +44,7 @@
     >
       Ver los ganadores
     </button>
+
     <modal color="si" width="640" :dialog="dialog">
       <div class="winners__modal-content" slot="component">
         <div class="winners__close-container">
@@ -151,7 +153,7 @@ export default {
         result: strings[item.result],
       }));
 
-      this.tableWinners = dataTable.slice(0, 6);
+      this.tableWinners = dataTable.slice(0, 8);
       this.tableWinnersModal = dataTable;
     },
   },
@@ -198,6 +200,9 @@ export default {
     }
     @include mxHeight(701px) {
       height: 65%;
+    }
+    @include mxHeight(640px) {
+      height: 55%;
     }
   }
 
@@ -298,6 +303,11 @@ export default {
   }
 
   &__winners-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 35px;
+    font-size: 16px;
     background-color: #309f3a;
     border: 2px white solid;
     box-shadow: 0px 3px 6px #00000067;

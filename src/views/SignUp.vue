@@ -364,7 +364,7 @@ export default {
     validate() {
       let errors = {};
       const emailReg = /^[a-zA-Z0-9_\-\.]{2,30}@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
-      const idReq = /^([1-9]{1}[0-9]{6,9})$/;
+      const idReq = /^([1-9]{1}[0-9]{5,9})$/;
       const phoneReq =
         /^(300|301|302|304|305|310|311|312|313|314|315|316|317|318|319|320|321|322|323|324|350|351){1}[0-9]{1}[0-9]{6}$/;
       if (this.user.phone) {
@@ -552,9 +552,10 @@ export default {
   &__radio-text-action {
     color: white;
     cursor: pointer;
+    text-decoration: underline;
   }
   &__radio-text-action:hover {
-    color: rgb(156, 156, 156);
+    color: rgb(143, 143, 143);
   }
   &__radio-container {
     display: flex;

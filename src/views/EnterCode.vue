@@ -7,6 +7,11 @@
       />
       <span class="enterCode__counter-text">{{ total | amount }}</span>
     </div>
+    <div v-if="!mobile" class="enterCode__ad">
+      <span class="enterCode__ad__text">
+        ¡Recuerda guardar los stickers que registraste!
+      </span>
+    </div>
     <div v-if="!mobile" class="enterCode-web">
       <div class="enterCode-web__section-1">
         <img
@@ -449,11 +454,41 @@ export default {
     position: absolute;
     color: white;
     right: 34%;
-    top: 43.5%;
+    top: 41%;
     font-size: 30px;
-    @include mxHeight(650px) {
+    @include mxHeight(750px) {
       right: 29%;
       top: 40.5%;
+    }
+    @include xlg() {
+      top: 43%;
+    }
+  }
+  &__ad {
+    position: absolute;
+    border-radius: 25px;
+    border: 2.5px solid white;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.239);
+    left: 8%;
+    top: 13.5%;
+    height: 100px;
+    width: 185px;
+    @include xlg() {
+      top: 10.5%;
+      height: calc(100px + 50px);
+      width:  calc(185px + 70px);
+      padding: 0 10px;
+    }
+    &__text {
+      font-size: 1rem;
+      color: white;
+      @include xlg() {
+        font-size: 1.5rem;
+      }
     }
   }
 }
@@ -496,10 +531,9 @@ export default {
     color: white;
     font-size: 20px;
     line-height: 20px;
-
     @include mobile() {
       text-align: center;
-      font-size: 18px;
+      font-size: 16px;
     }
 
     @include xs() {
@@ -707,7 +741,7 @@ export default {
   *,
   *:after {
     font-size: 12px !important;
-    height: 30px;
+    height: 35px;
     display: flex;
     align-items: center;
   }

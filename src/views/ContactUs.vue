@@ -15,9 +15,9 @@
       />
     </div>
     <div class="contactUs__content">
-      <span class="contactUs__text"
-        >Para comunicarte con nosotros completa el siguiente formulario.</span
-      >
+      <span class="contactUs__text">
+        Para comunicarte con nosotros completa el siguiente formulario o a través de nuestra línea de Servicio al Cliente en Colombia 01 800 05 16635
+      </span>
       <div class="contactUs__content__options">
         <Select
           field="topic"
@@ -216,7 +216,7 @@ export default {
       padding: 5px 20px;
     }
     @include lg() {
-      width: 700px;
+      width: 900px;
     }
     &__options {
       display: flex;
