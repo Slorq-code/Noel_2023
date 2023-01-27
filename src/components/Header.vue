@@ -586,7 +586,7 @@ export default {
       @include mnWidth(500px) {
         bottom: none;
         top: 29px;
-        height: 49px;
+        height: 41px;
       }
     }
   }
