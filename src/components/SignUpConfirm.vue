@@ -5,19 +5,39 @@
     </div>
     <img class="signup-confirm__image" src="@/assets/Assets_Web_New/Logo_modales_Juntos_Premiarte_2022.png" />
     <div class="signup-confirm__content">
-      <span class="signup-confirm__text1" style="margin-bottom: 10px">
-        Por favor confirma que tus datos estén correctos, especialmente tu
-        número celular y operador al cual perteneces; recuerda que las recargas
-        se realizarán a este número celular.
-      </span>
-      <span class="signup-confirm__text">Nombre: {{ user.names }}</span>
-      <span class="signup-confirm__text">Apellido: {{ user.last_names }}</span>
-      <span class="signup-confirm__text">Cédula: {{ user.idn }}</span>
-      <span class="signup-confirm__text">Correo: {{ user.email }}</span>
-      <span class="signup-confirm__text">Dpto: {{ user.department_state }}</span>
-      <span class="signup-confirm__text">ciudad: {{ user.city }}</span>
-      <span class="signup-confirm__text"> N° Celular: {{ number }} </span>
-      <span class="signup-confirm__text"> Operador: {{ user.operator }} </span>
+      <div :class="[ 'wrapper', handleClick1 === true ? 'animate-signIn' : ' ' && handleClick2 === false ? 'animate-signUp' : ' ',]">
+                <div class="form-wrapper sign-up" @click="handleClick1 = !handleClick1; handleClick2 = !handleClick2;">
+                  <span class="signup-confirm__text">Nombre: {{ user.names }}</span>
+                  <span class="signup-confirm__text">Apellido: {{ user.last_names }}</span>
+                  <span class="signup-confirm__text">Cédula: {{ user.idn }}</span>
+                  <span class="signup-confirm__text">Correo: {{ user.email }}</span>
+                  <span class="signup-confirm__text">Dpto: {{ user.department_state }}</span>
+                  <span class="signup-confirm__text">ciudad: {{ user.city }}</span>
+                  <span class="signup-confirm__text"> N° Celular: {{ number }} </span>
+                  <span class="signup-confirm__text"> Operador: {{ user.operator }} </span>
+                  <br>
+                  <div class="signup-confirm__buttonDecoration">
+                    <p class="signup-confirm__buttonDecoration__text">
+                      Recomendaciones</p>
+                </div>
+              </div>
+              <div 
+                class="form-wrapper sign-in"
+                @click="handleClick1 = !handleClick1; handleClick2 = !handleClick2;"
+              >
+                  <span class="signup-confirm__text1">
+                      Por favor confirma que tus datos estén correctos antes de continuar, especialmente tu
+                      número celular y operador al cual perteneces; recuerda que las recargas
+                      se realizarán a este número celular.
+                  </span>
+                  <br>
+                  <div class="signup-confirm__buttonDecoration">
+                    <p class="signup-confirm__buttonDecoration__text">
+                    ¡Revisa los datos!
+                    </p>
+                  </div>
+                </div>
+        </div>
     </div>
     <div class="signup-confirm__buttons">
       <Button color="1" text="Editar" type="secondary" @handle-click="close()" />
@@ -50,6 +70,7 @@ export default {
     },
   },
   computed: {
+    
     name() {
       return this.user.names + " " + this.user.last_names;
     },
@@ -64,6 +85,8 @@ export default {
     return {
       loading: false,
       idn: "",
+      handleClick1: false,
+      handleClick2: false,
     };
   },
   methods: {
@@ -202,8 +225,8 @@ export default {
   align-items: center;
   position: relative;
   min-height: 300px;
+  height: 400px;
   padding: 10px 20px;
-
   @include mobile() {
     padding: 10px;
   }
@@ -213,13 +236,10 @@ export default {
     flex-direction: column;
     align-items: center;
     width: 80%;
-    margin-top: -20px;
-
     @include mobile() {
       overflow-y: auto;
       max-height: 300px;
     }
-
     @include xs() {
       margin-bottom: -6px;
     }
@@ -228,16 +248,9 @@ export default {
   &__text1 {
     color: white;
     font-family: generalLeter;
-    text-shadow: 0px 3px 6px #00000029;
-    font-size: 13px;
-    margin-bottom: 20px;
-
+    font-size: 14px;
     @include mobile() {
-      font-size: 12px;
-    }
-
-    @include mobile() {
-      font-size: 10px;
+      font-size: 13px;
     }
   }
 
@@ -248,27 +261,39 @@ export default {
     text-shadow: 0px 3px 6px #00000029;
     text-transform: capitalize;
     font-size: 13px;
-
     @include mobile() {
       font-size: 12px;
     }
-
     @include mobile() {
-      font-size: 10px;
+      font-size: 12.5px;
+    }
+  }
+  &__buttonDecoration {
+    background-color: #309f3a;
+    border-radius: 25px;
+    border: 3px solid white;
+    height: 40px;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &__text {
+      font-size: 14px;
+      color: white;
     }
   }
 
   &__image {
-    height: 150px;
-    margin: -100px 0 25px 0;
+    height: 137px;
+    margin: -83px 0 15px 0;
 
     @include mobile() {
-      height: 160px;
-      margin: -80px 0 0px 0;
+      height: 120px;
+      margin: -56px 0 8px 0;
     }
 
     @include xs() {
-      height: 140px;
+      height: 110px;
       margin: -70px 0 -1px 0;
     }
   }
@@ -296,7 +321,7 @@ export default {
     justify-content: center;
     gap: 15px;
     width: 100%;
-    margin-top: 30px;
+    margin-top: 20px;
     padding: 0px 40px;
 
     @include mobile() {
@@ -308,4 +333,223 @@ export default {
     }
   }
 }
+
+//------- de aqui en adelante es el css para la animacion
+
+.home {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.logoProject {
+    height: auto;
+    width: 15%;
+    margin: 0 0 35px 0;
+}
+
+.logoVue {
+    position: absolute;
+    top: 10px;
+    left: 15px;
+}
+
+.wrapper {
+    position: relative;
+    width: 100%;
+    height: 240px;
+}
+
+.form-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(85, 85, 85, 0.376);
+    border-radius: 25px;
+    border: 2px solid gray;
+    transition: 1s ease-out;
+}
+
+.animate-signUp .form-wrapper.sign-in {
+    cursor: pointer;
+    transform: rotate(0deg);
+    animation: animateRotate 0.7s ease-in-out forwards;
+    animation-delay: 0.3s;
+    border: 2px solid white;
+    border-radius: 25px;
+    padding: 0 5px;
+    background: linear-gradient(180deg, rgba(242,186,31,1) 0%, rgba(244,122,46,1) 100%);
+}
+
+.animate-signIn .form-wrapper.sign-in {
+    animation: animateSignIn 2s ease-in-out forwards;
+}
+
+@keyframes animateSignIn {
+    0% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(-450px);
+    }
+
+    100% {
+        transform: translateX(0) rotate(0deg);
+    }
+}
+
+.wrapper .form-wrapper.sign-up {
+    transform: rotate(0deg);
+}
+
+.wrapper.animate-signIn .form-wrapper.sign-up {
+    animation: animateRotate 0.7s ease-in-out forwards;
+    animation-delay: 0.3s;
+    border-radius: 25px;
+    cursor: pointer;
+    border: 2px solid white;
+    background: linear-gradient(180deg, rgba(242,186,31,1) 0%, rgba(244,122,46,1) 100%);
+}
+
+@keyframes animateRotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(0);
+        z-index: 1;
+    }
+}
+
+.wrapper.animate-signUp .form-wrapper.sign-up {
+    animation: animateSignUp 2s ease-in-out forwards;
+}
+
+@keyframes animateSignUp {
+    0% {
+        transform: translateX(0);
+        z-index: 1;
+    }
+
+    50% {
+        transform: translateX(450px);
+    }
+
+    100% {
+        transform: translateX(0) rotate(0deg);
+    }
+}
+
+h2 {
+    font-size: 30px;
+    color: #555;
+    text-align: center;
+}
+
+.input-group {
+    position: relative;
+    width: 320px;
+    margin: 30px 0;
+}
+
+.input-group label {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: #333;
+    padding: 0 5px;
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+.input-group input {
+    width: 100%;
+    height: 40px;
+    font-size: 16px;
+    color: #333;
+    padding: 0 10px;
+    background: transparent;
+    border: 1px solid #333;
+    outline: none;
+    border-radius: 5px;
+}
+
+.input-group input:focus~label,
+.input-group input:valid~label {
+    top: 0;
+    font-size: 12px;
+    background: #fff;
+}
+
+.forgot-pass {
+    margin: -15px 0 15px;
+}
+
+.forgot-pass a {
+    color: #333;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.forgot-pass a:hover {
+    text-decoration: underline;
+}
+
+.btn {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 342px;
+    height: 40px;
+    background: #35324a;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+    font-size: 16px;
+    color: #fff;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+}
+
+.sign-link {
+    font-size: 18px;
+    text-align: center;
+    margin: 25px 0;
+}
+
+.sign-link p {
+    color: #333;
+}
+
+.sign-link p a {
+    color: #ed1b2e;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.sign-link p a:hover {
+    text-decoration: underline;
+}
+
+
+
+
+
+
+
+
+
 </style>
