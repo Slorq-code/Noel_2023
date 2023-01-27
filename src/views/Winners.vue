@@ -222,6 +222,12 @@ export default {
     @include xlg() {
       width: 50%;
     }
+
+    @include mxHeight(440px){
+      @include mnWidth(500px) {
+        width: 100vh;
+      }
+  }
     // @include mnHeight(1000px) {
     //   width: 90%;
     // }

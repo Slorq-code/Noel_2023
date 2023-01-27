@@ -706,11 +706,15 @@ export default {
 .enterCode-mobile__mini {
   width: 90%;
   margin-bottom: 10px;
-
   @include xs() {
     height: 120px;
     width: initial;
     margin-bottom: 10px;
+  }
+  @include mxHeight(440px){
+      @include mnWidth(500px) {
+        width: 50%;
+      }
   }
 }
 
