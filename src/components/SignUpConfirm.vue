@@ -385,7 +385,7 @@ export default {
     animation-delay: 0.3s;
     border: 2px solid white;
     border-radius: 25px;
-    padding: 0 5px;
+    padding: 0 10px;
     background: linear-gradient(180deg, rgba(242,186,31,1) 0%, rgba(244,122,46,1) 100%);
 }
 
