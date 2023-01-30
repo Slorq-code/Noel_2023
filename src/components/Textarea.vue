@@ -166,6 +166,7 @@ export default {
     }
     @include mobile() {
       font-size: 14px;
+      margin: 5px 0px;
     }
     
   }

@@ -372,15 +372,17 @@ export default {
     font-family: generalLeter;
     font-size: 0.9rem;
     text-align: center;
-
     @include mxHeight(650px) {
       font-size: 0.8rem;
     }
-
+    @include mxHeight(600px) {
+      font-size: 0.7rem;
+    }
     @include xlg() {
       font-size: 1.2rem;
     }
   }
+
 
   &--web-route-text-selected {
     transform: scale(1.01);
@@ -396,12 +398,17 @@ export default {
     width: 100%;
     padding: 0px 15px;
     z-index: 999;
+
     @include mobile() {
+      @include mxHeight(850px) {
+        bottom: 18%;
+      }
       @include mxHeight(650px) {
         bottom: 20%;
       }
-      @include mxHeight(850px) {
-        bottom: 18%;
+      @include mxHeight(600px){
+        bottom: 23%;
+        gap: 5px;
       }
     }
     @include mxHeight(440px){
@@ -427,6 +434,9 @@ export default {
       font-family: SlintGeneralLeter;
       @include xs() {
         font-size: 14px;
+      }
+      @include mxHeight(600px) {
+        font-size: 12px;
       }
       // para detectar el telefono horizontal
       @include mxHeight(440px){
@@ -515,11 +525,14 @@ export default {
     @include mobile() {
       margin: 10px 0 0 11%;
     }
+    @include mxHeight(600px) {
+      display: none;
+    }
     @include mxHeight(650px) {
       width: 60%;
       margin: 10px 0 0 20%;
     }
-        /* se aplica asi para detectar cuando el celular este horizontal */
+    /* se aplica asi para detectar cuando el celular este horizontal */
     @include mxHeight(440px){
       @include mnWidth(500px) {
         display: none;
@@ -538,6 +551,9 @@ export default {
     width: 100%;
     margin: 0 0px 20px 0;
     cursor: pointer;
+    @include mxHeight(600px) {
+      margin: 0 0px 0px 0;
+    }
     /* se aplica asi para detectar cuando el celular este horizontal */
     @include mxHeight(440px){
       @include mnWidth(500px) {
@@ -581,6 +597,9 @@ export default {
     @include mobile() {
       bottom: 50px;
     }
+    @include mxHeight( 600px ) {
+      height: 45px;
+    }
         /* se aplica asi para detectar cuando el celular este horizontal */
     @include mxHeight(440px){
       @include mnWidth(500px) {
@@ -603,6 +622,9 @@ export default {
     margin: 21px 0 5% 10%;
     @include mxHeight(850px) {
       margin: 15px 0 0% 10%;
+    }
+    @include mxHeight(600px) {
+      margin: 5px 0 0% 10%;
     }
   }
   // detecta telefono horizontal
