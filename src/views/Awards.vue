@@ -108,12 +108,16 @@ export default {
       margin: 0px;
     }
     &-title {
-      font-size: 20px;
+      font-size: 18px;
       text-align: center;
       line-height: 16px;
       color: white;
       font-family: generalLeter;
       text-shadow: 0px 3px 6px #00000029;
+      margin: 0 0 10px 0;
+      @include mobile() {
+        margin: 0 0 20px 0;
+      }
     }
     &__banner {
       width: 90%;

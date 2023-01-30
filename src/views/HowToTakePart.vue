@@ -106,16 +106,17 @@ export default {
     //   height: calc(100vh-200px);
     // }
     &-title {
-      font-size: 16px;
+      font-size: 18px;
       line-height: 16px;
       color: white;
       font-family: generalLeter;
       text-shadow: 0px 3px 6px #00000029;
+      margin: 0 0 10px 0;
       @include mobile() {
         font-size: 15px;
         line-height: 15px;
         text-align: center;
-        margin-bottom: 5px;
+        margin: 0 0 20px 0;
       }
       @include xs() {
         font-size: 15px;
