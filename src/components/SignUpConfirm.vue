@@ -18,7 +18,7 @@
                   <br>
                   <div class="signup-confirm__buttonDecoration">
                     <p class="signup-confirm__buttonDecoration__text">
-                      Recomendaciones</p>
+                      Atrás</p>
                 </div>
               </div>
               <div 
