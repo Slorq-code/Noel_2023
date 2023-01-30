@@ -149,6 +149,7 @@ export default {
   flex-direction: column;
   align-items: center;
   position: relative;
+  height: 270px;
   padding: 10px 20px;
 
   @include mobile() {
@@ -164,7 +165,7 @@ export default {
   }
 
   &__image {
-    height: 220px;
+    height: 197px;
     margin-top: -100px;
     margin-bottom: 10px;
 
@@ -172,6 +173,7 @@ export default {
       height: auto;
       width: 64%;
       margin-top: -54px;
+      margin-bottom: 50px;
     }
 
     @include xs() {
