@@ -192,6 +192,11 @@ export default {
   @include mobile() {
     margin: 20% 0 0 0;
   }
+  @include mxHeight(440px){
+      @include mnWidth(500px) {
+        margin: 5% 0 0 0;
+      }
+    }
 }
 .contactUs {
   display: flex;
@@ -269,6 +274,11 @@ export default {
     @include xs() {
       font-size: 12px;
       line-height: 12px;
+    }
+    @include mxHeight(440px){
+      @include mnWidth(500px) {
+        font-size: 14px;
+      }
     }
   }
 }

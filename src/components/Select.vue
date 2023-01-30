@@ -203,6 +203,11 @@ export default {
     @include xlg() {
       font-size: 20px;
     }
+    @include mxHeight(440px){
+      @include mnWidth(500px) {
+        font-size: 14px;
+      }
+    }
   }
   &__placeholder {
     color: #686868;

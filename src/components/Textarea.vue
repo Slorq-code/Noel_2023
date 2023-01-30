@@ -137,6 +137,11 @@ export default {
     @include xlg(){
       font-size: 18px;
     }
+    @include mxHeight(440px){
+      @include mnWidth(500px) {
+        font-size: 14px !important;
+      }
+    }
   }
   @include mobile() {
     width: 270px !important;
@@ -224,6 +229,11 @@ export default {
     @include xlg() {
       font-size: 20px;
       margin: 0 0 10px 0;
+    }
+    @include mxHeight(440px){
+      @include mnWidth(500px) {
+        font-size: 14px;
+      }
     }
   }
   &__messages-box {
