@@ -454,6 +454,10 @@ export default {
     right: 34%;
     top: 41%;
     font-size: 30px;
+    @include lg() {
+      top: 40%;
+      right: 28%;
+    }
     @include mxHeight(750px) {
       right: 29%;
       top: 40.5%;

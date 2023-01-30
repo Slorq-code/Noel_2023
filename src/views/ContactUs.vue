@@ -217,6 +217,7 @@ export default {
     flex-direction: column;
     align-items: center;
     padding: 10px 20px 10px 20px;
+    margin: 0 0 80px 0;
     @include mobile() {
       width: 92%;
     }
@@ -248,10 +249,10 @@ export default {
     &__container {
       display: flex;
       justify-content: center;
-      margin-top: 100px;
+      margin: 100px 0 0px 0;
       width: 100%;
       @include mnHeight(1000px) {
-        margin-top: 90px;
+        margin: 90px 0 0 0;
       }
     }
   }
@@ -262,7 +263,7 @@ export default {
     color: white;
     font-size: 15px;
     line-height: 18px;
-    margin-bottom: 80px;
+    margin-bottom: 90px;
     text-align: center;
     @include mobile() {
       margin-bottom: 10px;

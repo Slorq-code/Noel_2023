@@ -217,7 +217,7 @@ export default {
     font-family: generalLeter;
     text-shadow: 0px 3px 6px #00000029;
     margin-right: 10px;
-    font-size: 15px;
+    font-size: 14px;
     color: white;
     margin-bottom: 6px;
     @include mobile() {

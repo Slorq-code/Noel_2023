@@ -268,7 +268,7 @@ export default {
     margin: 0 10px 0px 10px;
     font-family: generalLeter;
     text-shadow: 0px 3px 6px #00000029;
-    font-size: 15px;
+    font-size: 14px;
     color: white;
     @include mobile() {
       text-align: center;

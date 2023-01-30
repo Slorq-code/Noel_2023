@@ -7,14 +7,15 @@
     <div class="signup-confirm__content">
       <div :class="[ 'wrapper', handleClick1 === true ? 'animate-signIn' : ' ' && handleClick2 === false ? 'animate-signUp' : ' ',]">
                 <div class="form-wrapper sign-up" @click="handleClick1 = !handleClick1; handleClick2 = !handleClick2;">
-                  <span class="signup-confirm__text">Nombre: {{ user.names }}</span>
-                  <span class="signup-confirm__text">Apellido: {{ user.last_names }}</span>
-                  <span class="signup-confirm__text">Cédula: {{ user.idn }}</span>
-                  <span class="signup-confirm__text">Correo: {{ user.email }}</span>
-                  <span class="signup-confirm__text">Dpto: {{ user.department_state }}</span>
-                  <span class="signup-confirm__text">ciudad: {{ user.city }}</span>
-                  <span class="signup-confirm__text"> N° Celular: {{ number }} </span>
-                  <span class="signup-confirm__text"> Operador: {{ user.operator }} </span>
+
+                    <span class="signup-confirm__text">Nombre: {{ user.names }}</span>
+                    <span class="signup-confirm__text">Apellido: {{ user.last_names }}</span>
+                    <span class="signup-confirm__text">Cédula: {{ user.idn }}</span>
+                    <span class="signup-confirm__text">Correo: {{ user.email }}</span>
+                    <span class="signup-confirm__text">Dpto: {{ user.department_state }}</span>
+                    <span class="signup-confirm__text">ciudad: {{ user.city }}</span>
+                    <span class="signup-confirm__text"> N° Celular: {{ number }} </span>
+                    <span class="signup-confirm__text"> Operador: {{ user.operator }} </span>
                   <br>
                   <div class="signup-confirm__buttonDecoration">
                     <p class="signup-confirm__buttonDecoration__text">
@@ -271,6 +272,7 @@ export default {
   &__buttonDecoration {
     background-color: #309f3a;
     border-radius: 25px;
+    box-shadow: 0px 3px 6px #00000067;
     border: 3px solid white;
     height: 40px;
     width: 80%;
