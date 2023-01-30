@@ -185,9 +185,12 @@ export default {
 <style lang="scss">
 @import "@/assets/scss/mixins.scss";
 .FlexStartClass {
-  margin: 18px 0 0 0;
+  margin: 20px 0 0 0;
   @include mnHeight(1000px) {
     margin: 26px 0 0 0;
+  }
+  @include mnHeight(650px) {
+    margin: 35px 0 0 0;
   }
   @include mobile() {
     margin: 20% 0 0 0;
