@@ -117,11 +117,13 @@ export default {
         text-align: center;
         margin-bottom: 5px;
       }
-
       @include xs() {
         font-size: 15px;
         line-height: 15px;
         margin-bottom: 5px;
+      }
+      @include xlg() {
+        font-size: 20px;
       }
     }
   }

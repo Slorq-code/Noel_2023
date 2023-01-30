@@ -7,7 +7,6 @@
     />
     <div class="signIn">
       <div class="signIn__image-content">
-        <!-- <span class="signIn__title" v-if="!mobile">Bienvenido a</span> -->
         <img
           class="signIn__image"
           src="../assets/Assets_Web_New/IMG_LOGO_PAQUETES_LOGIN.png"

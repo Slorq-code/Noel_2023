@@ -611,6 +611,13 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  @include mxHeight(440px){
+    @include mnWidth(500px) {
+      height: 250px;
+    }
+  }
+
   &__content {
     width: 100%;
     height: 300px;
@@ -679,6 +686,12 @@ export default {
     @include xs() {
       margin-top: -40px;
       margin-bottom: -20px;
+    }
+    @include mxHeight(440px){
+      @include mnWidth(500px) {
+        height: 98px;
+        margin-top: -43px;
+      }
     }
   }
   &__close-container {

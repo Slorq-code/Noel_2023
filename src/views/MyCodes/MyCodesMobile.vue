@@ -58,45 +58,53 @@
           class="myCodesMobile__image"
           src="@/assets/Assets_Web_New/Logo_modales_Juntos_Premiarte_2022.png"
         />
-        <h2 class="myCodesMobile__content-modal-title">Detalle de Pareja:</h2>
-        <h2 class="myCodesMobile__content-modal-title">
-          {{actualItem.titleMobile}}
-        </h2>
+        <div class="myCodesMobile__content-modal-HorizontalBox" >
+          <h2 class="myCodesMobile__content-modal-title">Detalle de Pareja:</h2>
+          <h2 class="myCodesMobile__content-modal-title">
+            {{actualItem.titleMobile}}
+          </h2>
+        </div>
         <div class="myCodesMobile__content-modal-content">
-          <div class="myCodesMobile__content-modal-content-item">
-            <img
-              class="myCodesMobile__content-modal-content-item-img-left-padding"
-              :src="actualItem.saltinTacoImage"
-              alt="Taco Saltin"
-            />
-            <div class="myCodesMobile__content-modal-content-item-text">
-              <p class="myCodesMobile__content-modal-content-item-text-one">
-                {{ actualItem.saltinNoel ? actualItem.saltinNoel : "SIN DATOS" }}
-              </p>
-              <p class="myCodesMobile__content-modal-content-item-text-two">
-                {{ actualItem.saltinNoel ? actualItem.dateSaltin : "SIN DATOS" }}
-              </p>
+          <div class="myCodesMobile__content-modal-content-box" >
+            <div class="myCodesMobile__content-modal-content-item">
+              <img
+                class="myCodesMobile__content-modal-content-item-img-left-padding"
+                :src="actualItem.saltinTacoImage"
+                alt="Taco Saltin"
+              />
+              <div class="myCodesMobile__content-modal-content-item-text">
+                <p class="myCodesMobile__content-modal-content-item-text-one">
+                  {{ actualItem.saltinNoel ? actualItem.saltinNoel : "SIN DATOS" }}
+                </p>
+                <p class="myCodesMobile__content-modal-content-item-text-two">
+                  {{ actualItem.saltinNoel ? actualItem.dateSaltin : "SIN DATOS" }}
+                </p>
+              </div>
+            </div>
+            <div class="myCodesMobile__content-modal-content-item">
+              <img
+                class="myCodesMobile__content-modal-content-item-img"
+                :src="actualItem.ducalesTacoImage"
+                :alt="'Taco Ducales'"
+              />
+              <div class="myCodesMobile__content-modal-content-item-text">
+                <p class="myCodesMobile__content-modal-content-item-text-one">
+                  {{ actualItem.ducales ? actualItem.ducales : "-" }}
+                </p>
+                <p class="myCodesMobile__content-modal-content-item-text-two">
+                  {{ actualItem.ducales ? actualItem.dateDucales : "-" }}
+                </p>
+              </div>
             </div>
           </div>
-          <div class="myCodesMobile__content-modal-content-item">
-            <img
-              class="myCodesMobile__content-modal-content-item-img"
-              :src="actualItem.ducalesTacoImage"
-              :alt="'Taco Ducales'"
-            />
-            <div class="myCodesMobile__content-modal-content-item-text">
-              <p class="myCodesMobile__content-modal-content-item-text-one">
-                {{ actualItem.ducales ? actualItem.ducales : "-" }}
-              </p>
-              <p class="myCodesMobile__content-modal-content-item-text-two">
-                {{ actualItem.ducales ? actualItem.dateDucales : "-" }}
-              </p>
+
+          <div class="myCodesMobile__awardBox">
+            <div class="myCodesMobile__award" @click="dialog = false">
+              <p class="myCodesMobile__award-title">Premio:</p>
+              <p class="myCodesMobile__award-prime">{{ actualItem.resultLine }}</p>
             </div>
           </div>
-          <div class="myCodesMobile__award" @click="dialog = false">
-            <p class="myCodesMobile__award-title">Premio:</p>
-            <p class="myCodesMobile__award-prime">{{ actualItem.resultLine }}</p>
-          </div>
+
         </div>
       </div>
     </modal>
@@ -295,6 +303,12 @@ export default {
     @include mobile() {
       padding: 10px;
     }
+    @include mxHeight(440px){
+    @include mnWidth(500px) {
+      min-height: 0px;
+      height: 250px;
+      }
+    }
   }
   &__image {
     height: 120px;
@@ -323,6 +337,14 @@ export default {
   }
 
   &__content-modal {
+    &-HorizontalBox{
+      @include mxHeight(440px){
+        @include mnWidth(500px) {
+          display: flex;
+          gap: 10px;
+        }
+      }
+    }
     &-title {
       font-size: 17px;
       color: white;
@@ -336,6 +358,20 @@ export default {
       display: flex;
       flex-direction: column;
       width: 90%;
+      @include mxHeight(440px){
+        @include mnWidth(500px) {
+          flex-direction: row;
+        }
+      }
+
+      &-box {
+        @include mxHeight(440px){
+          @include mnWidth(500px) {
+            display: flex;
+            flex-direction: column;
+          }
+        }
+      }
 
       &-item {
         margin-top: 10px;
@@ -382,7 +418,16 @@ export default {
       }
     }
   }
-
+  &__awardBox {
+    @include mxHeight(440px){
+      @include mnWidth(500px) {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        width: 40%;
+      }
+    }
+  }
   &__award {
     background-color: #309f3a;
     border: 3px solid white;

@@ -1020,6 +1020,11 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  @include mxHeight(440px){
+    @include mnWidth(500px) {
+      height: 250px;
+    }
+  }
   &__content {
     width: 100%;
     height: 300px;
@@ -1083,6 +1088,12 @@ export default {
       margin-top: -40px;
       margin-bottom: -20px;
     }
+    @include mxHeight(440px){
+      @include mnWidth(500px) {
+        height: 82px;
+        margin-top: -29px;
+      }
+    }
   }
   &__close-container {
     display: flex;
@@ -1090,6 +1101,11 @@ export default {
     width: 100%;
     padding: 10px;
     margin-top: -56px;
+    @include mxHeight(440px){
+      @include mnWidth(500px) {
+        margin-top: -40px;
+      }
+    }
   }
   &__close-image {
     height: 30px;
