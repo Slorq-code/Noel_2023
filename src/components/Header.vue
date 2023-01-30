@@ -624,7 +624,7 @@ export default {
       margin: 15px 0 0% 10%;
     }
     @include mxHeight(600px) {
-      margin: 5px 0 0% 10%;
+      margin: 40px 0 0% 10%;
     }
   }
   // detecta telefono horizontal
