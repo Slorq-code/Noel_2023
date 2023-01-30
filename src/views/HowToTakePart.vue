@@ -142,7 +142,7 @@ export default {
     width: 65%;
     @include mxHeight(650px) {
       margin: 0px 0;
-      width: 45.5%;
+      width: 44%;
     }
     @include mnHeight(780px) {
       height: calc(85vh - 220px);
