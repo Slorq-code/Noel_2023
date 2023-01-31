@@ -147,7 +147,7 @@ export default {
     }
     @include mnHeight(780px) {
       height: calc(85vh - 220px);
-      width: 90%;
+      width: auto;
     }
     &-mobile {
       height: 640px;
