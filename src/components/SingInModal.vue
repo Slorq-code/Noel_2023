@@ -139,7 +139,16 @@ export default {
         width: 100%;
         height: 230px;
         position: relative;
-
+        @include mnWidth(1300px) {
+            @include mnHeight(650px) {
+                justify-content: center;
+                gap: 40px;
+            }
+        }
+        @include xlg(){
+            justify-content: space-evenly;
+            gap: 0px;
+        }
         @include mnHeight(1000px) {
             height: 250px;
         }
