@@ -72,59 +72,21 @@
             />
           </div>
           <div class="enterCode-web__rec">
-          
-        <!-- <vue-recaptcha
-          sitekey=" 6Lfh6Y4aAAAAAI-8nSMl7mVqcaetUMQC9ZCDoqvK"
-          @verify="verifyRecaptcha"
-          @expired="expiredRecaptcha"
-          class="mb-1"
-          ref="recaptcha"
-          language="es"
-          :loadRecaptchaScript="true"
-        ></vue-recaptcha> -->
-          
-        <!-- <invisible-recaptcha
-          sitekey=" 6Ld_BT4jAAAAAH2hFBxPNyDn4U-XToSBxiZFSOCc"
-          class="btn btn-danger"
-          type="submit"
-          id="do-something-btn"
-          @verify="verifyRecaptcha"
-          @expired="expiredRecaptcha"
-          :disabled="loading"
-          :validate="prepare"
-        >
-        </invisible-recaptcha> -->
-
-        
-
-
             <div>
-              <!-- <vue-recaptcha ref="recaptcha" sitekey="6LekVRQkAAAAANRGSRnWxuyXiqQj6VmZb-BPBpVl"> -->
               <Button
                 text="Registrar Código"
                 type="primary"
                 @handle-click="validateRecaptcha()"
               />
-              <!-- </vue-recaptcha> -->
             </div>
           </div>
         </div>
-        <!-- v-if animation false porque aun no se aprueba la animacion || v-if="!mobile" -->
-        <div v-if="false" class="containerAnimation">
-          <img
-            class="objetAnimation"
-            src="../assets/Assets_Web_New/flechaAnimation2.png"
-            alt="scroll"
-          />
-        </div>
-        <!-- fin de la animacion -->
       </div>
     </div>
     <div v-if="mobile" class="enterCode-mobile">
-      <img
-        class="enterCode-mobile__title"
-        src="../assets/Assets_Mobile_New/Titulo_bienvenido.png"
-      />
+      <div class="enterCode-mobile__title">
+        <span class="enterCode-mobile__title__counter">Premios disponibles: {{ total | amount }}</span>
+      </div>
       <span class="enterCode-web__mini-text">
         Ingresa aquí los códigos que encontraste en los stickers dentro de los
         empaques de Saltín Noel y Ducales.
@@ -148,30 +110,6 @@
         </span>
       </div>
       <div class="enterCode-web__rec">
-
-        <!-- <vue-recaptcha
-          sitekey=" 6Lfh6Y4aAAAAAI-8nSMl7mVqcaetUMQC9ZCDoqvK"
-          @verify="verifyRecaptcha"
-          @expired="expiredRecaptcha"
-          class="mb-1"
-          ref="recaptcha"
-          language="es"
-          :loadRecaptchaScript="true"
-        ></vue-recaptcha> -->
-
-        <!-- <invisible-recaptcha
-          sitekey=" 6Ld_BT4jAAAAAH2hFBxPNyDn4U-XToSBxiZFSOCc"
-          class="btn btn-danger"
-          type="submit"
-          id="do-something-btn"
-          @verify="verifyRecaptcha"
-          @expired="expiredRecaptcha"
-          :disabled="loading"
-          :validate="prepare"
-        >
-        </invisible-recaptcha> -->
-
-
       </div>
       <div class="enterCode-mobile__button-wrapper">
         <!-- <Button text="Registrar Código" type="primary" @handle-click="send()" /> -->
@@ -201,11 +139,6 @@
 </template>
 
 <script>
-/* import { VueReCaptcha, useReCaptcha } from 'vue-recaptcha-v3' */
-// import VueRecaptcha from "vue-recaptcha";
-// import InvisibleRecaptcha from "vue-invisible-recaptcha";
-//import VueRecaptcha  from 'vue-recaptcha';
-
 import Input from "../components/Input";
 import Button from "../components/Button";
 import { SaveCodes, GetStatus } from "../api";
@@ -236,9 +169,6 @@ export default {
     };
   },
   components: {
-    //'vue-recaptcha': VueRecaptcha,
-    // InvisibleRecaptcha,
-
     Input,
     Button,
     RegisterCodeConfirm,
@@ -698,10 +628,16 @@ export default {
 }
 
 .enterCode-mobile__title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #309f3a;
   height: 50px;
-
-  @include xs() {
-    height: 30px;
+  border-radius: 25px;
+  border: 3px solid white;
+  &__counter {
+    color: white;
+    margin: 0 10px;
   }
 }
 
