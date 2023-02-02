@@ -193,7 +193,7 @@ export default {
     margin: 35px 0 0 0;
   }
   @include mobile() {
-    margin: 20% 0 0 0;
+    margin: 10% 0 10% 0;
   }
   @include mxHeight(440px){
       @include mnWidth(500px) {
@@ -217,7 +217,7 @@ export default {
     flex-direction: column;
     align-items: center;
     padding: 10px 20px 10px 20px;
-    margin: 0 0 80px 0;
+    margin: 0 0 53px 0;
     @include mobile() {
       width: 92%;
     }
@@ -265,15 +265,16 @@ export default {
     line-height: 18px;
     margin-bottom: 90px;
     text-align: center;
-    @include mobile() {
-      margin-bottom: 10px;
+
+    @include xlg() {
+      font-size: 20px;
+      margin-bottom: 20px;
     }
     @include lg() {
       font-size: 17px;
     }
-    @include xlg() {
-      font-size: 20px;
-      margin-bottom: 20px;
+    @include mobile() {
+      margin-bottom: 10px;
     }
     @include xs() {
       font-size: 14px;
@@ -284,6 +285,7 @@ export default {
         font-size: 14px;
       }
     }
+
   }
 }
 </style>

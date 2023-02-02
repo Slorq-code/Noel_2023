@@ -550,6 +550,11 @@ export default {
     width: 100%;
     margin: 0 0px 20px 0;
     cursor: pointer;
+
+    @include mobile() {
+      margin: 0px 0px 0px 0px;
+    }
+
     @include mxHeight(600px) {
       margin: 0 0px 0px 0;
     }

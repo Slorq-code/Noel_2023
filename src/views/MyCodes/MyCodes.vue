@@ -73,7 +73,7 @@ export default {
           reversed: "¡CANCELADO!",
         };
         const texts = {
-          bonus: `¡Ganaste tarjeta débito!`,
+          bonus: `¡Ganaste tarjeta regalo`,
           phone: `¡Ganaste celular!`,
           computer: `¡Ganaste computador!`,
           charge: `¡Ganaste recarga!`,
@@ -81,7 +81,7 @@ export default {
           reversed: "¡CANCELADO!",
         };
         const results = {
-          bonus: `¡Ganaste tarjeta débito!`,
+          bonus: `¡Ganaste tarjeta regalo!`,
           phone: `¡Ganaste celular!`,
           computer: `¡Ganaste computador!`,
           charge: `¡Ganaste recarga!`,
