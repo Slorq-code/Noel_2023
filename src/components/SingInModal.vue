@@ -124,6 +124,13 @@ export default {
     justify-content: center;
     align-items: center;
     position: relative;
+
+    @include mxHeight(440px){
+        @include mnWidth(500px) {
+            height: 230px;
+        }
+    }
+
     &__space {
         display: none;
         @include xlg() {
@@ -223,10 +230,15 @@ export default {
             height: 140px;
             margin-top: -80px;
         }
-
         @include xs() {
             margin-top: -40px;
             margin-bottom: -20px;
+        }
+        @include mxHeight(440px){
+            @include mnWidth(500px) {
+                height: 120px;
+                margin-top: -80px;
+            }
         }
     }
 
