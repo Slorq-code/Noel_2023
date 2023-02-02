@@ -29,9 +29,9 @@
     <div v-if="!mobile && ((savedSaltin && !validDucales) || (savedDucales && !validSaltin))"
       class="register-code-confirm__errors">
       <span 
-        :class="['register-code-confirm__text', ((savedSaltin && !validDucales) || (savedDucales && !validSaltin)) && !mobile == true ? 'register-code-confirm__textSpacing' : ' ']">{{ saltinMsg }}</span>
+        class="register-code-confirm__text">{{ saltinMsg }}</span>
       <span 
-        :class="['register-code-confirm__text',((savedSaltin && !validDucales) || (savedDucales && !validSaltin)) && !mobile == true ? 'register-code-confirm__textSpacing' : ' ']">{{ ducalesMsg }}</span>
+        class="register-code-confirm__text">{{ ducalesMsg }}</span>
     </div>
 
     <span class="register-code-confirm__text" v-if="message()">{{ message() }}</span>
@@ -161,7 +161,8 @@ export default {
     width: 100%;
     margin: 15px 0 -25px 0;
     @include mobile() {
-      margin: 15px 0 -45px 0;
+      margin: 0px 0 0px 0;
+      //margin: 15px 0 -45px 0;
     }
   }
 
@@ -218,6 +219,7 @@ export default {
     @include mobile() {
       width: 85%;
       height: auto;
+      margin: 15px 0 -45px 0;
     }
     @include xs() {
       height: 60px;
@@ -235,6 +237,7 @@ export default {
     @include mobile() {
       width: 85%;
       height: auto;
+      margin: 15px 0 -45px 0;
     }
     @include xs() {
       height: 60px;
@@ -255,9 +258,6 @@ export default {
     @include xs() {
       font-size: 13px;
     }
-  }
-  &__textSpacing {
-    background-color: red;
   }
 
   &__container {

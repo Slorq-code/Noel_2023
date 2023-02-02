@@ -404,7 +404,7 @@ export default {
         bottom: 18%;
       }
       @include mxHeight(650px) {
-        bottom: 20%;
+        bottom: 19%;
       }
       @include mxHeight(600px){
         bottom: 23%;
