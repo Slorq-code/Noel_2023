@@ -183,6 +183,9 @@ export default {
     &-two {
       font-size: 15px;
       color: white;
+      @include xs() {
+        letter-spacing: -0.2px;
+      }
     }
     &-three {
       font-size: 15px;
@@ -306,7 +309,7 @@ export default {
     @include mxHeight(440px){
     @include mnWidth(500px) {
       min-height: 0px;
-      height: 250px;
+      height: 235px;
       }
     }
   }
@@ -314,10 +317,17 @@ export default {
     height: 120px;
     margin-top: -58px;
     margin-bottom: 10px;
+    
+    @include mxHeight(440px){
+      @include mnWidth(500px) {
+        margin-top: -50px;
+        height: 100px;
+      }
+    }
 
     @include xs() {
-      margin-bottom: -15px;
-      height: 150px;
+      margin-bottom: 0px;
+      height: 115px;
     }
   }
   &__close-container {

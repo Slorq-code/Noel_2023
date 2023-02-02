@@ -62,6 +62,12 @@ export default {
   z-index: 10 !important;
   background-color: rgba(0, 0, 0, 0.7);
 
+  @include mxHeight(440px){
+    @include mnWidth(500px) {
+      padding: 15px 0 0 0;
+    }
+  }
+
   @include xs() {
     bottom: -30px;
   }
@@ -73,6 +79,7 @@ export default {
     border-radius: 25px;
     @include mobile() {
       width: 90% !important;
+      margin: 20px 0 0 0;
     }
   }
   &__content1 {

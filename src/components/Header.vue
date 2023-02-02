@@ -416,6 +416,7 @@ export default {
         flex-direction: row;
         bottom: 10%;
         gap: 15px;
+        padding: 0px 0px;
       }
     }
 
@@ -498,10 +499,8 @@ export default {
     transition: transform 0.7s ease-out;
     transform: translateX(46vh);
     @include mobile() {
-      padding: 11% 0px 10px 10px;
+      padding: 18% 0px 10px 10px;
     }
-
-
 
     /* se aplica asi para detectar cuando el celular este horizontal */
     @include mxHeight(440px){
@@ -630,7 +629,7 @@ export default {
   // detecta telefono horizontal
   @include mxHeight(440px){
     @include mnWidth(500px) {
-      margin: 0 0 0 10%
+      margin: 36px 0 0 10%
     }
   }
 }

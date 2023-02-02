@@ -680,12 +680,12 @@ export default {
     height: 150px;
     margin-top: -65px;
     @include mobile() {
-      height: 140px;
+      height: 120px;
       margin-top: -80px;
     }
     @include xs() {
-      margin-top: -40px;
-      margin-bottom: -20px;
+      margin-top: -25px;
+      margin-bottom: -10px;
     }
     @include mxHeight(440px){
       @include mnWidth(500px) {

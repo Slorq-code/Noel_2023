@@ -128,11 +128,11 @@ export default {
       margin: 6% 0 0 0;  
     }
     @include mxHeight(600px) {
-      width: 50%;
+      width: 18%;
     }
     @include mobile() {
-      margin: 8% 0 -10px 0;
-      width: 78vh;
+      margin: 8% 0 0px 0;
+      width: 46%;
     }
   }
   &__image-login-bottom {

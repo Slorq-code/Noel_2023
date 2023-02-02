@@ -276,7 +276,7 @@ export default {
       margin-bottom: 20px;
     }
     @include xs() {
-      font-size: 12px;
+      font-size: 14px;
       line-height: 12px;
     }
     @include mxHeight(440px){

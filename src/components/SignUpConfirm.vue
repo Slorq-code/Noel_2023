@@ -384,7 +384,7 @@ export default {
     cursor: pointer;
     transform: rotate(0deg);
     animation: animateRotate 0.7s ease-in-out forwards;
-    animation-delay: 0.3s;
+    animation-delay: 0.5s;
     border: 2px solid white;
     border-radius: 25px;
     padding: 0 10px;
@@ -415,7 +415,7 @@ export default {
 
 .wrapper.animate-signIn .form-wrapper.sign-up {
     animation: animateRotate 0.7s ease-in-out forwards;
-    animation-delay: 0.3s;
+    animation-delay: 0.5s;
     border-radius: 25px;
     cursor: pointer;
     border: 2px solid white;
