@@ -88,6 +88,7 @@ export default {
     border-radius: 25px;
     @include mobile() {
       width: 90% !important;
+      margin: 40px 0 0 0;
     }
   }
 }

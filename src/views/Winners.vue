@@ -189,6 +189,12 @@ export default {
   }
   &__title2 {
       height: 55px;
+      width: auto;
+      @include mxHeight(440px){
+        @include mnWidth(500px) {
+          height: 40px;    
+        }
+      }
   }
   &__wrapper-table-row {
     height: 86%;
@@ -366,6 +372,11 @@ export default {
     @include xs() {
       height: 340px;
     }
+    @include mxHeight(440px){
+      @include mnWidth(500px) {
+        margin-bottom: -48px;
+      }
+    }
   }
   &__image {
     height: 180px;
@@ -381,6 +392,11 @@ export default {
     }
     @include mxHeight(650px) {
       height: 120px;
+    }
+    @include mxHeight(440px){
+      @include mnWidth(500px) {
+        height: 90px;
+      }
     }
   }
   &__close-container {
