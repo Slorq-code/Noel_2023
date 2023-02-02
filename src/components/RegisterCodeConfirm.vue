@@ -19,10 +19,10 @@
 
     <div class="register-code-confirm__section">
       <img v-if="savedSaltin && !awardDucales && (mobile ? !savedDucales : !ducales)"
-        class="register-code-confirm__saltin-image" src="../assets/Assets_Web_New/Empaque_Saltin_reflejo.png"
+        class="register-code-confirm__saltin-image" src="../assets/Assets_Mobile_New/Saltin.png"
         alt="premio" />
       <img v-if="savedDucales && !awardSaltin && (mobile ? !savedSaltin : !saltin)"
-        class="register-code-confirm__ducales-image" src="../assets/Assets_Web_New/Empaque_Ducales_reflejo.png"
+        class="register-code-confirm__ducales-image" src="../assets/Assets_Mobile_New/Ducales.png"
         alt="premio" />
     </div>
 
@@ -167,7 +167,7 @@ export default {
     height: 220px;
     margin-top: -100px;
     margin-bottom: 10px;
-
+    
     @include mobile() {
       height: auto;
       width: 64%;
@@ -178,6 +178,12 @@ export default {
       height: auto;
       width: 64%;
       margin-bottom: -10px;
+    }
+
+    @include mxHeight(440px){
+      @include mnWidth(500px) {
+        width: 40%;
+      }
     }
   }
 
@@ -205,6 +211,7 @@ export default {
   }
 
   &__ducales-image {
+    width: auto;
     height: 100px;
     @include mobile() {
       width: 85%;
@@ -212,10 +219,16 @@ export default {
     }
     @include xs() {
       height: 60px;
+    }
+    @include mxHeight(440px){
+      @include mnWidth(500px) {
+        
+      }
     }
   }
 
   &__saltin-image {
+    width: auto;
     height: 100px;
     @include mobile() {
       width: 85%;
@@ -223,6 +236,11 @@ export default {
     }
     @include xs() {
       height: 60px;
+    }
+    @include mxHeight(440px){
+      @include mnWidth(500px) {
+        
+      }
     }
   }
 

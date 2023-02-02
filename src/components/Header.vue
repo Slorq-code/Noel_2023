@@ -629,7 +629,7 @@ export default {
   // detecta telefono horizontal
   @include mxHeight(440px){
     @include mnWidth(500px) {
-      margin: 36px 0 0 10%
+      margin: 20px 0 0 10%
     }
   }
 }
