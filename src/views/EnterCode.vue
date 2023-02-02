@@ -93,7 +93,7 @@
       </span>
       <img
         class="enterCode-mobile__mini"
-        src="../assets/Assets_Mobile_New/stickers_ingreso_codi.png"
+        src="../assets/Assets_Web_New/Img_juntos_premiarte_ingreso_codigos.png"
       />
       <div class="enterCode-mobile__strange">
         <Input
@@ -628,11 +628,12 @@ export default {
 }
 
 .enterCode-mobile__title {
+  margin: 5px 0;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #309f3a;
-  height: 50px;
+  height: 40px;
   border-radius: 25px;
   border: 3px solid white;
   &__counter {

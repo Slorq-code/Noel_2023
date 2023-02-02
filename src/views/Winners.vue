@@ -378,27 +378,36 @@ export default {
       }
     }
   }
+
+
+  //------------------------
   &__image {
-    height: 180px;
+    height: 150px;
     margin-top: -30px;
-    @include xs() {
-      height: 140px;
-      margin-bottom: -25px;
-      margin-top: -65px;
-    }
+
     @include mobile() {
-      height: 160px;
+      height: 120px;
       margin-top: -20px;
     }
+    @include xs() {
+      margin-top: -25px;
+      margin-bottom: -10px;
+    }
+
     @include mxHeight(650px) {
       height: 120px;
+      margin-bottom: 0px;
     }
+
     @include mxHeight(440px){
       @include mnWidth(500px) {
-        height: 90px;
+        height: 82px;
       }
     }
   }
+
+
+  //------------------------
   &__close-container {
     width: 100%;
     padding: 10px;

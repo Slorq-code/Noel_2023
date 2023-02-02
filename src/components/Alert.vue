@@ -127,15 +127,42 @@ export default {
       flex-direction: column;
     }
   }
+
+
+
+
+  //------------------------
+
+
   &__image {
-    height: 180px;
+    height: 150px;
     margin-top: -100px;
     margin-bottom: 10px;
+
     @include mobile() {
-      height: 160px;
+      height: 120px;
       margin-top: -80px;
     }
+    @include xs() {
+      margin-top: -25px;
+      margin-bottom: -10px;
+    }
+    @include mxHeight(440px){
+      @include mnWidth(500px) {
+        height: 82px;
+        margin-top: -29px;
+      }
+    }
+
   }
+
+
+
+  //------------------------
+
+
+
+
   &__close-container {
     display: flex;
     justify-content: flex-end;

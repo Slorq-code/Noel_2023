@@ -676,24 +676,38 @@ export default {
       padding: 15px 20px 0 20px;
     }
   }
+
+
+
+  // ---------------------------
   &__image {
     height: 150px;
     margin-top: -65px;
+
     @include mobile() {
       height: 120px;
       margin-top: -80px;
     }
+
     @include xs() {
       margin-top: -25px;
       margin-bottom: -10px;
     }
+
     @include mxHeight(440px){
       @include mnWidth(500px) {
-        height: 98px;
-        margin-top: -43px;
+        height: 82px;
+        margin-top: -29px;
       }
     }
+
+
   }
+
+  // ---------------------------
+
+
+
   &__close-container {
     display: flex;
     justify-content: flex-end;
