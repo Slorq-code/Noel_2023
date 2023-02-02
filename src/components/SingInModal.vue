@@ -236,8 +236,8 @@ export default {
         }
         @include mxHeight(440px){
             @include mnWidth(500px) {
-                height: 120px;
-                margin-top: -80px;
+                height: 110px;
+                margin-top: -70px;
             }
         }
     }
