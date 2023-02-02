@@ -67,9 +67,8 @@ export default {
       padding: 15px 0 0 0;
     }
   }
-
   @include xs() {
-    bottom: -30px;
+    bottom: -50px;
   }
 
   &__content {

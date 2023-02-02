@@ -620,7 +620,7 @@ export default {
 
   &__content {
     width: 100%;
-    height: 300px;
+    height: 280px;
     position: relative;
   }
   &__box {
