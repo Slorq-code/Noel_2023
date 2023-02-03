@@ -86,9 +86,6 @@
       </div>
     </div>
     <div v-if="mobile" class="enterCode-mobile">
-      <div class="enterCode-mobile__title">
-        <span class="enterCode-mobile__title__counter">Premios disponibles: {{ total | amount }}</span>
-      </div>
       <span class="enterCode-web__mini-text">
         Ingresa aquí los códigos que encontraste en los stickers dentro de los
         empaques de Saltín Noel y Ducales.
@@ -116,6 +113,9 @@
       <div class="enterCode-mobile__button-wrapper">
         <!-- <Button text="Registrar Código" type="primary" @handle-click="send()" /> -->
         <Button text="Registrar Código" type="primary" @handle-click="validateRecaptcha()" />
+      </div>
+      <div class="enterCode-mobile__title">
+        <span class="enterCode-mobile__title__counter">Premios disponibles: {{ total | amount }}</span>
       </div>
     </div>
     <modal
@@ -456,7 +456,7 @@ export default {
 
   &__mini-text {
     width: 80%;
-    margin: 5% 0;
+    margin: 2% 0 5% 0;
     font-family: generalLeter;
     text-shadow: 0px 3px 6px #00000029;
     color: white;
@@ -469,7 +469,7 @@ export default {
 
     @include xs() {
       font-size: 14px;
-      line-height: 12px;
+      line-height: 15px;
       margin: 10px 0px 15px 0px;
     }
   }
@@ -636,14 +636,13 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 5px 0;
-  height: 40px;
-  background-color: #309f3a;
-  border: 3px solid white;
-  box-shadow: 0px 3px 6px #00000067;
+  margin: 20px 0 0px 0;
+  height: 45px;
+  width: 260px;
   &__counter {
-    color: white;
-    margin: 0 10px;
+    color: rgb(255, 255, 255);
+    margin: 0 5px;
+    text-decoration: underline;
   }
 }
 
