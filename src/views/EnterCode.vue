@@ -144,6 +144,7 @@ import Button from "../components/Button";
 import { SaveCodes, GetStatus } from "../api";
 import RegisterCodeConfirm from "../components/RegisterCodeConfirm";
 import Modal from "../components/Modal";
+// import Alert from "../components/Alert";
 
 
 
@@ -172,7 +173,8 @@ export default {
     Input,
     Button,
     RegisterCodeConfirm,
-    Modal
+    Modal,
+    // Alert
   },
   filters: {
     amount(value) {
@@ -489,9 +491,9 @@ export default {
 
   &__logo {
     margin: 2% 0 0 0;
-
     @include mxHeight(600px) {
       height: 60px;
+      margin: 10px 0 13px 0;
     }
   }
 
@@ -633,7 +635,6 @@ export default {
   justify-content: center;
   margin: 5px 0;
   height: 40px;
-  border-radius: 25px;
   background-color: #309f3a;
   border: 3px solid white;
   box-shadow: 0px 3px 6px #00000067;

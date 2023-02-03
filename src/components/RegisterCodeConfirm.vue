@@ -159,7 +159,7 @@ export default {
 
   &__section {
     width: 100%;
-    margin: 15px 0 -25px 0;
+    margin: 15px 0 0px 0;
     @include mobile() {
       margin: 0px 0 0px 0;
       //margin: 15px 0 -45px 0;

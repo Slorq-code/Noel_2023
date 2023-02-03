@@ -318,7 +318,7 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 35px;
+    height: 36px;
     font-size: 16px;
     background-color: #309f3a;
     border: 2px white solid;
@@ -335,16 +335,17 @@ export default {
     }
     @include mobile() {
       font-size: 15px;
+      height: 40px;
     }
     @include lg() {
       margin: 40px 0px 0px 0px;
       width: 30%;
-      height: 60px;
+      height: 45px;
       font-size: 20px;
     }
     @include xlg() {
       margin: 60px 0px 0px 0px;
-      height: 70px;
+      height: 50px;
       font-size: 25px;
     }
     @include mxHeight(550px) {

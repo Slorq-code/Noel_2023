@@ -27,9 +27,7 @@
                 @click="handleClick1 = !handleClick1; handleClick2 = !handleClick2;"
               >
                   <span class="signup-confirm__text1">
-                      Por favor confirma que tus datos estén correctos antes de continuar, especialmente tu
-                      número celular y operador al cual perteneces; recuerda que las recargas
-                      se realizarán a este número celular.
+                    Por favor confirma que tus datos estén correctos. Espescialmente tu CELULAR y OPERADOR. Recuerda que si eres ganador se realizará la recarga celular a ese número registrado.
                   </span>
                   <br>
                   <div class="signup-confirm__buttonDecoration">

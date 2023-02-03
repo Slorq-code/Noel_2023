@@ -121,11 +121,12 @@ export default {
     }
     &__banner {
       width: 90%;
+      height: auto;
       @include mnHeight(780px) {
         height: calc(90vh - 220px);
       }
       @include mxHeight(650px) {
-        width: 53%;
+        width: 70%;
       }
       @include xlg() {
         width: 100%;

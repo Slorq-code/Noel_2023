@@ -249,7 +249,7 @@ export default {
     &__container {
       display: flex;
       justify-content: center;
-      margin: 100px 0 0px 0;
+      margin: 120px 0 0px 0;
       width: 100%;
       @include mnHeight(1000px) {
         margin: 90px 0 0 0;

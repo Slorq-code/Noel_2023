@@ -24,7 +24,7 @@
           </span>
           <div class="signIn__section2-button">
             <Button
-              text="Registrarme"
+              text="Regístrate"
               type="primary"
               @handle-click="register()"
             />
