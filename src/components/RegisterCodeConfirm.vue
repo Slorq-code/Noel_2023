@@ -167,25 +167,25 @@ export default {
   }
 
   &__image {
-    height: 220px;
+    height: 150px;
+    width: auto;
     margin-top: -100px;
     margin-bottom: 10px;
     
     @include mobile() {
-      height: auto;
-      width: 64%;
+      height: 120px;
       margin-top: -54px;
     }
 
     @include xs() {
-      height: auto;
-      width: 64%;
+      margin-top: -25px;
       margin-bottom: -10px;
     }
 
     @include mxHeight(440px){
       @include mnWidth(500px) {
-        width: 40%;
+        height: 82px;
+        margin-top: -29px;
       }
     }
   }

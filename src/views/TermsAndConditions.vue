@@ -690,8 +690,8 @@ export default {
     }
 
     @include xs() {
-      margin-top: -25px;
-      margin-bottom: -10px;
+      margin-top: -22px;
+      margin-bottom: 0px;
     }
 
     @include mxHeight(440px){

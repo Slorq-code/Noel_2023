@@ -628,14 +628,15 @@ export default {
 }
 
 .enterCode-mobile__title {
-  margin: 5px 0;
   display: flex;
-  justify-content: center;
   align-items: center;
-  background-color: #309f3a;
+  justify-content: center;
+  margin: 5px 0;
   height: 40px;
   border-radius: 25px;
+  background-color: #309f3a;
   border: 3px solid white;
+  box-shadow: 0px 3px 6px #00000067;
   &__counter {
     color: white;
     margin: 0 10px;

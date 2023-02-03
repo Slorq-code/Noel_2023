@@ -524,10 +524,10 @@ export default {
     @include mobile() {
       margin: 10px 0 0 11%;
     }
-    @include mxHeight(600px) {
+    @include mxHeight(668px) {
       display: none;
     }
-    @include mxHeight(650px) {
+    @include mxHeight(669px) {
       width: 60%;
       margin: 10px 0 0 20%;
     }
@@ -625,10 +625,10 @@ export default {
   @include mobile() {
     margin: 21px 0 5% 10%;
     @include mxHeight(850px) {
-      margin: 15px 0 0% 10%;
+      margin: 40px 0 0% 10%;
     }
     @include mxHeight(600px) {
-      margin: 40px 0 0% 10%;
+      margin: 30px 0 0% 7%;
     }
   }
   // detecta telefono horizontal
