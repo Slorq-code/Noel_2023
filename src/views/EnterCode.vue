@@ -487,9 +487,17 @@ export default {
   }
 
   &__logo {
-    margin: 2% 0 0 0;
-    @include mxHeight(600px) {
+    height: 50px;
+    margin: 5% 0 0 0;
+    @include xlg() {
+      height: 65px;
+    }
+    @include lg() {
       height: 60px;
+      margin: 11% 0 15% 0;
+    }
+    @include mxHeight(600px) {
+      height: 58px;
       margin: 10px 0 13px 0;
     }
   }
@@ -526,16 +534,11 @@ export default {
   }
 
   &__title {
-    margin: -40px 0 0 0;
-
+    margin: -10px 0 0 0;
+    width: 40%;
     @include lg() {
-      width: 50%;
-    }
-
-    @include xlg() {
       width: 40%;
     }
-
     @include mxHeight(650px) {
       margin: -20px 0 0 0;
       width: 58vh;
