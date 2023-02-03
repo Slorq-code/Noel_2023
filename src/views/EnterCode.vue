@@ -539,6 +539,9 @@ export default {
     @include lg() {
       width: 40%;
     }
+    @include xlg() {
+      width: 35%;
+    }
     @include mxHeight(650px) {
       margin: -20px 0 0 0;
       width: 58vh;
