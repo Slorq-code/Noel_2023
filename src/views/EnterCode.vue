@@ -1,16 +1,18 @@
 <template>
   <div class="enterCode">
     <div v-if="!mobile" class="enterCode__counter-content">
-      <img
-        class="enterCode__counter-img"
-        src="../assets/Assets_Web_New/Contador_premios.png"
-      />
-      <span class="enterCode__counter-text">{{ total | amount }}</span>
-    </div>
-    <div v-if="!mobile" class="enterCode__ad">
-      <span class="enterCode__ad__text">
-        ¡Recuerda guardar los stickers que registraste!
-      </span>
+      <div v-if="!mobile" class="enterCode__ad">
+        <span class="enterCode__ad__text">
+          ¡Recuerda guardar los stickers que registraste!
+        </span>
+      </div>
+      <div class="enterCode__counterBox" >
+        <img
+          class="enterCode__counter-img"
+          src="../assets/Assets_Web_New/Contador_premios.png"
+        />
+        <span class="enterCode__counter-text">{{ total | amount }}</span>
+      </div>
     </div>
     <div v-if="!mobile" class="enterCode-web">
       <div class="enterCode-web__section-1">
@@ -362,44 +364,39 @@ export default {
 .enterCode {
   position: relative;
   display: flex;
+  align-items: center;
   justify-content: center;
   width: 100%;
+  flex-direction: column;
 
   &__counter-content {
-    position: absolute;
-    right: 10%;
-    top: 5%;
-    width: 180px;
-
-    @include xlg() {
-      width: 240px;
-    }
-  }
-
-  &__counter-img {
+    display: flex;
+    z-index: -1;
+    justify-content: space-between;
+    align-items: flex-end;
     width: 100%;
+    margin: 0 0 -243px 0;
+    height: 240px;
+  }
+  &__counterBox {
+    position: relative;
+    margin: 0 122px 0 0;
+    width: 210px;
+    height: auto;
+  }
+  &__counter-img {
+    width: 210px;
+    height: auto;
   }
 
   &__counter-text {
     position: absolute;
     color: white;
-    right: 34%;
-    top: 41%;
-    font-size: 30px;
-    @include lg() {
-      top: 40%;
-      right: 28%;
-    }
-    @include mxHeight(750px) {
-      right: 29%;
-      top: 40.5%;
-    }
-    @include xlg() {
-      top: 43%;
-    }
+    right: 75px;
+    top: 82px;
+    font-size: 28px;
   }
   &__ad {
-    position: absolute;
     border-radius: 25px;
     border: 2.5px solid white;
     text-align: center;
@@ -407,15 +404,15 @@ export default {
     justify-content: center;
     align-items: center;
     background-color: rgba(255, 255, 255, 0.239);
-    left: 8%;
-    top: 13.5%;
     height: 100px;
     width: 185px;
+    margin: 0 0 34px 122px;
     @include xlg() {
       top: 10.5%;
       height: calc(100px + 50px);
       width:  calc(185px + 70px);
       padding: 0 10px;
+      margin: 0 0 10px 122px;
     }
     &__text {
       font-size: 1rem;
