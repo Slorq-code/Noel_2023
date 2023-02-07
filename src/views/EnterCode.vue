@@ -155,7 +155,7 @@ import Button from "../components/Button";
 import { SaveCodes, GetStatus } from "../api";
 import RegisterCodeConfirm from "../components/RegisterCodeConfirm";
 import Modal from "../components/Modal";
-// import Alert from "../components/Alert";
+import Alert from "../components/Alert";
 
 
 
@@ -185,7 +185,7 @@ export default {
     Button,
     RegisterCodeConfirm,
     Modal,
-    // Alert
+    Alert
   },
   filters: {
     amount(value) {
