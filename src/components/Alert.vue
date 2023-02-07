@@ -145,7 +145,7 @@ export default {
     }
     @include xs() {
       margin-top: -25px;
-      margin-bottom: -10px;
+      margin-bottom: 10px;
     }
     @include mxHeight(440px){
       @include mnWidth(500px) {
