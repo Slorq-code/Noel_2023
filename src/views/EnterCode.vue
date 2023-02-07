@@ -118,15 +118,7 @@
         <span class="enterCode-mobile__title__counter">Premios disponibles: {{ total | amount }}</span>
       </div>
     </div>
-    <modal
-      :dialog="dialog"
-      @close="
-        dialog = true;
-      "
-      width="550"
-    >
     <Alert :show="show" @close="show = false" :data="alert" />
-    </modal>
     <modal
       :dialog="dialog"
       @close="
@@ -200,7 +192,7 @@ export default {
   },
   mounted() {
     this.$store.dispatch("loadBalance");
-    this.alert()
+    this.$store.getters.alert;
   },
 
   computed: {
