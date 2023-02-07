@@ -118,7 +118,6 @@
         <span class="enterCode-mobile__title__counter">Premios disponibles: {{ total | amount }}</span>
       </div>
     </div>
-    <Alert :show="show" @close="show = false" :data="alert" />
     <modal
       :dialog="dialog"
       @close="
@@ -147,7 +146,6 @@ import Button from "../components/Button";
 import { SaveCodes, GetStatus } from "../api";
 import RegisterCodeConfirm from "../components/RegisterCodeConfirm";
 import Modal from "../components/Modal";
-import Alert from "../components/Alert";
 
 
 
@@ -177,7 +175,6 @@ export default {
     Button,
     RegisterCodeConfirm,
     Modal,
-    Alert
   },
   filters: {
     amount(value) {
@@ -192,13 +189,16 @@ export default {
   },
   mounted() {
     this.$store.dispatch("loadBalance");
-    this.$store.getters.alert;
+    this.$store.dispatch("setAlert", {
+      buttonLabel: "CONTINUAR",
+      type: "SUCCESS",
+      showClose: true,
+      title: "¡Ten cuidado!",
+      message: "por nuestra parte nunca te solicitaremos dinero, ",
+    });
   },
 
   computed: {
-    alert() {
-      return this.$store.getters.alert;
-    },
     mobile() {
       return this.$store.getters.mobile;
     },

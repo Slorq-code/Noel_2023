@@ -70,9 +70,18 @@ export default {
       idn: "",
       error: "",
       boolSingIn: false,
+      show: true,
     };
   },
-  mounted() {},
+  mounted() {
+    this.$store.dispatch("setAlert", {
+      buttonLabel: "CONTINUAR",
+      type: "SUCCESS",
+      showClose: true,
+      title: "¡Ten cuidado!",
+      message: "por nuestra parte nunca te solicitaremos dinero, ",
+    });
+  },
   components: {
     Button,
     Modal,
