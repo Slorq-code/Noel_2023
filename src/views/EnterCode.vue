@@ -200,9 +200,13 @@ export default {
   },
   mounted() {
     this.$store.dispatch("loadBalance");
+    this.show = true;
   },
 
   computed: {
+    alert() {
+      return this.$store.getters.alert;
+    },
     mobile() {
       return this.$store.getters.mobile;
     },
