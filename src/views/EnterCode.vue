@@ -200,7 +200,7 @@ export default {
   },
   mounted() {
     this.$store.dispatch("loadBalance");
-    this.show = true;
+    this.alert()
   },
 
   computed: {
