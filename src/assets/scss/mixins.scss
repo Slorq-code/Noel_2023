@@ -28,6 +28,7 @@
     @content;
   }
 }
+
 // ------------ position mixin´s especifics ------------ //
 @mixin mxHeight($value) {
   @media (max-height: $value) {

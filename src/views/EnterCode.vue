@@ -121,6 +121,15 @@
     <modal
       :dialog="dialog"
       @close="
+        dialog = true;
+      "
+      width="550"
+    >
+    <Alert :show="show" @close="show = false" :data="alert" />
+    </modal>
+    <modal
+      :dialog="dialog"
+      @close="
         dialog = false;
       "
       width="550"
