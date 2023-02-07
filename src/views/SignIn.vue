@@ -73,15 +73,7 @@ export default {
       show: true,
     };
   },
-  mounted() {
-    this.$store.dispatch("setAlert", {
-      buttonLabel: "CONTINUAR",
-      type: "SUCCESS",
-      showClose: true,
-      title: "¡Ten cuidado!",
-      message: "por nuestra parte nunca te solicitaremos dinero, ",
-    });
-  },
+  mounted() {},
   components: {
     Button,
     Modal,
