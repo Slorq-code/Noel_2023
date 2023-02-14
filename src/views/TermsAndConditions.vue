@@ -26,11 +26,11 @@
               La actividad promocional será difundida a través de comerciales de televisión nacional y televisión por
               cable, radio, material publicitario, redes sociales a través de los perfiles de Facebook e Instagram de
               las marcas Ducales y Saltín Noel y las páginas web:
-              <br> 1) http://www.saltinnoel.com.co
+              <br><br> 1) http://www.saltinnoel.com.co
               <br> 2) http://www.saltinnoel.com.co
               <br> 3) http://www.ducales.com.co
               <br> 4) http://www.saltinyducalesjuntosparapremiarte.com,
-              <br> donde los consumidores podrán encontrar los términos y condiciones de la actividad promocional.
+              <br><br> donde los consumidores podrán encontrar los términos y condiciones de la actividad promocional.
             </p>
             <br>
             <p>II. Participantes:</p>

@@ -35,10 +35,26 @@
         <div class="enterCode-web__flex">
           <div class="enterCode-web__box">
             <div class="enterCode-web__box-item">
+              
+              
+              <!-- ---------------------- marca de agua ---------------------- -->
+
+
               <img
+                v-if="false"
                 class="enterCode-web__saltin-image"
                 src="../assets/Assets_Web_New/circulo_noel.png"
               />
+              <img
+                v-if="true"
+                class="enterCode-web__saltin-image"
+                src="../assets/Assets_Web_New/circulo_noel2.png"
+              />
+              
+              
+              <!-- ---------------------- marca de agua ---------------------- -->
+
+
               <Input
                 class="uppercase"
                 field="saltin"
@@ -54,10 +70,26 @@
               src="../assets/Assets_Web_New/circulo_mas.png"
             />
             <div class="enterCode-web__box-item">
+              
+              
+              <!-- ---------------------- marca de agua ---------------------- -->
+
+
               <img
+                v-if="false"
                 class="enterCode-web__ducales-image"
                 src="../assets/Assets_Web_New/circulo_ducales.png"
               />
+              <img
+                v-if="true"
+                class="enterCode-web__ducales-image"
+                src="../assets/Assets_Web_New/circulo_ducales2.png"
+              />
+              
+              
+              <!-- ---------------------- marca de agua ---------------------- -->
+
+
               <Input
                 class="uppercase"
                 field="ducales"
@@ -592,19 +624,19 @@ export default {
   &__ducales-image,
   &__saltin-image {
     width: 135px;
-    height: 121px;
+    height: 70px;
 
     @include mxHeight(650px) {
-      width: 105px;
+      width: 200px;
       height: 98px;
     }
 
     @include lg() {
-      width: 130px;
-      height: 117px;
+      width: 230px;
+      height: 120px;
 
       @include xlg() {
-        width: 232px;
+        width: 398px;
         height: 208px;
       }
     }

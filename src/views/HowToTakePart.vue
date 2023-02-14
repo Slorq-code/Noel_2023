@@ -143,10 +143,11 @@ export default {
     width: 65%;
     @include mxHeight(650px) {
       margin: 0px 0;
-      width: 44%;
+      width: 46%;
+      height: auto;
     }
     @include mnHeight(780px) {
-      height: calc(85vh - 220px);
+      height: calc(90vh - 220px);
       width: auto;
     }
     &-mobile {

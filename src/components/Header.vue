@@ -341,8 +341,9 @@ export default {
     padding: 0px 10px 0px 10px;
     text-align: center;
     line-height: 14px;
+
     /* se aplica asi para detectar cuando el celular este horizontal */
-    @include mxHeight(440px){
+    @include mxHeight(440px) {
       @include mnWidth(500px) {
         line-height: 10px;
       }
@@ -372,12 +373,15 @@ export default {
     font-family: generalLeter;
     font-size: 0.9rem;
     text-align: center;
+
     @include mxHeight(650px) {
       font-size: 0.8rem;
     }
+
     @include mxHeight(600px) {
       font-size: 0.7rem;
     }
+
     @include xlg() {
       font-size: 1.2rem;
     }
@@ -403,15 +407,18 @@ export default {
       @include mxHeight(850px) {
         bottom: 18%;
       }
+
       @include mxHeight(650px) {
         bottom: 19%;
       }
-      @include mxHeight(600px){
+
+      @include mxHeight(600px) {
         bottom: 23%;
         gap: 5px;
       }
     }
-    @include mxHeight(440px){
+
+    @include mxHeight(440px) {
       @include mnWidth(500px) {
         flex-direction: row;
         bottom: 10%;
@@ -433,14 +440,17 @@ export default {
       cursor: pointer;
       color: white;
       font-family: SlintGeneralLeter;
+
       @include xs() {
         font-size: 14px;
       }
+
       @include mxHeight(600px) {
         font-size: 12px;
       }
+
       // para detectar el telefono horizontal
-      @include mxHeight(440px){
+      @include mxHeight(440px) {
         @include mnWidth(500px) {
           font-size: 10px;
         }
@@ -498,18 +508,20 @@ export default {
     padding: 10px 20px;
     transition: transform 0.7s ease-out;
     transform: translateX(46vh);
+
     @include mobile() {
       padding: 18% 0px 10px 10px;
     }
 
     /* se aplica asi para detectar cuando el celular este horizontal */
-    @include mxHeight(440px){
+    @include mxHeight(440px) {
       @include mnWidth(500px) {
         width: 85vh;
         left: -55vh;
         padding: 5% 0px 10px 10px;
       }
     }
+
     //--------------------------------------------------------------
 
 
@@ -521,23 +533,27 @@ export default {
     width: 80%;
     margin-top: -100px;
     margin-bottom: 10px;
+
     @include mobile() {
       margin: 10px 0 0 11%;
     }
+
     @include mxHeight(668px) {
       display: none;
     }
+
     @include mxHeight(669px) {
       width: 60%;
       margin: 10px 0 0 20%;
     }
+
     /* se aplica asi para detectar cuando el celular este horizontal */
-    @include mxHeight(440px){
+    @include mxHeight(440px) {
       @include mnWidth(500px) {
         display: none;
       }
     }
-}
+  }
 
   &__centerBox {
     width: 100%;
@@ -558,8 +574,9 @@ export default {
     @include mxHeight(600px) {
       margin: 0 0px 0px 0;
     }
+
     /* se aplica asi para detectar cuando el celular este horizontal */
-    @include mxHeight(440px){
+    @include mxHeight(440px) {
       @include mnWidth(500px) {
         height: auto;
         width: 60%;
@@ -575,8 +592,9 @@ export default {
     padding: 10px 0px;
     left: 15%;
     top: 6%;
+
     // orientacion vertical mobile
-    @include mxHeight(440px){
+    @include mxHeight(440px) {
       @include mnWidth(500px) {
         top: 5%;
       }
@@ -598,14 +616,17 @@ export default {
     bottom: 0;
     left: 0;
     cursor: pointer;
+
     @include mobile() {
       bottom: 50px;
     }
-    @include mxHeight( 600px ) {
+
+    @include mxHeight(600px) {
       height: 45px;
     }
-        /* se aplica asi para detectar cuando el celular este horizontal */
-    @include mxHeight(440px){
+
+    /* se aplica asi para detectar cuando el celular este horizontal */
+    @include mxHeight(440px) {
       @include mnWidth(500px) {
         bottom: none;
         top: 29px;
@@ -622,17 +643,21 @@ export default {
   flex-direction: column;
   justify-content: space-around;
   align-items: flex-start;
+
   @include mobile() {
     margin: 21px 0 5% 10%;
+
     @include mxHeight(850px) {
       margin: 40px 0 0% 10%;
     }
+
     @include mxHeight(600px) {
       margin: 30px 0 0% 7%;
     }
   }
+
   // detecta telefono horizontal
-  @include mxHeight(440px){
+  @include mxHeight(440px) {
     @include mnWidth(500px) {
       margin: 20px 0 0 10%
     }
@@ -640,13 +665,12 @@ export default {
 }
 
 
-.footer1__facebook, 
+.footer1__facebook,
 .footer2__facebook {
-  @include mxHeight(440px){
-      @include mnWidth(500px) {
-        height: 13px !important;
-      }
+  @include mxHeight(440px) {
+    @include mnWidth(500px) {
+      height: 13px !important;
     }
+  }
 }
-
 </style>
