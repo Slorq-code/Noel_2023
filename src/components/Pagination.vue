@@ -5,7 +5,7 @@
             <button
             @click="getMinusPage(), refresh()"
             >Anterior</button>
-        </div>
+        </div> 
             
             <div v-if="number>5">
 
