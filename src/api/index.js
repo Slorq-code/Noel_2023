@@ -54,6 +54,22 @@ export const GetBalance = async () => {
   return resp.data;
 };
 
+export const GetCliente = async (page) => {
+    const resp = await Vue.axios({
+      method: "Get",
+      url: `v1/latest-winners?_page=${page}`,
+    });
+
+//   const { data } = await clientsApi.get(`v1/latest-winners?_page=${page}`);
+//   return data;
+//   const resp = await Vue.axios({
+//     method: "Get",
+//     url: "v1/latest-winners?page='${noPagina}'"
+//   });
+
+  return resp.data;
+};
+
 export const SaveCodes = async data => {
   const resp = await Vue.axios({
     method: "POST",

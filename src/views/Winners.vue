@@ -74,7 +74,7 @@
           <div class="winners__wrapper-table-row">
             <div
               class="winners__table-content-row"
-              v-for="(item, index) in tableWinnersModal"
+              v-for="(item, index) in datosPaginados"
               :key="index"
             >
               <div class="winners__table-header-item winners__color">
@@ -91,6 +91,7 @@
               </div>
             </div>
           </div>
+        <Pagination/>
         </div>
       </div>
     </modal>
@@ -99,6 +100,8 @@
 
 <script>
 import Modal from "../components/Modal";
+import Pagination from "../components/Pagination";
+// import { GetPage } from "@/api";
 
 export default {
   name: "Winners",
@@ -106,14 +109,223 @@ export default {
     return {
       tableWinners: [],
       tableWinnersModal: [],
+      tableWinnersTest: [
+        {
+          name: "andres",
+          city: "bogota",
+          result: "ganaste",
+        },
+        {
+          name: "andres",
+          city: "bogota",
+          result: "ganaste",
+        },
+        {
+          name: "andres",
+          city: "bogota",
+          result: "ganaste",
+        },
+        {
+          name: "andres",
+          city: "bogota",
+          result: "ganaste",
+        },
+        {
+          name: "andres",
+          city: "bogota",
+          result: "ganaste",
+        },
+        {
+          name: "andres",
+          city: "bogota",
+          result: "ganaste",
+        },
+        {
+          name: "andres",
+          city: "bogota",
+          result: "ganaste",
+        },
+        {
+          name: "andres",
+          city: "bogota",
+          result: "ganaste",
+        },
+        {
+          name: "andres",
+          city: "bogota",
+          result: "ganaste",
+        },
+        {
+          name: "andres",
+          city: "bogota",
+          result: "ganaste",
+        },
+        {
+          name: "andres",
+          city: "bogota",
+          result: "ganaste",
+        },
+        {
+          name: "andres",
+          city: "bogota",
+          result: "ganaste",
+        },
+        {
+          name: "andres",
+          city: "bogota",
+          result: "ganaste",
+        },
+        {
+          name: "andres",
+          city: "bogota",
+          result: "ganaste",
+        },
+        {
+          name: "andres",
+          city: "bogota",
+          result: "ganaste",
+        },
+        {
+          name: "andres",
+          city: "bogota",
+          result: "ganaste",
+        },
+        {
+          name: "andres",
+          city: "bogota",
+          result: "ganaste",
+        },
+        {
+          name: "andres",
+          city: "bogota",
+          result: "ganaste",
+        },
+        {
+          name: "andres",
+          city: "bogota",
+          result: "ganaste",
+        },
+        {
+          name: "andres",
+          city: "bogota",
+          result: "ganaste",
+        },
+        {
+          name: "andres",
+          city: "bogota",
+          result: "ganaste",
+        },
+        {
+          name: "andres",
+          city: "bogota",
+          result: "ganaste",
+        },
+        {
+          name: "andres",
+          city: "bogota",
+          result: "ganaste",
+        },
+        {
+          name: "andres",
+          city: "bogota",
+          result: "ganaste",
+        },
+        {
+          name: "andres",
+          city: "bogota",
+          result: "ganaste",
+        },
+        {
+          name: "andres",
+          city: "bogota",
+          result: "ganaste",
+        },
+        {
+          name: "andres",
+          city: "bogota",
+          result: "ganaste",
+        },
+        {
+          name: "andres",
+          city: "bogota",
+          result: "ganaste",
+        },
+        {
+          name: "andres",
+          city: "bogota",
+          result: "ganaste",
+        },
+        {
+          name: "andres",
+          city: "bogota",
+          result: "ganaste",
+        },
+        {
+          name: "andres",
+          city: "bogota",
+          result: "ganaste",
+        },
+        {
+          name: "andres",
+          city: "bogota",
+          result: "ganaste",
+        },
+        {
+          name: "andres",
+          city: "bogota",
+          result: "ganaste",
+        },
+        {
+          name: "andres",
+          city: "bogota",
+          result: "ganaste",
+        },
+        {
+          name: "andres",
+          city: "bogota",
+          result: "ganaste",
+        },
+        {
+          name: "andres",
+          city: "bogota",
+          result: "ganaste",
+        },
+        {
+          name: "andres",
+          city: "bogota",
+          result: "ganaste",
+        },
+        {
+          name: "andres",
+          city: "bogota",
+          result: "ganaste",
+        },
+      ],
       dialog: false,
+      datosPaginados: [],
     };
   },
+  methods: {
+    goTo(path) {
+      if (this.$route.path !== `/${path}`) this.$router.push(path);
+    },
+    getPage(page) {
+      this.$store.setPage( page )
+    },
+  },
+
   mounted() {
-    this.$store.dispatch("getWinners");
+    this.$store.dispatch("getWinners")
+    this.$store.dispatch("setClients")
+
+    //------------------------ datos de prueba --------------------------------
+    console.log( this.datosPaginados, "este es los datos paginados")
+    //------------------------ datos de prueba --------------------------------
+
   },
   components: {
     Modal,
+    Pagination,
   },
   props: {},
   computed: {
@@ -134,13 +346,28 @@ export default {
     winners() {
       return this.$store.getters.winners;
     },
-  },
-  methods: {
-    goTo(path) {
-      if (this.$route.path !== `/${path}`) this.$router.push(path);
+    clients() {
+      return this.$store.getters.clientsModal;
     },
   },
   watch: {
+    
+    clients(data) {
+      const strings = {
+        bonus: "Tarjeta Regalo",
+        computer: "Computador",
+        phone: "Celular",
+        charge: "Recarga",
+      };
+      const dataTable = data.map((item) => ({
+        ...item,
+        result: strings[item.result],
+      }));
+
+      this.datosPaginados = dataTable;
+    },
+
+
     winners(data) {
       const strings = {
         bonus: "Tarjeta Regalo",
@@ -156,8 +383,15 @@ export default {
       this.tableWinners = dataTable.slice(0, 8);
       this.tableWinnersModal = dataTable;
     },
+
+
+
+
+
   },
 };
+
+
 </script>
 
 <style lang="scss">
@@ -197,18 +431,19 @@ export default {
       }
   }
   &__wrapper-table-row {
-    height: 86%;
+    height: 490px;
     padding: 0 0px 0 15px;
+    margin: 0 0 20px 0;
     overflow-y: auto;
     @include mobile() {
       height: 250px;
       padding: 0 0px 0 0;
     }
     @include mxHeight(701px) {
-      height: 65%;
+      height: 7%;
     }
     @include mxHeight(640px) {
-      height: 55%;
+      height: 170px;
     }
   }
 

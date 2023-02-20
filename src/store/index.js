@@ -1,6 +1,6 @@
 import Vue from "vue";
 import Vuex from "vuex";
-import { GetBalance, GetLatestWinners, GetCodesRedemtions } from "@/api";
+import { GetCliente, GetBalance, GetLatestWinners, GetCodesRedemtions } from "@/api";
 Vue.use(Vuex);
 
 // const user = localStorage.getItem("user");
@@ -20,8 +20,117 @@ export default new Vuex.Store({
     winners: null,
     codes: null,
     sizesScreenMobile: Number,
+
+
+
+    currentPage: {page:1},
+    totalPage: 5,
+    clients: [],
+
+
+
+
+
   },
+
+  actions: {
+    setClients({commit},) {
+      GetCliente(this.state.currentPage.page).then( resp => {
+          commit('setClients', resp.data);
+        }
+      )
+    },
+
+    setPage({commit}, page) {
+      commit('setPage', page);
+    },
+    setPlusPage({commit}) {
+      commit('setPlusPage');
+    },
+    setMinusPage({commit}) {
+      commit('setMinusPage');
+    },
+
+
+
+
+    loadBalance({ commit }) {
+      GetBalance().then(resp => {
+        commit("setTotal", resp.total);
+      });
+    },
+    setLoading({ commit }, loading) {
+      commit("setLoading", loading);
+    },
+    setUser({ commit }, user) {
+      localStorage.setItem("user", JSON.stringify(user));
+      commit("setUser", user);
+    },
+    setToken({ commit }, token) {
+      localStorage.setItem("token", token);
+      commit("setToken", token);
+    },
+    logout({ commit }) {
+      localStorage.removeItem("user");
+      localStorage.removeItem("token");
+      commit("setToken", null);
+      commit("setUser", null);
+    },
+    setAlert({ commit }, data) {
+      commit("setAlert", data);
+    },
+    setTermsAndConditions({ commit }, status) {
+      commit("setTermsAndConditions", status);
+    },
+    setPrivacyPolicy({ commit }, status) {
+      commit("setPrivacyPolicy", status);
+    },
+    setMobile({ commit }, mobile) {
+      commit("setMobile", mobile);
+    },
+    setSizesScreenMobile({ commit }, sizesScreenMobile) {
+      commit("setSizesScreenMobile", sizesScreenMobile);
+    },
+    getWinners({ commit }) {
+      GetLatestWinners().then(resp => {
+        commit("setWinners", resp.data);
+      });
+    },
+    getCodes({ commit }) {
+      GetCodesRedemtions().then(resp => {
+        commit("setCodes", resp.data);
+      });
+    },
+  },
+
   mutations: {
+    setClients(state, newClients) {
+      state.clients = newClients;
+    },
+    setPage(state, page) {
+      if (page > state.totalPage) return;
+      if (state.currentPage === page) return;
+      if (page <= 0) return;
+      state.currentPage = page;
+    },
+    
+    setPlusPage(state) {
+      if ( state.currentPage.page > state.totalPage - 1 ) return;
+      state.currentPage.page = state.currentPage.page + 1 ;
+    },
+    setMinusPage(state) {
+      if ( state.currentPage.page === 1 ) return;
+      state.currentPage.page = state.currentPage.page - 1 
+    },
+
+
+
+
+
+
+
+
+
     setLoading(state, loading) {
       state.loading = loading;
     },
@@ -60,6 +169,12 @@ export default new Vuex.Store({
     loading(state) {
       return state.loading;
     },
+    winners(state) {
+      return state.winners;
+    },
+    clientsModal(state) {
+      return state.clients;
+    },
     user(state) {
       return state.user;
     },
@@ -84,60 +199,8 @@ export default new Vuex.Store({
     sizesScreenMobile(state) {
       return state.sizesScreenMobile;
     },
-    winners(state) {
-      return state.winners;
-    },
     codes(state) {
       return state.codes;
-    },
-  },
-  actions: {
-    setLoading({ commit }, loading) {
-      commit("setLoading", loading);
-    },
-    setUser({ commit }, user) {
-      localStorage.setItem("user", JSON.stringify(user));
-      commit("setUser", user);
-    },
-    setToken({ commit }, token) {
-      localStorage.setItem("token", token);
-      commit("setToken", token);
-    },
-    logout({ commit }) {
-      localStorage.removeItem("user");
-      localStorage.removeItem("token");
-      commit("setToken", null);
-      commit("setUser", null);
-    },
-    setAlert({ commit }, data) {
-      commit("setAlert", data);
-    },
-    setTermsAndConditions({ commit }, status) {
-      commit("setTermsAndConditions", status);
-    },
-    setPrivacyPolicy({ commit }, status) {
-      commit("setPrivacyPolicy", status);
-    },
-    setMobile({ commit }, mobile) {
-      commit("setMobile", mobile);
-    },
-    setSizesScreenMobile({ commit }, sizesScreenMobile) {
-      commit("setSizesScreenMobile", sizesScreenMobile);
-    },
-    loadBalance({ commit }) {
-      GetBalance().then(resp => {
-        commit("setTotal", resp.total);
-      });
-    },
-    getWinners({ commit }) {
-      GetLatestWinners().then(resp => {
-        commit("setWinners", resp.data);
-      });
-    },
-    getCodes({ commit }) {
-      GetCodesRedemtions().then(resp => {
-        commit("setCodes", resp.data);
-      });
     },
   },
 });
