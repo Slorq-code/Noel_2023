@@ -24,7 +24,7 @@ export default new Vuex.Store({
 
 
     currentPage: {page:1},
-    totalPage: 0,
+    totalPage: 3,
     clients: [],
 
 
