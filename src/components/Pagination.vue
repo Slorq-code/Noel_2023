@@ -1,20 +1,24 @@
 <template>
-    <div>
+    <div class="paginationBox" >
 
+        <div class="buttonContainer" >
+            <button
+            @click="getMinusPage(), refresh()"
+            >Anterior</button>
+        </div>
 
-        <button
-        @click="getMinusPage(), refresh()"
-        >Anterior</button>
+            <button 
+            class="buttonContainer"
+            v-for="number of this.TotalpageNumbers"
+            :key="number"
+            @click="getPage(number), refresh()"
+            >{{ number }}</button>
 
-        <button 
-        v-for="number of this.TotalpageNumbers"
-        :key="number"
-        @click="getPage(number), refresh()"
-        >{{ number }}</button>
-
-        <button
-        @click="getPlusPage(), refresh()"
-        >Siguiente</button>
+        <div class="buttonContainer" >
+            <button
+            @click="getPlusPage(), refresh()"
+            >Siguiente</button>
+        </div>
 
 
 
@@ -36,6 +40,7 @@ export default {
         },
         refresh() {
             this.$store.dispatch("setClients")
+            console.log(this.$store.state.clients)
         }
     },
     mounted() {},
@@ -48,24 +53,38 @@ export default {
 </script>
 
 <style scoped>
-div {
+.paginationBox {
     margin-top: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    left: 0;
 }
-button {
-    background-color: transparent;
-    border-radius: 5px;
-    border: 1px solid hsla(160, 100%, 37%, 0.2);
-    color: var( --color-text );
+.buttonContainer {
+    background-color: #309f3a;
+    border-radius: 25px;
+    border: 1px solid white;
+    color: white;
     cursor: pointer;
     margin-right: 5px;
     padding: 10px;
     transition: all .5s;
+    font-size: 13px;
+    height: 30px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    box-shadow: 0px 0px 15px #0000004d;
 }
-button:hover {
+.paginationBox button:hover {
     background-color: hsla(160, 100%, 37%, 0.2);
     transition: all .5s;
 }
-button:disabled {
+.paginationBox button:disabled {
     cursor: not-allowed;
 }
 .active {

@@ -359,12 +359,13 @@ export default {
         phone: "Celular",
         charge: "Recarga",
       };
-      const dataTable = data.map((item) => ({
+      const dataTablePaginada = data.map((item) => ({
         ...item,
         result: strings[item.result],
       }));
 
-      this.datosPaginados = dataTable;
+      this.datosPaginados = dataTablePaginada;
+      console.log(dataTablePaginada, "estoy en el watch" )
     },
 
 
@@ -440,10 +441,10 @@ export default {
       padding: 0 0px 0 0;
     }
     @include mxHeight(701px) {
-      height: 7%;
+      height: 57%;
     }
     @include mxHeight(640px) {
-      height: 170px;
+      height: 50%;
     }
   }
 
