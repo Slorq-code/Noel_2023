@@ -57,7 +57,7 @@ export const GetBalance = async () => {
 export const GetCliente = async (page) => {
     const resp = await Vue.axios({
       method: "Get",
-      url: `v1/latest-winners?_page=${page}`,
+      url: `v1/latest-winners?page=${page}`,
     });
 
 //   const { data } = await clientsApi.get(`v1/latest-winners?_page=${page}`);
