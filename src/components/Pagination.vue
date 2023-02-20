@@ -6,13 +6,17 @@
             @click="getMinusPage(), refresh()"
             >Anterior</button>
         </div>
+            
+            <div v-if="number>5">
 
-            <button 
-            class="buttonContainer"
-            v-for="number of this.TotalpageNumbers"
-            :key="number"
-            @click="getPage(number), refresh()"
-            >{{ number }}</button>
+                <button 
+                class="buttonContainer"
+                v-for="number of this.TotalpageNumbers"
+                :key="number"
+                @click="getPage(number), refresh()"
+                >{{ number }}</button>
+
+            </div>
 
         <div class="buttonContainer" >
             <button

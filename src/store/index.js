@@ -34,13 +34,14 @@ export default new Vuex.Store({
   },
 
   actions: {
+
     setClients({commit},) {
       GetCliente(this.state.currentPage.page).then( resp => {
           commit('setClients', resp.data);
+          commit( 'setTotalPage', resp.total);
         }
       )
     },
-
     setPage({commit}, page) {
       commit('setPage', page);
     },
@@ -106,6 +107,10 @@ export default new Vuex.Store({
   mutations: {
     setClients(state, newClients) {
       state.clients = newClients;
+    },
+    setTotalPage(state, total) {
+      const newTotal = Math.ceil(total/5)
+      state.totalPage = newTotal;
     },
     setPage(state, page) {
       if (page > state.totalPage) return;
