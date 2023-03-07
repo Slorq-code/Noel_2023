@@ -226,7 +226,7 @@ export default {
       type: "SUCCESS",
       showClose: true,
       title: "¡ATENCIÓN!",
-      message: "Saltín Noel y Ducales quiere informarte que en ninguna promoción de producto, ni ien proceso de selección liderador por nuestra Compañia se exige dinero, consignaciones o algún tipo de pago por ningún concepto. Personas mal intencionadas estan haciendo uso de nuestra marca para ganar dinero, ENGAÑANDO A LAS PERSONAS que no están relacionadas con NOEl",
+      message: "Saltín Noel y Ducales quiere informarte que en ninguna promoción de producto, ni ien proceso de selección liderador por nuestra Compañia se exige dinero, consignaciones o algún tipo de pago por ningún concepto. Personas mal intencionadas estan haciendo uso de nuestra marca para ganar dinero, ENGAÑANDO A LAS PERSONAS que no están relacionadas con NOEl.",
     });
   },
 
