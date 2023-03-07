@@ -225,8 +225,8 @@ export default {
       buttonLabel: "CONTINUAR",
       type: "SUCCESS",
       showClose: true,
-      title: "¡Ten cuidado!",
-      message: "por nuestra parte nunca te solicitaremos dinero, ",
+      title: "¡ATENCIÓN!",
+      message: "Saltín Noel y Ducales quiere informarte que en ninguna promoción de producto, ni ien proceso de selección liderador por nuestra Compañia se exige dinero, consignaciones o algún tipo de pago por ningún concepto. Personas mal intencionadas estan haciendo uso de nuestra marca para ganar dinero, ENGAÑANDO A LAS PERSONAS que no están relacionadas con NOEl",
     });
   },
 
@@ -382,19 +382,19 @@ export default {
 
 .rc-anchor-normal,
 .rc-anchor-pt {
-  margin: 2px 80px 0 0 !important;
+  margin: .125rem 5rem 0 0 !important;
 }
 
 .rc-anchor-normal {
-  margin: 2px 80px 0 0 !important;
+  margin: .125rem 5rem 0 0 !important;
 }
 
 .rc-anchor-pt {
-  margin: 2px 80px 0 0 !important;
+  margin: .125rem 5rem 0 0 !important;
 }
 
 .uppercase div input {
-  letter-spacing: 2px;
+  letter-spacing: .125rem;
   text-transform: uppercase;
 }
 
@@ -412,50 +412,50 @@ export default {
     justify-content: space-between;
     align-items: flex-end;
     width: 100%;
-    margin: 0 0 -243px 0;
-    height: 240px;
+    margin: 0 0 -15.1875rem 0;
+    height: 15rem;
   }
   &__counterBox {
     position: relative;
-    margin: 0 122px 0 0;
-    width: 210px;
+    margin: 0 7.625rem 0 0;
+    width: 13.125rem;
     height: auto;
   }
   &__counter-img {
-    width: 210px;
+    width: 13.125rem;
     height: auto;
   }
 
   &__counter-text {
     position: absolute;
     color: white;
-    right: 75px;
-    top: 82px;
-    font-size: 28px;
+    right: 4.6875rem;
+    top: 5.125rem;
+    font-size: 1.75rem;
   }
   &__ad {
-    border-radius: 25px;
-    border: 2.5px solid white;
+    border-radius: 1.5625rem;
+    border: .1563rem solid white;
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: rgba(255, 255, 255, 0.239);
-    height: 100px;
-    width: 185px;
-    margin: 0 0 34px 122px;
+    height: 6.25rem;
+    width: 11.5625rem;
+    margin: 0 0 2.125rem 7.625rem;
     @include xlg() {
       top: 10.5%;
-      height: calc(100px + 50px);
-      width:  calc(185px + 70px);
-      padding: 0 10px;
-      margin: 0 0 10px 122px;
+      height: calc(6.25rem + 3.125rem);
+      width:  calc(11.5625rem + 4.375rem);
+      padding: 0 .625rem;
+      margin: 0 0 .625rem 7.625rem;
     }
     &__text {
-      font-size: 1rem;
+      font-size: 16px;
       color: white;
       @include xlg() {
-        font-size: 1.5rem;
+        font-size: 24px;
       }
     }
   }
@@ -479,15 +479,15 @@ export default {
   }
 
   &__more {
-    height: 35px;
-    margin: 10px;
+    height: 2.1875rem;
+    margin: .625rem;
 
     @include lg() {
-      height: 40px;
+      height: 2.5rem;
     }
 
     @include xlg() {
-      height: 45px;
+      height: 2.8125rem;
     }
   }
 
@@ -495,19 +495,19 @@ export default {
     width: 80%;
     margin: 2% 0 5% 0;
     font-family: generalLeter;
-    text-shadow: 0px 3px 6px #00000029;
+    text-shadow: 0rem .1875rem .375rem #00000029;
     color: white;
-    font-size: 20px;
-    line-height: 20px;
+    font-size: 1.25rem;
+    line-height: 1.25rem;
     @include mobile() {
       text-align: center;
-      font-size: 16px;
+      font-size: 1rem;
     }
 
     @include xs() {
-      font-size: 14px;
-      line-height: 15px;
-      margin: 10px 0px 15px 0px;
+      font-size: .875rem;
+      line-height: .9375rem;
+      margin: .625rem 0rem .9375rem 0rem;
     }
   }
 
@@ -524,18 +524,18 @@ export default {
   }
 
   &__logo {
-    height: 50px;
+    height: 3.125rem;
     margin: 5% 0 0 0;
     @include xlg() {
-      height: 65px;
+      height: 4.0625rem;
     }
     @include lg() {
-      height: 60px;
+      height: 3.75rem;
       margin: 11% 0 15% 0;
     }
-    @include mxHeight(600px) {
-      height: 58px;
-      margin: 10px 0 13px 0;
+    @include mxHeight(37.5rem) {
+      height: 3.625rem;
+      margin: .625rem 0 .8125rem 0;
     }
   }
 
@@ -548,30 +548,30 @@ export default {
     &__middleTitle {
       color: white;
       width: 50%;
-      margin: 10px 0px;
+      margin: .625rem 0rem;
 
       @include xlg() {
         width: 60%;
-        margin: 30px 0px;
+        margin: 1.875rem 0rem;
       }
     }
 
     &__middleTitle span {
-      font-size: 0.8rem;
-      text-shadow: 0px 3px 6px #00000029;
+      font-size: 12.8px;
+      text-shadow: 0rem .1875rem .375rem #00000029;
 
       @include lg() {
-        font-size: 1rem;
+        font-size: 16px;
       }
 
-      @include mnHeight(1000px) {
-        font-size: 1.5rem;
+      @include mnHeight(62.5rem) {
+        font-size: 24px;
       }
     }
   }
 
   &__title {
-    margin: -10px 0 0 0;
+    margin: -0.625rem 0 0 0;
     width: 40%;
     @include lg() {
       width: 40%;
@@ -579,8 +579,8 @@ export default {
     @include xlg() {
       width: 35%;
     }
-    @include mxHeight(650px) {
-      margin: -20px 0 0 0;
+    @include mxHeight(40.625rem) {
+      margin: -1.25rem 0 0 0;
       width: 58vh;
     }
   }
@@ -590,19 +590,19 @@ export default {
     align-items: center;
 
     @include xlg() {
-      margin-top: 60px;
+      margin-top: 3.75rem;
     }
   }
 
   &__mini {
-    height: 54px;
-    margin: 10px;
+    height: 3.375rem;
+    margin: .625rem;
   }
 
   &__subtitle-box {
     display: flex;
     align-items: center;
-    width: 500px;
+    width: 31.25rem;
   }
 
   &__box-item {
@@ -611,42 +611,42 @@ export default {
     align-items: center;
 
     @include lg() {
-      @include mnHeight(1000px) {
-        margin: 0 30px;
+      @include mnHeight(62.5rem) {
+        margin: 0 1.875rem;
       }
     }
 
     @include xlg() {
-      margin: 0 80px;
+      margin: 0 5rem;
     }
   }
 
   &__ducales-image,
   &__saltin-image {
-    width: 135px;
-    height: 70px;
+    width: 8.4375rem;
+    height: 4.375rem;
 
-    @include mxHeight(650px) {
-      width: 200px;
-      height: 98px;
+    @include mxHeight(40.625rem) {
+      width: 12.5rem;
+      height: 6.125rem;
     }
 
     @include lg() {
-      width: 230px;
-      height: 120px;
+      width: 14.375rem;
+      height: 7.5rem;
 
       @include xlg() {
-        width: 398px;
-        height: 208px;
+        width: 24.875rem;
+        height: 13rem;
       }
     }
 
     &__box-text {
-      margin-top: -24px;
+      margin-top: -1.5rem;
       font-family: generalLeter;
-      text-shadow: 0px 3px 6px #00000029;
+      text-shadow: 0rem .1875rem .375rem #00000029;
       color: white;
-      font-size: 16px;
+      font-size: 1rem;
     }
   }
 }
@@ -655,17 +655,17 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 10px 20px;
+  padding: .625rem 1.25rem;
   width: 100%;
 
   @include xs() {
-    padding: 10px 0px;
+    padding: .625rem 0rem;
   }
   &__strange {
     margin-bottom: 4%; 
     text-align: center; 
-    width: 270px; 
-    margin-right: 20px;
+    width: 16.875rem; 
+    margin-right: 1.25rem;
   }
 }
 
@@ -673,59 +673,59 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 20px 0 0px 0;
-  height: 45px;
-  width: 260px;
+  margin: 1.25rem 0 0rem 0;
+  height: 2.8125rem;
+  width: 16.25rem;
   &__counter {
     color: rgb(255, 255, 255);
-    margin: 0 5px;
+    margin: 0 .3125rem;
     text-decoration: underline;
   }
 }
 
 .enterCode-mobile__mini {
   width: 90%;
-  margin-bottom: 10px;
+  margin-bottom: .625rem;
   @include xs() {
-    height: 120px;
+    height: 7.5rem;
     width: initial;
-    margin-bottom: 10px;
+    margin-bottom: .625rem;
   }
-  @include mxHeight(440px){
-      @include mnWidth(500px) {
+  @include mxHeight(27.5rem){
+      @include mnWidth(31.25rem) {
         width: 50%;
       }
   }
 }
 
 .enterCode-mobile__counter {
-  height: 80px;
+  height: 5rem;
 }
 
 .other {
-  margin-top: -34px;
-  font-size: 12px;
-  margin-bottom: 10px;
+  margin-top: -2.125rem;
+  font-size: .75rem;
+  margin-bottom: .625rem;
 }
 
 .enterCode-mobile__counter-content {
   position: relative;
-  margin-top: 0px;
+  margin-top: 0rem;
 }
 
 .enterCode-mobile__counter-text {
   position: absolute;
-  bottom: 31px;
-  right: 60px;
+  bottom: 1.9375rem;
+  right: 3.75rem;
 }
 
 .enterCode-mobile__button-wrapper {
-  height: 30px !important;
+  height: 1.875rem !important;
 
   *,
   *:after {
-    font-size: 12px !important;
-    height: 35px;
+    font-size: .75rem !important;
+    height: 2.1875rem;
     display: flex;
     align-items: center;
   }
@@ -734,14 +734,14 @@ export default {
 .containerAnimation {
   display: none;
 
-  @media (max-height: 740px) {
+  @media (max-height: 46.25rem) {
     display: flex;
     justify-content: center;
     left: 0%;
     bottom: 25%;
     position: fixed;
-    width: 150px;
-    height: 150px;
+    width: 9.375rem;
+    height: 9.375rem;
     margin: auto;
   }
 }
@@ -754,10 +754,10 @@ export default {
 .objetAnimation {
   display: none;
 
-  @media (max-height: 740px) {
+  @media (max-height: 46.25rem) {
     display: block;
-    height: 40px;
-    width: 20px !important;
+    height: 2.5rem;
+    width: 1.25rem !important;
     position: relative;
     animation: bounce 1.5s infinite;
   }
@@ -765,28 +765,28 @@ export default {
 
 @keyframes bounce {
   10% {
-    height: 40px;
-    width: 20px;
+    height: 2.5rem;
+    width: 1.25rem;
   }
 
   30% {
-    height: 40px;
-    width: 15px;
+    height: 2.5rem;
+    width: .9375rem;
   }
 
   50% {
-    height: 35px;
-    width: 25px;
-    transform: translateY(110px);
+    height: 2.1875rem;
+    width: 1.5625rem;
+    transform: translateY(6.875rem);
   }
 
   75% {
-    height: 40px;
-    width: 23px;
+    height: 2.5rem;
+    width: 1.4375rem;
   }
 
   100% {
-    transform: translateY(0px);
+    transform: translateY(0rem);
   }
 }
 </style>
