@@ -61,7 +61,7 @@
                 :model="saltin"
                 :error="errors.saltin"
                 @handle-input="setValue($event)"
-                maxlength="9"
+                maxlength="10"
                 placeholder="Ingresar código Saltín Noel"
               />
             </div>
@@ -95,7 +95,7 @@
                 field="ducales"
                 :model="ducales"
                 :error="errors.ducales"
-                maxlength="9"
+                maxlength="10"
                 @handle-input="setValue($event)"
                 placeholder="Ingresar código Ducales"
               />
@@ -131,7 +131,7 @@
           class="uppercase"
           :field="'code'"
           :model="code"
-          maxlength="9"
+          maxlength="10"
           :error="errors.code"
           @handle-input="setValue($event)"
           placeholder="Ingresar tu código aquí"
